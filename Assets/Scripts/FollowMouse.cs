@@ -11,10 +11,12 @@ public class FollowMouse : MonoBehaviour
 
     private Camera camera;
 
+    private int groundLayer;
 
-    void Start()
+    void Awake()
     {
         camera = Camera.main; //se asigna la camara a la variable 'camera'
+        groundLayer = LayerMask.GetMask("Ground"); //se le asigna a la capa "Ground" a groundLayer
     }
 
 
@@ -27,13 +29,10 @@ public class FollowMouse : MonoBehaviour
         RaycastHit hit;
 
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
         {
-            if (hit.transform.tag == "Ground")
-            {
                 followerObject.position = hit.point; //cuando el raycast golpea el suelo le asigna la posicion del contacto del raycast contra el suelo (hit.point) al followerObject
                                                      //con esto se hace que followerObject esté siempre en el suelo, aunque haya inclinación, elevación o bajadas en el suelo
-            }
         }
 
 
@@ -53,5 +52,5 @@ public class FollowMouse : MonoBehaviour
 
 //Problemas:
 
-//      1) Si hay objetos entre la camara y el suelo que no tienen la tag "Ground" el raycast los golpea primero a ellos y no al suelo
-//         hace que followerObject no se mueva, hay que buscar alguna forma de ignorar esos objetos
+//      Ninguno
+//
