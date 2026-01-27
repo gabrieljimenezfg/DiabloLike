@@ -5,6 +5,9 @@ public class Player : MonoBehaviour
 {
     public static Player Instance;
 
+    private float hp, mana;
+    [SerializeField] private float maxHp, maxMana;
+
     private void Awake()
     {
         if (Instance == null)
@@ -18,12 +21,12 @@ public class Player : MonoBehaviour
         }
     }
 
-    [SerializeField] private float hp;
-    private float maxHp;
-    private float mana;
-    private float maxMana;
-
     private void Update()
+    {
+        TestSaveLoad();
+    }
+
+    private void TestSaveLoad()
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
