@@ -43,14 +43,11 @@ public class FollowMouse : MonoBehaviour
         {
             Player.GetComponent<NavMeshAgent>().SetDestination(followerObject.position); //Se asigna la destinacion del NavMeshAgent del Player a la posición del followerObject
         }
+    }
 
-
+    void LateUpdate()
+    {
+        transform.position = new Vector3(Player.transform.position.x, transform.position.y, Player.transform.position.z); //La camara sigue al jugador en X y Z 
     }
 }
 
-
-
-//Problemas:
-
-//      Ninguno
-//
