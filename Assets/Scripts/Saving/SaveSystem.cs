@@ -6,6 +6,7 @@ using UnityEngine;
 public struct SaveData
 {
     public PlayerState playerState;
+    public InventoryState inventoryState;
 }
 
 public class SaveSystem
@@ -37,10 +38,12 @@ public class SaveSystem
     private static void SaveRuntimeDataToObject()
     {
         Player.Instance.Save(ref _saveData.playerState);
+        Player.Instance.GetInventory().Save(ref _saveData.inventoryState);
     }
 
     private static void WriteSaveToRuntimeData()
     {
         Player.Instance.Load(_saveData.playerState);
+        Player.Instance.GetInventory().Load(_saveData.inventoryState);
     }
 }
