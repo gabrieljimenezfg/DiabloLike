@@ -57,6 +57,7 @@ public class Player : MonoBehaviour
         var hasPotion = inventory.PickupHealingPotion();
         if (hasPotion)
         {
+            Heal(inventory.GetHealingPotionHealthAmount());
         }
     }
 

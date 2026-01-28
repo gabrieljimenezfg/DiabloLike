@@ -1,0 +1,7 @@
+using UnityEngine;
+
+[CreateAssetMenu]
+public class HealingPotionSO : ScriptableObject
+{
+    public float healingAmount;
+}
