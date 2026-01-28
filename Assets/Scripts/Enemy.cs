@@ -12,6 +12,10 @@ public class Enemy : MonoBehaviour
     private float damage;
     [SerializeField]
     private float detectionRange; //Este ser el X y el Z del area de deteccion
+    [SerializeField]
+    private float attackRange; //Rango de ataque y de stopping distance
+    [SerializeField]
+    private float attackCooldown;
 
     [Header("ThisEnemy")] //Cosas de este enemigo en concreto
     [SerializeField]
@@ -23,13 +27,18 @@ public class Enemy : MonoBehaviour
     private GameObject detectionArea;
     [SerializeField]
     private GameObject player;
+    [SerializeField]
+    private Transform attackPivot;
 
     private bool DetectingPlayer = false;
+    private bool onAttackingRange = true;
+    private float timePass = 0;
 
     void Start()
     {
         detectionArea.transform.localScale = new Vector3(detectionRange, 3.2f, detectionRange);
         GetComponent<NavMeshAgent>().speed = speed;
+        attackPivot.localScale = new Vector3(attackPivot.localScale.x,attackPivot.localScale.y,attackRange);
     }
 
     void TakeDamage(float amount) //Metodo para recibir daño
@@ -66,10 +75,25 @@ public class Enemy : MonoBehaviour
     {
         if (DetectingPlayer)
         {
+            GetComponent<NavMeshAgent>().stoppingDistance = attackRange;
+            transform.LookAt(player.transform); //El enemigo mira hacia el jugador cuando lo persigue
             GetComponent<NavMeshAgent>().SetDestination(player.transform.position); //El enemigo se movera hacia la posicion del jugador
+            if (Vector3.Distance(transform.position, player.transform.position) <= attackRange)
+            {
+                //En rango de ataque
+                if (timePass >= attackCooldown)
+                {
+                    // Atacar al jugador !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! HAY QUE HACER EL ATAQUE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    Debug.Log("ataque");
+
+                    timePass = 0;
+                }
+                timePass += 1 * Time.deltaTime;
+            }
         }
         else 
         {
+            GetComponent<NavMeshAgent>().stoppingDistance = 0;
             if (patrolPoints.Length > 0)
             {
                 //Patrulla entre los puntos de patrulla en orden
