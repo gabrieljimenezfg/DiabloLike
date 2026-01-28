@@ -47,7 +47,7 @@ public class FollowMouse : MonoBehaviour
 
     void LateUpdate()
     {
-        transform.position = new Vector3(Player.transform.position.x, transform.position.y, Player.transform.position.z); //La camara sigue al jugador en X y Z 
+        transform.position = new Vector3(Player.transform.position.x - -0.934f, transform.position.y, Player.transform.position.z - -8.2f); //La camara sigue al jugador en X y Z 
     }
 }
 
