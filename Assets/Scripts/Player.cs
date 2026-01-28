@@ -38,7 +38,6 @@ public class Player : MonoBehaviour
         Debug.Log(e.slotId);
     }
 
-
     private void Update()
     {
         TestSaveLoad();
