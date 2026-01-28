@@ -8,6 +8,10 @@ public class Player : MonoBehaviour
     private float hp, mana;
     [SerializeField] private float maxHp, maxMana;
 
+    private Inventory inventory;
+
+    public event EventHandler PlayerHealed;
+
     private void Awake()
     {
         if (Instance == null)
@@ -19,7 +23,21 @@ public class Player : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        inventory = GetComponent<Inventory>();
     }
+
+    private void Start()
+    {
+        GameInput.Instance.SkillPerformed += OnSkillPerformed;
+    }
+
+    private void OnSkillPerformed(object sender, GameInput.SkillPerformedEventArgs e)
+    {
+        Debug.Log("Skill slot performed");
+        Debug.Log(e.slotId);
+    }
+
 
     private void Update()
     {
@@ -32,11 +50,21 @@ public class Player : MonoBehaviour
         {
             SaveSystem.Save();
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.D))
+    private void ConsumeHealingPotion()
+    {
+        var hasPotion = inventory.PickupHealingPotion();
+        if (hasPotion)
         {
-            SaveSystem.Load();
+            Heal(inventory.GetHealingPotionHealthAmount());
         }
+    }
+
+    private void Heal(float healAmount)
+    {
+        hp += Mathf.Min(hp + healAmount, maxHp);
+        PlayerHealed?.Invoke(this, EventArgs.Empty);
     }
 
     public void Save(ref PlayerState playerState)
@@ -53,5 +81,10 @@ public class Player : MonoBehaviour
         maxHp = playerState.maxHp;
         mana = playerState.mana;
         maxMana = playerState.maxMana;
+    }
+
+    public Inventory GetInventory()
+    {
+        return inventory;
     }
 }
