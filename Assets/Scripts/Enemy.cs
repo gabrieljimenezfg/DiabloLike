@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour
     private float attackRange; //Rango de ataque y de stopping distance
     [SerializeField]
     private float attackCooldown;
+    [SerializeField]
+    private float basicAttackDMG; //Daño del ataque básico
 
     [Header("ThisEnemy")] //Cosas de este enemigo en concreto
     [SerializeField]
@@ -81,9 +83,9 @@ public class Enemy : MonoBehaviour
             if (Vector3.Distance(transform.position, player.transform.position) <= attackRange)
             {
                 //En rango de ataque
-                if (timePass >= attackCooldown)
+                if (timePass >= attackCooldown) //Esto es para el cooldown de ataque
                 {
-                    // Atacar al jugador !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! HAY QUE HACER EL ATAQUE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    Camera.main.GetComponent<FollowMouse>().TakeDamage(basicAttackDMG); //El jugador recibe daño del ataque básico   ||  HAY QUE CAMBIARLO MÁS ADELANTE YA QUE LA VIDA DEL PLAYER SE MOVERÁ A OTRO SCRIPT
                     Debug.Log("ataque");
 
                     timePass = 0;

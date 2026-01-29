@@ -692,6 +692,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe605e17c292a04788cbbdffad1af32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FollowMouse
+  maxLife: 100
+  currentLife: 100
   followerObject: {fileID: 1263116875}
   Player: {fileID: 1018887574}
 --- !u!1 &410087039
@@ -1100,6 +1102,7 @@ MonoBehaviour:
   detectionRange: 15
   attackRange: 2
   attackCooldown: 0.8
+  basicAttackDMG: 0
   patrolPoints:
   - {fileID: 1217976484}
   - {fileID: 700346181}
