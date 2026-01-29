@@ -3,6 +3,13 @@ using UnityEngine.AI;
 
 public class FollowMouse : MonoBehaviour
 {
+    //Mover más tarde a otro script VVV
+    [SerializeField]
+    private float maxLife;
+    [SerializeField]
+    private float currentLife;
+    //Mover más tarde a otro script ^^^
+
     [SerializeField]
     private Transform followerObject; //el transform del objeto que seguira al mouse
 
@@ -32,7 +39,7 @@ public class FollowMouse : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
         {
                 followerObject.position = hit.point; //cuando el raycast golpea el suelo le asigna la posicion del contacto del raycast contra el suelo (hit.point) al followerObject
-                                                     //con esto se hace que followerObject esté siempre en el suelo, aunque haya inclinación, elevación o bajadas en el suelo
+                                                     //con esto se hace que followerObject este siempre en el suelo, aunque haya inclinacion, elevacion o bajadas en el suelo
         }
 
 
@@ -49,5 +56,22 @@ public class FollowMouse : MonoBehaviour
     {
         transform.position = new Vector3(Player.transform.position.x - -0.934f, transform.position.y, Player.transform.position.z - -8.2f); //La camara sigue al jugador en X y Z 
     }
-}
 
+
+    //Mover más tarde a otro script VVV
+
+    public void TakeDamage(float amount) //Metodo para recibir daño
+    {
+        currentLife -= amount;
+        if (currentLife <= 0)
+        {
+            // El jugador muere
+        }
+        else 
+        {
+            //Sonido y efecto de daño
+        }
+    }
+    //Mover más tarde a otro script ^^^
+
+}
