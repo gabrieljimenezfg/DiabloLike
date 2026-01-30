@@ -5,8 +5,8 @@ public class Inventory : MonoBehaviour
 {
     private int healthPotionsAmountHeld = 10;
     private int manaPotionsAmountHeld = 10;
-    [SerializeField] private HealingPotionSO healingPotionData;
-    [SerializeField] private ManaPotionSO manaPotionData;
+    [SerializeField] private PotionSO healingPotionData;
+    [SerializeField] private PotionSO manaPotionData;
 
     public int HealthPotionsAmountHeld => healthPotionsAmountHeld;
     public int ManaPotionsAmountHeld => manaPotionsAmountHeld;
@@ -43,12 +43,12 @@ public class Inventory : MonoBehaviour
 
     public float GetHealingPotionHealthAmount()
     {
-        return healingPotionData.healingAmount;
+        return healingPotionData.recoverAmount;
     }
 
     public float GetManaPotionRecoverAmount()
     {
-        return manaPotionData.manaRecoverAmount;
+        return manaPotionData.recoverAmount;
     }
 
     public void Save(ref InventoryState inventoryState)

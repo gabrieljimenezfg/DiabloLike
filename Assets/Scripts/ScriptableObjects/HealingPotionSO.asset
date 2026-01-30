@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7b0e1c5b526eb64eafc0a3a1925d314, type: 3}
-  m_Name: HealingPotion
-  m_EditorClassIdentifier: Assembly-CSharp::HealingPotionSO
-  healingAmount: 50
+  m_Script: {fileID: 11500000, guid: e634fa94c678ad345ba04fc3e396b795, type: 3}
+  m_Name: HealingPotionSO
+  m_EditorClassIdentifier: Assembly-CSharp::PotionSO
+  potionType: 0
+  recoverAmount: 50
   prefab: {fileID: 7200927917085466066, guid: a84a636a35a83fe408bd4b3d8c2b8058, type: 3}
-  sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 21300000, guid: 92f3af6d4a1e8414c996d3efdad35555, type: 3}

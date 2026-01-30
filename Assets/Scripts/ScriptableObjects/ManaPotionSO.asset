@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 670a17fa3f33f3c45b7ff374bbae2254, type: 3}
-  m_Name: ManaPotion
-  m_EditorClassIdentifier: Assembly-CSharp::ManaPotionSO
-  manaRecoverAmount: 40
+  m_Script: {fileID: 11500000, guid: e634fa94c678ad345ba04fc3e396b795, type: 3}
+  m_Name: ManaPotionSO
+  m_EditorClassIdentifier: Assembly-CSharp::PotionSO
+  potionType: 1
+  recoverAmount: 50
   prefab: {fileID: 8385242052075035819, guid: dfa07040f3b61f648bc8ad1291f6cbdb, type: 3}
-  sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 21300000, guid: 83cf9beac5562564e988021556cb4db2, type: 3}
