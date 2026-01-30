@@ -93,13 +93,15 @@ public class Player : MonoBehaviour
 
     private void Heal(float healAmount)
     {
-        hp += Mathf.Min(hp + healAmount, maxHp);
+        if (hp == maxHp) return;
+        hp = Mathf.Min(hp + healAmount, maxHp);
         PlayerHealed?.Invoke(this, EventArgs.Empty);
     }
 
     private void RecoverMana(float recoverAmount)
     {
-        mana += Mathf.Min(mana + recoverAmount, maxMana);
+        if (mana == maxMana) return;
+        mana = Mathf.Min(mana + recoverAmount, maxMana);
         PlayerRecoveredMana?.Invoke(this, EventArgs.Empty);
     }
 
