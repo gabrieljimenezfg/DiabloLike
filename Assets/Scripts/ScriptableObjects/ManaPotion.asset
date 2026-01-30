@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 670a17fa3f33f3c45b7ff374bbae2254, type: 3}
   m_Name: ManaPotion
   m_EditorClassIdentifier: Assembly-CSharp::ManaPotionSO
-  manaRecoverAmount: 0
+  manaRecoverAmount: 40
+  prefab: {fileID: 8385242052075035819, guid: dfa07040f3b61f648bc8ad1291f6cbdb, type: 3}
+  sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}

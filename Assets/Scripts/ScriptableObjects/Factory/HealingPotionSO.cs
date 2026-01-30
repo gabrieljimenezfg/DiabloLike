@@ -4,4 +4,6 @@ using UnityEngine;
 public class HealingPotionSO : ScriptableObject
 {
     public float healingAmount;
+    public GameObject prefab;
+    public Sprite sprite;
 }

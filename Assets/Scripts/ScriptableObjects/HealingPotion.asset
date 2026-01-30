@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7b0e1c5b526eb64eafc0a3a1925d314, type: 3}
   m_Name: HealingPotion
   m_EditorClassIdentifier: Assembly-CSharp::HealingPotionSO
-  healingAmount: 0
+  healingAmount: 50
+  prefab: {fileID: 7200927917085466066, guid: a84a636a35a83fe408bd4b3d8c2b8058, type: 3}
+  sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
