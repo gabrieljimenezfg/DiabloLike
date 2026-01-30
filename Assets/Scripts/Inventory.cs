@@ -3,10 +3,13 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private int healthPotionsAmountHeld;
-    private int manaPotionsAmountHeld;
-    private HealingPotionSO healingPotionData;
-    private ManaPotionSO manaPotionData;
+    private int healthPotionsAmountHeld = 10;
+    private int manaPotionsAmountHeld = 10;
+    [SerializeField] private HealingPotionSO healingPotionData;
+    [SerializeField] private ManaPotionSO manaPotionData;
+
+    public int HealthPotionsAmountHeld => healthPotionsAmountHeld;
+    public int ManaPotionsAmountHeld => manaPotionsAmountHeld;
 
     /// <summary>
     /// Attempts to pick up a health potion.

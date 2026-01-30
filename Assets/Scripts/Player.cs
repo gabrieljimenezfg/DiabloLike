@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 
     private Inventory inventory;
 
+    public event EventHandler PlayerUsedPotion;
     public event EventHandler PlayerHealed;
     public event EventHandler PlayerRecoveredMana;
     public event EventHandler PlayerTookDamage;
@@ -51,7 +52,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            SaveSystem.Save();
+            ConsumeHealingPotion();
         }
     }
 
@@ -62,6 +63,7 @@ public class Player : MonoBehaviour
         {
             var healAmount = inventory.GetHealingPotionHealthAmount();
             Heal(healAmount);
+            PlayerUsedPotion?.Invoke(this, EventArgs.Empty);
         }
     }
 
@@ -72,6 +74,7 @@ public class Player : MonoBehaviour
         {
             var manaRecoverAmount = inventory.GetManaPotionRecoverAmount();
             RecoverMana(manaRecoverAmount);
+            PlayerUsedPotion?.Invoke(this, EventArgs.Empty);
         }
     }
 

@@ -84,6 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5569574361120230046}
+  - component: {fileID: 5900347818974825317}
   m_Layer: 5
   m_Name: Hotbar
   m_TagString: Untagged
@@ -113,6 +114,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 20}
   m_SizeDelta: {x: 1200, y: 120}
   m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &5900347818974825317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643770422674123205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc0bf91b93ec4bc478aab0a1a100f61d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  healingPotionSlotText: {fileID: 5771663721518775459}
+  manaPotionSlotText: {fileID: 3292848428970751229}
 --- !u!1 &7188086365599788438
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,9 +263,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4323713963449613993}
     m_Modifications:
+    - target: {fileID: 5062142952051690223, guid: a742cb68e94fbd64998b73ecec5f962e, type: 3}
+      propertyPath: m_Name
+      value: Skill1Text
+      objectReference: {fileID: 0}
     - target: {fileID: 5504477227852189735, guid: a742cb68e94fbd64998b73ecec5f962e, type: 3}
       propertyPath: m_Name
-      value: HotbarSlot
+      value: Skill1Slot
       objectReference: {fileID: 0}
     - target: {fileID: 6071551565687277307, guid: a742cb68e94fbd64998b73ecec5f962e, type: 3}
       propertyPath: m_Pivot.x
@@ -331,6 +350,14 @@ PrefabInstance:
     - target: {fileID: 6071551565687277307, guid: a742cb68e94fbd64998b73ecec5f962e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6218708901015839023, guid: a742cb68e94fbd64998b73ecec5f962e, type: 3}
+      propertyPath: m_Name
+      value: Skill1SlotSprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082536347768200236, guid: a742cb68e94fbd64998b73ecec5f962e, type: 3}
+      propertyPath: m_text
+      value: Q
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -354,9 +381,13 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 92f3af6d4a1e8414c996d3efdad35555, type: 3}
+    - target: {fileID: 5062142952051690223, guid: a742cb68e94fbd64998b73ecec5f962e, type: 3}
+      propertyPath: m_Name
+      value: HealingPotionSlotText
+      objectReference: {fileID: 0}
     - target: {fileID: 5504477227852189735, guid: a742cb68e94fbd64998b73ecec5f962e, type: 3}
       propertyPath: m_Name
-      value: HotbarSlot
+      value: HealingPotionSlot
       objectReference: {fileID: 0}
     - target: {fileID: 6071551565687277307, guid: a742cb68e94fbd64998b73ecec5f962e, type: 3}
       propertyPath: m_Pivot.x
@@ -438,11 +469,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6218708901015839023, guid: a742cb68e94fbd64998b73ecec5f962e, type: 3}
+      propertyPath: m_Name
+      value: HealingPotionSlotSprite
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a742cb68e94fbd64998b73ecec5f962e, type: 3}
+--- !u!114 &5771663721518775459 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7082536347768200236, guid: a742cb68e94fbd64998b73ecec5f962e, type: 3}
+  m_PrefabInstance: {fileID: 3626287049006817423}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!224 &7354751066428630644 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6071551565687277307, guid: a742cb68e94fbd64998b73ecec5f962e, type: 3}
@@ -460,9 +506,13 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 83cf9beac5562564e988021556cb4db2, type: 3}
+    - target: {fileID: 5062142952051690223, guid: a742cb68e94fbd64998b73ecec5f962e, type: 3}
+      propertyPath: m_Name
+      value: ManaPotionSlotText
+      objectReference: {fileID: 0}
     - target: {fileID: 5504477227852189735, guid: a742cb68e94fbd64998b73ecec5f962e, type: 3}
       propertyPath: m_Name
-      value: HotbarSlot (1)
+      value: ManaPotionSlot
       objectReference: {fileID: 0}
     - target: {fileID: 6071551565687277307, guid: a742cb68e94fbd64998b73ecec5f962e, type: 3}
       propertyPath: m_Pivot.x
@@ -556,6 +606,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6218708901015839023, guid: a742cb68e94fbd64998b73ecec5f962e, type: 3}
+      propertyPath: m_Name
+      value: ManaPotionSlotSprite
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -566,3 +620,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6071551565687277307, guid: a742cb68e94fbd64998b73ecec5f962e, type: 3}
   m_PrefabInstance: {fileID: 5762555265816013009}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3292848428970751229 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7082536347768200236, guid: a742cb68e94fbd64998b73ecec5f962e, type: 3}
+  m_PrefabInstance: {fileID: 5762555265816013009}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
