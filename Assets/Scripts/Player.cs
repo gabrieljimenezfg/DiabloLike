@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
     private Inventory inventory;
 
     public event EventHandler PlayerHealed;
+    public event EventHandler PlayerRecoveredMana;
+    public event EventHandler PlayerTookDamage;
+    public event EventHandler PlayerDied;
 
     private void Awake()
     {
@@ -57,7 +60,31 @@ public class Player : MonoBehaviour
         var hasPotion = inventory.PickupHealingPotion();
         if (hasPotion)
         {
-            Heal(inventory.GetHealingPotionHealthAmount());
+            var healAmount = inventory.GetHealingPotionHealthAmount();
+            Heal(healAmount);
+        }
+    }
+
+    private void ConsumeManaPotion()
+    {
+        var hasPotion = inventory.PickupManaPotion();
+        if (hasPotion)
+        {
+            var manaRecoverAmount = inventory.GetManaPotionRecoverAmount();
+            RecoverMana(manaRecoverAmount);
+        }
+    }
+
+    private void TakeDamage(float amount)
+    {
+        hp -= amount;
+        if (hp <= 0)
+        {
+            PlayerDied?.Invoke(this, EventArgs.Empty);
+        }
+        else
+        {
+            PlayerTookDamage?.Invoke(this, EventArgs.Empty);
         }
     }
 
@@ -65,6 +92,12 @@ public class Player : MonoBehaviour
     {
         hp += Mathf.Min(hp + healAmount, maxHp);
         PlayerHealed?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void RecoverMana(float recoverAmount)
+    {
+        mana += Mathf.Min(mana + recoverAmount, maxMana);
+        PlayerRecoveredMana?.Invoke(this, EventArgs.Empty);
     }
 
     public void Save(ref PlayerState playerState)
