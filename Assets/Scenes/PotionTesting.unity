@@ -536,6 +536,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: BottomBar
       objectReference: {fileID: 0}
+    - target: {fileID: 1998136436624518698, guid: cf66d91b7a5cfd24bb3e64dc6a3c5597, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1998136436624518698, guid: cf66d91b7a5cfd24bb3e64dc6a3c5597, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1998136436624518698, guid: cf66d91b7a5cfd24bb3e64dc6a3c5597, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1998136436624518698, guid: cf66d91b7a5cfd24bb3e64dc6a3c5597, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1998136436624518698, guid: cf66d91b7a5cfd24bb3e64dc6a3c5597, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5569574361120230046, guid: cf66d91b7a5cfd24bb3e64dc6a3c5597, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
