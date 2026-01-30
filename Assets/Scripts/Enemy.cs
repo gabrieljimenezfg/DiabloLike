@@ -85,7 +85,7 @@ public class Enemy : MonoBehaviour
                 //En rango de ataque
                 if (timePass >= attackCooldown) //Esto es para el cooldown de ataque
                 {
-                    Camera.main.GetComponent<FollowMouse>().TakeDamage(basicAttackDMG); //El jugador recibe daño del ataque básico   ||  HAY QUE CAMBIARLO MÁS ADELANTE YA QUE LA VIDA DEL PLAYER SE MOVERÁ A OTRO SCRIPT
+                    player.GetComponent<FollowMouse>().TakeDamage(basicAttackDMG); //El jugador recibe daño del ataque básico   ||  HAY QUE CAMBIARLO MÁS ADELANTE YA QUE LA VIDA DEL PLAYER SE MOVERÁ A OTRO SCRIPT
                     Debug.Log("ataque");
 
                     timePass = 0;

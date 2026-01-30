@@ -14,9 +14,9 @@ public class FollowMouse : MonoBehaviour
     private Transform followerObject; //el transform del objeto que seguira al mouse
 
     [SerializeField]
-    private GameObject Player; //el jugador
-
     private Camera camera;
+    [SerializeField]
+    private Vector3 camOffset;
 
     private int groundLayer;
 
@@ -48,13 +48,13 @@ public class FollowMouse : MonoBehaviour
         //----------------------------------------------------------------------------------------
         if (Input.GetButtonDown("Fire2")) // Fire1 = Click Izquierdo   Fire2 = Click Derecho   Fire3 = Click Rueda
         {
-            Player.GetComponent<NavMeshAgent>().SetDestination(followerObject.position); //Se asigna la destinacion del NavMeshAgent del Player a la posición del followerObject
+            GetComponent<NavMeshAgent>().SetDestination(followerObject.position); //Se asigna la destinacion del NavMeshAgent del Player a la posición del followerObject
         }
     }
 
     void LateUpdate()
     {
-        transform.position = new Vector3(Player.transform.position.x - -0.934f, transform.position.y, Player.transform.position.z - -8.2f); //La camara sigue al jugador en X y Z 
+        camera.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z)+camOffset; //La camara sigue al jugador en X y Z 
     }
 
 
