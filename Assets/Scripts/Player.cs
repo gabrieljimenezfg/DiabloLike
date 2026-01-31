@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
 
     private Inventory inventory;
 
-    public event EventHandler PlayerUsedPotion;
     public event EventHandler PlayerHealed;
     public event EventHandler PlayerRecoveredMana;
     public event EventHandler PlayerTookDamage;
@@ -58,23 +57,21 @@ public class Player : MonoBehaviour
 
     private void ConsumeHealingPotion()
     {
-        var hasPotion = inventory.PickupHealingPotion();
+        var hasPotion = inventory.TryConsumeHealingPotion();
         if (hasPotion)
         {
             var healAmount = inventory.GetHealingPotionHealthAmount();
             Heal(healAmount);
-            PlayerUsedPotion?.Invoke(this, EventArgs.Empty);
         }
     }
 
     private void ConsumeManaPotion()
     {
-        var hasPotion = inventory.PickupManaPotion();
+        var hasPotion = inventory.TryConsumeManaPotion();
         if (hasPotion)
         {
             var manaRecoverAmount = inventory.GetManaPotionRecoverAmount();
             RecoverMana(manaRecoverAmount);
-            PlayerUsedPotion?.Invoke(this, EventArgs.Empty);
         }
     }
 

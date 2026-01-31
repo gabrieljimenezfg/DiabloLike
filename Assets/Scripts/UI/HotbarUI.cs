@@ -9,11 +9,11 @@ public class HotbarUI : MonoBehaviour
 
     private void Start()
     {
-        Player.Instance.PlayerUsedPotion += OnPlayerUsedPotion;
+        Inventory.PotionsAmountChanged += OnPlayerPotionsAmountChanged;
         UpdateVisual();
     }
 
-    private void OnPlayerUsedPotion(object sender, EventArgs e)
+    private void OnPlayerPotionsAmountChanged(object sender, EventArgs e)
     {
         UpdateVisual();
     }
