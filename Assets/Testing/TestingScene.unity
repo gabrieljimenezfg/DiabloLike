@@ -496,7 +496,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 9b8bdbb75de73e9469952a8d6951320c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -536,11 +536,11 @@ Transform:
   m_GameObject: {fileID: 317713150}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.65053, y: 0, z: 12.06181}
-  m_LocalScale: {x: 3.7679005, y: 3.7679005, z: 3.7679005}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1714398510}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
 GameObject:
@@ -1082,10 +1082,10 @@ MonoBehaviour:
   health: 100
   speed: 3
   damage: 10
-  detectionRange: 15
-  attackRange: 2
+  detectionRange: 5
+  attackRange: 1
   attackCooldown: 0.8
-  basicAttackDMG: 0
+  basicAttackDMG: 25
   patrolPoints:
   - {fileID: 1217976484}
   - {fileID: 700346181}
@@ -1157,6 +1157,7 @@ GameObject:
   - component: {fileID: 1018887575}
   - component: {fileID: 1018887580}
   - component: {fileID: 1018887581}
+  - component: {fileID: 1018887582}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1321,9 +1322,92 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FollowMouse
   maxLife: 100
   currentLife: 100
+  stamina: 100
+  speed: 4
+  runSpeed: 10.1
   followerObject: {fileID: 1263116875}
   camera: {fileID: 0}
   camOffset: {x: 0, y: 10, z: 0}
+  camRunZoom: 8.5
+  ZoomSpeed: 0.02
+--- !u!114 &1018887582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018887574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: 253ed687c97149749829b52abba30b23, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0a1b2bf9-8df8-4ab5-bc3a-645fb502fba5
+    m_ActionName: 'Player/SkillSlot1[/Keyboard/1]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 42edfd0a-e200-4e60-a253-a7a767889a67
+    m_ActionName: 'Player/SkillSlot2[/Keyboard/2]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6d1a3378-140f-4514-a51c-1ccd5e07cef6
+    m_ActionName: 'Player/SkillSlot3[/Keyboard/3]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 279e0340-ff58-4a13-b170-08141bdcecec
+    m_ActionName: 'Player/SkillSlot4[/Keyboard/4]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1018887581}
+        m_TargetAssemblyTypeName: FollowMouse, Assembly-CSharp
+        m_MethodName: Movement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 75b05973-dc94-4295-9dab-445bfd5fbebc
+    m_ActionName: 'Player/Movement[/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1018887581}
+        m_TargetAssemblyTypeName: FollowMouse, Assembly-CSharp
+        m_MethodName: Run
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f821c4b0-dd3a-4ff9-8bfd-cbafcb30423f
+    m_ActionName: 'Player/Run[/Keyboard/shift]'
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1217976483
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,7 +1703,6 @@ Transform:
   - {fileID: 304985120}
   - {fileID: 1620595406}
   - {fileID: 1876355471}
-  - {fileID: 317713154}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1874906001
@@ -1671,7 +1754,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: fc21306eadbce2c4f8efa40e7f17b63e, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: f01c7576561c73b4eabd7ef4ea7b9d0f, type: 2}
   m_BuildHeightMesh: 0
 --- !u!65 &1874906003
 BoxCollider:
@@ -1712,7 +1795,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.33, z: 0}
-  m_LocalScale: {x: 36.02171, y: 4.7806, z: 36.686}
+  m_LocalScale: {x: 40.798187, y: 5.4145074, z: 41.550564}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1870,6 +1953,7 @@ SceneRoots:
   - {fileID: 1874906005}
   - {fileID: 1263116875}
   - {fileID: 1018887579}
+  - {fileID: 317713154}
   - {fileID: 1714398510}
   - {fileID: 783200064}
   - {fileID: 1217976484}

@@ -113,5 +113,5 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    //Falta el ataque básico al jugador cuando esté cerca, para ataques más especificos deberán hacerse en los scripts hijos que hereden de este
+    //Para ataques más especificos deberán hacerse en los scripts hijos que hereden de este
 }
