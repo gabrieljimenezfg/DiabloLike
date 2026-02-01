@@ -8,10 +8,13 @@ public class Player : MonoBehaviour
     private float hp, mana;
     [SerializeField] private float maxHp, maxMana;
 
+    public float HP => hp;
+    public float Mana => mana;
+
     private Inventory inventory;
 
-    public event EventHandler PlayerHealed;
-    public event EventHandler PlayerRecoveredMana;
+    public event EventHandler PlayerHPChanged;
+    public event EventHandler PlayerManaChanged;
     public event EventHandler PlayerTookDamage;
     public event EventHandler PlayerDied;
 
@@ -92,16 +95,22 @@ public class Player : MonoBehaviour
     {
         if (hp == maxHp) return;
         hp = Mathf.Min(hp + healAmount, maxHp);
-        PlayerHealed?.Invoke(this, EventArgs.Empty);
+        PlayerHPChanged?.Invoke(this, EventArgs.Empty);
     }
 
     private void RecoverMana(float recoverAmount)
     {
         if (mana == maxMana) return;
         mana = Mathf.Min(mana + recoverAmount, maxMana);
-        PlayerRecoveredMana?.Invoke(this, EventArgs.Empty);
+        PlayerManaChanged?.Invoke(this, EventArgs.Empty);
     }
 
+    public void UseMana(float manaUsageAmount)
+    {
+        mana = Mathf.Max(mana - manaUsageAmount, 0);
+        PlayerManaChanged?.Invoke(this, EventArgs.Empty);
+    }
+    
     public void Save(ref PlayerState playerState)
     {
         playerState.hp = hp;

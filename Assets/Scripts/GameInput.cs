@@ -23,6 +23,7 @@ public class GameInput : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        
 
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
