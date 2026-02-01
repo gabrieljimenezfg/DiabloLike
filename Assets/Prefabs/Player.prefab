@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 3083101380345168495}
   - component: {fileID: 344695934043545483}
   - component: {fileID: 4210350726503247962}
+  - component: {fileID: 8801036135139690487}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -173,5 +174,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a25a245863b2854488857c41c5d2bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
-  healingPotionData: {fileID: 11400000, guid: 1e493165df9c3c347b5839aa3ed07fac, type: 2}
-  manaPotionData: {fileID: 11400000, guid: c287be4dbdc5bca47a47f0bc9c288381, type: 2}
+  healingPotionData: {fileID: 11400000, guid: 9926d0c541730be469ee101cf41592d6, type: 2}
+  manaPotionData: {fileID: 11400000, guid: 25ae4528901d8534aa856de19fee48fa, type: 2}
+--- !u!114 &8801036135139690487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7534926000282603271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb597ed82bf89b4cbb60ce6518c7b4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillSystem
+  starterSkill: {fileID: 11400000, guid: 754d0b7434f0d604b8d27d6a5d5ea726, type: 2}

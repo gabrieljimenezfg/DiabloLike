@@ -5,13 +5,15 @@ public class Player : MonoBehaviour
 {
     public static Player Instance;
 
-    private float hp, mana;
+    [SerializeField]
+    private float hp = 100f, mana = 100f;
     [SerializeField] private float maxHp, maxMana;
 
     public float HP => hp;
     public float Mana => mana;
 
     private Inventory inventory;
+    private SkillSystem skillSystem;
 
     public event EventHandler PlayerHPChanged;
     public event EventHandler PlayerManaChanged;
@@ -31,6 +33,7 @@ public class Player : MonoBehaviour
         }
 
         inventory = GetComponent<Inventory>();
+        skillSystem = GetComponent<SkillSystem>();
     }
 
     private void Start()
@@ -40,22 +43,7 @@ public class Player : MonoBehaviour
 
     private void OnSkillPerformed(object sender, GameInput.SkillPerformedEventArgs e)
     {
-        Debug.Log("Skill slot performed");
-        Debug.Log(e.slotId);
-    }
-
-
-    private void Update()
-    {
-        TestSaveLoad();
-    }
-
-    private void TestSaveLoad()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            ConsumeHealingPotion();
-        }
+        skillSystem.CastSkill(e.slotId);
     }
 
     private void ConsumeHealingPotion()
@@ -110,7 +98,7 @@ public class Player : MonoBehaviour
         mana = Mathf.Max(mana - manaUsageAmount, 0);
         PlayerManaChanged?.Invoke(this, EventArgs.Empty);
     }
-    
+
     public void Save(ref PlayerState playerState)
     {
         playerState.hp = hp;

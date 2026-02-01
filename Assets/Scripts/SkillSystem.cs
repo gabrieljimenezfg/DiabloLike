@@ -6,14 +6,28 @@ using SkillCooldowns = System.Collections.Generic.Dictionary<SkillSO, float>;
 
 public class SkillSystem : MonoBehaviour
 {
+    // debug starter skill
+    [SerializeField] private SkillSO starterSkill;
+
     private Player player;
-    private SkillSO[] equippedSkills;
+    private SkillSO[] equippedSkills = new SkillSO[4];
 
     private SkillCooldowns cooldowns = new SkillCooldowns();
 
     private void Start()
     {
         player = GetComponent<Player>();
+        EquipNewSkill(starterSkill);
+    }
+
+    private void EquipNewSkill(SkillSO skill)
+    {
+        for (int i = 0; i < equippedSkills.Length; i++)
+        {
+            if (equippedSkills[i] != null) continue;
+            equippedSkills[i] = skill;
+            return;
+        }
     }
 
     private SkillSO GetSkillInSlot(int slotId)
@@ -26,21 +40,26 @@ public class SkillSystem : MonoBehaviour
         return cooldowns.ContainsKey(skill) && cooldowns[skill] > 0;
     }
 
-    public bool TryUseSkill(int slotId)
+    public void CastSkill(int slotId)
     {
+        Debug.Log("Try use skill in slot id: " + slotId);
         var skill = GetSkillInSlot(slotId);
-        if (IsSkillOnCooldown(skill)) return false;
-        if (player.Mana < skill.manaCost) return false;
+        if (skill == null) return;
+
+        Debug.Log("Found skill: " + skill.name);
+
+        if (IsSkillOnCooldown(skill)) return;
+        if (player.Mana < skill.manaCost) return;
+
+        Debug.Log("Casting skill");
 
         GameObject skillInstance = Instantiate(skill.skillPrefab, Vector3.zero, Quaternion.identity);
         ISkillBehavior behavior = skillInstance.GetComponent<ISkillBehavior>();
-        if (behavior == null) return false;
+        if (behavior == null) return;
 
         player.UseMana(skill.manaCost);
         behavior.Execute(player);
         cooldowns[skill] = skill.cooldown;
-
-        return true;
     }
 
     private void HandleSkillsCooldownReduction()
