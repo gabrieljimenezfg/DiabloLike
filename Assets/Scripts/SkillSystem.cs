@@ -30,9 +30,17 @@ public class SkillSystem : MonoBehaviour
         }
     }
 
-    private SkillSO GetSkillInSlot(int slotId)
+    public SkillSO GetSkillInSlot(int slotId)
     {
         return equippedSkills[slotId];
+    }
+
+    public float GetSkillCooldown(int slotId)
+    {
+        var skill = GetSkillInSlot(slotId);
+        if (!cooldowns.ContainsKey(skill)) return 0;
+
+        return cooldowns[skill];
     }
 
     private bool IsSkillOnCooldown(SkillSO skill)

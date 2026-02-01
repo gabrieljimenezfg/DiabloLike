@@ -5,8 +5,7 @@ public class Player : MonoBehaviour
 {
     public static Player Instance;
 
-    [SerializeField]
-    private float hp = 100f, mana = 100f;
+    [SerializeField] private float hp = 100f, mana = 100f;
     [SerializeField] private float maxHp, maxMana;
 
     public float HP => hp;
@@ -118,5 +117,10 @@ public class Player : MonoBehaviour
     public Inventory GetInventory()
     {
         return inventory;
+    }
+
+    public SkillSystem GetSkillSystem()
+    {
+        return skillSystem;
     }
 }
