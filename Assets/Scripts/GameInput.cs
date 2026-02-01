@@ -12,6 +12,8 @@ public class GameInput : MonoBehaviour
     }
 
     public event EventHandler<SkillPerformedEventArgs> SkillPerformed;
+    public event EventHandler HealPotionUsed;
+    public event EventHandler ManaPotionUsed;
 
     private PlayerInputActions playerInputActions;
 
@@ -23,7 +25,7 @@ public class GameInput : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        
+
 
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
@@ -37,6 +39,19 @@ public class GameInput : MonoBehaviour
         playerInputActions.Player.SkillSlot2.performed += _slot2;
         playerInputActions.Player.SkillSlot3.performed += _slot3;
         playerInputActions.Player.SkillSlot4.performed += _slot4;
+
+        playerInputActions.Player.HealPotion.performed += OnHealPotion;
+        playerInputActions.Player.ManaPotion.performed += OnManaPotion;
+    }
+
+    private void OnHealPotion(InputAction.CallbackContext obj)
+    {
+        HealPotionUsed?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void OnManaPotion(InputAction.CallbackContext obj)
+    {
+        ManaPotionUsed?.Invoke(this, EventArgs.Empty);
     }
 
     private void OnDestroy()
@@ -45,6 +60,9 @@ public class GameInput : MonoBehaviour
         playerInputActions.Player.SkillSlot2.performed -= _slot2;
         playerInputActions.Player.SkillSlot3.performed -= _slot3;
         playerInputActions.Player.SkillSlot4.performed -= _slot4;
+
+        playerInputActions.Player.HealPotion.performed -= OnHealPotion;
+        playerInputActions.Player.ManaPotion.performed -= OnManaPotion;
 
         playerInputActions.Dispose();
     }

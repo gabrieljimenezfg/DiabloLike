@@ -38,6 +38,18 @@ public class Player : MonoBehaviour
     private void Start()
     {
         GameInput.Instance.SkillPerformed += OnSkillPerformed;
+        GameInput.Instance.HealPotionUsed += OnHealPotionUsed;
+        GameInput.Instance.ManaPotionUsed += OnManaPotionUsed;
+    }
+
+    private void OnHealPotionUsed(object sender, EventArgs e)
+    {
+        ConsumeHealingPotion();
+    }
+
+    private void OnManaPotionUsed(object sender, EventArgs e)
+    {
+        ConsumeManaPotion();
     }
 
     private void OnSkillPerformed(object sender, GameInput.SkillPerformedEventArgs e)
