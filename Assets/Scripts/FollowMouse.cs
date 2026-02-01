@@ -19,6 +19,8 @@ public class FollowMouse : MonoBehaviour
     [SerializeField]
     private float runSpeed;
     private bool lowerStamina = false; //Variable para controlar si se debe reducir la stamina o no
+    private bool isMoving = false;
+    private bool isRunning;
 
     [SerializeField]
     private Transform followerObject; //el transform del objeto que seguira al mouse
@@ -28,10 +30,10 @@ public class FollowMouse : MonoBehaviour
     [SerializeField]
     private Vector3 camOffset;
     [SerializeField]
-    private float camRunZoom; //Cuando el jugador corre la cámara hará un pequeño zoom in
-    private float camOriginalZoom;
+    private float camRunZoom; //Cuando el jugador corre la camara hará un pequeño zoom in
     [SerializeField]
-    private float ZoomSpeed = 0.02f; //Tiempo de espera entre cada paso de zoom in
+    private float zoomSpeed = 5f; //Velocidad a la que la camara se mueve cuando se hace zoom in o zoom out
+    private float camOriginalZoom;
 
     private int groundLayer;
 
@@ -50,65 +52,85 @@ public class FollowMouse : MonoBehaviour
         Ray ray = camera.ScreenPointToRay(Input.mousePosition); //crea un rayo desde la camara hasta la posicion del mouse
         RaycastHit hit;
 
-
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
         {
             followerObject.position = hit.point; //cuando el raycast golpea el suelo le asigna la posicion del contacto del raycast contra el suelo (hit.point) al followerObject
                                                  //con esto se hace que followerObject este siempre en el suelo, aunque haya inclinacion, elevacion o bajadas en el suelo
         }
-        if (lowerStamina) {
-            stamina -= 15f * Time.deltaTime; //Reduce la stamina mientras se corre
-            if (stamina <= 0f) {
-                stamina = 0f;
-                lowerStamina = false;
-                GetComponent<NavMeshAgent>().speed = speed; //Vuelve a la velocidad normal del NavMeshAgent del Player
-                camOffset.y = camOriginalZoom; //Vuelve al zoom original de la camara
-            }
+
+        // STAMINA/RUN MANAGEMENT
+        if (stamina <= 0f) //Si la stamina llega a 0 ya no puede correr mas
+        {
+            stamina = 0f;
+            lowerStamina = false;
+            isRunning = false;
+            GetComponent<NavMeshAgent>().speed = speed;
         }
-        if (!lowerStamina) {
-            stamina += 5f * Time.deltaTime; //Recupera la stamina cuando no se corre
-            if (stamina > 100f) {
+        if (lowerStamina)
+        {
+            stamina -= 25f * Time.deltaTime; //Resta stamina (25f * deltatime) cuando se esta corriendo (lowerStamina es verdadero)
+            if (stamina < 0f)
+                stamina = 0f;
+        }
+        if (!lowerStamina)
+        {
+            stamina += 5f * Time.deltaTime; //Recupera stamina (5f * deltatime) cuando no se esta corriendo (lowerStamina es falso)
+            if (stamina > 100f)
                 stamina = 100f;
+        }
+        if (isMoving)
+        {
+            if (!GetComponent<NavMeshAgent>().pathPending &&
+                GetComponent<NavMeshAgent>().remainingDistance <= GetComponent<NavMeshAgent>().stoppingDistance &&
+                GetComponent<NavMeshAgent>().velocity.sqrMagnitude == 0f)
+            {
+                lowerStamina = false;
+                isMoving = false;
             }
         }
     }
 
     public void Run(InputAction.CallbackContext callback)
     {
-        //Correr cuando se pulse shift
-        if (callback.performed)
+        //Correr cuando se mantenga pulsado shift, se este moviendo y tenga stamina
+        if (callback.performed && isMoving && stamina > 0f)
         {
-            GetComponent<NavMeshAgent>().speed = runSpeed; //Aumenta la velocidad del NavMeshAgent del Player
-            StartCoroutine(ZoomCameraIn()); //Inicia la corrutina para hacer zoom in en la camara
-            lowerStamina = true; //Comienza a reducir la stamina
+            isRunning = true;
+            lowerStamina = true;
+            GetComponent<NavMeshAgent>().speed = runSpeed;
         }
-        else if (callback.canceled)
-        {
-            GetComponent<NavMeshAgent>().speed = speed; //Vuelve a la velocidad normal del NavMeshAgent del Player
-            camOffset.y = camOriginalZoom; //Vuelve al zoom original de la camara
-        }
-    }
 
-    IEnumerator ZoomCameraIn()
-    {
-        while (camOffset.y > camRunZoom)
+        //Dejar de correr cuando se suelte shift
+        if (callback.canceled)
         {
-            camOffset.y-=0.2f; //Hace zoom in poco a poco (0.2) mientras corre
-            yield return new WaitForSeconds(ZoomSpeed);
+            isRunning = false;
+            lowerStamina = false;
+            GetComponent<NavMeshAgent>().speed = speed;
         }
     }
 
     public void Movement(InputAction.CallbackContext callback)
     {
+        isMoving = true;
         //Mover cuando se pulse click derecho
         GetComponent<NavMeshAgent>().SetDestination(followerObject.position); //Se asigna la destinacion del NavMeshAgent del Player a la posición del followerObject
     }
 
     void LateUpdate()
     {
-        camera.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z)+camOffset; //La camara sigue al jugador en X y Z 
-    }
+        camera.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z) + camOffset; //La camara sigue al jugador en X y Z 
 
+        //CAMERA ZOOM MANAGEMENT
+        float currentZoom;
+        if (isRunning) {
+            currentZoom = camRunZoom;
+        }
+        else
+        {
+            currentZoom = camOriginalZoom;
+        }
+        camOffset.y = Mathf.Lerp(camOffset.y, currentZoom, Time.deltaTime * zoomSpeed); //Mueve la camara suavemente entre su posición actual y la posición requerida (currentZoom)
+    }
 
     //Mover más tarde a otro script VVV
 
