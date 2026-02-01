@@ -145,6 +145,24 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HealPotion"",
+                    ""type"": ""Button"",
+                    ""id"": ""fef103fe-59af-4373-b30d-741a90502c82"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ManaPotion"",
+                    ""type"": ""Button"",
+                    ""id"": ""d7bc15d2-d2a3-49c3-bd82-fd94642a3550"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -213,6 +231,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Run"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b47ddc27-7d63-4ebd-9c73-98c52cbf2df1"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HealPotion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dc9818a3-28b4-439e-b219-cae4c295889c"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ManaPotion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -227,6 +267,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_SkillSlot4 = m_Player.FindAction("SkillSlot4", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
+        m_Player_HealPotion = m_Player.FindAction("HealPotion", throwIfNotFound: true);
+        m_Player_ManaPotion = m_Player.FindAction("ManaPotion", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -313,6 +355,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SkillSlot4;
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Run;
+    private readonly InputAction m_Player_HealPotion;
+    private readonly InputAction m_Player_ManaPotion;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -348,6 +392,14 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Run".
         /// </summary>
         public InputAction @Run => m_Wrapper.m_Player_Run;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/HealPotion".
+        /// </summary>
+        public InputAction @HealPotion => m_Wrapper.m_Player_HealPotion;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/ManaPotion".
+        /// </summary>
+        public InputAction @ManaPotion => m_Wrapper.m_Player_ManaPotion;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -392,6 +444,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Run.started += instance.OnRun;
             @Run.performed += instance.OnRun;
             @Run.canceled += instance.OnRun;
+            @HealPotion.started += instance.OnHealPotion;
+            @HealPotion.performed += instance.OnHealPotion;
+            @HealPotion.canceled += instance.OnHealPotion;
+            @ManaPotion.started += instance.OnManaPotion;
+            @ManaPotion.performed += instance.OnManaPotion;
+            @ManaPotion.canceled += instance.OnManaPotion;
         }
 
         /// <summary>
@@ -421,6 +479,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Run.started -= instance.OnRun;
             @Run.performed -= instance.OnRun;
             @Run.canceled -= instance.OnRun;
+            @HealPotion.started -= instance.OnHealPotion;
+            @HealPotion.performed -= instance.OnHealPotion;
+            @HealPotion.canceled -= instance.OnHealPotion;
+            @ManaPotion.started -= instance.OnManaPotion;
+            @ManaPotion.performed -= instance.OnManaPotion;
+            @ManaPotion.canceled -= instance.OnManaPotion;
         }
 
         /// <summary>
@@ -503,5 +567,19 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnRun(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "HealPotion" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnHealPotion(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ManaPotion" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnManaPotion(InputAction.CallbackContext context);
     }
 }
