@@ -49,13 +49,8 @@ public class FollowMouse : MonoBehaviour
     void Update()
     {
         //  FOLLOW MOUSE ON GROUND
-        Ray ray = camera.ScreenPointToRay(Input.mousePosition); //crea un rayo desde la camara hasta la posicion del mouse
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
-        {
-            followerObject.position = hit.point; //cuando el raycast golpea el suelo le asigna la posicion del contacto del raycast contra el suelo (hit.point) al followerObject
-                                                 //con esto se hace que followerObject este siempre en el suelo, aunque haya inclinacion, elevacion o bajadas en el suelo
+        if (MouseWorldUtils.TryGetMousePositionOnGround(out Vector3 mousePosition)) { 
+            followerObject.position = mousePosition;
         }
 
         // STAMINA/RUN MANAGEMENT
