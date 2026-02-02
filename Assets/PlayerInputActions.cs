@@ -163,6 +163,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""BaseAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""bdafb951-d969-4c82-bf61-d2b60e0fa6b3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -253,6 +262,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""ManaPotion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""563f22f4-7b0b-483b-a00a-0ccb3094e6b6"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BaseAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -269,6 +289,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
         m_Player_HealPotion = m_Player.FindAction("HealPotion", throwIfNotFound: true);
         m_Player_ManaPotion = m_Player.FindAction("ManaPotion", throwIfNotFound: true);
+        m_Player_BaseAttack = m_Player.FindAction("BaseAttack", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -357,6 +378,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Run;
     private readonly InputAction m_Player_HealPotion;
     private readonly InputAction m_Player_ManaPotion;
+    private readonly InputAction m_Player_BaseAttack;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -400,6 +422,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/ManaPotion".
         /// </summary>
         public InputAction @ManaPotion => m_Wrapper.m_Player_ManaPotion;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/BaseAttack".
+        /// </summary>
+        public InputAction @BaseAttack => m_Wrapper.m_Player_BaseAttack;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -450,6 +476,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @ManaPotion.started += instance.OnManaPotion;
             @ManaPotion.performed += instance.OnManaPotion;
             @ManaPotion.canceled += instance.OnManaPotion;
+            @BaseAttack.started += instance.OnBaseAttack;
+            @BaseAttack.performed += instance.OnBaseAttack;
+            @BaseAttack.canceled += instance.OnBaseAttack;
         }
 
         /// <summary>
@@ -485,6 +514,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @ManaPotion.started -= instance.OnManaPotion;
             @ManaPotion.performed -= instance.OnManaPotion;
             @ManaPotion.canceled -= instance.OnManaPotion;
+            @BaseAttack.started -= instance.OnBaseAttack;
+            @BaseAttack.performed -= instance.OnBaseAttack;
+            @BaseAttack.canceled -= instance.OnBaseAttack;
         }
 
         /// <summary>
@@ -581,5 +613,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnManaPotion(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "BaseAttack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnBaseAttack(InputAction.CallbackContext context);
     }
 }

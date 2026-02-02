@@ -1136,6 +1136,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: d7bc15d2-d2a3-49c3-bd82-fd94642a3550
     m_ActionName: 'Player/ManaPotion[/Keyboard/2]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 729393172}
+        m_TargetAssemblyTypeName: FollowMouse, Assembly-CSharp
+        m_MethodName: BaseAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bdafb951-d969-4c82-bf61-d2b60e0fa6b3
+    m_ActionName: 'Player/BaseAttack[/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1225,12 +1241,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe605e17c292a04788cbbdffad1af32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FollowMouse
-  maxLife: 100
+  basicDamage: 15
   currentLife: 100
   stamina: 100
   speed: 4
   runSpeed: 10.1
   followerObject: {fileID: 1263116875}
+  outline: {fileID: 2100000, guid: def3adda46a5cef4eb58bce118444ac3, type: 2}
   camera: {fileID: 0}
   camOffset: {x: 0, y: 8.5, z: 0}
   camRunZoom: 10.25
@@ -1767,12 +1784,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe605e17c292a04788cbbdffad1af32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FollowMouse
-  maxLife: 100
+  basicDamage: 0
   currentLife: 100
   stamina: 100
   speed: 4
   runSpeed: 10.1
   followerObject: {fileID: 1263116875}
+  outline: {fileID: 0}
   camera: {fileID: 0}
   camOffset: {x: 0, y: 10, z: 0}
   camRunZoom: 8.5
