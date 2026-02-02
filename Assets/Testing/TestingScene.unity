@@ -1224,8 +1224,8 @@ MonoBehaviour:
   runSpeed: 10.1
   followerObject: {fileID: 1263116875}
   camera: {fileID: 0}
-  camOffset: {x: 0, y: 10, z: 0}
-  camRunZoom: 8.5
+  camOffset: {x: 0, y: 9, z: 0}
+  camRunZoom: 10.25
   zoomSpeed: 5
 --- !u!1 &783200058
 GameObject:
@@ -1410,7 +1410,7 @@ MonoBehaviour:
   speed: 3
   damage: 10
   detectionRange: 10
-  attackRange: 1
+  attackRange: 2
   attackCooldown: 0.8
   basicAttackDMG: 25
   patrolPoints:
