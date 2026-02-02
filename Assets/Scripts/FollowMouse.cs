@@ -7,7 +7,7 @@ public class FollowMouse : MonoBehaviour
 {
     //Mover más tarde a otro script VVV
     [SerializeField]
-    private float maxLife;
+    private float basicDamage;
     [SerializeField]
     private float currentLife;
     [SerializeField]
@@ -26,6 +26,8 @@ public class FollowMouse : MonoBehaviour
     private Transform followerObject; //el transform del objeto que seguira al mouse
 
     [SerializeField]
+    private Material outline; //Material de outline que se aplicará al enemigo cuando el mouse esté sobre él
+    [SerializeField]
     private Camera camera;
     [SerializeField]
     private Vector3 camOffset;
@@ -36,6 +38,9 @@ public class FollowMouse : MonoBehaviour
     private float camOriginalZoom;
 
     private int groundLayer;
+
+    private GameObject currentHoveredEnemy;
+    private Material[] originalMaterials;
 
     void Awake()
     {
@@ -49,13 +54,33 @@ public class FollowMouse : MonoBehaviour
     void Update()
     {
         //  FOLLOW MOUSE ON GROUND
-        Ray ray = camera.ScreenPointToRay(Input.mousePosition); //crea un rayo desde la camara hasta la posicion del mouse
-        RaycastHit hit;
+        if (MouseWorldUtils.TryGetMousePositionOnGround(out Vector3 mousePosition)) { 
+            followerObject.position = mousePosition;
+        }
 
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
+        //  IS THE MOUSE TOUCHING AN ENEMY?
+        if (MouseWorldUtils.IsOnEnemy(out GameObject enemyObj)) //enemiObj es el enemigo sobre el que está el mouse
         {
-            followerObject.position = hit.point; //cuando el raycast golpea el suelo le asigna la posicion del contacto del raycast contra el suelo (hit.point) al followerObject
-                                                 //con esto se hace que followerObject este siempre en el suelo, aunque haya inclinacion, elevacion o bajadas en el suelo
+            if (currentHoveredEnemy != enemyObj)  // El mouse ha pasado a estar sobre un nuevo enemigo
+            {
+                DeleteOutliner();
+                currentHoveredEnemy = enemyObj;
+
+                //Aeguro hay alguna forma mas optima   V V V
+                MeshRenderer mr = currentHoveredEnemy.GetComponent<MeshRenderer>();
+                originalMaterials = mr.materials;
+                Material[] newMats = new Material[originalMaterials.Length + 1];
+                originalMaterials.CopyTo(newMats, 0);
+                newMats[newMats.Length - 1] = outline;
+                mr.materials = newMats;
+
+                enemyObj.GetComponent<MeshRenderer>().materials = new Material[] { enemyObj.GetComponent<MeshRenderer>().material, outline };
+            }
+        }
+        else
+        {
+            // El mouse ya no está sobre ningún enemigo
+            DeleteOutliner();
         }
 
         // STAMINA/RUN MANAGEMENT
@@ -89,6 +114,17 @@ public class FollowMouse : MonoBehaviour
             }
         }
     }
+
+    private void DeleteOutliner()
+    {
+        if (currentHoveredEnemy == null) return;
+
+        MeshRenderer mr = currentHoveredEnemy.GetComponent<MeshRenderer>();
+        mr.materials = originalMaterials;
+        currentHoveredEnemy = null;
+        originalMaterials = null;
+    }
+
 
     public void Run(InputAction.CallbackContext callback)
     {
@@ -132,20 +168,14 @@ public class FollowMouse : MonoBehaviour
         camOffset.y = Mathf.Lerp(camOffset.y, currentZoom, Time.deltaTime * zoomSpeed); //Mueve la camara suavemente entre su posición actual y la posición requerida (currentZoom)
     }
 
-    //Mover más tarde a otro script VVV
-
-    public void TakeDamage(float amount) //Metodo para recibir daño
+    public void BaseAttack(InputAction.CallbackContext callback)
     {
-        currentLife -= amount;
-        if (currentLife <= 0)
+        //Atacar cuando se pulse click izquierdo
+        if (callback.performed && currentHoveredEnemy != null)
         {
-            // El jugador muere
-        }
-        else 
-        {
-            //Sonido y efecto de daño
+            //Aqui iria el codigo de ataque al enemigo (currentHoveredEnemy)
+            Debug.Log("Atacando a " + currentHoveredEnemy.name);
+            currentHoveredEnemy.GetComponent<Enemy>().TakeDamage(basicDamage); //Ejemplo: hacer que el enemigo reciba 10 de daño
         }
     }
-    //Mover más tarde a otro script ^^^
-
 }

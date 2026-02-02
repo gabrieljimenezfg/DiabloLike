@@ -43,12 +43,13 @@ public class Enemy : MonoBehaviour
         attackPivot.localScale = new Vector3(attackPivot.localScale.x,attackPivot.localScale.y,attackRange);
     }
 
-    void TakeDamage(float amount) //Metodo para recibir daño
+    public void TakeDamage(float amount) //Metodo para recibir daño
     {
         health -= amount;
         if (health <= 0)
         {
             // El enemigo muere
+            Debug.Log("Enemigo muerto");
         }
         else 
         {

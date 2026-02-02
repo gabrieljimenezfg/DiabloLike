@@ -7,6 +7,9 @@ public static class MouseWorldUtils
     private static readonly LayerMask groundLayer =
         LayerMask.GetMask("Ground");
 
+    private static readonly LayerMask enemyLayer =
+        LayerMask.GetMask("Enemy");
+
     public static bool TryGetMousePositionOnGround(
         out Vector3 position)
     {
@@ -19,6 +22,19 @@ public static class MouseWorldUtils
         }
 
         position = default;
+        return false;
+    }
+
+    public static bool IsOnEnemy(
+        out GameObject hitEnemy)
+    {
+        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, enemyLayer))
+        {
+            hitEnemy = hit.collider.gameObject;
+            return true;
+        }
+        hitEnemy = null;
         return false;
     }
 }
