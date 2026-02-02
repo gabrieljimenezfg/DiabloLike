@@ -5,12 +5,19 @@ public class Player : MonoBehaviour
 {
     public static Player Instance;
 
-    private float hp, mana;
+    [SerializeField] private float hp = 100f, mana = 100f;
     [SerializeField] private float maxHp, maxMana;
 
-    private Inventory inventory;
+    public float HP => hp;
+    public float Mana => mana;
 
-    public event EventHandler PlayerHealed;
+    private Inventory inventory;
+    private SkillSystem skillSystem;
+
+    public event EventHandler PlayerHPChanged;
+    public event EventHandler PlayerManaChanged;
+    public event EventHandler PlayerTookDamage;
+    public event EventHandler PlayerDied;
 
     private void Awake()
     {
@@ -25,46 +32,82 @@ public class Player : MonoBehaviour
         }
 
         inventory = GetComponent<Inventory>();
+        skillSystem = GetComponent<SkillSystem>();
     }
 
     private void Start()
     {
         GameInput.Instance.SkillPerformed += OnSkillPerformed;
+        GameInput.Instance.HealPotionUsed += OnHealPotionUsed;
+        GameInput.Instance.ManaPotionUsed += OnManaPotionUsed;
+    }
+
+    private void OnHealPotionUsed(object sender, EventArgs e)
+    {
+        ConsumeHealingPotion();
+    }
+
+    private void OnManaPotionUsed(object sender, EventArgs e)
+    {
+        ConsumeManaPotion();
     }
 
     private void OnSkillPerformed(object sender, GameInput.SkillPerformedEventArgs e)
     {
-        Debug.Log("Skill slot performed");
-        Debug.Log(e.slotId);
-    }
-
-
-    private void Update()
-    {
-        TestSaveLoad();
-    }
-
-    private void TestSaveLoad()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            SaveSystem.Save();
-        }
+        skillSystem.CastSkill(e.slotId);
     }
 
     private void ConsumeHealingPotion()
     {
-        var hasPotion = inventory.PickupHealingPotion();
+        var hasPotion = inventory.TryConsumeHealingPotion();
         if (hasPotion)
         {
-            Heal(inventory.GetHealingPotionHealthAmount());
+            var healAmount = inventory.GetHealingPotionHealthAmount();
+            Heal(healAmount);
+        }
+    }
+
+    private void ConsumeManaPotion()
+    {
+        var hasPotion = inventory.TryConsumeManaPotion();
+        if (hasPotion)
+        {
+            var manaRecoverAmount = inventory.GetManaPotionRecoverAmount();
+            RecoverMana(manaRecoverAmount);
+        }
+    }
+
+    public void TakeDamage(float amount)
+    {
+        hp -= amount;
+        if (hp <= 0)
+        {
+            PlayerDied?.Invoke(this, EventArgs.Empty);
+        }
+        else
+        {
+            PlayerTookDamage?.Invoke(this, EventArgs.Empty);
         }
     }
 
     private void Heal(float healAmount)
     {
-        hp += Mathf.Min(hp + healAmount, maxHp);
-        PlayerHealed?.Invoke(this, EventArgs.Empty);
+        if (hp == maxHp) return;
+        hp = Mathf.Min(hp + healAmount, maxHp);
+        PlayerHPChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void RecoverMana(float recoverAmount)
+    {
+        if (mana == maxMana) return;
+        mana = Mathf.Min(mana + recoverAmount, maxMana);
+        PlayerManaChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void UseMana(float manaUsageAmount)
+    {
+        mana = Mathf.Max(mana - manaUsageAmount, 0);
+        PlayerManaChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public void Save(ref PlayerState playerState)
@@ -86,5 +129,10 @@ public class Player : MonoBehaviour
     public Inventory GetInventory()
     {
         return inventory;
+    }
+
+    public SkillSystem GetSkillSystem()
+    {
+        return skillSystem;
     }
 }

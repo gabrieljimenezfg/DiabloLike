@@ -127,13 +127,49 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Movement"",
+                    ""type"": ""Button"",
+                    ""id"": ""75b05973-dc94-4295-9dab-445bfd5fbebc"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Run"",
+                    ""type"": ""Button"",
+                    ""id"": ""f821c4b0-dd3a-4ff9-8bfd-cbafcb30423f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HealPotion"",
+                    ""type"": ""Button"",
+                    ""id"": ""fef103fe-59af-4373-b30d-741a90502c82"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ManaPotion"",
+                    ""type"": ""Button"",
+                    ""id"": ""d7bc15d2-d2a3-49c3-bd82-fd94642a3550"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
                     ""id"": ""19086c4c-ae00-4bb7-9765-5408c0b93f39"",
-                    ""path"": ""<Keyboard>/1"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -144,7 +180,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""33e3db4e-088e-4a20-a55e-ed7edf20e068"",
-                    ""path"": ""<Keyboard>/2"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -155,7 +191,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""4c3997c6-7250-40f8-8a10-12abfaeecd1a"",
-                    ""path"": ""<Keyboard>/3"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -166,11 +202,55 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""fea25539-5de1-41c4-8f61-198e7ee1419d"",
-                    ""path"": ""<Keyboard>/4"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SkillSlot4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""10875a97-eb06-40cb-8bae-24fedbc87ea6"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7f107b8d-5d4d-473d-88d9-4c1eeedc4470"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b47ddc27-7d63-4ebd-9c73-98c52cbf2df1"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HealPotion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dc9818a3-28b4-439e-b219-cae4c295889c"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ManaPotion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -185,6 +265,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_SkillSlot2 = m_Player.FindAction("SkillSlot2", throwIfNotFound: true);
         m_Player_SkillSlot3 = m_Player.FindAction("SkillSlot3", throwIfNotFound: true);
         m_Player_SkillSlot4 = m_Player.FindAction("SkillSlot4", throwIfNotFound: true);
+        m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
+        m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
+        m_Player_HealPotion = m_Player.FindAction("HealPotion", throwIfNotFound: true);
+        m_Player_ManaPotion = m_Player.FindAction("ManaPotion", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -269,6 +353,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SkillSlot2;
     private readonly InputAction m_Player_SkillSlot3;
     private readonly InputAction m_Player_SkillSlot4;
+    private readonly InputAction m_Player_Movement;
+    private readonly InputAction m_Player_Run;
+    private readonly InputAction m_Player_HealPotion;
+    private readonly InputAction m_Player_ManaPotion;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -296,6 +384,22 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/SkillSlot4".
         /// </summary>
         public InputAction @SkillSlot4 => m_Wrapper.m_Player_SkillSlot4;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Movement".
+        /// </summary>
+        public InputAction @Movement => m_Wrapper.m_Player_Movement;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Run".
+        /// </summary>
+        public InputAction @Run => m_Wrapper.m_Player_Run;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/HealPotion".
+        /// </summary>
+        public InputAction @HealPotion => m_Wrapper.m_Player_HealPotion;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/ManaPotion".
+        /// </summary>
+        public InputAction @ManaPotion => m_Wrapper.m_Player_ManaPotion;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -334,6 +438,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @SkillSlot4.started += instance.OnSkillSlot4;
             @SkillSlot4.performed += instance.OnSkillSlot4;
             @SkillSlot4.canceled += instance.OnSkillSlot4;
+            @Movement.started += instance.OnMovement;
+            @Movement.performed += instance.OnMovement;
+            @Movement.canceled += instance.OnMovement;
+            @Run.started += instance.OnRun;
+            @Run.performed += instance.OnRun;
+            @Run.canceled += instance.OnRun;
+            @HealPotion.started += instance.OnHealPotion;
+            @HealPotion.performed += instance.OnHealPotion;
+            @HealPotion.canceled += instance.OnHealPotion;
+            @ManaPotion.started += instance.OnManaPotion;
+            @ManaPotion.performed += instance.OnManaPotion;
+            @ManaPotion.canceled += instance.OnManaPotion;
         }
 
         /// <summary>
@@ -357,6 +473,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @SkillSlot4.started -= instance.OnSkillSlot4;
             @SkillSlot4.performed -= instance.OnSkillSlot4;
             @SkillSlot4.canceled -= instance.OnSkillSlot4;
+            @Movement.started -= instance.OnMovement;
+            @Movement.performed -= instance.OnMovement;
+            @Movement.canceled -= instance.OnMovement;
+            @Run.started -= instance.OnRun;
+            @Run.performed -= instance.OnRun;
+            @Run.canceled -= instance.OnRun;
+            @HealPotion.started -= instance.OnHealPotion;
+            @HealPotion.performed -= instance.OnHealPotion;
+            @HealPotion.canceled -= instance.OnHealPotion;
+            @ManaPotion.started -= instance.OnManaPotion;
+            @ManaPotion.performed -= instance.OnManaPotion;
+            @ManaPotion.canceled -= instance.OnManaPotion;
         }
 
         /// <summary>
@@ -425,5 +553,33 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSkillSlot4(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Movement" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMovement(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Run" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRun(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "HealPotion" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnHealPotion(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ManaPotion" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnManaPotion(InputAction.CallbackContext context);
     }
 }
