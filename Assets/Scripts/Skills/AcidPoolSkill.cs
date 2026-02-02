@@ -4,6 +4,10 @@ public class AcidPoolSkill : MonoBehaviour, ISkillBehavior
 {
     public void Execute(Player player)
     {
-        Debug.Log("Acid Pool Skill");
+        if (MouseWorldUtils.TryGetMousePositionOnGround(out var mousePosition))
+        {
+            Debug.Log("mouse pos " + mousePosition);
+            transform.position = mousePosition;
+        }
     }
 }
