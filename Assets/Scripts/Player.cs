@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void TakeDamage(float amount)
+    public void TakeDamage(float amount)
     {
         hp -= amount;
         if (hp <= 0)
