@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamageable
 {
     public static Player Instance;
 
@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void TakeDamage(float amount)
+    public void TakeDamage(float amount)
     {
         hp -= amount;
         if (hp <= 0)
