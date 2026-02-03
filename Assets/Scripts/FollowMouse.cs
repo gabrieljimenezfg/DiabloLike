@@ -5,14 +5,12 @@ using System.Collections;
 
 public class FollowMouse : MonoBehaviour
 {
-    //Mover m�s tarde a otro script VVV
-    [SerializeField]
-    private float basicDamage;
+    //Mover mas tarde a otro script VVV
     [SerializeField]
     private float currentLife;
     [SerializeField]
     private float stamina;
-    //Mover m�s tarde a otro script ^^^
+    //Mover mas tarde a otro script ^^^
 
     [SerializeField]
     private float speed;
@@ -25,14 +23,24 @@ public class FollowMouse : MonoBehaviour
     [SerializeField]
     private Transform followerObject; //el transform del objeto que seguira al mouse
 
+    [Header("BaseAttack")]
     [SerializeField]
-    private Material outline; //Material de outline que se aplicar� al enemigo cuando el mouse est� sobre �l
+    private GameObject projectilePrefab;
+    [SerializeField]
+    private Transform projectileSpawnPoint;
+    [SerializeField]
+    private float projectileSpeed;
+
+    [SerializeField]
+    private Material outline; //Material de outline que se aplicara al enemigo cuando el mouse este sobre el
+
+    [Header("Camera")]
     [SerializeField]
     private Camera camera;
     [SerializeField]
     private Vector3 camOffset;
     [SerializeField]
-    private float camRunZoom; //Cuando el jugador corre la camara har� un peque�o zoom in
+    private float camRunZoom; //Cuando el jugador corre la camara hara un pequeno zoom in
     [SerializeField]
     private float zoomSpeed = 5f; //Velocidad a la que la camara se mueve cuando se hace zoom in o zoom out
     private float camOriginalZoom;
@@ -67,7 +75,7 @@ public class FollowMouse : MonoBehaviour
                 DeleteOutliner();
                 currentHoveredEnemy = enemyObj;
 
-                //Aeguro hay alguna forma mas optima   V V V
+                //Seguro hay alguna forma mas optima   V V V
                 MeshRenderer mr = currentHoveredEnemy.GetComponent<MeshRenderer>();
                 originalMaterials = mr.materials;
                 Material[] newMats = new Material[originalMaterials.Length + 1];
@@ -80,7 +88,7 @@ public class FollowMouse : MonoBehaviour
         }
         else
         {
-            // El mouse ya no est� sobre ning�n enemigo
+            // El mouse ya no esta sobre ningun enemigo
             DeleteOutliner();
         }
 
@@ -150,7 +158,7 @@ public class FollowMouse : MonoBehaviour
     {
         isMoving = true;
         //Mover cuando se pulse click derecho
-        GetComponent<NavMeshAgent>().SetDestination(followerObject.position); //Se asigna la destinacion del NavMeshAgent del Player a la posici�n del followerObject
+        GetComponent<NavMeshAgent>().SetDestination(followerObject.position); //Se asigna la destinacion del NavMeshAgent del Player a la posicion del followerObject
     }
 
     void LateUpdate()
@@ -166,7 +174,7 @@ public class FollowMouse : MonoBehaviour
         {
             currentZoom = camOriginalZoom;
         }
-        camOffset.y = Mathf.Lerp(camOffset.y, currentZoom, Time.deltaTime * zoomSpeed); //Mueve la camara suavemente entre su posici�n actual y la posici�n requerida (currentZoom)
+        camOffset.y = Mathf.Lerp(camOffset.y, currentZoom, Time.deltaTime * zoomSpeed); //Mueve la camara suavemente entre su posicion actual y la posici�n requerida (currentZoom)
     }
 
     public void BaseAttack(InputAction.CallbackContext callback)
@@ -176,7 +184,10 @@ public class FollowMouse : MonoBehaviour
         {
             //Aqui iria el codigo de ataque al enemigo (currentHoveredEnemy)
             Debug.Log("Atacando a " + currentHoveredEnemy.name);
-            currentHoveredEnemy.GetComponent<Enemy>().TakeDamage(basicDamage); //Ejemplo: hacer que el enemigo reciba 10 de da�o
+
+            projectileSpawnPoint.LookAt(currentHoveredEnemy.transform.position); //Ajusta la direccion del spawn del proyectil hacia el enemigo
+            GameObject projectileCopy = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
+            projectileCopy.GetComponent<Rigidbody>().velocity = projectileSpawnPoint.forward * projectileSpeed; //Asigna velocidad al proyectil hacia la direccion del spawn
         }
     }
 }
