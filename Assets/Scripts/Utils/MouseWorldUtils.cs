@@ -14,7 +14,7 @@ public static class MouseWorldUtils
         LayerMask.GetMask("Ground");
 
     private static readonly LayerMask enemyLayer =
-        LayerMask.GetMask("Enemy");
+        LayerMask.GetMask("Highlightable");
 
     private static LayerMask GetMask(MouseRayTargetLayer targetLayer)
     {
