@@ -1,5 +1,11 @@
 using UnityEngine;
 
+public enum MouseRayTargetLayer
+{
+    Ground,
+    Enemy
+}
+
 public static class MouseWorldUtils
 {
     private static readonly Camera camera = Camera.main;
@@ -10,31 +16,25 @@ public static class MouseWorldUtils
     private static readonly LayerMask enemyLayer =
         LayerMask.GetMask("Enemy");
 
-    public static bool TryGetMousePositionOnGround(
-        out Vector3 position)
+    private static LayerMask GetMask(MouseRayTargetLayer targetLayer)
     {
-        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, groundLayer))
+        switch (targetLayer)
         {
-            position = hit.point;
-            return true;
+            default:
+            case MouseRayTargetLayer.Ground:
+                return groundLayer;
+            case MouseRayTargetLayer.Enemy:
+                return enemyLayer;
         }
-
-        position = default;
-        return false;
     }
 
-    public static bool IsOnEnemy(
-        out GameObject hitEnemy)
+    public static bool TryGetMousePositionOnTargetLayer(
+        MouseRayTargetLayer targetLayer,
+        out RaycastHit hit)
     {
+        var targetLayerMask = GetMask(targetLayer);
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, enemyLayer))
-        {
-            hitEnemy = hit.collider.gameObject;
-            return true;
-        }
-        hitEnemy = null;
-        return false;
+
+        return Physics.Raycast(ray, out hit, Mathf.Infinity, targetLayerMask);
     }
 }

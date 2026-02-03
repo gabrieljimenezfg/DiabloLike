@@ -54,8 +54,9 @@ public class AcidPoolSkill : MonoBehaviour, ISkillBehavior
 
     public void Execute(Player player)
     {
-        if (MouseWorldUtils.TryGetMousePositionOnGround(out var mousePosition))
+        if (MouseWorldUtils.TryGetMousePositionOnTargetLayer(MouseRayTargetLayer.Ground, out var hit))
         {
+            var mousePosition = hit.point;
             Debug.Log("mouse pos " + mousePosition);
             transform.position = mousePosition;
         }

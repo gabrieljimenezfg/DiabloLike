@@ -5,14 +5,14 @@ using System.Collections;
 
 public class FollowMouse : MonoBehaviour
 {
-    //Mover más tarde a otro script VVV
+    //Mover mï¿½s tarde a otro script VVV
     [SerializeField]
     private float basicDamage;
     [SerializeField]
     private float currentLife;
     [SerializeField]
     private float stamina;
-    //Mover más tarde a otro script ^^^
+    //Mover mï¿½s tarde a otro script ^^^
 
     [SerializeField]
     private float speed;
@@ -26,13 +26,13 @@ public class FollowMouse : MonoBehaviour
     private Transform followerObject; //el transform del objeto que seguira al mouse
 
     [SerializeField]
-    private Material outline; //Material de outline que se aplicará al enemigo cuando el mouse esté sobre él
+    private Material outline; //Material de outline que se aplicarï¿½ al enemigo cuando el mouse estï¿½ sobre ï¿½l
     [SerializeField]
     private Camera camera;
     [SerializeField]
     private Vector3 camOffset;
     [SerializeField]
-    private float camRunZoom; //Cuando el jugador corre la camara hará un pequeño zoom in
+    private float camRunZoom; //Cuando el jugador corre la camara harï¿½ un pequeï¿½o zoom in
     [SerializeField]
     private float zoomSpeed = 5f; //Velocidad a la que la camara se mueve cuando se hace zoom in o zoom out
     private float camOriginalZoom;
@@ -54,13 +54,14 @@ public class FollowMouse : MonoBehaviour
     void Update()
     {
         //  FOLLOW MOUSE ON GROUND
-        if (MouseWorldUtils.TryGetMousePositionOnGround(out Vector3 mousePosition)) { 
-            followerObject.position = mousePosition;
+        if (MouseWorldUtils.TryGetMousePositionOnTargetLayer(MouseRayTargetLayer.Ground, out var groundHit)) { 
+            followerObject.position = groundHit.point;
         }
 
         //  IS THE MOUSE TOUCHING AN ENEMY?
-        if (MouseWorldUtils.IsOnEnemy(out GameObject enemyObj)) //enemiObj es el enemigo sobre el que está el mouse
+        if (MouseWorldUtils.TryGetMousePositionOnTargetLayer(MouseRayTargetLayer.Enemy, out var enemyHit))
         {
+            var enemyObj = enemyHit.collider.gameObject;
             if (currentHoveredEnemy != enemyObj)  // El mouse ha pasado a estar sobre un nuevo enemigo
             {
                 DeleteOutliner();
@@ -79,7 +80,7 @@ public class FollowMouse : MonoBehaviour
         }
         else
         {
-            // El mouse ya no está sobre ningún enemigo
+            // El mouse ya no estï¿½ sobre ningï¿½n enemigo
             DeleteOutliner();
         }
 
@@ -149,7 +150,7 @@ public class FollowMouse : MonoBehaviour
     {
         isMoving = true;
         //Mover cuando se pulse click derecho
-        GetComponent<NavMeshAgent>().SetDestination(followerObject.position); //Se asigna la destinacion del NavMeshAgent del Player a la posición del followerObject
+        GetComponent<NavMeshAgent>().SetDestination(followerObject.position); //Se asigna la destinacion del NavMeshAgent del Player a la posiciï¿½n del followerObject
     }
 
     void LateUpdate()
@@ -165,7 +166,7 @@ public class FollowMouse : MonoBehaviour
         {
             currentZoom = camOriginalZoom;
         }
-        camOffset.y = Mathf.Lerp(camOffset.y, currentZoom, Time.deltaTime * zoomSpeed); //Mueve la camara suavemente entre su posición actual y la posición requerida (currentZoom)
+        camOffset.y = Mathf.Lerp(camOffset.y, currentZoom, Time.deltaTime * zoomSpeed); //Mueve la camara suavemente entre su posiciï¿½n actual y la posiciï¿½n requerida (currentZoom)
     }
 
     public void BaseAttack(InputAction.CallbackContext callback)
@@ -175,7 +176,7 @@ public class FollowMouse : MonoBehaviour
         {
             //Aqui iria el codigo de ataque al enemigo (currentHoveredEnemy)
             Debug.Log("Atacando a " + currentHoveredEnemy.name);
-            currentHoveredEnemy.GetComponent<Enemy>().TakeDamage(basicDamage); //Ejemplo: hacer que el enemigo reciba 10 de daño
+            currentHoveredEnemy.GetComponent<Enemy>().TakeDamage(basicDamage); //Ejemplo: hacer que el enemigo reciba 10 de daï¿½o
         }
     }
 }
