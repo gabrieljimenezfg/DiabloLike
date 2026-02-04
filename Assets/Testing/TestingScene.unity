@@ -1067,7 +1067,7 @@ Transform:
   m_GameObject: {fileID: 523745634}
   serializedVersion: 2
   m_LocalRotation: {x: 0.14390455, y: -0.3421914, z: 0.37673533, w: 0.8486855}
-  m_LocalPosition: {x: -8.64593, y: 6.85, z: -9.8963}
+  m_LocalPosition: {x: -8.64593, y: 3.56, z: -9.8963}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1378,6 +1378,8 @@ MonoBehaviour:
   stamina: 100
   speed: 4
   runSpeed: 10.1
+  rollDistance: 0
+  rollSpeed: 0
   followerObject: {fileID: 1263116875}
   projectilePrefab: {fileID: 3026340385685424308, guid: dba5be3a84a65e1448ddaeaf55be8fca, type: 3}
   projectileSpawnPoint: {fileID: 1666750451}
@@ -1951,6 +1953,8 @@ MonoBehaviour:
   stamina: 100
   speed: 4
   runSpeed: 10.1
+  rollDistance: 0
+  rollSpeed: 0
   followerObject: {fileID: 1263116875}
   projectilePrefab: {fileID: 0}
   projectileSpawnPoint: {fileID: 0}

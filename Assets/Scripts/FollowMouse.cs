@@ -16,6 +16,11 @@ public class FollowMouse : MonoBehaviour
     private float speed;
     [SerializeField]
     private float runSpeed;
+    [SerializeField]
+    private float rollDistance;
+    [SerializeField]
+    private float rollSpeed;
+
     private bool lowerStamina = false; //Variable para controlar si se debe reducir la stamina o no
     private bool isMoving = false;
     private bool isRunning;
@@ -162,15 +167,27 @@ public class FollowMouse : MonoBehaviour
         //Mover cuando se pulse click derecho
         GetComponent<NavMeshAgent>().SetDestination(followerObject.position); //Se asigna la destinacion del NavMeshAgent del Player a la posicion del followerObject
     }
-
+    /*
     public void Roll(InputAction.CallbackContext callback)
     {
         if (callback.performed == true) {
             Player.Instance.invincible = true;
-            GetComponent<Animator>().SetTrigger("Roll");
-            //Haga la animación de roll y que al final haya un evento que active tu hitbox denuevo
+            GetComponent<Animator>().SetTrigger("Roll"); // Que haga la animación de roll y que al final haya un evento que active tu hitbox denuevo
+            if (isMoving)
+            {
+                Vector3 rollDirection = (followerObject.position - transform.position).normalized;
+                Vector3 targetPosition = transform.position + rollDirection * rollDistance;
+            }
+            else {
+                Vector3 targetPosition = transform.position + transform.forward * rollDistance;
+            }
+            while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
+            {
+                transform.position = Vector3.Lerp(transform.position, targetPosition, rollSpeed);
+            }
         }
     }
+    */
 
     public void ReactivateDamage() { //Esto es para el evento del rol en el que se reactivará su danyo
         Player.Instance.invincible = false;
