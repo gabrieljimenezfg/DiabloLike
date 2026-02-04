@@ -139,6 +139,8 @@ MonoBehaviour:
   poolRadius: 5
   visual: {fileID: 3063938080100986784}
   collider: {fileID: 7543722847878295548}
+  damageTickFrequency: 2
+  skillDamage: 10
 --- !u!54 &2156843671614812485
 Rigidbody:
   m_ObjectHideFlags: 0
