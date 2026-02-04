@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
   damage: 25
+  distance: 5.5
 --- !u!54 &5084902301003188432
 Rigidbody:
   m_ObjectHideFlags: 0

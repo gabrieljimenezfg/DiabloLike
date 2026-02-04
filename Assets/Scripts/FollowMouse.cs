@@ -30,6 +30,8 @@ public class FollowMouse : MonoBehaviour
     private Transform projectileSpawnPoint;
     [SerializeField]
     private float projectileSpeed;
+    [SerializeField]
+    private float projectileDistance;
 
     [SerializeField]
     private Material outline; //Material de outline que se aplicara al enemigo cuando el mouse este sobre el
@@ -161,6 +163,19 @@ public class FollowMouse : MonoBehaviour
         GetComponent<NavMeshAgent>().SetDestination(followerObject.position); //Se asigna la destinacion del NavMeshAgent del Player a la posicion del followerObject
     }
 
+    public void Roll(InputAction.CallbackContext callback)
+    {
+        if (callback.performed == true) {
+            Player.Instance.invincible = true;
+            GetComponent<Animator>().SetTrigger("Roll");
+            //Haga la animación de roll y que al final haya un evento que active tu hitbox denuevo
+        }
+    }
+
+    public void ReactivateDamage() { //Esto es para el evento del rol en el que se reactivará su danyo
+        Player.Instance.invincible = false;
+    }
+
     void LateUpdate()
     {
         camera.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z) + camOffset; //La camara sigue al jugador en X y Z 
@@ -188,6 +203,7 @@ public class FollowMouse : MonoBehaviour
             projectileSpawnPoint.LookAt(currentHoveredEnemy.transform.position); //Ajusta la direccion del spawn del proyectil hacia el enemigo
             GameObject projectileCopy = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
             projectileCopy.GetComponent<Rigidbody>().velocity = projectileSpawnPoint.forward * projectileSpeed; //Asigna velocidad al proyectil hacia la direccion del spawn
+            
         }
     }
 }

@@ -7,6 +7,7 @@ public class Player : MonoBehaviour, IDamageable
 
     [SerializeField] private float hp = 100f, mana = 100f;
     [SerializeField] private float maxHp, maxMana;
+    public bool invincible = false;
 
     public float HP => hp;
     public float Mana => mana;
@@ -79,14 +80,17 @@ public class Player : MonoBehaviour, IDamageable
 
     public void TakeDamage(float amount)
     {
-        hp -= amount;
-        if (hp <= 0)
+        if (!invincible)
         {
-            PlayerDied?.Invoke(this, EventArgs.Empty);
-        }
-        else
-        {
-            PlayerTookDamage?.Invoke(this, EventArgs.Empty);
+            hp -= amount;
+            if (hp <= 0)
+            {
+                PlayerDied?.Invoke(this, EventArgs.Empty);
+            }
+            else
+            {
+                PlayerTookDamage?.Invoke(this, EventArgs.Empty);
+            }
         }
     }
 

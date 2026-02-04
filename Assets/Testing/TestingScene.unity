@@ -471,6 +471,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7534926000282603271, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 729393168}
+    - targetCorrespondingSourceObject: {fileID: 7534926000282603271, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 729393180}
   m_SourcePrefab: {fileID: 100100000, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
 --- !u!1 &304985116
 GameObject:
@@ -1266,6 +1269,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: bdafb951-d969-4c82-bf61-d2b60e0fa6b3
     m_ActionName: 'Player/BaseAttack[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 729393172}
+        m_TargetAssemblyTypeName: FollowMouse, Assembly-CSharp
+        m_MethodName: Roll
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 986ac7fe-8653-47ab-af5b-d529407babfc
+    m_ActionName: 'Player/Roll[/Keyboard/space]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1363,6 +1382,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3026340385685424308, guid: dba5be3a84a65e1448ddaeaf55be8fca, type: 3}
   projectileSpawnPoint: {fileID: 1666750451}
   projectileSpeed: 7.5
+  projectileDistance: 0
   outline: {fileID: 2100000, guid: def3adda46a5cef4eb58bce118444ac3, type: 2}
   camera: {fileID: 0}
   camOffset: {x: 0, y: 8.5, z: 0}
@@ -1373,6 +1393,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3083101380345168495, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
   m_PrefabInstance: {fileID: 163467639}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &729393180
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729393167}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4961444fdf276024986942e71edb2df2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &783200058
 GameObject:
   m_ObjectHideFlags: 0
@@ -1913,6 +1955,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 0}
   projectileSpawnPoint: {fileID: 0}
   projectileSpeed: 0
+  projectileDistance: 0
   outline: {fileID: 0}
   camera: {fileID: 0}
   camOffset: {x: 0, y: 10, z: 0}
