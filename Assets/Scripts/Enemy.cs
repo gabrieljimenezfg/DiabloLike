@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IDamageable
 {
     [Header("Stats")] //Stats del enemigo
     [SerializeField]
@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float attackCooldown;
     [SerializeField]
-    private float basicAttackDMG; //Daño del ataque básico
+    private float basicAttackDMG; //Daï¿½o del ataque bï¿½sico
 
     [Header("ThisEnemy")] //Cosas de este enemigo en concreto
     [SerializeField]
@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
         attackPivot.localScale = new Vector3(attackPivot.localScale.x,attackPivot.localScale.y,attackRange);
     }
 
-    public void TakeDamage(float amount) //Metodo para recibir daño
+    public void TakeDamage(float amount) //Metodo para recibir daï¿½o
     {
         health -= amount;
         if (health <= 0)
@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
         }
         else 
         {
-            //Sonido y efecto de daño
+            //Sonido y efecto de daï¿½o
         }
     }
 
@@ -86,7 +86,7 @@ public class Enemy : MonoBehaviour
                 //En rango de ataque
                 if (timePass >= attackCooldown) //Esto es para el cooldown de ataque
                 {
-                    player.GetComponent<Player>().TakeDamage(basicAttackDMG); //El jugador recibe daño del ataque básico   ||  HAY QUE CAMBIARLO MÁS ADELANTE YA QUE LA VIDA DEL PLAYER SE MOVERÁ A OTRO SCRIPT
+                    player.GetComponent<Player>().TakeDamage(basicAttackDMG); //El jugador recibe daï¿½o del ataque bï¿½sico   ||  HAY QUE CAMBIARLO Mï¿½S ADELANTE YA QUE LA VIDA DEL PLAYER SE MOVERï¿½ A OTRO SCRIPT
                     Debug.Log("ataque");
 
                     timePass = 0;
@@ -114,5 +114,5 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    //Para ataques más especificos deberán hacerse en los scripts hijos que hereden de este
+    //Para ataques mï¿½s especificos deberï¿½n hacerse en los scripts hijos que hereden de este
 }
