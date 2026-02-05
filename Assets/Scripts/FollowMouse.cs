@@ -5,14 +5,12 @@ using System.Collections;
 
 public class FollowMouse : MonoBehaviour
 {
-    //Mover más tarde a otro script VVV
-    [SerializeField]
-    private float maxLife;
+    //Mover mas tarde a otro script VVV
     [SerializeField]
     private float currentLife;
     [SerializeField]
     private float stamina;
-    //Mover más tarde a otro script ^^^
+    //Mover mas tarde a otro script ^^^
 
     [SerializeField]
     private float speed;
@@ -25,17 +23,32 @@ public class FollowMouse : MonoBehaviour
     [SerializeField]
     private Transform followerObject; //el transform del objeto que seguira al mouse
 
+    [Header("BaseAttack")]
+    [SerializeField]
+    private GameObject projectilePrefab;
+    [SerializeField]
+    private Transform projectileSpawnPoint;
+    [SerializeField]
+    private float projectileSpeed;
+
+    [SerializeField]
+    private Material outline; //Material de outline que se aplicara al enemigo cuando el mouse este sobre el
+
+    [Header("Camera")]
     [SerializeField]
     private Camera camera;
     [SerializeField]
     private Vector3 camOffset;
     [SerializeField]
-    private float camRunZoom; //Cuando el jugador corre la camara hará un pequeño zoom in
+    private float camRunZoom; //Cuando el jugador corre la camara hara un pequeno zoom in
     [SerializeField]
     private float zoomSpeed = 5f; //Velocidad a la que la camara se mueve cuando se hace zoom in o zoom out
     private float camOriginalZoom;
 
     private int groundLayer;
+
+    private GameObject currentHoveredEnemy;
+    private Material[] originalMaterials;
 
     void Awake()
     {
@@ -49,13 +62,34 @@ public class FollowMouse : MonoBehaviour
     void Update()
     {
         //  FOLLOW MOUSE ON GROUND
-        Ray ray = camera.ScreenPointToRay(Input.mousePosition); //crea un rayo desde la camara hasta la posicion del mouse
-        RaycastHit hit;
+        if (MouseWorldUtils.TryGetMousePositionOnTargetLayer(MouseRayTargetLayer.Ground, out var groundHit)) { 
+            followerObject.position = groundHit.point;
+        }
 
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
+        //  IS THE MOUSE TOUCHING AN ENEMY?
+        if (MouseWorldUtils.TryGetMousePositionOnTargetLayer(MouseRayTargetLayer.Enemy, out var enemyHit))
         {
-            followerObject.position = hit.point; //cuando el raycast golpea el suelo le asigna la posicion del contacto del raycast contra el suelo (hit.point) al followerObject
-                                                 //con esto se hace que followerObject este siempre en el suelo, aunque haya inclinacion, elevacion o bajadas en el suelo
+            var enemyObj = enemyHit.collider.gameObject;
+            if (currentHoveredEnemy != enemyObj)  // El mouse ha pasado a estar sobre un nuevo enemigo
+            {
+                DeleteOutliner();
+                currentHoveredEnemy = enemyObj;
+
+                //Seguro hay alguna forma mas optima   V V V
+                MeshRenderer mr = currentHoveredEnemy.GetComponent<MeshRenderer>();
+                originalMaterials = mr.materials;
+                Material[] newMats = new Material[originalMaterials.Length + 1];
+                originalMaterials.CopyTo(newMats, 0);
+                newMats[newMats.Length - 1] = outline;
+                mr.materials = newMats;
+
+                enemyObj.GetComponent<MeshRenderer>().materials = new Material[] { enemyObj.GetComponent<MeshRenderer>().material, outline };
+            }
+        }
+        else
+        {
+            // El mouse ya no esta sobre ningun enemigo
+            DeleteOutliner();
         }
 
         // STAMINA/RUN MANAGEMENT
@@ -90,6 +124,17 @@ public class FollowMouse : MonoBehaviour
         }
     }
 
+    private void DeleteOutliner()
+    {
+        if (currentHoveredEnemy == null) return;
+
+        MeshRenderer mr = currentHoveredEnemy.GetComponent<MeshRenderer>();
+        mr.materials = originalMaterials;
+        currentHoveredEnemy = null;
+        originalMaterials = null;
+    }
+
+
     public void Run(InputAction.CallbackContext callback)
     {
         //Correr cuando se mantenga pulsado shift, se este moviendo y tenga stamina
@@ -113,13 +158,15 @@ public class FollowMouse : MonoBehaviour
     {
         isMoving = true;
         //Mover cuando se pulse click derecho
-        GetComponent<NavMeshAgent>().SetDestination(followerObject.position); //Se asigna la destinacion del NavMeshAgent del Player a la posición del followerObject
+        GetComponent<NavMeshAgent>().SetDestination(followerObject.position); //Se asigna la destinacion del NavMeshAgent del Player a la posicion del followerObject
     }
 
     void LateUpdate()
     {
         camera.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z) + camOffset; //La camara sigue al jugador en X y Z 
 
+        camera.transform.LookAt(transform.position);
+        
         //CAMERA ZOOM MANAGEMENT
         float currentZoom;
         if (isRunning) {
@@ -129,23 +176,20 @@ public class FollowMouse : MonoBehaviour
         {
             currentZoom = camOriginalZoom;
         }
-        camOffset.y = Mathf.Lerp(camOffset.y, currentZoom, Time.deltaTime * zoomSpeed); //Mueve la camara suavemente entre su posición actual y la posición requerida (currentZoom)
+        camOffset.y = Mathf.Lerp(camOffset.y, currentZoom, Time.deltaTime * zoomSpeed); //Mueve la camara suavemente entre su posicion actual y la posiciï¿½n requerida (currentZoom)
     }
 
-    //Mover más tarde a otro script VVV
-
-    public void TakeDamage(float amount) //Metodo para recibir daño
+    public void BaseAttack(InputAction.CallbackContext callback)
     {
-        currentLife -= amount;
-        if (currentLife <= 0)
+        //Atacar cuando se pulse click izquierdo
+        if (callback.performed && currentHoveredEnemy != null)
         {
-            // El jugador muere
-        }
-        else 
-        {
-            //Sonido y efecto de daño
+            //Aqui iria el codigo de ataque al enemigo (currentHoveredEnemy)
+            Debug.Log("Atacando a " + currentHoveredEnemy.name);
+
+            projectileSpawnPoint.LookAt(currentHoveredEnemy.transform.position); //Ajusta la direccion del spawn del proyectil hacia el enemigo
+            GameObject projectileCopy = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
+            projectileCopy.GetComponent<Rigidbody>().linearVelocity = projectileSpawnPoint.forward * projectileSpeed; //Asigna velocidad al proyectil hacia la direccion del spawn
         }
     }
-    //Mover más tarde a otro script ^^^
-
 }

@@ -10,6 +10,8 @@ public class Player : MonoBehaviour, IDamageable
 
     public float HP => hp;
     public float Mana => mana;
+    public float MaxHP => maxHp;
+    public float MaxMana => maxMana;
 
     private Inventory inventory;
     private SkillSystem skillSystem;
@@ -79,15 +81,22 @@ public class Player : MonoBehaviour, IDamageable
 
     public void TakeDamage(float amount)
     {
-        hp -= amount;
+        ReduceHP(amount);
+        DamagePopup.Create(transform.position, amount);
         if (hp <= 0)
         {
+            PlayerHPChanged?.Invoke(this, EventArgs.Empty);
             PlayerDied?.Invoke(this, EventArgs.Empty);
         }
         else
         {
-            PlayerTookDamage?.Invoke(this, EventArgs.Empty);
+            PlayerHPChanged?.Invoke(this, EventArgs.Empty);
         }
+    }
+
+    private void ReduceHP(float amount)
+    {
+        hp = Mathf.Max(0, hp - amount);
     }
 
     private void Heal(float healAmount)

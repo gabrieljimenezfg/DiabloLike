@@ -1,16 +1,34 @@
 using System;
 using UnityEngine;
+using EntitiesInPoolDamageTimers = System.Collections.Generic.Dictionary<IDamageable, float>;
 
 public class AcidPoolSkill : MonoBehaviour, ISkillBehavior
 {
-    private const float height = 0.1f;
     [SerializeField] private float poolRadius = 5f;
     [SerializeField] private Transform visual;
     [SerializeField] private BoxCollider collider;
+    [SerializeField] private float damageTickFrequency = 2f;
+    [SerializeField] private float skillDamage;
+    [SerializeField] private float aliveTime = 5f;
+    private EntitiesInPoolDamageTimers entitiesInPoolDamageTimers = new EntitiesInPoolDamageTimers();
 
     private void Start()
     {
         ApplyRadius();
+    }
+
+    private void Update()
+    {
+        aliveTime -= Time.deltaTime;
+        if (aliveTime <= 0f)
+        {
+            RemovePool();
+        }
+    }
+
+    private void RemovePool()
+    {
+        Destroy(gameObject);
     }
 
     private void ApplyRadius()
@@ -28,16 +46,9 @@ public class AcidPoolSkill : MonoBehaviour, ISkillBehavior
         var poolPosition2D = new Vector2(poolCenter.x, poolCenter.z);
         var entityPosition2D = new Vector2(entity.position.x, entity.position.z);
 
-        float distance = Vector2.Distance(entityPosition2D, poolPosition2D);
+        var distance = Vector2.Distance(entityPosition2D, poolPosition2D);
 
-        if (distance <= poolRadius)
-        {
-            Debug.Log("Burning!");
-            return true;
-        }
-
-        Debug.Log("Safe!");
-        return false;
+        return distance <= poolRadius;
     }
 
     private void OnTriggerStay(Collider other)
@@ -46,16 +57,61 @@ public class AcidPoolSkill : MonoBehaviour, ISkillBehavior
         {
             if (CheckIfEntityIsOnRadius(other.transform))
             {
-                // TODO: damage ticks instead of constant damage
-                damageable.TakeDamage(10f);
+                HandleDamageAllEntitiesInsideOverTime(damageable);
             }
+            else
+            {
+                TryRemoveEntityFromPool(other.gameObject);
+            }
+        }
+    }
+
+    private void HandleDamageAllEntitiesInsideOverTime(IDamageable damageable)
+    {
+        if (!entitiesInPoolDamageTimers.ContainsKey(damageable))
+        {
+            DealDamage(damageable);
+        }
+        else
+        {
+            var isDamageIntervalDone = Time.time >= entitiesInPoolDamageTimers[damageable] + damageTickFrequency;
+            if (!isDamageIntervalDone) return;
+
+            DealDamage(damageable);
+        }
+    }
+
+    private void DealDamage(IDamageable damageable)
+    {
+        Debug.Log("Damaging " + damageable);
+        damageable.TakeDamage(skillDamage);
+        SetEntityTimerToCurrentTime(damageable);
+    }
+
+    private void SetEntityTimerToCurrentTime(IDamageable damageable)
+    {
+        entitiesInPoolDamageTimers[damageable] = Time.time;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        TryRemoveEntityFromPool(other.gameObject);
+    }
+
+
+    private void TryRemoveEntityFromPool(GameObject other)
+    {
+        if (other.TryGetComponent<IDamageable>(out var damageable))
+        {
+            entitiesInPoolDamageTimers.Remove(damageable);
         }
     }
 
     public void Execute(Player player)
     {
-        if (MouseWorldUtils.TryGetMousePositionOnGround(out var mousePosition))
+        if (MouseWorldUtils.TryGetMousePositionOnTargetLayer(MouseRayTargetLayer.Ground, out var hit))
         {
+            var mousePosition = hit.point;
             Debug.Log("mouse pos " + mousePosition);
             transform.position = mousePosition;
         }

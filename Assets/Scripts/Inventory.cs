@@ -25,6 +25,7 @@ public class Inventory : MonoBehaviour
     public bool TryConsumeHealingPotion()
     {
         if (healthPotionsAmountHeld <= 0) return false;
+        if (Player.Instance.HP == Player.Instance.MaxHP) return false;
 
         healthPotionsAmountHeld--;
         PotionsAmountChanged?.Invoke(this, EventArgs.Empty);
@@ -41,6 +42,7 @@ public class Inventory : MonoBehaviour
     public bool TryConsumeManaPotion()
     {
         if (manaPotionsAmountHeld <= 0) return false;
+        if (Player.Instance.Mana == Player.Instance.MaxMana) return false;
 
         manaPotionsAmountHeld--;
         PotionsAmountChanged?.Invoke(this, EventArgs.Empty);

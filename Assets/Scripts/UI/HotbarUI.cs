@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HotbarUI : MonoBehaviour
 {
@@ -10,16 +11,31 @@ public class HotbarUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI healingPotionSlotText;
     [SerializeField] private TextMeshProUGUI manaPotionSlotText;
 
+    [SerializeField] private Image healthOrb, manaOrb;
+
     private void Start()
     {
         skillSystem = Player.Instance.GetSkillSystem();
+        Player.Instance.PlayerHPChanged += OnPlayerOrbStatChanged;
+        Player.Instance.PlayerManaChanged += OnPlayerOrbStatChanged;
         Inventory.PotionsAmountChanged += OnPlayerPotionsAmountChanged;
         UpdatePotionsText();
+    }
+
+    private void OnPlayerOrbStatChanged(object sender, EventArgs e)
+    {
+        UpdateOrbsVisual();
     }
 
     private void Update()
     {
         UpdateSkillSlots();
+    }
+
+    private void UpdateOrbsVisual()
+    {
+        healthOrb.fillAmount = Player.Instance.HP / Player.Instance.MaxHP;
+        manaOrb.fillAmount = Player.Instance.Mana / Player.Instance.MaxMana;
     }
 
     private void UpdateSkillSlots()
@@ -40,7 +56,7 @@ public class HotbarUI : MonoBehaviour
         UpdatePotionsText();
     }
 
-    public void UpdatePotionsText()
+    private void UpdatePotionsText()
     {
         var inventory = Player.Instance.GetInventory();
 
