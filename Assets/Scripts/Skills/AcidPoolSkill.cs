@@ -9,11 +9,26 @@ public class AcidPoolSkill : MonoBehaviour, ISkillBehavior
     [SerializeField] private BoxCollider collider;
     [SerializeField] private float damageTickFrequency = 2f;
     [SerializeField] private float skillDamage;
+    [SerializeField] private float aliveTime = 5f;
     private EntitiesInPoolDamageTimers entitiesInPoolDamageTimers = new EntitiesInPoolDamageTimers();
 
     private void Start()
     {
         ApplyRadius();
+    }
+
+    private void Update()
+    {
+        aliveTime -= Time.deltaTime;
+        if (aliveTime <= 0f)
+        {
+            RemovePool();
+        }
+    }
+
+    private void RemovePool()
+    {
+        Destroy(gameObject);
     }
 
     private void ApplyRadius()
