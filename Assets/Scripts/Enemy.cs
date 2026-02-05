@@ -46,6 +46,7 @@ public class Enemy : MonoBehaviour, IDamageable
     public void TakeDamage(float amount) //Metodo para recibir da�o
     {
         health -= amount;
+        DamagePopup.Create(transform.position, amount);
         if (health <= 0)
         {
             // El enemigo muere

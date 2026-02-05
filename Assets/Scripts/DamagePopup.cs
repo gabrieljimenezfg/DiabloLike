@@ -6,9 +6,9 @@ public class DamagePopup : MonoBehaviour
 {
     public static DamagePopup Create(Vector3 position, float damageAmount)
     {
-        var yOffset = 3f;
-        position += Vector3.up * yOffset;
-        var damagePopupTransform = Instantiate(GameAssets.i.damagePopupPrefab, position, Quaternion.identity);        
+        var yOffset = Vector3.up * 2f;
+        var positionOffset = position + yOffset;
+        var damagePopupTransform = Instantiate(GameAssets.i.damagePopupPrefab, positionOffset, Quaternion.identity);        
         damagePopupTransform.LookAt(Camera.main.transform);
         var damagePopup = damagePopupTransform.GetComponent<DamagePopup>();
         damagePopup.Setup(damageAmount);
@@ -18,10 +18,10 @@ public class DamagePopup : MonoBehaviour
 
     private static int sortingOrder;
 
-    private const float DISAPPEAR_TIMER_MAX = 1f;
     
     private TextMeshPro damageText;
-    [SerializeField] private float disappearTimer = 1f;
+    [SerializeField] private float disappearTimerMax = 1f;
+    private float disappearTimer;
     [SerializeField] private float moveYSpeed = 5f;
     [SerializeField] private float yOffset = 5f;
     private Color textColor;
@@ -38,7 +38,7 @@ public class DamagePopup : MonoBehaviour
         transform.position += new Vector3(0, moveYSpeed) * Time.deltaTime;
         
         disappearTimer -= Time.deltaTime;
-        if (disappearTimer > DISAPPEAR_TIMER_MAX * .5f)
+        if (disappearTimer > disappearTimerMax * .5f)
         {
             float increaseScaleAmount = 1f;
             transform.localScale += Vector3.one * (increaseScaleAmount * Time.deltaTime);
@@ -65,7 +65,7 @@ public class DamagePopup : MonoBehaviour
     public void Setup(float damageAmount)
     {
        damageText.SetText(damageAmount.ToString());
-       disappearTimer = DISAPPEAR_TIMER_MAX;
+       disappearTimer = disappearTimerMax;
        sortingOrder++;
        damageText.sortingOrder = sortingOrder;
     }
