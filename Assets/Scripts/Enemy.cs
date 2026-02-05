@@ -77,9 +77,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private bool ShouldDropPotion()
     {
-        var roll = Random.Range(0, 100) < potionDropChancePercentage;
-        Debug.Log("Rolled on death: " + roll);
-        return roll;
+        return Random.Range(0, 100) < potionDropChancePercentage;
     }
 
     void OnTriggerEnter(Collider other)
