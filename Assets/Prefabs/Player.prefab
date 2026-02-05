@@ -306,8 +306,8 @@ MonoBehaviour:
   projectileSpeed: 7.5
   outline: {fileID: 2100000, guid: def3adda46a5cef4eb58bce118444ac3, type: 2}
   camera: {fileID: 0}
-  camOffset: {x: 0, y: 8.5, z: 0}
-  camRunZoom: 10.25
+  camOffset: {x: 7, y: 13, z: 0}
+  camRunZoom: 15
   zoomSpeed: 5
 --- !u!136 &6318752673631624746
 CapsuleCollider:

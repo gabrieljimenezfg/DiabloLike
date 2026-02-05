@@ -165,6 +165,8 @@ public class FollowMouse : MonoBehaviour
     {
         camera.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z) + camOffset; //La camara sigue al jugador en X y Z 
 
+        camera.transform.LookAt(transform.position);
+        
         //CAMERA ZOOM MANAGEMENT
         float currentZoom;
         if (isRunning) {

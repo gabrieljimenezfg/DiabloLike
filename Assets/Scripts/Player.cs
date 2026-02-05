@@ -82,6 +82,7 @@ public class Player : MonoBehaviour, IDamageable
     public void TakeDamage(float amount)
     {
         ReduceHP(amount);
+        DamagePopup.Create(transform.position, amount);
         if (hp <= 0)
         {
             PlayerHPChanged?.Invoke(this, EventArgs.Empty);
@@ -90,7 +91,6 @@ public class Player : MonoBehaviour, IDamageable
         else
         {
             PlayerHPChanged?.Invoke(this, EventArgs.Empty);
-            PlayerTookDamage?.Invoke(this, EventArgs.Empty);
         }
     }
 
