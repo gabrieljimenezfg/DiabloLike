@@ -140,7 +140,8 @@ MonoBehaviour:
   visual: {fileID: 3063938080100986784}
   collider: {fileID: 7543722847878295548}
   damageTickFrequency: 1
-  skillDamage: 10
+  skillDamage: 25
+  aliveTime: 5
 --- !u!54 &2156843671614812485
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -6,31 +6,28 @@ public class Enemy : MonoBehaviour, IDamageable
     [Header("Stats")] //Stats del enemigo
     [SerializeField]
     private float health;
-    [SerializeField]
-    private float speed;
-    [SerializeField]
-    private float damage;
-    [SerializeField]
-    private float detectionRange; //Este ser el X y el Z del area de deteccion
-    [SerializeField]
-    private float attackRange; //Rango de ataque y de stopping distance
-    [SerializeField]
-    private float attackCooldown;
-    [SerializeField]
-    private float basicAttackDMG; //Da�o del ataque b�sico
+
+    [SerializeField] private float speed;
+    [SerializeField] private float damage;
+    [SerializeField] private float detectionRange; //Este ser el X y el Z del area de deteccion
+    [SerializeField] private float attackRange; //Rango de ataque y de stopping distance
+    [SerializeField] private float attackCooldown;
+    [SerializeField] private float basicAttackDMG; //Da�o del ataque b�sico
+
+    [SerializeField] private int potionDropChancePercentage = 40;
 
     [Header("ThisEnemy")] //Cosas de este enemigo en concreto
     [SerializeField]
     private Transform[] patrolPoints; //Puntos de patrulla
+
     private int patrolIndex = 0;
 
     [Header("Things")] //Referencias a otros objetos y mas
     [SerializeField]
     private GameObject detectionArea;
-    [SerializeField]
-    private GameObject player;
-    [SerializeField]
-    private Transform attackPivot;
+
+    [SerializeField] private GameObject player;
+    [SerializeField] private Transform attackPivot;
 
     private bool DetectingPlayer = false;
     private bool onAttackingRange = true;
@@ -40,7 +37,7 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         detectionArea.transform.localScale = new Vector3(detectionRange, 3.2f, detectionRange);
         GetComponent<NavMeshAgent>().speed = speed;
-        attackPivot.localScale = new Vector3(attackPivot.localScale.x,attackPivot.localScale.y,attackRange);
+        attackPivot.localScale = new Vector3(attackPivot.localScale.x, attackPivot.localScale.y, attackRange);
     }
 
     public void TakeDamage(float amount) //Metodo para recibir da�o
@@ -49,13 +46,40 @@ public class Enemy : MonoBehaviour, IDamageable
         DamagePopup.Create(transform.position, amount);
         if (health <= 0)
         {
-            // El enemigo muere
-            Debug.Log("Enemigo muerto");
+            Die();
         }
-        else 
+        else
         {
             //Sonido y efecto de da�o
         }
+    }
+
+    private void Die()
+    {
+        TryDropPotion();
+        Destroy(gameObject);
+    }
+
+    private void TryDropPotion()
+    {
+        if (!ShouldDropPotion()) return;
+
+        var potionPrefab = GetRandomPotionPrefab();
+        Instantiate(potionPrefab, transform.position, Quaternion.identity);
+    }
+
+    private Transform GetRandomPotionPrefab()
+    {
+        return Random.value < 0.5f
+            ? GameAssets.i.healingPotionPrefab
+            : GameAssets.i.manaPotionPrefab;
+    }
+
+    private bool ShouldDropPotion()
+    {
+        var roll = Random.Range(0, 100) < potionDropChancePercentage;
+        Debug.Log("Rolled on death: " + roll);
+        return roll;
     }
 
     void OnTriggerEnter(Collider other)
@@ -66,6 +90,7 @@ public class Enemy : MonoBehaviour, IDamageable
             DetectingPlayer = true;
         }
     }
+
     void OnTriggerExit(Collider other)
     {
         //Si el jugador sale del area de deteccion hara que el booleano (DetectingPlayer) sea False
@@ -81,21 +106,25 @@ public class Enemy : MonoBehaviour, IDamageable
         {
             GetComponent<NavMeshAgent>().stoppingDistance = attackRange;
             transform.LookAt(player.transform); //El enemigo mira hacia el jugador cuando lo persigue
-            GetComponent<NavMeshAgent>().SetDestination(player.transform.position); //El enemigo se movera hacia la posicion del jugador
+            GetComponent<NavMeshAgent>()
+                .SetDestination(player.transform.position); //El enemigo se movera hacia la posicion del jugador
             if (Vector3.Distance(transform.position, player.transform.position) <= attackRange)
             {
                 //En rango de ataque
                 if (timePass >= attackCooldown) //Esto es para el cooldown de ataque
                 {
-                    player.GetComponent<Player>().TakeDamage(basicAttackDMG); //El jugador recibe da�o del ataque b�sico   ||  HAY QUE CAMBIARLO M�S ADELANTE YA QUE LA VIDA DEL PLAYER SE MOVER� A OTRO SCRIPT
+                    player.GetComponent<Player>()
+                        .TakeDamage(
+                            basicAttackDMG); //El jugador recibe da�o del ataque b�sico   ||  HAY QUE CAMBIARLO M�S ADELANTE YA QUE LA VIDA DEL PLAYER SE MOVER� A OTRO SCRIPT
                     Debug.Log("ataque");
 
                     timePass = 0;
                 }
+
                 timePass += 1 * Time.deltaTime;
             }
         }
-        else 
+        else
         {
             GetComponent<NavMeshAgent>().stoppingDistance = 0;
             if (patrolPoints.Length > 0)
