@@ -441,6 +441,7 @@ MonoBehaviour:
   basicAttackDMG: 25
   potionDropChancePercentage: 20
   patrolPoints: []
+  corpse: {fileID: 0}
   detectionArea: {fileID: 348960794}
   player: {fileID: 729393167}
   attackPivot: {fileID: 1873675922}
@@ -960,6 +961,7 @@ MonoBehaviour:
   basicAttackDMG: 25
   potionDropChancePercentage: 20
   patrolPoints: []
+  corpse: {fileID: 0}
   detectionArea: {fileID: 131046084}
   player: {fileID: 729393167}
   attackPivot: {fileID: 1043523270}
@@ -2680,6 +2682,7 @@ MonoBehaviour:
   basicAttackDMG: 25
   potionDropChancePercentage: 20
   patrolPoints: []
+  corpse: {fileID: 0}
   detectionArea: {fileID: 542724696}
   player: {fileID: 729393167}
   attackPivot: {fileID: 1932877182}
@@ -3051,6 +3054,7 @@ MonoBehaviour:
   - {fileID: 1217976484}
   - {fileID: 700346181}
   - {fileID: 1580694292}
+  corpse: {fileID: 0}
   detectionArea: {fileID: 592855659}
   player: {fileID: 729393167}
   attackPivot: {fileID: 2023793879}
@@ -3097,6 +3101,7 @@ MonoBehaviour:
   basicAttackDMG: 25
   potionDropChancePercentage: 20
   patrolPoints: []
+  corpse: {fileID: 0}
   detectionArea: {fileID: 724301145}
   player: {fileID: 729393167}
   attackPivot: {fileID: 229259655}
@@ -3937,10 +3942,13 @@ MonoBehaviour:
   stamina: 100
   speed: 4
   runSpeed: 10.1
+  rollDistance: 0
+  rollSpeed: 0
   followerObject: {fileID: 1263116875}
   projectilePrefab: {fileID: 0}
   projectileSpawnPoint: {fileID: 0}
   projectileSpeed: 0
+  projectileDistance: 0
   outline: {fileID: 0}
   camera: {fileID: 0}
   camOffset: {x: 0, y: 10, z: 0}
@@ -4079,6 +4087,7 @@ MonoBehaviour:
   basicAttackDMG: 25
   potionDropChancePercentage: 20
   patrolPoints: []
+  corpse: {fileID: 0}
   detectionArea: {fileID: 2140152886}
   player: {fileID: 729393167}
   attackPivot: {fileID: 780525519}
@@ -4640,6 +4649,7 @@ MonoBehaviour:
   basicAttackDMG: 25
   potionDropChancePercentage: 20
   patrolPoints: []
+  corpse: {fileID: 0}
   detectionArea: {fileID: 1648062440}
   player: {fileID: 729393167}
   attackPivot: {fileID: 1072542494}
@@ -4831,6 +4841,7 @@ MonoBehaviour:
   basicAttackDMG: 25
   potionDropChancePercentage: 20
   patrolPoints: []
+  corpse: {fileID: 0}
   detectionArea: {fileID: 1686022012}
   player: {fileID: 729393167}
   attackPivot: {fileID: 241172350}
@@ -5393,6 +5404,7 @@ MonoBehaviour:
   basicAttackDMG: 25
   potionDropChancePercentage: 20
   patrolPoints: []
+  corpse: {fileID: 0}
   detectionArea: {fileID: 582505428}
   player: {fileID: 729393167}
   attackPivot: {fileID: 871126931}
@@ -5673,6 +5685,7 @@ MonoBehaviour:
   basicAttackDMG: 25
   potionDropChancePercentage: 20
   patrolPoints: []
+  corpse: {fileID: 0}
   detectionArea: {fileID: 898422397}
   player: {fileID: 729393167}
   attackPivot: {fileID: 1271130792}
@@ -5852,6 +5865,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1589958158
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 947409162861580194, guid: bfc7b16785763ce428f9e039a77b6049, type: 3}
+      propertyPath: m_Name
+      value: Minion
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226647119343955532, guid: bfc7b16785763ce428f9e039a77b6049, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.66544914
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226647119343955532, guid: bfc7b16785763ce428f9e039a77b6049, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0000009536743
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226647119343955532, guid: bfc7b16785763ce428f9e039a77b6049, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.8281579
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226647119343955532, guid: bfc7b16785763ce428f9e039a77b6049, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226647119343955532, guid: bfc7b16785763ce428f9e039a77b6049, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226647119343955532, guid: bfc7b16785763ce428f9e039a77b6049, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226647119343955532, guid: bfc7b16785763ce428f9e039a77b6049, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226647119343955532, guid: bfc7b16785763ce428f9e039a77b6049, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226647119343955532, guid: bfc7b16785763ce428f9e039a77b6049, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226647119343955532, guid: bfc7b16785763ce428f9e039a77b6049, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bfc7b16785763ce428f9e039a77b6049, type: 3}
 --- !u!1 &1620595402
 GameObject:
   m_ObjectHideFlags: 0
@@ -6256,6 +6326,7 @@ MonoBehaviour:
   basicAttackDMG: 25
   potionDropChancePercentage: 20
   patrolPoints: []
+  corpse: {fileID: 0}
   detectionArea: {fileID: 285839448}
   player: {fileID: 729393167}
   attackPivot: {fileID: 1345954877}
@@ -6718,6 +6789,7 @@ MonoBehaviour:
   basicAttackDMG: 25
   potionDropChancePercentage: 20
   patrolPoints: []
+  corpse: {fileID: 0}
   detectionArea: {fileID: 502753792}
   player: {fileID: 729393167}
   attackPivot: {fileID: 1326931465}
@@ -7030,6 +7102,7 @@ MonoBehaviour:
   basicAttackDMG: 25
   potionDropChancePercentage: 20
   patrolPoints: []
+  corpse: {fileID: 0}
   detectionArea: {fileID: 1257211584}
   player: {fileID: 729393167}
   attackPivot: {fileID: 707348131}
@@ -7238,6 +7311,7 @@ MonoBehaviour:
   basicAttackDMG: 25
   potionDropChancePercentage: 20
   patrolPoints: []
+  corpse: {fileID: 0}
   detectionArea: {fileID: 885506609}
   player: {fileID: 729393167}
   attackPivot: {fileID: 864583646}
@@ -7666,3 +7740,4 @@ SceneRoots:
   - {fileID: 1217976484}
   - {fileID: 163467639}
   - {fileID: 1316514210}
+  - {fileID: 1589958158}
