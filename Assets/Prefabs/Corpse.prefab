@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   minionPrefab: {fileID: 947409162861580194, guid: bfc7b16785763ce428f9e039a77b6049, type: 3}
+  aliveTime: 12
 --- !u!65 &6941425906484363268
 BoxCollider:
   m_ObjectHideFlags: 0
