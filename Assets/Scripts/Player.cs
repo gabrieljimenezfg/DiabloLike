@@ -7,6 +7,7 @@ public class Player : MonoBehaviour, IDamageable
 
     [SerializeField] private float hp = 100f, mana = 100f;
     [SerializeField] private float maxHp, maxMana;
+    public bool invincible = false;
 
     public float HP => hp;
     public float Mana => mana;
@@ -81,6 +82,8 @@ public class Player : MonoBehaviour, IDamageable
 
     public void TakeDamage(float amount)
     {
+    if (!invincible)
+        {
         ReduceHP(amount);
         DamagePopup.Create(transform.position, amount);
         if (hp <= 0)
@@ -91,6 +94,7 @@ public class Player : MonoBehaviour, IDamageable
         else
         {
             PlayerHPChanged?.Invoke(this, EventArgs.Empty);
+        }
         }
     }
 
