@@ -7,6 +7,7 @@ public class AcidPoolSkill : MonoBehaviour, ISkillBehavior
     [SerializeField] private float poolRadius = 5f;
     [SerializeField] private Transform visual;
     [SerializeField] private BoxCollider collider;
+    [SerializeField] private float colliderHeight;
     [SerializeField] private float damageTickFrequency = 2f;
     [SerializeField] private float skillDamage;
     [SerializeField] private float aliveTime = 5f;
@@ -36,7 +37,8 @@ public class AcidPoolSkill : MonoBehaviour, ISkillBehavior
         var poolDiameter = poolRadius * 2f;
         visual.localScale = new Vector3(poolDiameter, visual.localScale.y, poolDiameter);
 
-        collider.size = new Vector3(poolDiameter, collider.size.y, poolDiameter);
+        collider.size = new Vector3(poolDiameter, colliderHeight, poolDiameter);
+        collider.center = new Vector3(collider.center.x, colliderHeight * 0.5f, collider.center.z);
     }
 
     private bool CheckIfEntityIsOnRadius(Transform entity)
@@ -112,7 +114,6 @@ public class AcidPoolSkill : MonoBehaviour, ISkillBehavior
         if (MouseWorldUtils.TryGetMousePositionOnTargetLayer(MouseRayTargetLayer.Ground, out var hit))
         {
             var mousePosition = hit.point;
-            Debug.Log("mouse pos " + mousePosition);
             transform.position = mousePosition;
         }
     }
