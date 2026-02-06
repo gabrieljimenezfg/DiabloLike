@@ -9,6 +9,9 @@ public class SkillSystem : MonoBehaviour
     // debug starter skill
     [SerializeField] private SkillSO starterSkill;
 
+    // debug raise minion
+    [SerializeField] private SkillSO raiseMinionSkill;
+
     private Player player;
     private SkillSO[] equippedSkills = new SkillSO[4];
 
@@ -18,6 +21,7 @@ public class SkillSystem : MonoBehaviour
     {
         player = GetComponent<Player>();
         EquipNewSkill(starterSkill);
+        EquipNewSkill(raiseMinionSkill);
     }
 
     private void EquipNewSkill(SkillSO skill)
@@ -65,9 +69,15 @@ public class SkillSystem : MonoBehaviour
         ISkillBehavior behavior = skillInstance.GetComponent<ISkillBehavior>();
         if (behavior == null) return;
 
-        player.UseMana(skill.manaCost);
-        behavior.Execute(player);
-        cooldowns[skill] = skill.cooldown;
+        if (behavior.TryExecute(player))
+        {
+            player.UseMana(skill.manaCost);
+            cooldowns[skill] = skill.cooldown;
+        }
+        else
+        {
+            Destroy(skillInstance);
+        }
     }
 
     private void HandleSkillsCooldownReduction()
