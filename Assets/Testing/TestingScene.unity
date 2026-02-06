@@ -888,6 +888,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7534926000282603271, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6417,6 +6421,7 @@ GameObject:
   - component: {fileID: 1874906004}
   - component: {fileID: 1874906003}
   - component: {fileID: 1874906002}
+  - component: {fileID: 1874906006}
   m_Layer: 0
   m_Name: NavMesh
   m_TagString: Untagged
@@ -6500,6 +6505,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1874906006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874906001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: -334000983
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.11333334
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 8424a2a9fea42fc46979b9c0769d933e, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &1876355467
 GameObject:
   m_ObjectHideFlags: 0
@@ -7586,14 +7623,11 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 1874906005}
-  - {fileID: 1263116875}
   - {fileID: 1018887579}
   - {fileID: 317713154}
   - {fileID: 1714398510}
-  - {fileID: 1217976484}
   - {fileID: 700346181}
   - {fileID: 1580694292}
-  - {fileID: 163467639}
   - {fileID: 49130517}
   - {fileID: 968604675}
   - {fileID: 523745638}
@@ -7601,3 +7635,6 @@ SceneRoots:
   - {fileID: 967447663}
   - {fileID: 832215653}
   - {fileID: 980061231}
+  - {fileID: 1263116875}
+  - {fileID: 1217976484}
+  - {fileID: 163467639}
