@@ -197,6 +197,8 @@ public class FollowMouse : MonoBehaviour
     {
         camera.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z) + camOffset; //La camara sigue al jugador en X y Z 
 
+        camera.transform.LookAt(transform.position);
+        
         //CAMERA ZOOM MANAGEMENT
         float currentZoom;
         if (isRunning) {
@@ -219,8 +221,7 @@ public class FollowMouse : MonoBehaviour
 
             projectileSpawnPoint.LookAt(currentHoveredEnemy.transform.position); //Ajusta la direccion del spawn del proyectil hacia el enemigo
             GameObject projectileCopy = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
-            projectileCopy.GetComponent<Rigidbody>().velocity = projectileSpawnPoint.forward * projectileSpeed; //Asigna velocidad al proyectil hacia la direccion del spawn
-            
+            projectileCopy.GetComponent<Rigidbody>().linearVelocity = projectileSpawnPoint.forward * projectileSpeed; //Asigna velocidad al proyectil hacia la direccion del spawn
         }
     }
 }
