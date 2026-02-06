@@ -142,7 +142,7 @@ MonoBehaviour:
   colliderHeight: 50
   damageTickFrequency: 1
   skillDamage: 25
-  aliveTime: 1000000
+  aliveTime: 5
 --- !u!54 &2156843671614812485
 Rigidbody:
   m_ObjectHideFlags: 0
