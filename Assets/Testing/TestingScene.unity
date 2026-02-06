@@ -840,6 +840,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2861034892900713131, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861034892900713131, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: m_ActionEvents.Array.data[9].m_ActionId
+      value: 986ac7fe-8653-47ab-af5b-d529407babfc
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861034892900713131, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: m_ActionEvents.Array.data[9].m_ActionName
+      value: 'Player/Roll[/Keyboard/space]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861034892900713131, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: m_ActionEvents.Array.data[9].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861034892900713131, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: m_ActionEvents.Array.data[9].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861034892900713131, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: m_ActionEvents.Array.data[9].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 729393172}
+    - target: {fileID: 2861034892900713131, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: m_ActionEvents.Array.data[9].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861034892900713131, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: m_ActionEvents.Array.data[9].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Roll
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861034892900713131, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: m_ActionEvents.Array.data[9].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FollowMouse, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861034892900713131, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: m_ActionEvents.Array.data[9].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3083101380345168495, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.668748
@@ -881,6 +921,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6173372739153395935, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: rollSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173372739153395935, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: rollDistance
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173372739153395935, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
       propertyPath: followerObject
       value: 
       objectReference: {fileID: 1263116875}
@@ -891,7 +939,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7534926000282603271, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 729393177}
   m_SourcePrefab: {fileID: 100100000, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
 --- !u!1 &163667498
 GameObject:
@@ -2613,6 +2664,39 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7534926000282603271, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
   m_PrefabInstance: {fileID: 163467639}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &729393172 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6173372739153395935, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+  m_PrefabInstance: {fileID: 163467639}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729393167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe605e17c292a04788cbbdffad1af32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FollowMouse
+--- !u!95 &729393177
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729393167}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4961444fdf276024986942e71edb2df2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &762884823
 GameObject:
   m_ObjectHideFlags: 0
@@ -3913,10 +3997,13 @@ MonoBehaviour:
   stamina: 100
   speed: 4
   runSpeed: 10.1
+  rollDistance: 0
+  rollSpeed: 0
   followerObject: {fileID: 1263116875}
   projectilePrefab: {fileID: 0}
   projectileSpawnPoint: {fileID: 0}
   projectileSpeed: 0
+  projectileDistance: 0
   outline: {fileID: 0}
   camera: {fileID: 0}
   camOffset: {x: 0, y: 10, z: 0}
