@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6210728652698441780}
   - component: {fileID: 8773878992353912349}
   - component: {fileID: 3602994418815556364}
+  - component: {fileID: 4943937674775535773}
   m_Layer: 0
   m_Name: Minion
   m_TagString: Untagged
@@ -121,10 +122,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   attackingCooldownMax: 1
-  targetUpdateInterval: 0
+  targetUpdateInterval: 1
   damage: 5
   detectionRadius: 10
   maxDistanceFromPlayer: 15
+--- !u!114 &4943937674775535773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947409162861580194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01148633a341740c99e33d44d4d0e8df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Highlightable
 --- !u!1 &8555232144285431460
 GameObject:
   m_ObjectHideFlags: 0

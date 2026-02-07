@@ -28,17 +28,20 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField]
     private GameObject detectionArea;
 
-    [SerializeField] private GameObject player;
+    private Player player;
     [SerializeField] private Transform attackPivot;
 
-    private bool DetectingPlayer = false;
+    private bool isPlayerDetected = false;
     private bool onAttackingRange = true;
-    private float timePass = 0;
+    private float cooldownTimer = 0;
+    private NavMeshAgent navMeshAgent;
 
     void Start()
     {
+        player = Player.Instance;
         detectionArea.transform.localScale = new Vector3(detectionRange, 3.2f, detectionRange);
-        GetComponent<NavMeshAgent>().speed = speed;
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent.speed = speed;
         attackPivot.localScale = new Vector3(attackPivot.localScale.x, attackPivot.localScale.y, attackRange);
     }
 
@@ -105,52 +108,51 @@ public class Enemy : MonoBehaviour, IDamageable
     void OnTriggerEnter(Collider other)
     {
         //Si el jugador entra en el area de deteccion hara que el booleano (DetectingPlayer) sea True
-        if (other.gameObject == player)
+        if (other.TryGetComponent(out Player _))
         {
-            DetectingPlayer = true;
+            isPlayerDetected = true;
         }
     }
 
     void OnTriggerExit(Collider other)
     {
         //Si el jugador sale del area de deteccion hara que el booleano (DetectingPlayer) sea False
-        if (other.gameObject == player)
+        if (other.TryGetComponent(out Player _))
         {
-            DetectingPlayer = false;
+            isPlayerDetected = false;
         }
     }
 
     void Update()
     {
-        if (DetectingPlayer)
+        if (isPlayerDetected)
         {
-            GetComponent<NavMeshAgent>().stoppingDistance = attackRange;
+            navMeshAgent.stoppingDistance = attackRange;
             transform.LookAt(player.transform); //El enemigo mira hacia el jugador cuando lo persigue
-            GetComponent<NavMeshAgent>()
+            navMeshAgent 
                 .SetDestination(player.transform.position); //El enemigo se movera hacia la posicion del jugador
             if (Vector3.Distance(transform.position, player.transform.position) <= attackRange)
             {
                 //En rango de ataque
-                if (timePass >= attackCooldown) //Esto es para el cooldown de ataque
+                if (cooldownTimer >= attackCooldown) //Esto es para el cooldown de ataque
                 {
                     player.GetComponent<Player>()
                         .TakeDamage(
                             basicAttackDMG); //El jugador recibe da�o del ataque b�sico   ||  HAY QUE CAMBIARLO M�S ADELANTE YA QUE LA VIDA DEL PLAYER SE MOVER� A OTRO SCRIPT
-                    Debug.Log("ataque");
 
-                    timePass = 0;
+                    cooldownTimer = 0;
                 }
 
-                timePass += 1 * Time.deltaTime;
+                cooldownTimer += Time.deltaTime;
             }
         }
         else
         {
-            GetComponent<NavMeshAgent>().stoppingDistance = 0;
+            navMeshAgent.stoppingDistance = 0;
             if (patrolPoints.Length > 0)
             {
                 //Patrulla entre los puntos de patrulla en orden
-                GetComponent<NavMeshAgent>().SetDestination(patrolPoints[patrolIndex].position);
+                navMeshAgent.SetDestination(patrolPoints[patrolIndex].position);
                 float distance = (patrolPoints[patrolIndex].position - transform.position).magnitude;
                 if (distance < 1)
                 {
