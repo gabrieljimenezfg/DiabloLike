@@ -48,4 +48,22 @@ public static class MouseWorldUtils
 
         return Physics.Raycast(ray, out hit, Mathf.Infinity, targetLayerMask);
     }
+    
+    public static bool TryGetFirstHighlightable(out Highlightable highlightable)
+    {
+        var mousePosition = Mouse.current.position.ReadValue();
+        Ray ray = camera.ScreenPointToRay(mousePosition);
+        var hits = Physics.RaycastAll(ray);
+
+        foreach (var raycastHit in hits)
+        {
+            if (raycastHit.collider.TryGetComponent(out highlightable))
+            {
+                return true;
+            }
+        }
+
+        highlightable = null;
+        return false;
+    }
 }

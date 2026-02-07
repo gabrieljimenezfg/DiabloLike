@@ -9,13 +9,11 @@ public class MouseOutliner : MonoBehaviour
 
     void Update()
     {
-        if (MouseWorldUtils.TryGetMousePositionOnTargetLayer(MouseRayTargetLayer.All, out var hit))
+        if (MouseWorldUtils.TryGetFirstHighlightable(out var highlightable))
         {
-            if (!hit.collider.TryGetComponent(out Highlightable highlightable)) return;
             var foundRenderer = highlightable.Renderer;
-
             if (currentRenderer == foundRenderer) return;
-            
+
             DeleteOutliner();
             currentRenderer = foundRenderer;
             SetOutlineMaterial();
