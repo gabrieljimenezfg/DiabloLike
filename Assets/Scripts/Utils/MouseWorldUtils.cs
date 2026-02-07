@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public enum MouseRayTargetLayer
 {
@@ -39,7 +40,8 @@ public static class MouseWorldUtils
         out RaycastHit hit)
     {
         var targetLayerMask = GetMask(targetLayer);
-        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+        var mousePosition = Mouse.current.position.ReadValue();
+        Ray ray = camera.ScreenPointToRay(mousePosition);
 
         return Physics.Raycast(ray, out hit, Mathf.Infinity, targetLayerMask);
     }

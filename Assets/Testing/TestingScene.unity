@@ -3999,7 +3999,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1018887581}
         m_TargetAssemblyTypeName: FollowMouse, Assembly-CSharp
-        m_MethodName: Movement
+        m_MethodName: HandleMovement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

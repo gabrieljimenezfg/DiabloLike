@@ -11,7 +11,10 @@ public class GameInput : MonoBehaviour
         public int slotId;
     }
 
+    public event EventHandler MovementPerformed;
+    public event EventHandler<InputActionPhase> RunPerformed;
     public event EventHandler<SkillPerformedEventArgs> SkillPerformed;
+    public event EventHandler BaseAttackPerformed;
     public event EventHandler HealPotionUsed;
     public event EventHandler ManaPotionUsed;
 
@@ -40,8 +43,25 @@ public class GameInput : MonoBehaviour
         playerInputActions.Player.SkillSlot3.performed += _slot3;
         playerInputActions.Player.SkillSlot4.performed += _slot4;
 
+        playerInputActions.Player.Movement.performed += OnMovement;
+
+        playerInputActions.Player.Run.performed += OnRun;
+        playerInputActions.Player.Run.canceled += OnRun;
+
+        playerInputActions.Player.BaseAttack.performed += OnBaseAttack;
+
         playerInputActions.Player.HealPotion.performed += OnHealPotion;
         playerInputActions.Player.ManaPotion.performed += OnManaPotion;
+    }
+
+    private void OnMovement(InputAction.CallbackContext obj)
+    {
+        MovementPerformed?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void OnRun(InputAction.CallbackContext obj)
+    {
+        RunPerformed?.Invoke(this, obj.phase);
     }
 
     private void OnHealPotion(InputAction.CallbackContext obj)
@@ -54,6 +74,11 @@ public class GameInput : MonoBehaviour
         ManaPotionUsed?.Invoke(this, EventArgs.Empty);
     }
 
+    private void OnBaseAttack(InputAction.CallbackContext obj)
+    {
+        BaseAttackPerformed?.Invoke(this, EventArgs.Empty);
+    }
+
     private void OnDestroy()
     {
         playerInputActions.Player.SkillSlot1.performed -= _slot1;
@@ -61,6 +86,10 @@ public class GameInput : MonoBehaviour
         playerInputActions.Player.SkillSlot3.performed -= _slot3;
         playerInputActions.Player.SkillSlot4.performed -= _slot4;
 
+        playerInputActions.Player.Movement.performed -= OnMovement;
+        playerInputActions.Player.Run.performed -= OnRun;
+        playerInputActions.Player.Run.canceled -= OnRun;
+        playerInputActions.Player.BaseAttack.performed -= OnMovement;
         playerInputActions.Player.HealPotion.performed -= OnHealPotion;
         playerInputActions.Player.ManaPotion.performed -= OnManaPotion;
 
