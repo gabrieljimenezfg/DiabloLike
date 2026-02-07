@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public enum MouseRayTargetLayer
 {
+    All,
     Ground,
     Enemy,
     Corpse,
@@ -16,7 +17,7 @@ public static class MouseWorldUtils
         LayerMask.GetMask("Ground");
 
     private static readonly LayerMask enemyLayer =
-        LayerMask.GetMask("Highlightable");
+        LayerMask.GetMask("Enemy");
 
     private static readonly LayerMask corpseLayer =
         LayerMask.GetMask("Corpse");
@@ -32,6 +33,8 @@ public static class MouseWorldUtils
                 return enemyLayer;
             case MouseRayTargetLayer.Corpse:
                 return corpseLayer;
+            case MouseRayTargetLayer.All:
+                return ~0;
         }
     }
 

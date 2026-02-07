@@ -2,22 +2,23 @@ using UnityEngine;
 
 public class MouseOutliner : MonoBehaviour
 {
-    private GameObject currentHoveredEnemy;
+    private MeshRenderer currentRenderer;
     private Material[] originalMaterials;
 
     [SerializeField] private Material outlineMaterial;
 
     void Update()
     {
-        if (MouseWorldUtils.TryGetMousePositionOnTargetLayer(MouseRayTargetLayer.Enemy, out var enemyHit))
+        if (MouseWorldUtils.TryGetMousePositionOnTargetLayer(MouseRayTargetLayer.All, out var hit))
         {
-            var enemyObj = enemyHit.collider.gameObject;
-            if (currentHoveredEnemy != enemyObj)
-            {
-                DeleteOutliner();
-                currentHoveredEnemy = enemyObj;
-                SetOutlineMaterial();
-            }
+            if (!hit.collider.TryGetComponent(out Highlightable highlightable)) return;
+            var foundRenderer = highlightable.Renderer;
+
+            if (currentRenderer == foundRenderer) return;
+            
+            DeleteOutliner();
+            currentRenderer = foundRenderer;
+            SetOutlineMaterial();
         }
         else
         {
@@ -27,24 +28,19 @@ public class MouseOutliner : MonoBehaviour
 
     private void SetOutlineMaterial()
     {
-        MeshRenderer meshRenderer = currentHoveredEnemy.GetComponent<MeshRenderer>();
-        originalMaterials = meshRenderer.materials;
+        originalMaterials = currentRenderer.materials;
         Material[] newMats = new Material[originalMaterials.Length + 1];
         originalMaterials.CopyTo(newMats, 0);
         newMats[^1] = outlineMaterial;
-        meshRenderer.materials = newMats;
+        currentRenderer.materials = newMats;
     }
 
     private void DeleteOutliner()
     {
-        if (!currentHoveredEnemy) return;
+        if (!currentRenderer) return;
 
-        if (currentHoveredEnemy.TryGetComponent(out MeshRenderer meshRenderer))
-        {
-            meshRenderer.materials = originalMaterials;
-        }
-
-        currentHoveredEnemy = null;
+        currentRenderer.materials = originalMaterials;
+        currentRenderer = null;
         originalMaterials = null;
     }
 }
