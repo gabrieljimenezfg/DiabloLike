@@ -121,8 +121,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   attackingCooldownMax: 1
+  targetUpdateInterval: 0
   damage: 5
   detectionRadius: 10
+  maxDistanceFromPlayer: 15
 --- !u!1 &8555232144285431460
 GameObject:
   m_ObjectHideFlags: 0
