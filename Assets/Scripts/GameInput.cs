@@ -89,7 +89,7 @@ public class GameInput : MonoBehaviour
         playerInputActions.Player.Movement.performed -= OnMovement;
         playerInputActions.Player.Run.performed -= OnRun;
         playerInputActions.Player.Run.canceled -= OnRun;
-        playerInputActions.Player.BaseAttack.performed -= OnMovement;
+        playerInputActions.Player.BaseAttack.performed -= OnBaseAttack;
         playerInputActions.Player.HealPotion.performed -= OnHealPotion;
         playerInputActions.Player.ManaPotion.performed -= OnManaPotion;
 
