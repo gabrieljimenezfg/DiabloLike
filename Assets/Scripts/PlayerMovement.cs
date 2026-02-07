@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using System.Collections;
 using Unity.VisualScripting;
 
-public class FollowMouse : MonoBehaviour
+public class PlayerMovementController : MonoBehaviour
 {
     //Mover mas tarde a otro script VVV
     [SerializeField] private float stamina;
@@ -20,48 +20,20 @@ public class FollowMouse : MonoBehaviour
     private bool isMoving = false;
     private bool isRunning;
 
-    [Header("BaseAttack")] [SerializeField]
-    private GameObject projectilePrefab;
-
-    [SerializeField] private Transform projectileSpawnPoint;
-    [SerializeField] private float projectileSpeed;
-    [SerializeField] private float projectileDistance;
-
-    [SerializeField]
-    private Material outline; //Material de outline que se aplicara al enemigo cuando el mouse este sobre el
-
-    [Header("Camera")]  private Camera camera;
-    [SerializeField] private Vector3 camOffset;
-    [SerializeField] private float camRunZoom; //Cuando el jugador corre la camara hara un pequeno zoom in
-
-    [SerializeField]
-    private float zoomSpeed = 5f; //Velocidad a la que la camara se mueve cuando se hace zoom in o zoom out
-
-    private float camOriginalZoom;
-
-    private GameObject currentHoveredEnemy;
-    private Material[] originalMaterials;
-
     private NavMeshAgent navMeshAgent;
+
+    public bool IsRunning => isRunning;
 
     void Awake()
     {
-        camera = Camera.main;
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.speed = speed;
-        camOriginalZoom = camOffset.y;
     }
 
     private void Start()
     {
         GameInput.Instance.MovementPerformed += GameInputOnMovementPerformed;
         GameInput.Instance.RunPerformed += GameInputOnRunPerformed;
-        GameInput.Instance.BaseAttackPerformed += GameInputOnBaseAttackPerformed;
-    }
-
-    private void GameInputOnBaseAttackPerformed(object sender, EventArgs e)
-    {
-        HandleBaseAttack();
     }
 
     private void GameInputOnMovementPerformed(object sender, EventArgs e)
@@ -77,33 +49,6 @@ public class FollowMouse : MonoBehaviour
 
     void Update()
     {
-        //  IS THE MOUSE TOUCHING AN ENEMY?
-        if (MouseWorldUtils.TryGetMousePositionOnTargetLayer(MouseRayTargetLayer.Enemy, out var enemyHit))
-        {
-            var enemyObj = enemyHit.collider.gameObject;
-            if (currentHoveredEnemy != enemyObj) // El mouse ha pasado a estar sobre un nuevo enemigo
-            {
-                DeleteOutliner();
-                currentHoveredEnemy = enemyObj;
-
-                //Seguro hay alguna forma mas optima   V V V
-                MeshRenderer mr = currentHoveredEnemy.GetComponent<MeshRenderer>();
-                originalMaterials = mr.materials;
-                Material[] newMats = new Material[originalMaterials.Length + 1];
-                originalMaterials.CopyTo(newMats, 0);
-                newMats[newMats.Length - 1] = outline;
-                mr.materials = newMats;
-
-                enemyObj.GetComponent<MeshRenderer>().materials = new Material[]
-                    { enemyObj.GetComponent<MeshRenderer>().material, outline };
-            }
-        }
-        else
-        {
-            // El mouse ya no esta sobre ningun enemigo
-            DeleteOutliner();
-        }
-
         // STAMINA/RUN MANAGEMENT
         if (stamina <= 0f) //Si la stamina llega a 0 ya no puede correr mas
         {
@@ -141,17 +86,6 @@ public class FollowMouse : MonoBehaviour
         }
     }
 
-    private void DeleteOutliner()
-    {
-        if (currentHoveredEnemy == null) return;
-
-        MeshRenderer mr = currentHoveredEnemy.GetComponent<MeshRenderer>();
-        mr.materials = originalMaterials;
-        currentHoveredEnemy = null;
-        originalMaterials = null;
-    }
-
-
     public void Run(InputActionPhase phase)
     {
         //Correr cuando se mantenga pulsado shift, se este moviendo y tenga stamina
@@ -171,7 +105,7 @@ public class FollowMouse : MonoBehaviour
         }
     }
 
-    public void HandleMovement()
+    private void HandleMovement()
     {
         isMoving = true;
         if (MouseWorldUtils.TryGetMousePositionOnTargetLayer(MouseRayTargetLayer.Ground, out var groundHit))
@@ -179,6 +113,7 @@ public class FollowMouse : MonoBehaviour
             navMeshAgent.SetDestination(groundHit.point);
         }
     }
+    
     /*
     public void Roll(InputAction.CallbackContext callback)
     {
@@ -205,45 +140,5 @@ public class FollowMouse : MonoBehaviour
     {
         //Esto es para el evento del rol en el que se reactivará su danyo
         Player.Instance.invincible = false;
-    }
-
-    void LateUpdate()
-    {
-        camera.transform.position =
-            new Vector3(transform.position.x, transform.position.y, transform.position.z) +
-            camOffset; //La camara sigue al jugador en X y Z 
-
-        camera.transform.LookAt(transform.position);
-
-        //CAMERA ZOOM MANAGEMENT
-        float currentZoom;
-        if (isRunning)
-        {
-            currentZoom = camRunZoom;
-        }
-        else
-        {
-            currentZoom = camOriginalZoom;
-        }
-
-        camOffset.y =
-            Mathf.Lerp(camOffset.y, currentZoom,
-                Time.deltaTime *
-                zoomSpeed); //Mueve la camara suavemente entre su posicion actual y la posici�n requerida (currentZoom)
-    }
-
-    public void HandleBaseAttack()
-    {
-        if (currentHoveredEnemy == null) return;
-        
-        Debug.Log("Atacando a " + currentHoveredEnemy.name);
-
-        projectileSpawnPoint.LookAt(currentHoveredEnemy.transform
-            .position); //Ajusta la direccion del spawn del proyectil hacia el enemigo
-        GameObject projectileCopy = Instantiate(projectilePrefab, projectileSpawnPoint.position,
-            projectileSpawnPoint.rotation);
-        projectileCopy.GetComponent<Rigidbody>().linearVelocity =
-            projectileSpawnPoint.forward *
-            projectileSpeed; //Asigna velocidad al proyectil hacia la direccion del spawn
     }
 }

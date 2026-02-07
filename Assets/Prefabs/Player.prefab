@@ -213,6 +213,9 @@ GameObject:
   - component: {fileID: 4210350726503247962}
   - component: {fileID: 8801036135139690487}
   - component: {fileID: 6173372739153395935}
+  - component: {fileID: 7647271795112234274}
+  - component: {fileID: 3916486248143680797}
+  - component: {fileID: 6005690298537339918}
   - component: {fileID: 6318752673631624746}
   - component: {fileID: 2561113687956839554}
   - component: {fileID: 2498577018035146110}
@@ -297,21 +300,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe605e17c292a04788cbbdffad1af32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FollowMouse
-  currentLife: 100
   stamina: 100
   speed: 4
   runSpeed: 10.1
   rollDistance: 0
   rollSpeed: 0
-  projectilePrefab: {fileID: 3026340385685424308, guid: dba5be3a84a65e1448ddaeaf55be8fca, type: 3}
-  projectileSpawnPoint: {fileID: 3862906354267426270}
-  projectileSpeed: 7.5
-  projectileDistance: 0
-  outline: {fileID: 2100000, guid: def3adda46a5cef4eb58bce118444ac3, type: 2}
-  camera: {fileID: 0}
-  camOffset: {x: 7, y: 13, z: 0}
-  camRunZoom: 15
+--- !u!114 &7647271795112234274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7534926000282603271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 830538bd84c6bae49b2fd881f976e6b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MouseOutliner
+  outlineMaterial: {fileID: 2100000, guid: def3adda46a5cef4eb58bce118444ac3, type: 2}
+--- !u!114 &3916486248143680797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7534926000282603271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad49b86a1f2b6644a687d2fbbdb5799, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCameraController
+  camOffset: {x: 15, y: 15, z: 0}
+  camRunZoom: 20
   zoomSpeed: 5
+--- !u!114 &6005690298537339918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7534926000282603271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 788370f82f6520c499c514801acbb65d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerBaseAttack
+  projectilePrefab: {fileID: 3026340385685424308, guid: dba5be3a84a65e1448ddaeaf55be8fca, type: 3}
+  projectileSpawnPoint: {fileID: 3083101380345168495}
+  projectileSpeed: 10
+  projectileDistance: 10
 --- !u!136 &6318752673631624746
 CapsuleCollider:
   m_ObjectHideFlags: 0
