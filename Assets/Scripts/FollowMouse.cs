@@ -12,6 +12,7 @@ public class FollowMouse : MonoBehaviour
     private float stamina;
     //Mover mas tarde a otro script ^^^
 
+    [Header("Movement")]
     [SerializeField]
     private float speed;
     [SerializeField]
@@ -20,7 +21,9 @@ public class FollowMouse : MonoBehaviour
     private float rollDistance;
     [SerializeField]
     private float rollSpeed;
-
+    [SerializeField]
+    private float rollStaminaConsumption;
+    private bool isRolling = false;
     private bool lowerStamina = false; //Variable para controlar si se debe reducir la stamina o no
     private bool isMoving = false;
     private bool isRunning;
@@ -57,13 +60,19 @@ public class FollowMouse : MonoBehaviour
     private GameObject currentHoveredEnemy;
     private Material[] originalMaterials;
 
+    private Rigidbody rb;
+
+    NavMeshAgent agent;
+
     void Awake()
     {
         camera = Camera.main; //se asigna la camara a la variable 'camera'
         groundLayer = LayerMask.GetMask("Ground"); //se le asigna a la capa "Ground" a groundLayer
-        GetComponent<NavMeshAgent>().speed = speed; //Se asigna la velocidad del NavMeshAgent del Player
+        agent = GetComponent<NavMeshAgent>();
+        agent.speed = speed; //Se asigna la velocidad del NavMeshAgent del Player
         camOriginalZoom = camOffset.y; //Se guarda el zoom original de la camara
-}
+        rb = GetComponent<Rigidbody>();
+    }
 
 
     void Update()
@@ -105,7 +114,7 @@ public class FollowMouse : MonoBehaviour
             stamina = 0f;
             lowerStamina = false;
             isRunning = false;
-            GetComponent<NavMeshAgent>().speed = speed;
+            agent.speed = speed;
         }
         if (lowerStamina)
         {
@@ -121,9 +130,9 @@ public class FollowMouse : MonoBehaviour
         }
         if (isMoving)
         {
-            if (!GetComponent<NavMeshAgent>().pathPending &&
-                GetComponent<NavMeshAgent>().remainingDistance <= GetComponent<NavMeshAgent>().stoppingDistance &&
-                GetComponent<NavMeshAgent>().velocity.sqrMagnitude == 0f)
+            if (!agent.pathPending &&
+                agent.remainingDistance <= agent.stoppingDistance &&
+                agent.velocity.sqrMagnitude == 0f)
             {
                 lowerStamina = false;
                 isMoving = false;
@@ -149,7 +158,7 @@ public class FollowMouse : MonoBehaviour
         {
             isRunning = true;
             lowerStamina = true;
-            GetComponent<NavMeshAgent>().speed = runSpeed;
+            agent.speed = runSpeed;
         }
 
         //Dejar de correr cuando se suelte shift
@@ -157,7 +166,7 @@ public class FollowMouse : MonoBehaviour
         {
             isRunning = false;
             lowerStamina = false;
-            GetComponent<NavMeshAgent>().speed = speed;
+            agent.speed = speed;
         }
     }
 
@@ -165,33 +174,49 @@ public class FollowMouse : MonoBehaviour
     {
         isMoving = true;
         //Mover cuando se pulse click derecho
-        GetComponent<NavMeshAgent>().SetDestination(followerObject.position); //Se asigna la destinacion del NavMeshAgent del Player a la posicion del followerObject
+        agent.SetDestination(followerObject.position); //Se asigna la destinacion del NavMeshAgent del Player a la posicion del followerObject
     }
     
     public void Roll(InputAction.CallbackContext callback)
     {
-        if (callback.performed == true) {
-            Player.Instance.invincible = true;
-            Vector3 targetPosition;
-            GetComponent<Animator>().SetTrigger("Roll"); // Que haga la animación de roll y que al final haya un evento que active tu hitbox denuevo
-            if (isMoving)
-            {
-                Vector3 rollDirection = (followerObject.position - transform.position).normalized;
-                targetPosition = transform.position + rollDirection * rollDistance;
-            }
-            else {
-                targetPosition = transform.position + transform.forward * rollDistance;
-            }
-            while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
-            {
-                transform.position = Vector3.Lerp(transform.position, targetPosition, rollSpeed);
-            }
+        if (!isRolling && stamina >= rollStaminaConsumption)
+        {
+            stamina -= rollStaminaConsumption; //Resta la cantidad de stamina que consume el roll
+            StartCoroutine(RollCoroutine());
         }
     }
-    
 
-    public void ReactivateDamage() { //Esto es para el evento del rol en el que se reactivará su danyo
+    IEnumerator RollCoroutine() //Corrutina de roll
+    {
+        isRolling = true;
+        agent.ResetPath(); //Resetea el path del NavMeshAgent para que no intente seguir el camino mientras se esta haciendo el roll
+        Player.Instance.invincible = true; //se vuelve invencible al iniciar el roll
+        GetComponent<Animator>().SetTrigger("Roll");
+        Vector3 targetPosition;
+
+        transform.LookAt(followerObject.position); //Hace que el jugador mire hacia el followerObject (hacia donde se hizo click derecho) antes de hacer el roll
+
+        // Calculacion de la posicion a donde se va a hacer el roll   V V V
+        Vector3 rollDirection = (followerObject.position - transform.position).normalized;
+        targetPosition = transform.position + rollDirection * (rollDistance);
+        targetPosition.y = transform.position.y; //Se mantiene la misma altura para evitar que el jugador se eleve o se hunda durante el roll
+
+        if (NavMesh.SamplePosition(targetPosition, out NavMeshHit targetPosInNavMesh, 2f, groundLayer)) //NavMesh.SamplePosition pone a targetPosition (nuestro destino) en el punto mas cercano dentro del navmesh para evitar que el jugador intente rodar hacia un punto que no se pueda alcanzar (como una pared o un precipicio)
+        {
+            targetPosition = targetPosInNavMesh.position;
+        }
+
+        Vector3 startPos = transform.position; //Se guarda la posicion de antes de hacer el roll, es necesario para el lerp de mas abajo
+        float t = 0f; //Variable (del 0 al 1) que se usa para saber cuanto le falta para terminar de moverse al targetPosition
+        while (t < 1f)
+        {
+            t += Time.deltaTime * rollSpeed; //Se incrementa 't'
+            Vector3 nextPos = Vector3.Lerp(startPos, targetPosition, t); //posicion inicial, posicion final, tiempo
+            agent.Move(nextPos - transform.position);
+            yield return null; //Espera al siguiente frame
+        }
         Player.Instance.invincible = false;
+        isRolling = false;
     }
 
     void LateUpdate()
