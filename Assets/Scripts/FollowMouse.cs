@@ -30,7 +30,7 @@ public class FollowMouse : MonoBehaviour
     [SerializeField]
     private Material outline; //Material de outline que se aplicara al enemigo cuando el mouse este sobre el
 
-    [Header("Camera")] [SerializeField] private Camera camera;
+    [Header("Camera")]  private Camera camera;
     [SerializeField] private Vector3 camOffset;
     [SerializeField] private float camRunZoom; //Cuando el jugador corre la camara hara un pequeno zoom in
 
@@ -110,7 +110,7 @@ public class FollowMouse : MonoBehaviour
             stamina = 0f;
             lowerStamina = false;
             isRunning = false;
-            GetComponent<NavMeshAgent>().speed = speed;
+            navMeshAgent.speed = speed;
         }
 
         if (lowerStamina)
@@ -131,9 +131,9 @@ public class FollowMouse : MonoBehaviour
 
         if (isMoving)
         {
-            if (!GetComponent<NavMeshAgent>().pathPending &&
-                GetComponent<NavMeshAgent>().remainingDistance <= GetComponent<NavMeshAgent>().stoppingDistance &&
-                GetComponent<NavMeshAgent>().velocity.sqrMagnitude == 0f)
+            if (!navMeshAgent.pathPending &&
+                navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance &&
+                navMeshAgent.velocity.sqrMagnitude == 0f)
             {
                 lowerStamina = false;
                 isMoving = false;
@@ -159,7 +159,7 @@ public class FollowMouse : MonoBehaviour
         {
             isRunning = true;
             lowerStamina = true;
-            GetComponent<NavMeshAgent>().speed = runSpeed;
+            navMeshAgent.speed = runSpeed;
         }
 
         //Dejar de correr cuando se suelte shift
@@ -167,7 +167,7 @@ public class FollowMouse : MonoBehaviour
         {
             isRunning = false;
             lowerStamina = false;
-            GetComponent<NavMeshAgent>().speed = speed;
+            navMeshAgent.speed = speed;
         }
     }
 
