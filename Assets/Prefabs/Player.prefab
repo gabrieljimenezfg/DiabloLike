@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 1f6635e9ddf26f4409b606f5d6548950, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -213,10 +213,12 @@ GameObject:
   - component: {fileID: 4210350726503247962}
   - component: {fileID: 8801036135139690487}
   - component: {fileID: 6173372739153395935}
+  - component: {fileID: 7647271795112234274}
+  - component: {fileID: 3916486248143680797}
+  - component: {fileID: 6005690298537339918}
   - component: {fileID: 6318752673631624746}
   - component: {fileID: 2561113687956839554}
   - component: {fileID: 2498577018035146110}
-  - component: {fileID: 2861034892900713131}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -257,6 +259,7 @@ MonoBehaviour:
   mana: 100
   maxHp: 100
   maxMana: 100
+  invincible: 0
 --- !u!114 &4210350726503247962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillSystem
   starterSkill: {fileID: 11400000, guid: 754d0b7434f0d604b8d27d6a5d5ea726, type: 2}
+  raiseMinionSkill: {fileID: 11400000, guid: 9e79a4cc44131a94da1210c55df66a46, type: 2}
 --- !u!114 &6173372739153395935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,19 +300,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe605e17c292a04788cbbdffad1af32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FollowMouse
-  currentLife: 100
   stamina: 100
   speed: 4
   runSpeed: 10.1
-  followerObject: {fileID: 0}
-  projectilePrefab: {fileID: 3026340385685424308, guid: dba5be3a84a65e1448ddaeaf55be8fca, type: 3}
-  projectileSpawnPoint: {fileID: 3862906354267426270}
-  projectileSpeed: 7.5
-  outline: {fileID: 2100000, guid: def3adda46a5cef4eb58bce118444ac3, type: 2}
-  camera: {fileID: 0}
-  camOffset: {x: 7, y: 13, z: 0}
-  camRunZoom: 15
+  rollDistance: 0
+  rollSpeed: 0
+--- !u!114 &7647271795112234274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7534926000282603271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 830538bd84c6bae49b2fd881f976e6b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MouseOutliner
+  outlineMaterial: {fileID: 2100000, guid: def3adda46a5cef4eb58bce118444ac3, type: 2}
+--- !u!114 &3916486248143680797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7534926000282603271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad49b86a1f2b6644a687d2fbbdb5799, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCameraController
+  camOffset: {x: 15, y: 15, z: 0}
+  camRunZoom: 20
   zoomSpeed: 5
+--- !u!114 &6005690298537339918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7534926000282603271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 788370f82f6520c499c514801acbb65d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerBaseAttack
+  projectilePrefab: {fileID: 3026340385685424308, guid: dba5be3a84a65e1448ddaeaf55be8fca, type: 3}
+  projectileSpawnPoint: {fileID: 3083101380345168495}
+  projectileSpeed: 10
+  projectileDistance: 10
 --- !u!136 &6318752673631624746
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -370,116 +410,14 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 5.3
-  m_Acceleration: 8
+  m_Acceleration: 99999
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &2861034892900713131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7534926000282603271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
-  m_Actions: {fileID: -944628639613478452, guid: 253ed687c97149749829b52abba30b23, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 0a1b2bf9-8df8-4ab5-bc3a-645fb502fba5
-    m_ActionName: 'Player/SkillSlot1[/Keyboard/1]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 42edfd0a-e200-4e60-a253-a7a767889a67
-    m_ActionName: 'Player/SkillSlot2[/Keyboard/2]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 6d1a3378-140f-4514-a51c-1ccd5e07cef6
-    m_ActionName: 'Player/SkillSlot3[/Keyboard/3]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 279e0340-ff58-4a13-b170-08141bdcecec
-    m_ActionName: 'Player/SkillSlot4[/Keyboard/4]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6173372739153395935}
-        m_TargetAssemblyTypeName: FollowMouse, Assembly-CSharp
-        m_MethodName: Movement
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 75b05973-dc94-4295-9dab-445bfd5fbebc
-    m_ActionName: 'Player/Movement[/Mouse/rightButton]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6173372739153395935}
-        m_TargetAssemblyTypeName: FollowMouse, Assembly-CSharp
-        m_MethodName: Run
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: f821c4b0-dd3a-4ff9-8bfd-cbafcb30423f
-    m_ActionName: 'Player/Run[/Keyboard/shift]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: fef103fe-59af-4373-b30d-741a90502c82
-    m_ActionName: 'Player/HealPotion[/Keyboard/1]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: d7bc15d2-d2a3-49c3-bd82-fd94642a3550
-    m_ActionName: 'Player/ManaPotion[/Keyboard/2]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6173372739153395935}
-        m_TargetAssemblyTypeName: FollowMouse, Assembly-CSharp
-        m_MethodName: BaseAttack
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: bdafb951-d969-4c82-bf61-d2b60e0fa6b3
-    m_ActionName: 'Player/BaseAttack[/Mouse/leftButton]'
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_ObstacleAvoidanceType: 0

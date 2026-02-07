@@ -45,6 +45,13 @@ public class Player : MonoBehaviour, IDamageable
         GameInput.Instance.ManaPotionUsed += OnManaPotionUsed;
     }
 
+    private void OnDestroy()
+    {
+        GameInput.Instance.SkillPerformed -= OnSkillPerformed;
+        GameInput.Instance.HealPotionUsed -= OnHealPotionUsed;
+        GameInput.Instance.ManaPotionUsed -= OnManaPotionUsed;
+    }
+
     private void OnHealPotionUsed(object sender, EventArgs e)
     {
         ConsumeHealingPotion();
@@ -59,6 +66,7 @@ public class Player : MonoBehaviour, IDamageable
     {
         skillSystem.CastSkill(e.slotId);
     }
+
 
     private void ConsumeHealingPotion()
     {
@@ -82,19 +90,19 @@ public class Player : MonoBehaviour, IDamageable
 
     public void TakeDamage(float amount)
     {
-    if (!invincible)
+        if (!invincible)
         {
-        ReduceHP(amount);
-        DamagePopup.Create(transform.position, amount);
-        if (hp <= 0)
-        {
-            PlayerHPChanged?.Invoke(this, EventArgs.Empty);
-            PlayerDied?.Invoke(this, EventArgs.Empty);
-        }
-        else
-        {
-            PlayerHPChanged?.Invoke(this, EventArgs.Empty);
-        }
+            ReduceHP(amount);
+            DamagePopup.Create(transform.position, amount);
+            if (hp <= 0)
+            {
+                PlayerHPChanged?.Invoke(this, EventArgs.Empty);
+                PlayerDied?.Invoke(this, EventArgs.Empty);
+            }
+            else
+            {
+                PlayerHPChanged?.Invoke(this, EventArgs.Empty);
+            }
         }
     }
 

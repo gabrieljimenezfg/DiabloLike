@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField]
     private Transform[] patrolPoints; //Puntos de patrulla
 
+    [SerializeField] private Corpse corpse;
+
     private int patrolIndex = 0;
 
     [Header("Things")] //Referencias a otros objetos y mas
@@ -56,8 +58,18 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private void Die()
     {
+        SpawnCorpse();
         TryDropPotion();
         Destroy(gameObject);
+    }
+
+    private void SpawnCorpse()
+    {
+        // TODO: quiza luego de hacer los prefabs de enemigos, el corpsePrefab pueda ir serializado en este script
+        var heightOffset = -1.1f;
+        var spawnPosition =
+            new Vector3(transform.position.x, transform.position.y + heightOffset, transform.position.z);
+        Instantiate(GameAssets.i.corpsePrefab, spawnPosition, Quaternion.identity);
     }
 
     private void TryDropPotion()
@@ -65,7 +77,10 @@ public class Enemy : MonoBehaviour, IDamageable
         if (!ShouldDropPotion()) return;
 
         var potionPrefab = GetRandomPotionPrefab();
-        Instantiate(potionPrefab, transform.position, Quaternion.identity);
+        var potionDropOffset = GetRandomOffsetDirection();
+        var dropPosition = transform.position += potionDropOffset;
+
+        Instantiate(potionPrefab, dropPosition, Quaternion.identity);
     }
 
     private Transform GetRandomPotionPrefab()
@@ -73,6 +88,13 @@ public class Enemy : MonoBehaviour, IDamageable
         return Random.value < 0.5f
             ? GameAssets.i.healingPotionPrefab
             : GameAssets.i.manaPotionPrefab;
+    }
+
+    private Vector3 GetRandomOffsetDirection()
+    {
+        return Random.value < 0.5f
+            ? transform.right
+            : -transform.right;
     }
 
     private bool ShouldDropPotion()

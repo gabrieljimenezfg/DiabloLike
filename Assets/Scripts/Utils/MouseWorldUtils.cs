@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public enum MouseRayTargetLayer
 {
     Ground,
-    Enemy
+    Enemy,
+    Corpse,
 }
 
 public static class MouseWorldUtils
@@ -16,6 +18,9 @@ public static class MouseWorldUtils
     private static readonly LayerMask enemyLayer =
         LayerMask.GetMask("Highlightable");
 
+    private static readonly LayerMask corpseLayer =
+        LayerMask.GetMask("Corpse");
+
     private static LayerMask GetMask(MouseRayTargetLayer targetLayer)
     {
         switch (targetLayer)
@@ -25,6 +30,8 @@ public static class MouseWorldUtils
                 return groundLayer;
             case MouseRayTargetLayer.Enemy:
                 return enemyLayer;
+            case MouseRayTargetLayer.Corpse:
+                return corpseLayer;
         }
     }
 
@@ -33,7 +40,8 @@ public static class MouseWorldUtils
         out RaycastHit hit)
     {
         var targetLayerMask = GetMask(targetLayer);
-        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+        var mousePosition = Mouse.current.position.ReadValue();
+        Ray ray = camera.ScreenPointToRay(mousePosition);
 
         return Physics.Raycast(ray, out hit, Mathf.Infinity, targetLayerMask);
     }

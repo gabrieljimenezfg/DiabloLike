@@ -47,3 +47,4 @@ MonoBehaviour:
   damagePopupPrefab: {fileID: 8517047798659996862, guid: ca78307d1c2f54ff09d354e69ec087d3, type: 3}
   healingPotionPrefab: {fileID: 4807880947828226773, guid: 194a529fe1a522245b503c6df7676a6f, type: 3}
   manaPotionPrefab: {fileID: 3496486969319650612, guid: abb1fde418bb9c644b0dbb0c1ab25ef8, type: 3}
+  corpsePrefab: {fileID: 85021882658543515, guid: 6dc757dcac6d16048b7efc344907d5a4, type: 3}
