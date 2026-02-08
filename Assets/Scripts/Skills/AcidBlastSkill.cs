@@ -18,10 +18,6 @@ public class AcidBlastSkill : MonoBehaviour, ISkillBehavior
     private void Awake()
     {
         blastHitbox = GetComponent<BoxCollider>();
-    }
-
-    private void Start()
-    {
         ApplySize();
     }
 
@@ -92,7 +88,6 @@ public class AcidBlastSkill : MonoBehaviour, ISkillBehavior
         TryRemoveEntityFromBlast(other.gameObject);
     }
 
-
     private void TryRemoveEntityFromBlast(GameObject other)
     {
         if (other.TryGetComponent<IDamageable>(out var damageable))
@@ -103,7 +98,8 @@ public class AcidBlastSkill : MonoBehaviour, ISkillBehavior
 
     public bool TryExecute(Player player)
     {
-        transform.position = player.transform.position;
+        transform.position = player.CastSpawnPoint.position;
+        transform.forward = player.CastSpawnPoint.forward;
         return true;
     }
 }

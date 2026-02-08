@@ -28,6 +28,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.speed = speed;
+        navMeshAgent.updateRotation = false;
     }
 
     private void Start()
@@ -110,7 +111,10 @@ public class PlayerMovementController : MonoBehaviour
         isMoving = true;
         if (MouseWorldUtils.TryGetMousePositionOnTargetLayer(MouseRayTargetLayer.Ground, out var groundHit))
         {
-            navMeshAgent.SetDestination(groundHit.point);
+            var destination = groundHit.point;
+            var direction = (destination - transform.position).normalized;
+            transform.rotation = Quaternion.LookRotation(direction);   
+            navMeshAgent.SetDestination(destination);
         }
     }
     
