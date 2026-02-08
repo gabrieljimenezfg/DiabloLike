@@ -17,7 +17,7 @@ public class SkillSystem : MonoBehaviour
     
     // debug acid blast
     [SerializeField] private SkillSO acidBlastSkill;
-
+    
     private Player player;
     private SkillSO[] equippedSkills = new SkillSO[4];
 

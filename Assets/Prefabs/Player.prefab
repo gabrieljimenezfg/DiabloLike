@@ -259,6 +259,7 @@ MonoBehaviour:
   mana: 100
   maxHp: 100
   maxMana: 100
+  castSpawnPoint: {fileID: 3862906354267426270}
   invincible: 0
 --- !u!114 &4210350726503247962
 MonoBehaviour:
@@ -348,7 +349,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBaseAttack
   projectilePrefab: {fileID: 3026340385685424308, guid: dba5be3a84a65e1448ddaeaf55be8fca, type: 3}
-  projectileSpawnPoint: {fileID: 3862906354267426270}
   projectileSpeed: 10
   projectileDistance: 10
 --- !u!136 &6318752673631624746

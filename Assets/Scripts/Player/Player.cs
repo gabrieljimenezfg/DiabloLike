@@ -7,12 +7,14 @@ public class Player : MonoBehaviour, IDamageable
 
     [SerializeField] private float hp = 100f, mana = 100f;
     [SerializeField] private float maxHp, maxMana;
+    [SerializeField] private Transform castSpawnPoint;
     public bool invincible = false;
 
     public float HP => hp;
     public float Mana => mana;
     public float MaxHP => maxHp;
     public float MaxMana => maxMana;
+    public Transform CastSpawnPoint => castSpawnPoint;
 
     private Inventory inventory;
     private SkillSystem skillSystem;
