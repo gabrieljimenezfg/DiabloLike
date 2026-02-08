@@ -7,7 +7,10 @@ public class PlayerBaseAttack : MonoBehaviour
     [SerializeField] private Transform projectileSpawnPoint;
     [SerializeField] private float projectileSpeed;
     [SerializeField] private float projectileDistance;
+    
 
+    public Transform ProjectileSpawnPoint => projectileSpawnPoint;
+    
     private void Start()
     {
         GameInput.Instance.BaseAttackPerformed += OnBaseAttackPerformed;

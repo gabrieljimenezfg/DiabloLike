@@ -117,7 +117,7 @@ Transform:
   m_GameObject: {fileID: 7415155679682037266}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.004, y: 1, z: 0.6577}
+  m_LocalPosition: {x: 0.004, y: 1, z: 1.3}
   m_LocalScale: {x: 0.11816999, y: 0.3636, z: 0.12530224}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -289,6 +289,7 @@ MonoBehaviour:
   starterSkill: {fileID: 11400000, guid: 754d0b7434f0d604b8d27d6a5d5ea726, type: 2}
   raiseMinionSkill: {fileID: 11400000, guid: 9e79a4cc44131a94da1210c55df66a46, type: 2}
   explodeMinionSkill: {fileID: 11400000, guid: e4d8d3c725d473642aa1832bc81cbaa5, type: 2}
+  acidBlastSkill: {fileID: 11400000, guid: 1e9ee76916b84844ca9e3e9c400d152f, type: 2}
 --- !u!114 &6173372739153395935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,7 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBaseAttack
   projectilePrefab: {fileID: 3026340385685424308, guid: dba5be3a84a65e1448ddaeaf55be8fca, type: 3}
-  projectileSpawnPoint: {fileID: 3083101380345168495}
+  projectileSpawnPoint: {fileID: 3862906354267426270}
   projectileSpeed: 10
   projectileDistance: 10
 --- !u!136 &6318752673631624746
