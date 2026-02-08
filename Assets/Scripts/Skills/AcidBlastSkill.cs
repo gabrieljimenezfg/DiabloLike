@@ -23,7 +23,7 @@ public class AcidBlastSkill : MonoBehaviour, ISkillBehavior
 
     private void Update()
     {
-        ApplySize();
+        RotatePlayerTowardsMouse(Player.Instance);
         baseAliveTime -= Time.deltaTime;
         if (baseAliveTime <= 0f)
         {
@@ -96,10 +96,21 @@ public class AcidBlastSkill : MonoBehaviour, ISkillBehavior
         }
     }
 
+    private void RotatePlayerTowardsMouse(Player player)
+    {
+        var mousePosition = MouseWorldUtils.GetMouseWorldPositionOnPlane(player.transform.position);
+        Vector3 direction = (mousePosition - player.transform.position).normalized;
+        direction.y = 0f;
+        player.SetLookDirection(direction);
+    }
+
     public bool TryExecute(Player player)
     {
+        RotatePlayerTowardsMouse(player);
+        
         transform.position = player.CastSpawnPoint.position;
         transform.forward = player.CastSpawnPoint.forward;
+        
         return true;
     }
 }

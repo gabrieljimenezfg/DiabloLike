@@ -54,6 +54,11 @@ public class Player : MonoBehaviour, IDamageable
         GameInput.Instance.ManaPotionUsed -= OnManaPotionUsed;
     }
 
+    public void SetLookDirection(Vector3 direction)
+    {
+        transform.forward = direction;
+    }
+
     private void OnHealPotionUsed(object sender, EventArgs e)
     {
         ConsumeHealingPotion();

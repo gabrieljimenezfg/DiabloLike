@@ -72,4 +72,16 @@ public static class MouseWorldUtils
         highlightable = null;
         return false;
     }
+
+    public static Vector3 GetMouseWorldPositionOnPlane(Vector3 position)
+    {
+        var mousePosition = Mouse.current.position.ReadValue();
+        var ray = camera.ScreenPointToRay(mousePosition);
+        var groundPlane = new Plane(Vector3.up, position);
+    
+        if (groundPlane.Raycast(ray, out float distance))
+            return ray.GetPoint(distance);
+    
+        return Vector3.zero;
+    }
 }
