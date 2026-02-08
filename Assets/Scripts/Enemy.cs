@@ -68,11 +68,9 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private void SpawnCorpse()
     {
-        // TODO: quiza luego de hacer los prefabs de enemigos, el corpsePrefab pueda ir serializado en este script
-        var heightOffset = -1.1f;
         var spawnPosition =
-            new Vector3(transform.position.x, transform.position.y + heightOffset, transform.position.z);
-        Instantiate(GameAssets.i.corpsePrefab, spawnPosition, Quaternion.identity);
+            new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        Instantiate(corpse, spawnPosition, Quaternion.identity);
     }
 
     private void TryDropPotion()

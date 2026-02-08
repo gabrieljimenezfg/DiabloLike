@@ -19,7 +19,18 @@ public class HotbarUI : MonoBehaviour
         Player.Instance.PlayerHPChanged += OnPlayerOrbStatChanged;
         Player.Instance.PlayerManaChanged += OnPlayerOrbStatChanged;
         Inventory.PotionsAmountChanged += OnPlayerPotionsAmountChanged;
+        InitializeSkills();
         UpdatePotionsText();
+    }
+
+    private void InitializeSkills()
+    {
+        for (int i = 0; i < skillSlotsUI.Length; i++)
+        {
+            var skillInSlot = skillSystem.GetSkillInSlot(i);
+
+            skillSlotsUI[i].Initialize(skillInSlot);
+        }
     }
 
     private void OnPlayerOrbStatChanged(object sender, EventArgs e)

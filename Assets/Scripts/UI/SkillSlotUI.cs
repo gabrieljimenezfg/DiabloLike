@@ -8,6 +8,12 @@ public class SkillSlotUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI slotText;
     [SerializeField] private Image cooldownOverlayImage;
     [SerializeField] private Image notEnoughManaImage;
+    [SerializeField] private Image skillSprite;
+
+    public void Initialize(SkillSO skill)
+    {
+        skillSprite.sprite = skill.icon;
+    }
 
     public void UpdateSkillState(float remainingCooldown, float skillCooldown, float currentPlayerMana,
         float skillManaCost)

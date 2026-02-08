@@ -11,24 +11,39 @@ public class SkillSystem : MonoBehaviour
 
     // debug raise minion
     [SerializeField] private SkillSO raiseMinionSkill;
+    
+    // debug explode minion
+    [SerializeField] private SkillSO explodeMinionSkill;
 
     private Player player;
     private SkillSO[] equippedSkills = new SkillSO[4];
 
     private SkillCooldowns cooldowns = new SkillCooldowns();
 
+    private void Awake()
+    {
+        EquipNewSkill(starterSkill);
+        EquipNewSkill(raiseMinionSkill);
+        EquipNewSkill(explodeMinionSkill);
+    }
+
     private void Start()
     {
         player = GetComponent<Player>();
-        EquipNewSkill(starterSkill);
-        EquipNewSkill(raiseMinionSkill);
     }
 
     private void EquipNewSkill(SkillSO skill)
     {
         for (int i = 0; i < equippedSkills.Length; i++)
         {
-            if (equippedSkills[i] != null) continue;
+            Debug.Log("Checking slot " + i);
+            if (equippedSkills[i] != null)
+            {
+                Debug.Log("Found equipped skill on slot " + i);
+                Debug.Log(equippedSkills[i].skillName);
+                continue;
+            };
+            Debug.Log("Equipping skill " + skill.skillName + " on slot " + i);
             equippedSkills[i] = skill;
             return;
         }
@@ -42,6 +57,11 @@ public class SkillSystem : MonoBehaviour
     public float GetSkillCooldown(int slotId)
     {
         var skill = GetSkillInSlot(slotId);
+        if (!skill)
+        {
+            Debug.LogError($"Couldn't find skill {slotId}");
+            return 0;
+        };
         if (!cooldowns.ContainsKey(skill)) return 0;
 
         return cooldowns[skill];

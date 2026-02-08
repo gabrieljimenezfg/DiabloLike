@@ -152,6 +152,15 @@ public class Minion : MonoBehaviour
         }
     }
 
+    public void Explode()
+    {
+        Destroy(gameObject);
+    }
+    
+    /*
+     * DEBUG
+     */
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

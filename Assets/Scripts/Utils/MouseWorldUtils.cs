@@ -7,6 +7,7 @@ public enum MouseRayTargetLayer
     Ground,
     Enemy,
     Corpse,
+    Minion,
 }
 
 public static class MouseWorldUtils
@@ -21,6 +22,9 @@ public static class MouseWorldUtils
 
     private static readonly LayerMask corpseLayer =
         LayerMask.GetMask("Corpse");
+    
+    private static readonly LayerMask minionLayer =
+        LayerMask.GetMask("Minion");
 
     private static LayerMask GetMask(MouseRayTargetLayer targetLayer)
     {
@@ -33,6 +37,8 @@ public static class MouseWorldUtils
                 return enemyLayer;
             case MouseRayTargetLayer.Corpse:
                 return corpseLayer;
+            case MouseRayTargetLayer.Minion:
+                return minionLayer;
             case MouseRayTargetLayer.All:
                 return ~0;
         }
