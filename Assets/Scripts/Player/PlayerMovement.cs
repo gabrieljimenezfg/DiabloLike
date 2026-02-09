@@ -20,6 +20,10 @@ public class PlayerMovementController : MonoBehaviour
     private bool isMoving = false;
     private bool isRunning;
 
+    [Header("Roll")]
+    [SerializeField] private float rollStaminaConsumption;
+    private bool isRolling = false;
+
     private NavMeshAgent navMeshAgent;
 
     public bool IsRunning => isRunning;
@@ -34,6 +38,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         GameInput.Instance.MovementPerformed += GameInputOnMovementPerformed;
         GameInput.Instance.RunPerformed += GameInputOnRunPerformed;
+        //GameInput.Instance.RollPerformed += GameInputOnRollPerformed;
     }
 
     private void GameInputOnMovementPerformed(object sender, EventArgs e)
@@ -45,7 +50,11 @@ public class PlayerMovementController : MonoBehaviour
     {
         Run(e);
     }
-
+    /*
+    private void GameInputOnRollPerformed(object sender, EventArgs e)
+    {
+        Roll();
+    }*/
 
     void Update()
     {
@@ -115,26 +124,67 @@ public class PlayerMovementController : MonoBehaviour
     }
     
     /*
-    public void Roll(InputAction.CallbackContext callback)
+    public void Roll()
     {
-        if (callback.performed == true) {
+        if (!isRolling && stamina >= rollStaminaConsumption)
+        {
+            stamina -= rollStaminaConsumption; //Resta la cantidad de stamina que consume el roll
+            StartCoroutine(RollCoroutine());
+        }
+
+
             Player.Instance.invincible = true;
-            GetComponent<Animator>().SetTrigger("Roll"); // Que haga la animación de roll y que al final haya un evento que active tu hitbox denuevo
+        GetComponent<Animator>().SetTrigger("Roll"); // Que haga la animación de roll y que al final haya un evento que active tu hitbox denuevo
+        Vector3 targetPosition = transform.position;
+        if (MouseWorldUtils.TryGetMousePositionOnTargetLayer(MouseRayTargetLayer.Ground, out var groundHit))
+        {
             if (isMoving)
             {
-                Vector3 rollDirection = (followerObject.position - transform.position).normalized;
-                Vector3 targetPosition = transform.position + rollDirection * rollDistance;
+                Vector3 rollDirection = (groundHit.point - transform.position).normalized;
+                targetPosition = transform.position + rollDirection * rollDistance;
             }
-            else {
-                Vector3 targetPosition = transform.position + transform.forward * rollDistance;
-            }
-            while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
+            else
             {
-                transform.position = Vector3.Lerp(transform.position, targetPosition, rollSpeed);
+                targetPosition = transform.position + transform.forward * rollDistance;
             }
         }
+        while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
+        {
+            transform.position = Vector3.Lerp(transform.position, targetPosition, rollSpeed);
+        }
     }
-    */
+    IEnumerator RollCoroutine() //Corrutina de roll
+    {
+        isRolling = true;
+        agent.ResetPath(); //Resetea el path del NavMeshAgent para que no intente seguir el camino mientras se esta haciendo el roll
+        Player.Instance.invincible = true; //se vuelve invencible al iniciar el roll
+        GetComponent<Animator>().SetTrigger("Roll");
+        Vector3 targetPosition;
+
+        transform.LookAt(followerObject.position); //Hace que el jugador mire hacia el followerObject (hacia donde se hizo click derecho) antes de hacer el roll
+
+        // Calculacion de la posicion a donde se va a hacer el roll   V V V
+        Vector3 rollDirection = (followerObject.position - transform.position).normalized;
+        targetPosition = transform.position + rollDirection * (rollDistance);
+        targetPosition.y = transform.position.y; //Se mantiene la misma altura para evitar que el jugador se eleve o se hunda durante el roll
+
+        if (NavMesh.SamplePosition(targetPosition, out NavMeshHit targetPosInNavMesh, 2f, groundLayer)) //NavMesh.SamplePosition pone a targetPosition (nuestro destino) en el punto mas cercano dentro del navmesh para evitar que el jugador intente rodar hacia un punto que no se pueda alcanzar (como una pared o un precipicio)
+        {
+            targetPosition = targetPosInNavMesh.position;
+        }
+
+        Vector3 startPos = transform.position; //Se guarda la posicion de antes de hacer el roll, es necesario para el lerp de mas abajo
+        float t = 0f; //Variable (del 0 al 1) que se usa para saber cuanto le falta para terminar de moverse al targetPosition
+        while (t < 1f)
+        {
+            t += Time.deltaTime * rollSpeed; //Se incrementa 't'
+            Vector3 nextPos = Vector3.Lerp(startPos, targetPosition, t); //posicion inicial, posicion final, tiempo
+            agent.Move(nextPos - transform.position);
+            yield return null; //Espera al siguiente frame
+        }
+        Player.Instance.invincible = false;
+        isRolling = false;
+    }*/
 
     public void ReactivateDamage()
     {
