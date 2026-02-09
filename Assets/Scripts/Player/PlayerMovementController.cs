@@ -7,10 +7,7 @@ using Unity.VisualScripting;
 
 public class PlayerMovementController : MonoBehaviour
 {
-    //Mover mas tarde a otro script VVV
     [SerializeField] private float stamina;
-    //Mover mas tarde a otro script ^^^
-
     [SerializeField] private float speed;
     [SerializeField] private float runSpeed;
     [SerializeField] private float rollDistance;
