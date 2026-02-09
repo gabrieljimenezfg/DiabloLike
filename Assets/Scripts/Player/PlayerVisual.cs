@@ -6,6 +6,11 @@ public class PlayerVisual : MonoBehaviour
 {
     private Animator animator;
     private PlayerMovementController playerMC;
+    private const string AnimAttackKey = "Attack";
+    private const string AnimMovingKey = "isMoving";
+    private const string AnimRunningKey = "isRunning";
+    private const string AnimSpellKey = "Spell";
+    private const string AnimDeathKey = "Death";
 
     //TEMPORAL
     bool attacking;
@@ -16,7 +21,8 @@ public class PlayerVisual : MonoBehaviour
         playerMC = GetComponentInParent<PlayerMovementController>();
 
         GameInput.Instance.BaseAttackPerformed += OnBaseAttackPerformed;
-        SkillSystem.CastedSkill += OnSkillPerformed;
+        Player.Instance.PlayerDied += OnPlayerDeath;
+        SkillSystem.CastedSkill += OnCastedSkill;
     }
 
     private void Update()
@@ -27,18 +33,18 @@ public class PlayerVisual : MonoBehaviour
         //TEMPORAL
         if(attacking)
         {
-            Invoke("StopAttack", 0.5f);
+            Invoke(nameof(StopAttack), 0.5f);
         }
     }
 
     private void HandleMovementAnimation()
     {
-        animator.SetBool("isMoving", playerMC.IsMoving);
+        animator.SetBool(AnimMovingKey, playerMC.IsMoving);
     }
 
     private void HandleRunningAnimation()
     {
-        animator.SetBool("isRunning", playerMC.IsRunning);
+        animator.SetBool(AnimRunningKey, playerMC.IsRunning);
     }
 
     private void OnBaseAttackPerformed(object sender, EventArgs e)
@@ -48,20 +54,13 @@ public class PlayerVisual : MonoBehaviour
 
     private void HandleAttackAnimation()
     {
-        animator.SetBool("Attack", true);
+        animator.SetBool(AnimAttackKey, true);
 
         //TEMPORAL
         attacking = true;
     }
 
-    //TEMPORAL
-    private void StopAttack()
-    {
-        animator.SetBool("Attack", false);
-        attacking = false;
-    }
-
-    private void OnSkillPerformed(object sender, int slotID)
+    private void OnCastedSkill(object sender, int slotID)
     {
         HandleSpellAnimation(slotID);
     }
@@ -69,6 +68,18 @@ public class PlayerVisual : MonoBehaviour
     private void HandleSpellAnimation(int _slotId)
     {
         _slotId += 1;
-        animator.SetTrigger("Spell" +  _slotId);
+        animator.SetTrigger(AnimSpellKey + _slotId);
+    }
+
+    private void OnPlayerDeath(object sender, EventArgs e)
+    {
+        animator.SetTrigger(AnimDeathKey);
+    }
+
+    //TEMPORAL
+    private void StopAttack()
+    {
+        animator.SetBool(AnimAttackKey, false);
+        attacking = false;
     }
 }
