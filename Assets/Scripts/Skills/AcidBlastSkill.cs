@@ -4,8 +4,8 @@ using EntitiesInBlastDamageTimers = System.Collections.Generic.Dictionary<IDamag
 
 public class AcidBlastSkill : MonoBehaviour, ISkillBehavior
 {
-    [SerializeField] private float blastRange = 30f;
-    [SerializeField] private float blastSize = 25f;
+    [SerializeField] private float blastRange = 100f;
+    [SerializeField] private float blastBaseWidth = 25f;
     [SerializeField] private Transform visual;
     [SerializeField] private float damageTickFrequency = 0.5f;
     [SerializeField] private float baseAliveTime = 5f;
@@ -23,7 +23,6 @@ public class AcidBlastSkill : MonoBehaviour, ISkillBehavior
 
     private void Update()
     {
-        RotatePlayerTowardsMouse(Player.Instance);
         baseAliveTime -= Time.deltaTime;
         if (baseAliveTime <= 0f)
         {
@@ -38,14 +37,13 @@ public class AcidBlastSkill : MonoBehaviour, ISkillBehavior
 
     private void ApplySize()
     {
-        var zOffset = blastSize * 0.5f;
+        var zOffset = blastRange * 0.5f;
+        var xySize = blastBaseWidth * xyIncreaseFactor;
 
-        var blastSizeXYChange = blastSize * xyIncreaseFactor;
-
-        visual.localScale = new Vector3(blastSizeXYChange, blastSizeXYChange, blastSize);
+        visual.localScale = new Vector3(xySize, xySize, blastRange);
         visual.localPosition = new Vector3(visual.localPosition.x, visual.localPosition.y, zOffset);
 
-        blastHitbox.size = new Vector3(blastSizeXYChange, blastSizeXYChange, blastSize);
+        blastHitbox.size = new Vector3(xySize, xySize, blastRange);
         blastHitbox.center = new Vector3(blastHitbox.center.x, blastHitbox.center.y, zOffset);
     }
 

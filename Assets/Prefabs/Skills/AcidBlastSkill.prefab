@@ -82,7 +82,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8803638844593564755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,14 +95,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae48cc62ebe5487479ca6cd9ceb8a285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AcidBlastSkill
-  blastRange: 30
-  blastSize: 5
+  blastSize: 15
   visual: {fileID: 8160566404145754988}
-  collider: {fileID: 4429774420878347341}
-  colliderHeight: 0
   damageTickFrequency: 0.5
   baseAliveTime: 5
   baseSkillDamage: 0
+  xyIncreaseFactor: 0.1
 --- !u!1 &2392279183083593180
 GameObject:
   m_ObjectHideFlags: 0
