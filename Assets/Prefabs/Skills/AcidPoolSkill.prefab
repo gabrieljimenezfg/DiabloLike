@@ -136,13 +136,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba7cb7ae8b5c7d4597ce92aca9626d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AcidPoolSkill
-  poolRadius: 5
-  visual: {fileID: 3063938080100986784}
-  collider: {fileID: 7543722847878295548}
-  colliderHeight: 50
   damageTickFrequency: 1
   skillDamage: 25
   aliveTime: 5
+  poolRadius: 5
+  visual: {fileID: 3063938080100986784}
+  poolCollider: {fileID: 7543722847878295548}
+  colliderHeight: 50
 --- !u!54 &2156843671614812485
 Rigidbody:
   m_ObjectHideFlags: 0
