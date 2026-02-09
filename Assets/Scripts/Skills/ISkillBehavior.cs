@@ -2,5 +2,5 @@ using UnityEngine;
 
 public interface ISkillBehavior
 {
-    bool TryExecute(Player player);
+    bool TryExecute(Player caster);
 }

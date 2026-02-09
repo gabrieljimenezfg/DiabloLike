@@ -4,13 +4,15 @@ using UnityEngine;
 public class PlayerBaseAttack : MonoBehaviour
 {
     [SerializeField] private GameObject projectilePrefab;
-    [SerializeField] private Transform projectileSpawnPoint;
     [SerializeField] private float projectileSpeed;
     [SerializeField] private float projectileDistance;
+    private Transform playerCastSpawnPoint;
+
 
     private void Start()
     {
         GameInput.Instance.BaseAttackPerformed += OnBaseAttackPerformed;
+        playerCastSpawnPoint = GetComponent<Player>().CastSpawnPoint;
     }
 
     private void OnDestroy()
@@ -29,14 +31,18 @@ public class PlayerBaseAttack : MonoBehaviour
         {
             var enemy = hit.collider.gameObject;
 
-            //Ajusta la direccion del spawn del proyectil hacia el enemigo
-            projectileSpawnPoint.LookAt(enemy.transform.position);
-            GameObject projectileCopy = Instantiate(projectilePrefab, projectileSpawnPoint.position,
-                projectileSpawnPoint.rotation);
-            //Asigna velocidad al proyectil hacia la direccion del spawn
-            projectileCopy.GetComponent<Rigidbody>().linearVelocity =
-                projectileSpawnPoint.forward *
-                projectileSpeed;
+            LaunchProjectile(enemy);
         }
+    }
+
+    private void LaunchProjectile(GameObject enemy)
+    {
+        playerCastSpawnPoint.LookAt(enemy.transform.position);
+        GameObject projectile = Instantiate(projectilePrefab, playerCastSpawnPoint.position,
+            playerCastSpawnPoint.rotation);
+
+        projectile.GetComponent<Rigidbody>().linearVelocity =
+            playerCastSpawnPoint.forward *
+            projectileSpeed;
     }
 }

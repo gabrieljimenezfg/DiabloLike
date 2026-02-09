@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RaiseCorpseSkill : MonoBehaviour, ISkillBehavior
 {
-    public bool TryExecute(Player player)
+    public bool TryExecute(Player caster)
     {
         Debug.Log("[RaiseCorpseSkill] Try Execute");
         if (MouseWorldUtils.TryGetMousePositionOnTargetLayer(MouseRayTargetLayer.Corpse, out var hit))

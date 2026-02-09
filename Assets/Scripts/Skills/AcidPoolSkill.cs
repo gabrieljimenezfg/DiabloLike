@@ -1,123 +1,43 @@
-using System;
 using UnityEngine;
-using EntitiesInPoolDamageTimers = System.Collections.Generic.Dictionary<IDamageable, float>;
 
-public class AcidPoolSkill : MonoBehaviour, ISkillBehavior
+public class AcidPoolSkill : BaseAreaDamageSkill
 {
     [SerializeField] private float poolRadius = 5f;
     [SerializeField] private Transform visual;
-    [SerializeField] private BoxCollider collider;
+    [SerializeField] private BoxCollider poolCollider;
     [SerializeField] private float colliderHeight;
-    [SerializeField] private float damageTickFrequency = 2f;
-    [SerializeField] private float skillDamage;
-    [SerializeField] private float aliveTime = 5f;
-    private EntitiesInPoolDamageTimers entitiesInPoolDamageTimers = new EntitiesInPoolDamageTimers();
 
-    private void Start()
-    {
-        ApplyRadius();
-    }
-
-    private void Update()
-    {
-        aliveTime -= Time.deltaTime;
-        if (aliveTime <= 0f)
-        {
-            RemovePool();
-        }
-    }
-
-    private void RemovePool()
-    {
-        Destroy(gameObject);
-    }
+    private void Start() => ApplyRadius();
 
     private void ApplyRadius()
     {
-        var poolDiameter = poolRadius * 2f;
-        visual.localScale = new Vector3(poolDiameter, visual.localScale.y, poolDiameter);
-
-        collider.size = new Vector3(poolDiameter, colliderHeight, poolDiameter);
-        collider.center = new Vector3(collider.center.x, colliderHeight * 0.5f, collider.center.z);
+        var d = poolRadius * 2f;
+        visual.localScale = new Vector3(d, visual.localScale.y, d);
+        poolCollider.size = new Vector3(d, colliderHeight, d);
+        poolCollider.center = new Vector3(poolCollider.center.x, colliderHeight * 0.5f, poolCollider.center.z);
     }
 
-    private bool CheckIfEntityIsOnRadius(Transform entity)
+    protected override void OnDamageableStay(IDamageable damageable, Collider other)
     {
-        var poolCenter = transform.position;
-
-        var poolPosition2D = new Vector2(poolCenter.x, poolCenter.z);
-        var entityPosition2D = new Vector2(entity.position.x, entity.position.z);
-
-        var distance = Vector2.Distance(entityPosition2D, poolPosition2D);
-
-        return distance <= poolRadius;
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.TryGetComponent<IDamageable>(out var damageable))
-        {
-            if (CheckIfEntityIsOnRadius(other.transform))
-            {
-                HandleDamageAllEntitiesInsideOverTime(damageable);
-            }
-            else
-            {
-                TryRemoveEntityFromPool(other.gameObject);
-            }
-        }
-    }
-
-    private void HandleDamageAllEntitiesInsideOverTime(IDamageable damageable)
-    {
-        if (!entitiesInPoolDamageTimers.ContainsKey(damageable))
-        {
-            DealDamage(damageable);
-        }
+        if (IsWithinRadius(other.transform))
+            HandleDamageOverTime(damageable);
         else
-        {
-            var isDamageIntervalDone = Time.time >= entitiesInPoolDamageTimers[damageable] + damageTickFrequency;
-            if (!isDamageIntervalDone) return;
-
-            DealDamage(damageable);
-        }
+            TryRemoveEntity(other.gameObject);
     }
 
-    private void DealDamage(IDamageable damageable)
+    private bool IsWithinRadius(Transform entity)
     {
-        Debug.Log("Damaging " + damageable);
-        damageable.TakeDamage(skillDamage);
-        SetEntityTimerToCurrentTime(damageable);
+        var p = transform.position;
+        return Vector2.Distance(new Vector2(p.x, p.z), new Vector2(entity.position.x, entity.position.z)) <= poolRadius;
     }
 
-    private void SetEntityTimerToCurrentTime(IDamageable damageable)
-    {
-        entitiesInPoolDamageTimers[damageable] = Time.time;
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        TryRemoveEntityFromPool(other.gameObject);
-    }
-
-
-    private void TryRemoveEntityFromPool(GameObject other)
-    {
-        if (other.TryGetComponent<IDamageable>(out var damageable))
-        {
-            entitiesInPoolDamageTimers.Remove(damageable);
-        }
-    }
-
-    public bool TryExecute(Player player)
+    public override bool TryExecute(Player caster)
     {
         if (MouseWorldUtils.TryGetMousePositionOnTargetLayer(MouseRayTargetLayer.Ground, out var hit))
         {
-            var mousePosition = hit.point;
-            transform.position = mousePosition;
+            transform.position = hit.point;
             return true;
         }
-
         return false;
     }
 }

@@ -7,12 +7,17 @@ public class Player : MonoBehaviour, IDamageable
 
     [SerializeField] private float hp = 100f, mana = 100f;
     [SerializeField] private float maxHp, maxMana;
+    [SerializeField] private Transform castSpawnPoint;
+    [SerializeField] private float lockedTurnSpeed;
     public bool invincible = false;
+    private bool arePositionAndRotationLocked;
 
     public float HP => hp;
     public float Mana => mana;
     public float MaxHP => maxHp;
     public float MaxMana => maxMana;
+    public Transform CastSpawnPoint => castSpawnPoint;
+    public bool ArePositionAndRotationLocked => arePositionAndRotationLocked;
 
     private Inventory inventory;
     private SkillSystem skillSystem;
@@ -52,6 +57,41 @@ public class Player : MonoBehaviour, IDamageable
         GameInput.Instance.ManaPotionUsed -= OnManaPotionUsed;
     }
 
+    private Vector3 GetDirectionToMouse()
+    {
+        var mousePosition = MouseWorldUtils.GetMouseWorldPositionOnPlane(transform.position);
+        Vector3 direction = (mousePosition - transform.position).normalized;
+        direction.y = 0f;
+        return direction;
+    }
+    
+    public void SlowlyTurnTowardsMouse()
+    {
+        var direction = GetDirectionToMouse();
+        var targetRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, lockedTurnSpeed * Time.deltaTime);
+    }
+
+    private void LookTowardsMouse()
+    {
+        var direction = GetDirectionToMouse();
+        SetLookDirection(direction);
+    }
+    
+    private void SetLookDirection(Vector3 direction)
+    {
+        transform.forward = direction;
+    }
+
+    public void TogglePositionRotationLock(bool isLocked)
+    {
+        arePositionAndRotationLocked = isLocked;
+        if (isLocked)
+        {
+            LookTowardsMouse();
+        }
+    }
+    
     private void OnHealPotionUsed(object sender, EventArgs e)
     {
         ConsumeHealingPotion();

@@ -14,7 +14,10 @@ public class SkillSystem : MonoBehaviour
     
     // debug explode minion
     [SerializeField] private SkillSO explodeMinionSkill;
-
+    
+    // debug acid blast
+    [SerializeField] private SkillSO acidBlastSkill;
+    
     private Player player;
     private SkillSO[] equippedSkills = new SkillSO[4];
 
@@ -25,6 +28,7 @@ public class SkillSystem : MonoBehaviour
         EquipNewSkill(starterSkill);
         EquipNewSkill(raiseMinionSkill);
         EquipNewSkill(explodeMinionSkill);
+        EquipNewSkill(acidBlastSkill);
     }
 
     private void Start()
