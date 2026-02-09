@@ -488,13 +488,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6005690298537339918, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: projectileDistance
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6173372739153395935, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
       propertyPath: rollSpeed
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6173372739153395935, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
       propertyPath: rollDistance
-      value: 1
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173372739153395935, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: rollStaminaConsumption
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7534926000282603271, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
       propertyPath: m_Name
