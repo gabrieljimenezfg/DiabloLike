@@ -22,6 +22,7 @@ public class PlayerMovementController : MonoBehaviour
     private NavMeshAgent navMeshAgent;
 
     public bool IsRunning => isRunning;
+    public bool IsMoving => isMoving;
 
     void Awake()
     {
