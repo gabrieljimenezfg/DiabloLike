@@ -36,11 +36,6 @@ public class PlayerMovementController : MonoBehaviour
         GameInput.Instance.MovementPerformed += GameInputOnMovementPerformed;
         GameInput.Instance.RunPerformed += GameInputOnRunPerformed;
     }
-    
-    private void PlayerOnToggledPositionAndRotationLock(object sender, bool isLocked)
-    {
-        if (isLocked) navMeshAgent.ResetPath();
-    }
 
     private void GameInputOnMovementPerformed(object sender, EventArgs e)
     {
