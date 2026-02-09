@@ -109,7 +109,7 @@ public class AcidPoolSkill : MonoBehaviour, ISkillBehavior
         }
     }
 
-    public bool TryExecute(Player player)
+    public bool TryExecute(Player caster)
     {
         if (MouseWorldUtils.TryGetMousePositionOnTargetLayer(MouseRayTargetLayer.Ground, out var hit))
         {

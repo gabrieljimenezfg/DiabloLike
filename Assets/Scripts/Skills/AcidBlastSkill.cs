@@ -12,6 +12,7 @@ public class AcidBlastSkill : MonoBehaviour, ISkillBehavior
     [SerializeField] private float baseSkillDamage;
     [SerializeField] private float xyIncreaseFactor = 0.02f;
     private BoxCollider blastHitbox;
+    private Player player;
 
     private EntitiesInBlastDamageTimers entitiesInBlastDamageTimers = new EntitiesInBlastDamageTimers();
 
@@ -32,7 +33,8 @@ public class AcidBlastSkill : MonoBehaviour, ISkillBehavior
 
     private void RemoveBlast()
     {
-        // Destroy(gameObject);
+        player.TogglePositionRotationLock(false);
+        Destroy(gameObject);
     }
 
     private void ApplySize()
@@ -94,20 +96,14 @@ public class AcidBlastSkill : MonoBehaviour, ISkillBehavior
         }
     }
 
-    private void RotatePlayerTowardsMouse(Player player)
+    public bool TryExecute(Player caster)
     {
-        var mousePosition = MouseWorldUtils.GetMouseWorldPositionOnPlane(player.transform.position);
-        Vector3 direction = (mousePosition - player.transform.position).normalized;
-        direction.y = 0f;
-        player.SetLookDirection(direction);
-    }
-
-    public bool TryExecute(Player player)
-    {
-        RotatePlayerTowardsMouse(player);
+        player = caster;
+        player.TogglePositionRotationLock(true);
         
         transform.position = player.CastSpawnPoint.position;
         transform.forward = player.CastSpawnPoint.forward;
+        transform.parent = player.CastSpawnPoint.transform; 
         
         return true;
     }

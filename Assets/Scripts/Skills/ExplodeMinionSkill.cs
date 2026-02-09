@@ -5,7 +5,7 @@ public class ExplodeMinionSkill : MonoBehaviour, ISkillBehavior
     [SerializeField] private float explosionRadius;
     [SerializeField] private float explosionDamage;
 
-    public bool TryExecute(Player player)
+    public bool TryExecute(Player caster)
     {
         if (MouseWorldUtils.TryGetMousePositionOnTargetLayer(MouseRayTargetLayer.Minion, out var hit))
         {

@@ -16,6 +16,8 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private float rollDistance;
     [SerializeField] private float rollSpeed;
 
+    private Player player;
+
     private bool lowerStamina = false; //Variable para controlar si se debe reducir la stamina o no
     private bool isMoving = false;
     private bool isRunning;
@@ -26,6 +28,7 @@ public class PlayerMovementController : MonoBehaviour
 
     void Awake()
     {
+        player = GetComponent<Player>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.speed = speed;
         navMeshAgent.updateRotation = false;
@@ -35,6 +38,11 @@ public class PlayerMovementController : MonoBehaviour
     {
         GameInput.Instance.MovementPerformed += GameInputOnMovementPerformed;
         GameInput.Instance.RunPerformed += GameInputOnRunPerformed;
+    }
+    
+    private void PlayerOnToggledPositionAndRotationLock(object sender, bool isLocked)
+    {
+        if (isLocked) navMeshAgent.ResetPath();
     }
 
     private void GameInputOnMovementPerformed(object sender, EventArgs e)
@@ -50,6 +58,13 @@ public class PlayerMovementController : MonoBehaviour
 
     void Update()
     {
+        if (player.ArePositionAndRotationLocked)
+        {
+            player.LookTowardsMouse();
+            navMeshAgent.ResetPath();
+            isMoving = false;
+        }
+        
         // STAMINA/RUN MANAGEMENT
         if (stamina <= 0f) //Si la stamina llega a 0 ya no puede correr mas
         {
@@ -109,15 +124,17 @@ public class PlayerMovementController : MonoBehaviour
     private void HandleMovement()
     {
         isMoving = true;
+        if (player.ArePositionAndRotationLocked) return;
+
         if (MouseWorldUtils.TryGetMousePositionOnTargetLayer(MouseRayTargetLayer.Ground, out var groundHit))
         {
             var destination = groundHit.point;
             var direction = (destination - transform.position).normalized;
-            transform.rotation = Quaternion.LookRotation(direction);   
+            transform.rotation = Quaternion.LookRotation(direction);
             navMeshAgent.SetDestination(destination);
         }
     }
-    
+
     /*
     public void Roll(InputAction.CallbackContext callback)
     {

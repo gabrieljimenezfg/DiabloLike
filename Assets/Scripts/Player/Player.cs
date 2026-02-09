@@ -9,12 +9,14 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private float maxHp, maxMana;
     [SerializeField] private Transform castSpawnPoint;
     public bool invincible = false;
+    private bool arePositionAndRotationLocked;
 
     public float HP => hp;
     public float Mana => mana;
     public float MaxHP => maxHp;
     public float MaxMana => maxMana;
     public Transform CastSpawnPoint => castSpawnPoint;
+    public bool ArePositionAndRotationLocked => arePositionAndRotationLocked;
 
     private Inventory inventory;
     private SkillSystem skillSystem;
@@ -54,11 +56,24 @@ public class Player : MonoBehaviour, IDamageable
         GameInput.Instance.ManaPotionUsed -= OnManaPotionUsed;
     }
 
+    public void LookTowardsMouse()
+    {
+        var mousePosition = MouseWorldUtils.GetMouseWorldPositionOnPlane(transform.position);
+        Vector3 direction = (mousePosition - transform.position).normalized;
+        direction.y = 0f;
+        SetLookDirection(direction);
+    }
+
     public void SetLookDirection(Vector3 direction)
     {
         transform.forward = direction;
     }
 
+    public void TogglePositionRotationLock(bool isLocked)
+    {
+        arePositionAndRotationLocked = isLocked;
+    }
+    
     private void OnHealPotionUsed(object sender, EventArgs e)
     {
         ConsumeHealingPotion();
