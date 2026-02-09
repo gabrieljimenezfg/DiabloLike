@@ -100,7 +100,7 @@ MonoBehaviour:
   visual: {fileID: 8160566404145754988}
   damageTickFrequency: 0.5
   baseAliveTime: 3
-  baseSkillDamage: 0
+  baseSkillDamage: 10
   xyIncreaseFactor: 0.1
 --- !u!1 &2392279183083593180
 GameObject:

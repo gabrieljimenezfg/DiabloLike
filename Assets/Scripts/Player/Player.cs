@@ -8,6 +8,7 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private float hp = 100f, mana = 100f;
     [SerializeField] private float maxHp, maxMana;
     [SerializeField] private Transform castSpawnPoint;
+    [SerializeField] private float lockedTurnSpeed;
     public bool invincible = false;
     private bool arePositionAndRotationLocked;
 
@@ -56,15 +57,28 @@ public class Player : MonoBehaviour, IDamageable
         GameInput.Instance.ManaPotionUsed -= OnManaPotionUsed;
     }
 
-    public void LookTowardsMouse()
+    private Vector3 GetDirectionToMouse()
     {
         var mousePosition = MouseWorldUtils.GetMouseWorldPositionOnPlane(transform.position);
         Vector3 direction = (mousePosition - transform.position).normalized;
         direction.y = 0f;
-        SetLookDirection(direction);
+        return direction;
+    }
+    
+    public void SlowlyTurnTowardsMouse()
+    {
+        var direction = GetDirectionToMouse();
+        var targetRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, lockedTurnSpeed * Time.deltaTime);
     }
 
-    public void SetLookDirection(Vector3 direction)
+    private void LookTowardsMouse()
+    {
+        var direction = GetDirectionToMouse();
+        SetLookDirection(direction);
+    }
+    
+    private void SetLookDirection(Vector3 direction)
     {
         transform.forward = direction;
     }
@@ -72,6 +86,10 @@ public class Player : MonoBehaviour, IDamageable
     public void TogglePositionRotationLock(bool isLocked)
     {
         arePositionAndRotationLocked = isLocked;
+        if (isLocked)
+        {
+            LookTowardsMouse();
+        }
     }
     
     private void OnHealPotionUsed(object sender, EventArgs e)

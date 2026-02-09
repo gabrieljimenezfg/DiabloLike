@@ -60,9 +60,9 @@ public class PlayerMovementController : MonoBehaviour
     {
         if (player.ArePositionAndRotationLocked)
         {
-            player.LookTowardsMouse();
             navMeshAgent.ResetPath();
             isMoving = false;
+            player.SlowlyTurnTowardsMouse();
         }
         
         // STAMINA/RUN MANAGEMENT
