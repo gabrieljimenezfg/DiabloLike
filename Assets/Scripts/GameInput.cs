@@ -12,6 +12,7 @@ public class GameInput : MonoBehaviour
     }
 
     public event EventHandler MovementPerformed;
+    public event EventHandler RollPerformed;
     public event EventHandler<InputActionPhase> RunPerformed;
     public event EventHandler<SkillPerformedEventArgs> SkillPerformed;
     public event EventHandler BaseAttackPerformed;
@@ -44,6 +45,7 @@ public class GameInput : MonoBehaviour
         playerInputActions.Player.SkillSlot4.performed += _slot4;
 
         playerInputActions.Player.Movement.performed += OnMovement;
+        playerInputActions.Player.Roll.performed += OnRoll;
 
         playerInputActions.Player.Run.performed += OnRun;
         playerInputActions.Player.Run.canceled += OnRun;
@@ -62,6 +64,10 @@ public class GameInput : MonoBehaviour
     private void OnRun(InputAction.CallbackContext obj)
     {
         RunPerformed?.Invoke(this, obj.phase);
+    }
+    private void OnRoll(InputAction.CallbackContext obj)
+    {
+        RollPerformed?.Invoke(this, EventArgs.Empty);
     }
 
     private void OnHealPotion(InputAction.CallbackContext obj)
@@ -87,6 +93,7 @@ public class GameInput : MonoBehaviour
         playerInputActions.Player.SkillSlot4.performed -= _slot4;
 
         playerInputActions.Player.Movement.performed -= OnMovement;
+        playerInputActions.Player.Roll.performed -= OnRoll;
         playerInputActions.Player.Run.performed -= OnRun;
         playerInputActions.Player.Run.canceled -= OnRun;
         playerInputActions.Player.BaseAttack.performed -= OnBaseAttack;
