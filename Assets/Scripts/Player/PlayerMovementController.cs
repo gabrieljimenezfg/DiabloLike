@@ -28,6 +28,8 @@ public class PlayerMovementController : MonoBehaviour
     public bool IsRunning => isRunning;
     public bool IsMoving => isMoving;
 
+    public event EventHandler Rolling;
+
     void Awake()
     {
         player = GetComponent<Player>();
@@ -156,7 +158,8 @@ public class PlayerMovementController : MonoBehaviour
         isRolling = true;
         navMeshAgent.ResetPath(); //Resetea el path del NavMeshAgent para que no intente seguir el camino mientras se esta haciendo el roll
         Player.Instance.invincible = true; //se vuelve invencible al iniciar el roll
-        GetComponent<Animator>().SetTrigger("Roll");
+        Rolling?.Invoke(this, EventArgs.Empty);
+        //GetComponent<Animator>().SetTrigger("Roll");
         Vector3 targetPosition;
 
         transform.LookAt(groundHit.point); //Hace que el jugador mire hacia el followerObject (hacia donde se hizo click derecho) antes de hacer el roll

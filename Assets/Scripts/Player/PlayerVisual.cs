@@ -7,11 +7,12 @@ public class PlayerVisual : MonoBehaviour
     private Animator animator;
     private PlayerMovementController playerMovementController;
     private PlayerBaseAttack playerBaseAttack;
-    private const string AnimAttackKey = "Attack";
-    private const string AnimMovingKey = "isMoving";
-    private const string AnimRunningKey = "isRunning";
-    private const string AnimSpellKey = "Spell";
-    private const string AnimDeathKey = "Death";
+    private const string AnimatorAttackKey = "Attack";
+    private const string AnimatorMovingKey = "isMoving";
+    private const string AnimatorRunningKey = "isRunning";
+    private const string AnimatorSpellKey = "Spell";
+    private const string AnimatorDeathKey = "Death";
+    private const string AnimatorRollKey = "Roll";
 
     private GameObject enemyObjective;
 
@@ -24,10 +25,10 @@ public class PlayerVisual : MonoBehaviour
         playerMovementController = GetComponentInParent<PlayerMovementController>();
         playerBaseAttack = GetComponentInParent<PlayerBaseAttack>();
 
-        //GameInput.Instance.BaseAttackPerformed += OnBaseAttackPerformed;
         Player.Instance.PlayerDied += OnPlayerDeath;
         SkillSystem.CastedSkill += OnCastedSkill;
         playerBaseAttack.BaseAttackCasted += OnBaseAttackCasted;
+        playerMovementController.Rolling += OnRolling;
     }
 
     private void Update()
@@ -42,19 +43,21 @@ public class PlayerVisual : MonoBehaviour
         }
     }
 
+    //Movimiento
     private void HandleMovementAnimation()
     {
-        animator.SetBool(AnimMovingKey, playerMovementController.IsMoving);
+        animator.SetBool(AnimatorMovingKey, playerMovementController.IsMoving);
     }
 
     private void HandleRunningAnimation()
     {
-        animator.SetBool(AnimRunningKey, playerMovementController.IsRunning);
+        animator.SetBool(AnimatorRunningKey, playerMovementController.IsRunning);
     }
 
-    /*private void OnBaseAttackPerformed(object sender, EventArgs e)
+    private void OnRolling(object sender, EventArgs e)
     {
-    }*/
+        animator.SetTrigger(AnimatorRollKey);
+    }
 
     private void OnBaseAttackCasted(object sender, GameObject enemy)
     {
@@ -69,7 +72,7 @@ public class PlayerVisual : MonoBehaviour
 
     private void HandleAttackAnimation()
     {
-        animator.SetBool(AnimAttackKey, true);
+        animator.SetBool(AnimatorAttackKey, true);
 
         //TEMPORAL
         attacking = true;
@@ -83,18 +86,18 @@ public class PlayerVisual : MonoBehaviour
     private void HandleSpellAnimation(int _slotId)
     {
         _slotId += 1;
-        animator.SetTrigger(AnimSpellKey + _slotId);
+        animator.SetTrigger(AnimatorSpellKey + _slotId);
     }
 
     private void OnPlayerDeath(object sender, EventArgs e)
     {
-        animator.SetTrigger(AnimDeathKey);
+        animator.SetTrigger(AnimatorDeathKey);
     }
 
     //TEMPORAL
     private void StopAttack()
     {
-        animator.SetBool(AnimAttackKey, false);
+        animator.SetBool(AnimatorAttackKey, false);
         attacking = false;
     }
 }
