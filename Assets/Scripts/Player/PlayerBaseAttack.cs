@@ -1,4 +1,6 @@
 using System;
+using JetBrains.Annotations;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class PlayerBaseAttack : MonoBehaviour
@@ -7,6 +9,8 @@ public class PlayerBaseAttack : MonoBehaviour
     [SerializeField] private float projectileSpeed;
     [SerializeField] private float projectileDistance;
     private Transform playerCastSpawnPoint;
+
+    public event EventHandler<GameObject> BaseAttackCasted;
 
 
     private void Start()
@@ -29,13 +33,14 @@ public class PlayerBaseAttack : MonoBehaviour
     {
         if (MouseWorldUtils.TryGetMousePositionOnTargetLayer(MouseRayTargetLayer.Enemy, out var hit))
         {
-            var enemy = hit.collider.gameObject;
+            BaseAttackCasted?.Invoke(this, hit.collider.gameObject);
+            //var enemy = hit.collider.gameObject;
 
-            LaunchProjectile(enemy);
+            //LaunchProjectile(enemy);
         }
     }
 
-    private void LaunchProjectile(GameObject enemy)
+    public void LaunchProjectile(GameObject enemy)
     {
         playerCastSpawnPoint.LookAt(enemy.transform.position);
         GameObject projectile = Instantiate(projectilePrefab, playerCastSpawnPoint.position,

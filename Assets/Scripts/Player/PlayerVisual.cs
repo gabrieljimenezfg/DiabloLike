@@ -5,12 +5,15 @@ using UnityEngine.InputSystem;
 public class PlayerVisual : MonoBehaviour
 {
     private Animator animator;
-    private PlayerMovementController playerMC;
+    private PlayerMovementController playerMovementController;
+    private PlayerBaseAttack playerBaseAttack;
     private const string AnimAttackKey = "Attack";
     private const string AnimMovingKey = "isMoving";
     private const string AnimRunningKey = "isRunning";
     private const string AnimSpellKey = "Spell";
     private const string AnimDeathKey = "Death";
+
+    private GameObject enemyObjective;
 
     //TEMPORAL
     bool attacking;
@@ -18,11 +21,13 @@ public class PlayerVisual : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        playerMC = GetComponentInParent<PlayerMovementController>();
+        playerMovementController = GetComponentInParent<PlayerMovementController>();
+        playerBaseAttack = GetComponentInParent<PlayerBaseAttack>();
 
-        GameInput.Instance.BaseAttackPerformed += OnBaseAttackPerformed;
+        //GameInput.Instance.BaseAttackPerformed += OnBaseAttackPerformed;
         Player.Instance.PlayerDied += OnPlayerDeath;
         SkillSystem.CastedSkill += OnCastedSkill;
+        playerBaseAttack.BaseAttackCasted += OnBaseAttackCasted;
     }
 
     private void Update()
@@ -39,17 +44,27 @@ public class PlayerVisual : MonoBehaviour
 
     private void HandleMovementAnimation()
     {
-        animator.SetBool(AnimMovingKey, playerMC.IsMoving);
+        animator.SetBool(AnimMovingKey, playerMovementController.IsMoving);
     }
 
     private void HandleRunningAnimation()
     {
-        animator.SetBool(AnimRunningKey, playerMC.IsRunning);
+        animator.SetBool(AnimRunningKey, playerMovementController.IsRunning);
     }
 
-    private void OnBaseAttackPerformed(object sender, EventArgs e)
+    /*private void OnBaseAttackPerformed(object sender, EventArgs e)
+    {
+    }*/
+
+    private void OnBaseAttackCasted(object sender, GameObject enemy)
     {
         HandleAttackAnimation();
+        enemyObjective = enemy;
+    }
+
+    public void FireProjectile()
+    {
+        playerBaseAttack.LaunchProjectile(enemyObjective);
     }
 
     private void HandleAttackAnimation()
