@@ -31,12 +31,12 @@ public class Enemy : MonoBehaviour, IDamageable
     private Player player;
     [SerializeField] private Transform attackPivot;
 
-    private bool isPlayerDetected = false;
+    public bool isPlayerDetected = false; //Es publico para que los enemigos lo hereden
     private bool onAttackingRange = true;
     private float cooldownTimer = 0;
-    private NavMeshAgent navMeshAgent;
+    public NavMeshAgent navMeshAgent; //El NavMeshAgent es publico para que los enemigos lo hereden
 
-    void Start()
+    public void Start()
     {
         player = Player.Instance;
         detectionArea.transform.localScale = new Vector3(detectionRange, 3.2f, detectionRange);
@@ -121,7 +121,7 @@ public class Enemy : MonoBehaviour, IDamageable
         }
     }
 
-    void Update()
+    public void Update()
     {
         if (isPlayerDetected)
         {
@@ -164,5 +164,5 @@ public class Enemy : MonoBehaviour, IDamageable
         }
     }
 
-    //Para ataques m�s especificos deber�n hacerse en los scripts hijos que hereden de este
+    //Para ataques m�s especificos deberian hacerse en los scripts hijos que hereden de este
 }
