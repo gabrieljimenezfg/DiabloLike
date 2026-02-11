@@ -1,9 +1,11 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Minion : MonoBehaviour
 {
+    private static List<Minion> minionsAlive = new List<Minion>();
     private NavMeshAgent navMeshAgent;
     private Enemy enemyTarget;
 
@@ -17,6 +19,26 @@ public class Minion : MonoBehaviour
     [SerializeField] private float maxDistanceFromPlayer;
     private float resumeCombatDistance;
     private bool isReturningToPlayer;
+
+    public static int MinionsAliveCount => minionsAlive.Count;
+
+    public static void RemoveMinionAmount(int minionAmount)
+    {
+        for (int i = 0; i < minionAmount; i++)
+        {
+            minionsAlive[i].Consume();
+        }
+    }
+
+    private void OnEnable()
+    {
+        minionsAlive.Add(this);
+    }
+
+    private void OnDestroy()
+    {
+        minionsAlive.Remove(this);
+    }
 
     private void Awake()
     {
@@ -35,13 +57,14 @@ public class Minion : MonoBehaviour
     {
         attackingCooldownTimer -= Time.deltaTime;
         targetUpdateTimer -= Time.deltaTime;
-        
+
         var distanceToPlayerSqr = (transform.position - Player.Instance.transform.position).sqrMagnitude;
 
         if (distanceToPlayerSqr > maxDistanceFromPlayer * maxDistanceFromPlayer)
         {
             isReturningToPlayer = true;
-        } else if (distanceToPlayerSqr < resumeCombatDistance * resumeCombatDistance)
+        }
+        else if (distanceToPlayerSqr < resumeCombatDistance * resumeCombatDistance)
         {
             isReturningToPlayer = false;
         }
@@ -94,7 +117,7 @@ public class Minion : MonoBehaviour
     private void HandleTargetUpdating()
     {
         if (targetUpdateTimer > 0) return;
-        
+
         targetUpdateTimer = targetUpdateInterval;
 
         var closestEnemy = FindClosestEnemy();
@@ -152,11 +175,16 @@ public class Minion : MonoBehaviour
         }
     }
 
+    private void Consume()
+    {
+        Destroy(gameObject);
+    }
+
     public void Explode()
     {
         Destroy(gameObject);
     }
-    
+
     /*
      * DEBUG
      */
@@ -166,24 +194,25 @@ public class Minion : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
-    
+
     private void OnValidate()
     {
         if (detectionRadius >= maxDistanceFromPlayer)
         {
-            Debug.LogWarning($"detectionRadius ({detectionRadius}) debe ser menor que maxDistanceFromPlayer ({maxDistanceFromPlayer})");
+            Debug.LogWarning(
+                $"detectionRadius ({detectionRadius}) debe ser menor que maxDistanceFromPlayer ({maxDistanceFromPlayer})");
             detectionRadius = maxDistanceFromPlayer - 1f;
         }
     }
-    
+
     // call it a the end of Update() to visualize distances
     private void DebugDrawLeash()
     {
         Vector3 playerPos = Player.Instance.transform.position;
-    
+
         // Line to player
         DebugUtils.DrawLine(transform.position, playerPos, isReturningToPlayer ? Color.red : Color.white);
-    
+
         // Draw circles (approximation with lines)
         DebugUtils.DrawCircle(playerPos, maxDistanceFromPlayer, Color.red);
         DebugUtils.DrawCircle(playerPos, resumeCombatDistance, Color.green);
