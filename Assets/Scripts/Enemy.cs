@@ -31,10 +31,10 @@ public class Enemy : MonoBehaviour, IDamageable
     private Player player;
     [SerializeField] private Transform attackPivot;
 
-    private bool isPlayerDetected = false;
+    public bool isPlayerDetected = false; //Es publico para que los enemigos lo hereden
     private bool onAttackingRange = true;
     private float cooldownTimer = 0;
-    private NavMeshAgent navMeshAgent;
+    public NavMeshAgent navMeshAgent; //El NavMeshAgent es publico para que los enemigos lo hereden
 
     public void Start()
     {
