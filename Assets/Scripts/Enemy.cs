@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour, IDamageable
     private float cooldownTimer = 0;
     private NavMeshAgent navMeshAgent;
 
-    void Start()
+    public void Start()
     {
         player = Player.Instance;
         detectionArea.transform.localScale = new Vector3(detectionRange, 3.2f, detectionRange);
@@ -121,7 +121,7 @@ public class Enemy : MonoBehaviour, IDamageable
         }
     }
 
-    void Update()
+    public void Update()
     {
         if (isPlayerDetected)
         {
@@ -164,5 +164,5 @@ public class Enemy : MonoBehaviour, IDamageable
         }
     }
 
-    //Para ataques m�s especificos deber�n hacerse en los scripts hijos que hereden de este
+    //Para ataques m�s especificos deberian hacerse en los scripts hijos que hereden de este
 }
