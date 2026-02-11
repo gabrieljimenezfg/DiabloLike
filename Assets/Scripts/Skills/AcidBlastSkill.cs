@@ -43,12 +43,12 @@ public class AcidBlastSkill : BaseAreaDamageSkill
     {
         if (TryConsumeMinionsForSkill())
         {
+            ApplySizeAndDamage();
             player = caster;
             player.TogglePositionRotationLock(true);
             transform.position = player.CastSpawnPoint.position;
             transform.forward = player.CastSpawnPoint.forward;
             transform.parent = player.CastSpawnPoint.transform;
-            ApplySizeAndDamage();
             return true;
         }
 
