@@ -1225,7 +1225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3278230915742338931, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_Name
-      value: ArcherEnemy
+      value: MeleeEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 7883405142801594485, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_Radius
@@ -2940,7 +2940,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3278230915742338931, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_Name
-      value: MeleeEnemy
+      value: ArcherEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 7883405142801594485, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_Radius
