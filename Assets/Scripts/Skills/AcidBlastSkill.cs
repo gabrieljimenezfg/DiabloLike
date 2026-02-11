@@ -12,7 +12,6 @@ public class AcidBlastSkill : BaseAreaDamageSkill
     private void Awake()
     {
         blastHitbox = GetComponent<BoxCollider>();
-        ApplySize();
     }
 
     private void ApplySize()
@@ -23,6 +22,11 @@ public class AcidBlastSkill : BaseAreaDamageSkill
         visual.localPosition = new Vector3(visual.localPosition.x, visual.localPosition.y, zOffset);
         blastHitbox.size = new Vector3(xySize, xySize, blastRange);
         blastHitbox.center = new Vector3(blastHitbox.center.x, blastHitbox.center.y, zOffset);
+    }
+
+    public override void StartCast()
+    {
+        ApplySize();
     }
 
     protected override void Remove()

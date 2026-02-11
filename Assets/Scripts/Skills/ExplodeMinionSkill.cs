@@ -4,6 +4,7 @@ public class ExplodeMinionSkill : MonoBehaviour, ISkillBehavior
 {
     [SerializeField] private float explosionRadius;
     [SerializeField] private float explosionDamage;
+    private Vector3 explotionPosition;
 
     public bool TryExecute(Player caster)
     {
@@ -11,15 +12,19 @@ public class ExplodeMinionSkill : MonoBehaviour, ISkillBehavior
         {
             if (hit.transform.TryGetComponent<Minion>(out var minion))
             {
-                var explotionPosition = minion.transform.position;
+                explotionPosition = minion.transform.position;
                 minion.Explode();
                 DebugUtils.DrawSphere(explotionPosition, explosionRadius, Color.red);
-                DealAreaDamage(explotionPosition);
                 return true;
             }
         }
 
         return false;
+    }
+
+    public void StartCast()
+    {
+        DealAreaDamage(explotionPosition);
     }
 
     private void DealAreaDamage(Vector3 explotionPosition)

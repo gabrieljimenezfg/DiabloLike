@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using SkillCooldowns = System.Collections.Generic.Dictionary<SkillSO, float>;
 
@@ -24,6 +25,7 @@ public class SkillSystem : MonoBehaviour
     private SkillCooldowns cooldowns = new SkillCooldowns();
 
     public static EventHandler<int> CastedSkill;
+    public static EventHandler<ISkillBehavior> CastedSkillBehavior;
 
     private void Awake()
     {
@@ -100,6 +102,7 @@ public class SkillSystem : MonoBehaviour
             player.UseMana(skill.manaCost);
             cooldowns[skill] = skill.cooldown;
             CastedSkill?.Invoke(this, slotId);
+            CastedSkillBehavior?.Invoke(this, behavior);
         }
         else
         {

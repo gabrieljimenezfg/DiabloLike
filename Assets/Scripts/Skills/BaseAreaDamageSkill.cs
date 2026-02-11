@@ -62,4 +62,6 @@ public abstract class BaseAreaDamageSkill : MonoBehaviour, ISkillBehavior
     }
 
     public abstract bool TryExecute(Player caster);
+
+    public abstract void StartCast();
 }

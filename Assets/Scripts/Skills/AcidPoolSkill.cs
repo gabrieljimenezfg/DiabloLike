@@ -7,7 +7,7 @@ public class AcidPoolSkill : BaseAreaDamageSkill
     [SerializeField] private BoxCollider poolCollider;
     [SerializeField] private float colliderHeight;
 
-    private void Start() => ApplyRadius();
+    //private void Start() => ApplyRadius();
 
     private void ApplyRadius()
     {
@@ -15,6 +15,11 @@ public class AcidPoolSkill : BaseAreaDamageSkill
         visual.localScale = new Vector3(d, visual.localScale.y, d);
         poolCollider.size = new Vector3(d, colliderHeight, d);
         poolCollider.center = new Vector3(poolCollider.center.x, colliderHeight * 0.5f, poolCollider.center.z);
+    }
+
+    public override void StartCast()
+    {
+        ApplyRadius();
     }
 
     protected override void OnDamageableStay(IDamageable damageable, Collider other)

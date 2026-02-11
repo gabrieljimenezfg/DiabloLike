@@ -16,6 +16,8 @@ public class PlayerVisual : MonoBehaviour
 
     private GameObject enemyObjective;
 
+    private ISkillBehavior LastCastedSkillBehavior;
+
     //TEMPORAL
     bool attacking;
 
@@ -27,6 +29,7 @@ public class PlayerVisual : MonoBehaviour
 
         Player.Instance.PlayerDied += OnPlayerDeath;
         SkillSystem.CastedSkill += OnCastedSkill;
+        SkillSystem.CastedSkillBehavior += GetLastCastedSkillBehavior;
         playerBaseAttack.BaseAttackCasted += OnBaseAttackCasted;
         playerMovementController.Rolling += OnRolling;
     }
@@ -59,6 +62,7 @@ public class PlayerVisual : MonoBehaviour
         animator.SetTrigger(AnimatorRollKey);
     }
 
+    //Ataque base
     private void OnBaseAttackCasted(object sender, GameObject enemy)
     {
         HandleAttackAnimation();
@@ -78,6 +82,7 @@ public class PlayerVisual : MonoBehaviour
         attacking = true;
     }
 
+    //Spells
     private void OnCastedSkill(object sender, int slotID)
     {
         HandleSpellAnimation(slotID);
@@ -89,6 +94,17 @@ public class PlayerVisual : MonoBehaviour
         animator.SetTrigger(AnimatorSpellKey + _slotId);
     }
 
+    private void GetLastCastedSkillBehavior(object sender, ISkillBehavior _behavior)
+    {
+        LastCastedSkillBehavior = _behavior;
+    }
+
+    public void StartCastInAnimation()
+    {
+        LastCastedSkillBehavior.StartCast();
+    }
+
+    //Muerte
     private void OnPlayerDeath(object sender, EventArgs e)
     {
         animator.SetTrigger(AnimatorDeathKey);
