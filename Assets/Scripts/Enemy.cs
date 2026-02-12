@@ -12,14 +12,14 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] private float detectionRange; //Este ser el X y el Z del area de deteccion
     [SerializeField] private float attackRange; //Rango de ataque y de stopping distance
     [SerializeField] private float attackCooldown;
-    [SerializeField] private float basicAttackDMG; //Da�o del ataque b�sico
-
+    [SerializeField] private float basicAttackDMG; //Danyo del ataque b�sico
+    [SerializeField] private float projectileVelocity;
     [SerializeField] private int potionDropChancePercentage = 40;
 
     [Header("ThisEnemy")] //Cosas de este enemigo en concreto
     [SerializeField]
     private Transform[] patrolPoints; //Puntos de patrulla
-
+    [SerializeField] private GameObject attackPref;
     [SerializeField] private Corpse corpse;
 
     private int patrolIndex = 0;
@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour, IDamageable
         attackPivot.localScale = new Vector3(attackPivot.localScale.x, attackPivot.localScale.y, attackRange);
     }
 
-    public void TakeDamage(float amount) //Metodo para recibir da�o
+    public void TakeDamage(float amount) //Metodo para recibir danyo
     {
         health -= amount;
         DamagePopup.Create(transform.position, amount);
@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour, IDamageable
         }
         else
         {
-            //Sonido y efecto de da�o
+            //Sonido y efecto de danyo
         }
     }
 
@@ -134,10 +134,19 @@ public class Enemy : MonoBehaviour, IDamageable
                 //En rango de ataque
                 if (cooldownTimer >= attackCooldown) //Esto es para el cooldown de ataque
                 {
-                    player.GetComponent<Player>()
-                        .TakeDamage(
-                            basicAttackDMG); //El jugador recibe da�o del ataque b�sico   ||  HAY QUE CAMBIARLO M�S ADELANTE YA QUE LA VIDA DEL PLAYER SE MOVER� A OTRO SCRIPT
+                    if (attackPref == null)
+                    {
+                        player.GetComponent<Player>().TakeDamage(basicAttackDMG); //El jugador recibe danyo del ataque basico 
+                    } else {
+                        GameObject atkPref = Instantiate(attackPref, attackPivot.position, transform.rotation); //Instancia el prefab del ataque si es que tiene uno
 
+                        //Se setea el proyectil V V V
+                        atkPref.GetComponent<Projectile>().isGood = false; //El proyectil es malo porque es del enemigo
+                        atkPref.GetComponent<Projectile>().damage = damage; //El proyectil hace el da�o que se le asigno al enemigo
+                        atkPref.GetComponent<Projectile>().distance = attackRange; //El proyectil tiene un rango de ataque igual al del enemigo
+                        atkPref.GetComponent<Projectile>().transform.forward = transform.forward; //El proyectil se mueve hacia adelante del enemigo
+                        atkPref.GetComponent<Rigidbody>().velocity = transform.forward * projectileVelocity; //El proyectil se mueve a una velocidad de 10 (esto se puede ajustar segun el ataque)
+                    }
                     cooldownTimer = 0;
                 }
 
@@ -164,5 +173,5 @@ public class Enemy : MonoBehaviour, IDamageable
         }
     }
 
-    //Para ataques m�s especificos deberian hacerse en los scripts hijos que hereden de este
+    //Para ataques mas especificos deberian hacerse en los scripts hijos que hereden de este
 }
