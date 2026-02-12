@@ -22,6 +22,10 @@ public class Minion : MonoBehaviour
 
     public static int MinionsAliveCount => minionsAlive.Count;
 
+    public event EventHandler IsAttacking;
+
+    //public Vector3 TargetPosition => navMeshAgent.destination;
+
     public static void RemoveMinionAmount(int minionAmount)
     {
         for (int i = 0; i < minionAmount; i++)
@@ -100,7 +104,8 @@ public class Minion : MonoBehaviour
 
         if (CheckIfWithinAttackRange())
         {
-            Attack();
+            IsAttacking?.Invoke(this, EventArgs.Empty);
+            //Attack();
         }
     }
 
@@ -166,7 +171,7 @@ public class Minion : MonoBehaviour
         return closestEnemy;
     }
 
-    private void Attack()
+    public void Attack()
     {
         if (attackingCooldownTimer <= 0)
         {
@@ -182,7 +187,7 @@ public class Minion : MonoBehaviour
 
     public void Explode()
     {
-        Destroy(gameObject);
+        Destroy(gameObject, 0.2f);
     }
 
     /*

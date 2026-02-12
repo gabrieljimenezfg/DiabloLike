@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour, IDamageable
 {
@@ -35,6 +37,11 @@ public class Enemy : MonoBehaviour, IDamageable
     private bool onAttackingRange = true;
     private float cooldownTimer = 0;
     public NavMeshAgent navMeshAgent; //El NavMeshAgent es publico para que los enemigos lo hereden
+
+    public event EventHandler StartAttacking;
+    public event EventHandler StopAttacking;
+    public event EventHandler StartPatrolling;
+    public event EventHandler StartChasing;
 
     public void Start()
     {
@@ -129,9 +136,11 @@ public class Enemy : MonoBehaviour, IDamageable
             transform.LookAt(player.transform); //El enemigo mira hacia el jugador cuando lo persigue
             navMeshAgent 
                 .SetDestination(player.transform.position); //El enemigo se movera hacia la posicion del jugador
+            StartChasing?.Invoke(this, EventArgs.Empty);
             if (Vector3.Distance(transform.position, player.transform.position) <= attackRange)
             {
                 //En rango de ataque
+                StartAttacking?.Invoke(this, EventArgs.Empty);
                 if (cooldownTimer >= attackCooldown) //Esto es para el cooldown de ataque
                 {
                     if (attackPref == null)
@@ -145,17 +154,22 @@ public class Enemy : MonoBehaviour, IDamageable
                         atkPref.GetComponent<Projectile>().damage = damage; //El proyectil hace el da�o que se le asigno al enemigo
                         atkPref.GetComponent<Projectile>().distance = attackRange; //El proyectil tiene un rango de ataque igual al del enemigo
                         atkPref.GetComponent<Projectile>().transform.forward = transform.forward; //El proyectil se mueve hacia adelante del enemigo
-                        atkPref.GetComponent<Rigidbody>().velocity = transform.forward * projectileVelocity; //El proyectil se mueve a una velocidad de 10 (esto se puede ajustar segun el ataque)
+                        atkPref.GetComponent<Rigidbody>().linearVelocity = transform.forward * projectileVelocity; //El proyectil se mueve a una velocidad de 10 (esto se puede ajustar segun el ataque)
                     }
                     cooldownTimer = 0;
                 }
 
                 cooldownTimer += Time.deltaTime;
             }
+            else
+            {
+                StopAttacking?.Invoke(this, EventArgs.Empty);
+            }
         }
         else
         {
             navMeshAgent.stoppingDistance = 0;
+            StartPatrolling?.Invoke(this, EventArgs.Empty);
             if (patrolPoints.Length > 0)
             {
                 //Patrulla entre los puntos de patrulla en orden
