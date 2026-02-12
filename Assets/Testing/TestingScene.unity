@@ -1493,6 +1493,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &742656579 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1412945518657857728, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+  m_PrefabInstance: {fileID: 1645447084}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &777484928 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3278230915742338931, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+  m_PrefabInstance: {fileID: 1645447084}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &777484934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777484928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 261c376d0fd5a54458888d889baa5c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArcherEnemy
+  health: 70
+  speed: 2.8
+  damage: 10
+  detectionRange: 15.2
+  attackRange: 8
+  attackCooldown: 1.2
+  basicAttackDMG: 10
+  projectileVelocity: 25
+  potionDropChancePercentage: 45
+  patrolPoints:
+  - {fileID: 191146757}
+  - {fileID: 198030841}
+  attackPref: {fileID: 3026340385685424308, guid: dba5be3a84a65e1448ddaeaf55be8fca, type: 3}
+  corpse: {fileID: 285926861608280104, guid: 6dc757dcac6d16048b7efc344907d5a4, type: 3}
+  detectionArea: {fileID: 806833237}
+  attackPivot: {fileID: 1734746620}
+  isPlayerDetected: 0
+  navMeshAgent: {fileID: 0}
+  reviveArea: 0
+--- !u!1 &806833237 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5154131090732255415, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+  m_PrefabInstance: {fileID: 1645447084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &832215653
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2191,8 +2237,10 @@ MonoBehaviour:
   attackRange: 2.3
   attackCooldown: 0.8
   basicAttackDMG: 25
+  projectileVelocity: 0
   potionDropChancePercentage: 30
   patrolPoints: []
+  attackPref: {fileID: 0}
   corpse: {fileID: 285926861608280104, guid: 6dc757dcac6d16048b7efc344907d5a4, type: 3}
   detectionArea: {fileID: 1353981494}
   attackPivot: {fileID: 2030091940}
@@ -2871,6 +2919,10 @@ PrefabInstance:
       value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: attackPref
+      value: 
+      objectReference: {fileID: 3026340385685424308, guid: dba5be3a84a65e1448ddaeaf55be8fca, type: 3}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: attackRange
       value: 8
       objectReference: {fileID: 0}
@@ -2887,6 +2939,10 @@ PrefabInstance:
       value: 15.2
       objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: projectileVelocity
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -2898,6 +2954,10 @@ PrefabInstance:
       propertyPath: 'patrolPoints.Array.data[1]'
       value: 
       objectReference: {fileID: 198030841}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: potionDropChancePercentage
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 1412945518657857728, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.11
@@ -2950,10 +3010,17 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: fcb473d7bbb1d064abf68087f4b21e30, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1412945518657857728, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1818632905}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3278230915742338931, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 777484934}
   m_SourcePrefab: {fileID: 100100000, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
 --- !u!1 &1714398509
 GameObject:
@@ -3105,6 +3172,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1838324610}
   m_LocalEulerAnglesHint: {x: -24.851, y: -27.202, z: 0}
+--- !u!4 &1734746620 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 513814305295974044, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+  m_PrefabInstance: {fileID: 1645447084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1809243285 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3278230915742338931, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
@@ -3129,8 +3201,10 @@ MonoBehaviour:
   attackRange: 2.3
   attackCooldown: 0.8
   basicAttackDMG: 25
+  projectileVelocity: 0
   potionDropChancePercentage: 30
   patrolPoints: []
+  attackPref: {fileID: 0}
   corpse: {fileID: 285926861608280104, guid: 6dc757dcac6d16048b7efc344907d5a4, type: 3}
   detectionArea: {fileID: 144912010}
   attackPivot: {fileID: 1439462099}
@@ -3144,6 +3218,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1412945518657857728, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
   m_PrefabInstance: {fileID: 451746704}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1818632904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1818632905}
+  - component: {fileID: 1818632907}
+  - component: {fileID: 1818632906}
+  m_Layer: 0
+  m_Name: CurationArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1818632905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818632904}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 13, y: 2.84445, z: 13}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 742656579}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1818632906
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818632904}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.7
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1818632907
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818632904}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1838324604 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3278230915742338931, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
@@ -3168,8 +3304,10 @@ MonoBehaviour:
   attackRange: 2.3
   attackCooldown: 0.8
   basicAttackDMG: 25
+  projectileVelocity: 0
   potionDropChancePercentage: 30
   patrolPoints: []
+  attackPref: {fileID: 0}
   corpse: {fileID: 285926861608280104, guid: 6dc757dcac6d16048b7efc344907d5a4, type: 3}
   detectionArea: {fileID: 1847680431}
   attackPivot: {fileID: 387018059}
@@ -3451,8 +3589,10 @@ MonoBehaviour:
   attackRange: 2.3
   attackCooldown: 0.8
   basicAttackDMG: 25
+  projectileVelocity: 0
   potionDropChancePercentage: 30
   patrolPoints: []
+  attackPref: {fileID: 0}
   corpse: {fileID: 285926861608280104, guid: 6dc757dcac6d16048b7efc344907d5a4, type: 3}
   detectionArea: {fileID: 1051354763}
   attackPivot: {fileID: 1013291073}
