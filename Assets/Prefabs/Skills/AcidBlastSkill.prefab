@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AcidBlastSkill
   damageTickFrequency: 0.5
   skillDamage: 15
-  aliveTime: 3
+  aliveTime: 4
   blastRange: 100
   blastBaseWidth: 1
   perMinionWidthIncrease: 1
