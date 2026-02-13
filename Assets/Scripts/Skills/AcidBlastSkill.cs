@@ -36,6 +36,7 @@ public class AcidBlastSkill : BaseAreaDamageSkill
 
     public override void StartCast()
     {
+        base.StartCast();
         ApplySizeAndDamage();
     }
 

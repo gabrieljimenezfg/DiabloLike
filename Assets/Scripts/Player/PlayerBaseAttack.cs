@@ -8,15 +8,18 @@ public class PlayerBaseAttack : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private float projectileSpeed;
     [SerializeField] private float projectileDistance;
-    private Transform playerCastSpawnPoint;
+    private Player player;
 
     public event EventHandler<GameObject> BaseAttackCasted;
 
+    private void Awake()
+    {
+        player = GetComponent<Player>();
+    }
 
     private void Start()
     {
         GameInput.Instance.BaseAttackPerformed += OnBaseAttackPerformed;
-        playerCastSpawnPoint = GetComponent<Player>().CastSpawnPoint;
     }
 
     private void OnDestroy()
@@ -42,12 +45,10 @@ public class PlayerBaseAttack : MonoBehaviour
 
     public void LaunchProjectile(GameObject enemy)
     {
-        playerCastSpawnPoint.LookAt(enemy.transform.position);
-        GameObject projectile = Instantiate(projectilePrefab, playerCastSpawnPoint.position,
-            playerCastSpawnPoint.rotation);
-
-        projectile.GetComponent<Rigidbody>().linearVelocity =
-            playerCastSpawnPoint.forward *
-            projectileSpeed;
+        var directionTowardsEnemy = (enemy.transform.position - transform.position).normalized;
+        player.SetLookDirection(directionTowardsEnemy);
+        var projectile = Instantiate(projectilePrefab, player.CastSpawnPoint.position,
+            player.CastSpawnPoint.rotation);
+        projectile.GetComponent<Rigidbody>().linearVelocity = player.CastSpawnPoint.forward * projectileSpeed;
     }
 }
