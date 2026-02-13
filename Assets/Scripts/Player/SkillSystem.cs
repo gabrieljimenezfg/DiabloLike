@@ -24,8 +24,13 @@ public class SkillSystem : MonoBehaviour
 
     private SkillCooldowns cooldowns = new SkillCooldowns();
 
-    public static EventHandler<int> CastedSkill;
-    public static EventHandler<ISkillBehavior> CastedSkillBehavior;
+    public class CastedSkillEventArgs : EventArgs
+    {
+        public int slotId;
+        public ISkillBehavior behavior;
+    }
+
+    public static EventHandler<CastedSkillEventArgs> CastedSkill;
 
     private void Awake()
     {
@@ -101,8 +106,12 @@ public class SkillSystem : MonoBehaviour
         {
             player.UseMana(skill.manaCost);
             cooldowns[skill] = skill.cooldown;
-            CastedSkill?.Invoke(this, slotId);
-            CastedSkillBehavior?.Invoke(this, behavior);
+            
+            CastedSkill?.Invoke(this, new CastedSkillEventArgs
+            {
+                slotId = slotId,
+                behavior = behavior
+            });
         }
         else
         {

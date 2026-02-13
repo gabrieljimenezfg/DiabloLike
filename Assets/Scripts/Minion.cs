@@ -146,7 +146,7 @@ public class Minion : MonoBehaviour
         }
     }
 
-    // si loopear todos los colliders se pone pesado ponemos hacer un enemy layer y solo buscar ahi
+    // si loopear todos los colliders se pone pesado podemos hacer un enemy layer y solo buscar ahi
     private Enemy FindClosestEnemy()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, detectionRadius);

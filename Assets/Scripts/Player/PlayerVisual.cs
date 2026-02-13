@@ -29,7 +29,6 @@ public class PlayerVisual : MonoBehaviour
 
         Player.Instance.PlayerDied += OnPlayerDeath;
         SkillSystem.CastedSkill += OnCastedSkill;
-        SkillSystem.CastedSkillBehavior += GetLastCastedSkillBehavior;
         playerBaseAttack.BaseAttackCasted += OnBaseAttackCasted;
         playerMovementController.Rolling += OnRolling;
     }
@@ -83,20 +82,16 @@ public class PlayerVisual : MonoBehaviour
     }
 
     //Spells
-    private void OnCastedSkill(object sender, int slotID)
+    private void OnCastedSkill(object sender, SkillSystem.CastedSkillEventArgs skill)
     {
-        HandleSpellAnimation(slotID);
+        HandleSpellAnimation(skill.slotId);
+        LastCastedSkillBehavior = skill.behavior;
     }
 
     private void HandleSpellAnimation(int _slotId)
     {
         _slotId += 1;
         animator.SetTrigger(AnimatorSpellKey + _slotId);
-    }
-
-    private void GetLastCastedSkillBehavior(object sender, ISkillBehavior _behavior)
-    {
-        LastCastedSkillBehavior = _behavior;
     }
 
     public void StartCastInAnimation()
