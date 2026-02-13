@@ -78,7 +78,7 @@ public class Player : MonoBehaviour, IDamageable
         SetLookDirection(direction);
     }
     
-    private void SetLookDirection(Vector3 direction)
+    public void SetLookDirection(Vector3 direction)
     {
         transform.forward = direction;
     }
