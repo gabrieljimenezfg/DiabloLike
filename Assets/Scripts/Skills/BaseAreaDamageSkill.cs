@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BaseAreaDamageSkill : MonoBehaviour, ISkillBehavior
+public abstract class BaseAreaDamageSkill : BaseSkill, ISkillBehavior
 {
     [SerializeField] protected float damageTickFrequency = 0.5f;
     [SerializeField] protected float skillDamage;
@@ -62,6 +62,4 @@ public abstract class BaseAreaDamageSkill : MonoBehaviour, ISkillBehavior
     }
 
     public abstract bool TryExecute(Player caster);
-
-    public abstract void StartCast();
 }

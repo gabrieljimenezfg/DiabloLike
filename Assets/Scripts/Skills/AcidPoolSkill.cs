@@ -19,6 +19,7 @@ public class AcidPoolSkill : BaseAreaDamageSkill
 
     public override void StartCast()
     {
+        base.StartCast();
         ApplyRadius();
     }
 

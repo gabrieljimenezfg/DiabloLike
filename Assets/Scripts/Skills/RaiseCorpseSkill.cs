@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RaiseCorpseSkill : MonoBehaviour, ISkillBehavior
+public class RaiseCorpseSkill : BaseSkill, ISkillBehavior
 {
     private Corpse actualCorpse;
 
@@ -22,8 +22,9 @@ public class RaiseCorpseSkill : MonoBehaviour, ISkillBehavior
         return false;
     }
 
-    public void StartCast()
+    public override void StartCast()
     {
+        base.StartCast(); 
         actualCorpse.SpawnMinion();
     }
 }

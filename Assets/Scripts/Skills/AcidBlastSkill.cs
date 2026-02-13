@@ -14,8 +14,9 @@ public class AcidBlastSkill : BaseAreaDamageSkill
     private Player player;
     private int minionsConsumed;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         blastHitbox = GetComponent<BoxCollider>();
     }
 

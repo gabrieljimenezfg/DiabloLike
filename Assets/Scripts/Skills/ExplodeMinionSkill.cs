@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ExplodeMinionSkill : MonoBehaviour, ISkillBehavior
+public class ExplodeMinionSkill : BaseSkill, ISkillBehavior
 {
     [SerializeField] private float explosionRadius;
     [SerializeField] private float explosionDamage;
@@ -22,8 +22,9 @@ public class ExplodeMinionSkill : MonoBehaviour, ISkillBehavior
         return false;
     }
 
-    public void StartCast()
+    public override void StartCast()
     {
+        base.StartCast();
         DealAreaDamage(explotionPosition);
     }
 
