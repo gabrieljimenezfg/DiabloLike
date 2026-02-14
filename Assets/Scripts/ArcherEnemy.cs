@@ -1,9 +1,14 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
+
 
 public class ArcherEnemy : Enemy
 {
     [SerializeField] private float reviveArea;
+    [SerializeField] private float minEnemiesToRevive;
+    [SerializeField] private float reviveCooldown;
+    private bool reviveFlag = false; //Si esto es true significa que esta reviviendo a alguien
 
     void Start()
     {
@@ -13,9 +18,26 @@ public class ArcherEnemy : Enemy
     void Update()
     {
         base.Update();
+        if (FindCorpses(out List<GameObject> corpseList).Count >= minEnemiesToRevive)
+        {
+            if (!reviveFlag)
+            {
+                StartCoroutine(ReviveCooldown(corpseList));
+            }
+        }
     }
 
-    //hay que cambiar esto, de momento indica el enemigo más cercano pero queremos que pase una lista de todos los enemigos dentro del area
+    IEnumerator ReviveCooldown(List<GameObject> cList)
+    {
+        reviveFlag = true;
+        foreach (var corpse in cList)
+        {
+            yield return new WaitForSeconds(reviveCooldown);
+            corpse.GetComponent<Corpse>().Revive();
+        }
+        reviveFlag = false;
+    }
+
     private List<Enemy> FindEnemies()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, reviveArea);
@@ -24,7 +46,7 @@ public class ArcherEnemy : Enemy
 
         foreach (Collider col in colliders)
         {
-            if (col.TryGetComponent<Enemy>(out var enemy))
+            if (col.TryGetComponent<Enemy>(out Enemy enemy))
             {
                 inAreaEnemies.Add(enemy);
             }
@@ -32,19 +54,20 @@ public class ArcherEnemy : Enemy
         return inAreaEnemies;
     }
 
-    private List<Enemy> FindCorpses()
+    private List<GameObject> FindCorpses(out List<GameObject> corpseList)
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, reviveArea);
 
-        List<Enemy> inAreaEnemies = new List<Enemy>();
+        List<GameObject> inAreaEnemies = new List<GameObject>();
 
         foreach (Collider col in colliders)
         {
-            if (col.gameObject.layer.ToString() == "Corpse")
+            if (col.gameObject.layer == LayerMask.NameToLayer("Corpse"))
             {
-                //inAreaEnemies.Add(enemy);
+                inAreaEnemies.Add(col.gameObject);
             }
         }
+        corpseList = inAreaEnemies;
         return inAreaEnemies;
     }
 }
