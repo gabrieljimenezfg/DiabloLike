@@ -6,8 +6,8 @@ using Random = UnityEngine.Random;
 public class Enemy : MonoBehaviour, IDamageable
 {
     [Header("Stats")] //Stats del enemigo
-    [SerializeField]
-    private float health;
+    public float maxHealth;
+    public float health;
 
     [SerializeField] private float speed;
     [SerializeField] private float damage;
@@ -23,6 +23,8 @@ public class Enemy : MonoBehaviour, IDamageable
     private Transform[] patrolPoints; //Puntos de patrulla
     [SerializeField] private GameObject attackPref;
     [SerializeField] private Corpse corpse;
+
+    public bool isAlive = true;
 
     private int patrolIndex = 0;
 
@@ -45,6 +47,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void Start()
     {
+        health = maxHealth;
         player = Player.Instance;
         detectionArea.transform.localScale = new Vector3(detectionRange, 3.2f, detectionRange);
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -68,16 +71,17 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private void Die()
     {
+        isAlive = false;
         SpawnCorpse();
         TryDropPotion();
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     private void SpawnCorpse()
     {
-        var spawnPosition =
-            new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        Instantiate(corpse, spawnPosition, Quaternion.identity);
+        var spawnPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        Corpse corpseSpawned = Instantiate(corpse, spawnPosition, Quaternion.identity);
+        corpseSpawned.SetEnemy(gameObject);
     }
 
     private void TryDropPotion()
@@ -151,7 +155,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
                         //Se setea el proyectil V V V
                         atkPref.GetComponent<Projectile>().isGood = false; //El proyectil es malo porque es del enemigo
-                        atkPref.GetComponent<Projectile>().damage = damage; //El proyectil hace el da�o que se le asigno al enemigo
+                        atkPref.GetComponent<Projectile>().damage = damage; //El proyectil hace el danyo que se le asigno al enemigo
                         atkPref.GetComponent<Projectile>().distance = attackRange; //El proyectil tiene un rango de ataque igual al del enemigo
                         atkPref.GetComponent<Projectile>().transform.forward = transform.forward; //El proyectil se mueve hacia adelante del enemigo
                         atkPref.GetComponent<Rigidbody>().linearVelocity = transform.forward * projectileVelocity; //El proyectil se mueve a una velocidad de 10 (esto se puede ajustar segun el ataque)
