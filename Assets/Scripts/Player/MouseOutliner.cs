@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MouseOutliner : MonoBehaviour
 {
-    private MeshRenderer currentRenderer;
+    private Renderer currentRenderer;
     private Material[] originalMaterials;
 
     [SerializeField] private Material outlineMaterial;

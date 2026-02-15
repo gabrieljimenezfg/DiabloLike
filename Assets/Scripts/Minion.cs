@@ -82,6 +82,11 @@ public class Minion : MonoBehaviour
         {
             HandleTargetUpdating();
 
+            if (enemyTarget != null && !enemyTarget.isAlive)
+            {
+                enemyTarget = null;
+            }
+
             if (!enemyTarget)
             {
                 StayNearPlayer();
@@ -158,12 +163,15 @@ public class Minion : MonoBehaviour
         {
             if (col.TryGetComponent<Enemy>(out var enemy))
             {
-                float distanceSqr = (enemy.transform.position - transform.position).sqrMagnitude;
-
-                if (distanceSqr < closestDistanceSqr)
+                if (enemy.isAlive)
                 {
-                    closestDistanceSqr = distanceSqr;
-                    closestEnemy = enemy;
+                    float distanceSqr = (enemy.transform.position - transform.position).sqrMagnitude;
+
+                    if (distanceSqr < closestDistanceSqr)
+                    {
+                        closestDistanceSqr = distanceSqr;
+                        closestEnemy = enemy;
+                    }
                 }
             }
         }
