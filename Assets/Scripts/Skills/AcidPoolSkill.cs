@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AcidPoolSkill : BaseAreaDamageSkill
 {
-    [SerializeField] private float poolRadius = 5f;
+    [SerializeField] private float poolDiameter = 5f;
     [SerializeField] private Transform visual;
     [SerializeField] private BoxCollider poolCollider;
     [SerializeField] private float colliderHeight;
@@ -11,9 +11,8 @@ public class AcidPoolSkill : BaseAreaDamageSkill
 
     private void ApplyRadius()
     {
-        var d = poolRadius * 2f;
-        visual.localScale = new Vector3(d, visual.localScale.y, d);
-        poolCollider.size = new Vector3(d, colliderHeight, d);
+        visual.localScale = new Vector3(visual.localScale.x * poolDiameter, visual.localScale.y, visual.localScale.z * poolDiameter);
+        poolCollider.size = new Vector3(poolDiameter, colliderHeight, poolDiameter);
         poolCollider.center = new Vector3(poolCollider.center.x, colliderHeight * 0.5f, poolCollider.center.z);
     }
 
@@ -34,7 +33,7 @@ public class AcidPoolSkill : BaseAreaDamageSkill
     private bool IsWithinRadius(Transform entity)
     {
         var p = transform.position;
-        return Vector2.Distance(new Vector2(p.x, p.z), new Vector2(entity.position.x, entity.position.z)) <= poolRadius;
+        return Vector2.Distance(new Vector2(p.x, p.z), new Vector2(entity.position.x, entity.position.z)) <= poolDiameter / 2;
     }
 
     public override bool TryExecute(Player caster)
