@@ -263,6 +263,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: M_Hunter
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 304e0489428f56e4eba171ddee4a7e0e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1747adc500f01ac48a647d5e647484e4, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -6199746608926841370, guid: 304e0489428f56e4eba171ddee4a7e0e, type: 3}
