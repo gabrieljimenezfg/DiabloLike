@@ -1172,6 +1172,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1515,6 +1519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261c376d0fd5a54458888d889baa5c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArcherEnemy
+  maxHealth: 70
   health: 70
   speed: 2.8
   damage: 10
@@ -1529,11 +1534,14 @@ MonoBehaviour:
   - {fileID: 198030841}
   attackPref: {fileID: 3026340385685424308, guid: dba5be3a84a65e1448ddaeaf55be8fca, type: 3}
   corpse: {fileID: 285926861608280104, guid: 6dc757dcac6d16048b7efc344907d5a4, type: 3}
+  isAlive: 1
   detectionArea: {fileID: 806833237}
   attackPivot: {fileID: 1734746620}
   isPlayerDetected: 0
   navMeshAgent: {fileID: 0}
-  reviveArea: 0
+  reviveArea: 10
+  minEnemiesToRevive: 1
+  reviveCooldown: 3.6
 --- !u!1 &806833237 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5154131090732255415, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
@@ -2230,6 +2238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccfe00aaeb33d0448a8227bb47ec1463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MimicEnemy
+  maxHealth: 100
   health: 100
   speed: 3
   damage: 10
@@ -2242,6 +2251,7 @@ MonoBehaviour:
   patrolPoints: []
   attackPref: {fileID: 0}
   corpse: {fileID: 285926861608280104, guid: 6dc757dcac6d16048b7efc344907d5a4, type: 3}
+  isAlive: 1
   detectionArea: {fileID: 1353981494}
   attackPivot: {fileID: 2030091940}
   isPlayerDetected: 0
@@ -2608,6 +2618,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -2663,9 +2677,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3278230915742338931, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7883405142801594485, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_Radius
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8371626634901094436, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3166,7 +3188,7 @@ Transform:
   m_GameObject: {fileID: 1716945218}
   serializedVersion: 2
   m_LocalRotation: {x: -0.20913944, y: -0.22964773, z: -0.050599348, w: 0.9491903}
-  m_LocalPosition: {x: -0.024, y: 1.999, z: 0.031}
+  m_LocalPosition: {x: -0.024, y: 2.067, z: 0.031}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3194,6 +3216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccfe00aaeb33d0448a8227bb47ec1463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MimicEnemy
+  maxHealth: 100
   health: 100
   speed: 3
   damage: 10
@@ -3206,6 +3229,7 @@ MonoBehaviour:
   patrolPoints: []
   attackPref: {fileID: 0}
   corpse: {fileID: 285926861608280104, guid: 6dc757dcac6d16048b7efc344907d5a4, type: 3}
+  isAlive: 1
   detectionArea: {fileID: 144912010}
   attackPivot: {fileID: 1439462099}
   isPlayerDetected: 0
@@ -3297,6 +3321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccfe00aaeb33d0448a8227bb47ec1463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MimicEnemy
+  maxHealth: 100
   health: 100
   speed: 3
   damage: 10
@@ -3309,11 +3334,12 @@ MonoBehaviour:
   patrolPoints: []
   attackPref: {fileID: 0}
   corpse: {fileID: 285926861608280104, guid: 6dc757dcac6d16048b7efc344907d5a4, type: 3}
+  isAlive: 1
   detectionArea: {fileID: 1847680431}
   attackPivot: {fileID: 387018059}
   isPlayerDetected: 0
   navMeshAgent: {fileID: 0}
-  deepInGround: 2
+  deepInGround: 2.18
   mimicAsset: {fileID: 8387812288189420140, guid: a13b8883072533940b5bcfde3cbc03a0, type: 3}
   mimicTransform: {fileID: 1716945219}
 --- !u!4 &1838324610 stripped
@@ -3582,6 +3608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccfe00aaeb33d0448a8227bb47ec1463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MimicEnemy
+  maxHealth: 100
   health: 100
   speed: 3
   damage: 10
@@ -3594,6 +3621,7 @@ MonoBehaviour:
   patrolPoints: []
   attackPref: {fileID: 0}
   corpse: {fileID: 285926861608280104, guid: 6dc757dcac6d16048b7efc344907d5a4, type: 3}
+  isAlive: 1
   detectionArea: {fileID: 1051354763}
   attackPivot: {fileID: 1013291073}
   isPlayerDetected: 0
