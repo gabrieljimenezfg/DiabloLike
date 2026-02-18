@@ -673,7 +673,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9b8bdbb75de73e9469952a8d6951320c, type: 2}
+  - {fileID: 2100000, guid: 6af81266af1e161489ebc70aabe8f62a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2315,6 +2315,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: bdafb951-d969-4c82-bf61-d2b60e0fa6b3
     m_ActionName: 'Player/BaseAttack[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 986ac7fe-8653-47ab-af5b-d529407babfc
+    m_ActionName: 'Player/Roll[/Keyboard/space]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
