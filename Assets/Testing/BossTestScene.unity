@@ -3536,7 +3536,7 @@ GameObject:
   - component: {fileID: 263890895}
   - component: {fileID: 919132149284051615}
   - component: {fileID: 919132149284051614}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3579,7 +3579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FirstBoss
   maxHealth: 500
   health: 500
-  speed: 7
+  speed: 6.7
   damage: 23.5
   detectionRange: 10
   attackRange: 3.8
@@ -3599,8 +3599,8 @@ MonoBehaviour:
   timeInStandard: 7
   preFlashAttack: 0.3
   waitTime: 2.2
-  flashAttackScale: 20
-  flashAttackDuration: 1.1
+  flashAttackScale: 30
+  flashAttackDuration: 0.76
 --- !u!4 &933797911597566110
 Transform:
   m_ObjectHideFlags: 0

@@ -60,11 +60,15 @@ public class FirstBoss : Enemy
         yield return new WaitForSeconds(preFlashAttack);
         Debug.Log("Flash Attack");
         GameObject DiskPref = Instantiate(FlashDisk, transform.position, Quaternion.Euler(90, 0, 0));
-        while (DiskPref.transform.localScale.x < flashAttackScale)
+        float timer = 0f;
+        Vector3 originalScale = DiskPref.transform.localScale;
+        while (timer < flashAttackDuration)
         {
-            DiskPref.transform.localScale = Vector3.Lerp(FlashDisk.transform.localScale, new Vector3(flashAttackScale, flashAttackScale, flashAttackScale), flashAttackDuration);
-            yield return new WaitForSeconds(0.1f);
+            timer += Time.deltaTime;
+            DiskPref.transform.localScale = Vector3.Lerp(originalScale, new Vector3(flashAttackScale, flashAttackScale, flashAttackScale), timer / flashAttackDuration);
+            yield return null;
         }
+        Destroy(DiskPref);
         StartCoroutine(WaitingCorouting());
     }
 }
