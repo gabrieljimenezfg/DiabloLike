@@ -106,7 +106,7 @@ public class SkillSystem : MonoBehaviour
         {
             player.UseMana(skill.manaCost);
             cooldowns[skill] = skill.cooldown;
-            
+
             CastedSkill?.Invoke(this, new CastedSkillEventArgs
             {
                 slotId = slotId,

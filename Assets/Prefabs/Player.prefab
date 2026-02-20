@@ -171,7 +171,7 @@ MonoBehaviour:
   maxHp: 100
   maxMana: 100
   castSpawnPoint: {fileID: 3862906354267426270}
-  lockedTurnSpeed: 10
+  lockedTurnSpeed: 8
   invincible: 0
 --- !u!114 &4210350726503247962
 MonoBehaviour:
@@ -218,8 +218,9 @@ MonoBehaviour:
   stamina: 100
   speed: 4
   runSpeed: 10.1
-  rollDistance: 0
-  rollSpeed: 0
+  rollDistance: 5
+  rollSpeed: 3
+  rollStaminaConsumption: 10
 --- !u!114 &7647271795112234274
 MonoBehaviour:
   m_ObjectHideFlags: 0

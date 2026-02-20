@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class EnemyVisual : MonoBehaviour
 {
-    private Animator animator;
-    private Enemy enemy;
+    public Animator animator;
+    public Enemy enemy;
 
     private const string AnimatorAttackKey = "isAttacking";
     private const string AnimatorPatrollingKey = "isPatrolling";
     private const string AnimatorChasingKey = "isChasing";
     private const string AnimatorHit2Key = "Hit2";
 
-    void Start()
+    public void Start()
     {
         animator = GetComponent<Animator>();
         enemy = GetComponentInParent<Enemy>();
