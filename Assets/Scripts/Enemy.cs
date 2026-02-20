@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour, IDamageable
     [Header("ThisEnemy")] //Cosas de este enemigo en concreto
     [SerializeField]
     private Transform[] patrolPoints; //Puntos de patrulla
+    public bool IsMelee = true;
     [SerializeField] private GameObject attackPref;
     [SerializeField] private Corpse corpse;
 
@@ -147,7 +148,7 @@ public class Enemy : MonoBehaviour, IDamageable
                 StartAttacking?.Invoke(this, EventArgs.Empty);
                 if (cooldownTimer >= attackCooldown) //Esto es para el cooldown de ataque
                 {
-                    if (attackPref == null)
+                    if (IsMelee)
                     {
                         player.GetComponent<Player>().TakeDamage(basicAttackDMG); //El jugador recibe danyo del ataque basico 
                     } else {
