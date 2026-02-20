@@ -13,9 +13,21 @@ public class FirstBoss : Enemy
     [SerializeField] private float waitTime;
     [SerializeField] private float flashAttackScale;
     [SerializeField] private float flashAttackDuration;
+    [SerializeField] private float shotRange;
+    [SerializeField] private float shotCooldown;
+    [SerializeField] private float shotSpeed;
+    [SerializeField] private float shotAttack;
+    private float meleeAttack;
+    private float meleeRange;
+    private float meleeCooldown;
+    private float meleeSpeed;
 
     void Start()
     {
+        meleeCooldown = attackCooldown;
+        meleeRange = attackRange;
+        meleeSpeed = speed;
+        meleeAttack = damage;
         base.Start();
         StartCoroutine(WaitingCorouting());
     }
@@ -33,6 +45,10 @@ public class FirstBoss : Enemy
         switch (atkPhase)
         {
             case 1:
+                speed = meleeSpeed;
+                attackCooldown = meleeCooldown;
+                attackRange = meleeRange;
+                damage = meleeAttack;
                 IsMelee = true;
                 StartCoroutine(StandardCoroutine());
                 break;
@@ -40,6 +56,11 @@ public class FirstBoss : Enemy
                 StartCoroutine(FlashAttackCoroutine());
                 break;
             case 3:
+                Debug.Log("RANGED ATTACK");
+                damage = shotAttack;
+                speed = shotSpeed;
+                attackCooldown = shotCooldown;
+                attackRange = shotRange;
                 IsMelee = false;
                 StartCoroutine(StandardCoroutine());
                 break;

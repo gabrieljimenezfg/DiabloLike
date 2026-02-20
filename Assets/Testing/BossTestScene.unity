@@ -3582,10 +3582,10 @@ MonoBehaviour:
   speed: 6.7
   damage: 23.5
   detectionRange: 10
-  attackRange: 3.8
+  attackRange: 3.57
   attackCooldown: 1.6
   basicAttackDMG: 23.5
-  projectileVelocity: 3
+  projectileVelocity: 6.02
   potionDropChancePercentage: 100
   patrolPoints: []
   IsMelee: 1
@@ -3602,6 +3602,10 @@ MonoBehaviour:
   waitTime: 2.2
   flashAttackScale: 35
   flashAttackDuration: 0.76
+  shotRange: 8.15
+  shotCooldown: 0.4
+  shotSpeed: 4.1
+  shotAttack: 8.45
 --- !u!4 &933797911597566110
 Transform:
   m_ObjectHideFlags: 0
