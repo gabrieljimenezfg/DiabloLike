@@ -8,8 +8,7 @@ public class AcidBlastSkill : BaseAreaDamageSkill
     [SerializeField] private float blastBaseWidth = 25f;
     [SerializeField] private float perMinionWidthIncrease = 0.5f;
     [SerializeField] private float perMinionDamageIncreasePercentage = 0.1f;
-    [SerializeField] private Transform visual;
-
+    
     private BoxCollider blastHitbox;
     private Player player;
     private int minionsConsumed;
