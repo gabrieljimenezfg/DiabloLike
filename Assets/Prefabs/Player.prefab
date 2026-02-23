@@ -49,7 +49,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7415155679682037266}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -220,6 +220,7 @@ MonoBehaviour:
   runSpeed: 10.1
   rollDistance: 0
   rollSpeed: 0
+  rollStaminaConsumption: 0
 --- !u!114 &7647271795112234274
 MonoBehaviour:
   m_ObjectHideFlags: 0

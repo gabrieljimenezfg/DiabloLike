@@ -191,6 +191,7 @@ public class Minion : MonoBehaviour
 
     private void Consume()
     {
+        Instantiate(GameAssets.i.corpseConsumedVisualPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
