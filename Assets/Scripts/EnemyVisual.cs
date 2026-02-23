@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyVisual : MonoBehaviour
 {
     public Animator animator;
-    public Enemy enemy;
+    private Enemy enemy;
 
     private const string AnimatorAttackKey = "isAttacking";
     private const string AnimatorPatrollingKey = "isPatrolling";

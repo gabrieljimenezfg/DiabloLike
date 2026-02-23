@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using System;
 
 
 public class ArcherEnemy : Enemy
@@ -9,6 +10,8 @@ public class ArcherEnemy : Enemy
     [SerializeField] private float minEnemiesToRevive;
     [SerializeField] private float reviveCooldown;
     private bool reviveFlag = false; //Si esto es true significa que esta reviviendo a alguien
+
+    public event EventHandler StartReviving;
 
     void Start()
     {
@@ -22,6 +25,7 @@ public class ArcherEnemy : Enemy
         {
             if (!reviveFlag)
             {
+                StartReviving?.Invoke(this, EventArgs.Empty);
                 StartCoroutine(ReviveCooldown(corpseList));
             }
         }
