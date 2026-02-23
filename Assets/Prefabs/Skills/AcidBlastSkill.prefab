@@ -100,7 +100,7 @@ MonoBehaviour:
   damageTickFrequency: 0.5
   skillDamage: 15
   aliveTime: 5
-  blastRange: 100
+  blastRange: 60
   blastBaseWidth: 1
   perMinionWidthIncrease: 1
   perMinionDamageIncreasePercentage: 0.1
@@ -236,6 +236,14 @@ PrefabInstance:
       propertyPath: InitialModule.startSize.scalar
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 940354695625994085, guid: c1c8b2983c743f745be3f9c950967f64, type: 3}
+      propertyPath: InitialModule.startSizeY.scalar
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 940354695625994085, guid: c1c8b2983c743f745be3f9c950967f64, type: 3}
+      propertyPath: InitialModule.startSizeZ.scalar
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 1501966285163062897, guid: c1c8b2983c743f745be3f9c950967f64, type: 3}
       propertyPath: m_LocalScale.z
       value: 1.8874
@@ -286,11 +294,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3109578366858620557, guid: c1c8b2983c743f745be3f9c950967f64, type: 3}
       propertyPath: InitialModule.startSizeY.scalar
-      value: 20
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3332647738877965169, guid: c1c8b2983c743f745be3f9c950967f64, type: 3}
       propertyPath: SizeModule.separateAxes
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332647738877965169, guid: c1c8b2983c743f745be3f9c950967f64, type: 3}
+      propertyPath: InitialModule.startSizeY.scalar
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3955865155016759112, guid: c1c8b2983c743f745be3f9c950967f64, type: 3}
+      propertyPath: InitialModule.size3D
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3955865155016759112, guid: c1c8b2983c743f745be3f9c950967f64, type: 3}
+      propertyPath: CustomDataModule.mode1
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3955865155016759112, guid: c1c8b2983c743f745be3f9c950967f64, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3955865155016759112, guid: c1c8b2983c743f745be3f9c950967f64, type: 3}
+      propertyPath: InitialModule.startSizeY.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3955865155016759112, guid: c1c8b2983c743f745be3f9c950967f64, type: 3}
+      propertyPath: InitialModule.startSizeZ.scalar
+      value: 14.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 3955865155016759112, guid: c1c8b2983c743f745be3f9c950967f64, type: 3}
+      propertyPath: InitialModule.startSize.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3955865155016759112, guid: c1c8b2983c743f745be3f9c950967f64, type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3955865155016759112, guid: c1c8b2983c743f745be3f9c950967f64, type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4647006576065379932, guid: c1c8b2983c743f745be3f9c950967f64, type: 3}
       propertyPath: m_IsActive

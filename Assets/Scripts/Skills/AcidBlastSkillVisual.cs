@@ -4,19 +4,25 @@ using UnityEngine;
 public class AcidBlastSkillVisual : MonoBehaviour
 {
     private const float scaleY = 60f;
+    private const float scaleXZ = 3f;
     [SerializeField] private ParticleSystem trailParticleSystem, poisonMeshParticleSystem, waterBeamParticleSystem;
 
     private void Awake()
     {
-        var trailMain = trailParticleSystem.main;
-        var poisonMeshMain = poisonMeshParticleSystem.main;
-        var waterBeamMain = waterBeamParticleSystem.main;
+        var scale = new Vector3(scaleXZ, scaleY, scaleXZ);
 
-        trailMain.startSize3D = true;
-        trailMain.startSizeY = scaleY;
-        poisonMeshMain.startSize3D = true;
-        poisonMeshMain.startSizeY = scaleY;
-        waterBeamMain.startSize3D = true;
-        waterBeamMain.startSizeY = scaleY;
+        SetParticleScale(trailParticleSystem, scale);
+        SetParticleScale(poisonMeshParticleSystem, scale);
+        SetParticleScale(waterBeamParticleSystem, scale);
+    }
+
+    private void SetParticleScale(ParticleSystem particleObject, Vector3 scale)
+    {
+        var main = particleObject.main;
+
+        main.startSize3D = true;
+        main.startSizeX = scale.x;
+        main.startSizeY = scale.y;
+        main.startSizeZ = scale.z;
     }
 }

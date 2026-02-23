@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AcidBlastSkill : BaseAreaDamageSkill
 {
-    [SerializeField] private float blastRange = 100f;
+    [SerializeField] private float blastRange = 60f;
     [SerializeField] private float blastBaseWidth = 25f;
     [SerializeField] private float perMinionWidthIncrease = 0.5f;
     [SerializeField] private float perMinionDamageIncreasePercentage = 0.1f;
@@ -25,8 +25,6 @@ public class AcidBlastSkill : BaseAreaDamageSkill
         var zOffset = blastRange * 0.5f;
         var sizeIncrease = perMinionWidthIncrease * minionsConsumed;
         var xySize = blastBaseWidth + sizeIncrease;
-        // visual.localScale = new Vector3(xySize, xySize, blastRange);
-        // visual.localPosition = new Vector3(visual.localPosition.x, visual.localPosition.y, zOffset);
         blastHitbox.size = new Vector3(xySize, xySize, blastRange);
         blastHitbox.center = new Vector3(blastHitbox.center.x, blastHitbox.center.y, zOffset);
 
