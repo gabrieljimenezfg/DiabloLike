@@ -13,6 +13,7 @@ public class RaiseCorpseSkill : BaseSkill, ISkillBehavior
             if (hit.transform.TryGetComponent<Corpse>(out var corpse))
             {
                 Debug.Log("[RaiseCorpseSkill] Found corpse component");
+                transform.position = corpse.transform.position;
                 actualCorpse = corpse;
                 return true;
             }
