@@ -181,6 +181,7 @@ public class Minion : MonoBehaviour
 
     public void Attack()
     {
+        if (!enemyTarget) return;
         if (attackingCooldownTimer <= 0)
         {
             enemyTarget.TakeDamage(damage);
