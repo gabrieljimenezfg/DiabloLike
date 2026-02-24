@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788370f82f6520c499c514801acbb65d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBaseAttack
-  projectilePrefab: {fileID: 3026340385685424308, guid: dba5be3a84a65e1448ddaeaf55be8fca, type: 3}
+  projectilePrefab: {fileID: 609531852358473140, guid: dba5be3a84a65e1448ddaeaf55be8fca, type: 3}
   projectileSpeed: 10
   projectileDistance: 10
 --- !u!136 &6318752673631624746

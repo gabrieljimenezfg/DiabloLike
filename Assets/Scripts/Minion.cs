@@ -96,6 +96,7 @@ public class Minion : MonoBehaviour
                 ChaseAndAttackTarget();
             }
         }
+        DebugDrawLeash();
     }
 
     private void StayNearPlayer()
