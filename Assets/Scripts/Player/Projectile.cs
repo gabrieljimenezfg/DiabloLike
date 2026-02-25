@@ -2,12 +2,17 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] private GameObject projectileDespawnPrefab;
+
     public float damage;
     public float distance; //Maxima distancia que recorre antes de destruirse
-    public bool isGood = true; //Si esto es true es un proyectil del jugador que ataca enemigos, si es false es un proyectil de un enemigo que ataca players
-                                //Se setea desde el script del enemigo
+
+    public bool
+        isGood = true; //Si esto es true es un proyectil del jugador que ataca enemigos, si es false es un proyectil de un enemigo que ataca players
+    //Se setea desde el script del enemigo
 
     private Vector3 originalPos;
+
     private void Awake()
     {
         originalPos = transform.position;
@@ -17,8 +22,18 @@ public class Projectile : MonoBehaviour
     {
         if (Vector3.Distance(originalPos, transform.position) > distance)
         {
-            Destroy(gameObject); //Destruye el proyectil si ha recorrido (distance) y no ha colisionado contra nada
+            DestroyProjectile();
         }
+    }
+
+    private void DestroyProjectile()
+    {
+        if (isGood)
+        {
+            Instantiate(projectileDespawnPrefab, transform.position, Quaternion.identity);
+        }
+
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,7 +44,7 @@ public class Projectile : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
-                Destroy(gameObject); // Destruye el proyectil al impactar con un enemigo
+                DestroyProjectile();
             }
         }
         else
@@ -38,7 +53,7 @@ public class Projectile : MonoBehaviour
             if (player != null)
             {
                 player.TakeDamage(damage);
-                Destroy(gameObject); // Destruye el proyectil al impactar con el jugador 
+                DestroyProjectile();
             }
         }
     }

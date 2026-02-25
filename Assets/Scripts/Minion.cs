@@ -96,6 +96,7 @@ public class Minion : MonoBehaviour
                 ChaseAndAttackTarget();
             }
         }
+        DebugDrawLeash();
     }
 
     private void StayNearPlayer()
@@ -181,6 +182,7 @@ public class Minion : MonoBehaviour
 
     public void Attack()
     {
+        if (!enemyTarget) return;
         if (attackingCooldownTimer <= 0)
         {
             enemyTarget.TakeDamage(damage);
@@ -190,6 +192,7 @@ public class Minion : MonoBehaviour
 
     private void Consume()
     {
+        Instantiate(GameAssets.i.corpseConsumedVisualPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 

@@ -16,5 +16,5 @@ public class GameAssets : MonoBehaviour
     public Transform damagePopupPrefab;
     public Transform healingPotionPrefab;
     public Transform manaPotionPrefab;
-    public Transform corpsePrefab;
+    public Transform corpseConsumedVisualPrefab;
 }

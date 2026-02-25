@@ -13,6 +13,7 @@ public class ExplodeMinionSkill : BaseSkill, ISkillBehavior
             if (hit.transform.TryGetComponent<Minion>(out var minion))
             {
                 explotionPosition = minion.transform.position;
+                transform.position = explotionPosition;
                 minion.Explode();
                 DebugUtils.DrawSphere(explotionPosition, explosionRadius, Color.red);
                 return true;

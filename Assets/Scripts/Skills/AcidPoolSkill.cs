@@ -7,8 +7,6 @@ public class AcidPoolSkill : BaseAreaDamageSkill
     [SerializeField] private BoxCollider poolCollider;
     [SerializeField] private float colliderHeight;
 
-    //private void Start() => ApplyRadius();
-
     private void ApplyRadius()
     {
         visual.localScale = new Vector3(visual.localScale.x * poolDiameter, visual.localScale.y, visual.localScale.z * poolDiameter);
