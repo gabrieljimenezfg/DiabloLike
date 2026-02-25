@@ -9,4 +9,6 @@ public class SkillSO : ScriptableObject
     public float manaCost;
     public float cooldown;
     public GameObject skillPrefab;
+    public AudioClip skillSound;
+    public AudioClip preCastSound;
 }

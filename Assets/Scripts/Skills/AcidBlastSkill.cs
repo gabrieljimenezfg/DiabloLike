@@ -16,6 +16,8 @@ public class AcidBlastSkill : BaseAreaDamageSkill
 
     protected override void Awake()
     {
+        base.Awake();
+        gameObject.SetActive(true);
         blastHitbox = GetComponent<BoxCollider>();
         blastHitbox.enabled = false;
     }
@@ -29,11 +31,11 @@ public class AcidBlastSkill : BaseAreaDamageSkill
         blastHitbox.center = new Vector3(blastHitbox.center.x, blastHitbox.center.y, zOffset);
 
         skillDamage *= (1f + perMinionDamageIncreasePercentage * (minionsConsumed - 1));
-        Debug.Log("Hitting with damage " + skillDamage);
     }
 
     public override void StartCast()
     {
+        base.StartCast();
         blastHitbox.enabled = true;
         ApplySizeAndDamage();
     }

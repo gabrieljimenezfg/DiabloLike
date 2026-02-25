@@ -73,6 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e56644a21a08e6f42bf7bb7e152bef40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExplodeMinionSkill
+  skillSO: {fileID: 11400000, guid: e4d8d3c725d473642aa1832bc81cbaa5, type: 2}
   explosionRadius: 5
   explosionDamage: 120
 --- !u!1001 &2380316798591559198
