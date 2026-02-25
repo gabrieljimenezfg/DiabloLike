@@ -30,7 +30,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 899115716300802504}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2156843671614812485
@@ -72,3 +73,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f2b3dedf21032446abecfe8f62c5816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  skillSO: {fileID: 11400000, guid: 9e79a4cc44131a94da1210c55df66a46, type: 2}
+--- !u!1001 &1150649018042959959
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4639699257243350589}
+    m_Modifications:
+    - target: {fileID: 256038692438589855, guid: 8ebbd41773047794fb2b7466486679b2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 256038692438589855, guid: 8ebbd41773047794fb2b7466486679b2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 256038692438589855, guid: 8ebbd41773047794fb2b7466486679b2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 256038692438589855, guid: 8ebbd41773047794fb2b7466486679b2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 256038692438589855, guid: 8ebbd41773047794fb2b7466486679b2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 256038692438589855, guid: 8ebbd41773047794fb2b7466486679b2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 256038692438589855, guid: 8ebbd41773047794fb2b7466486679b2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 256038692438589855, guid: 8ebbd41773047794fb2b7466486679b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 256038692438589855, guid: 8ebbd41773047794fb2b7466486679b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 256038692438589855, guid: 8ebbd41773047794fb2b7466486679b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2750290244487859472, guid: 8ebbd41773047794fb2b7466486679b2, type: 3}
+      propertyPath: m_Name
+      value: RaiseCorpseSkillVisual
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8ebbd41773047794fb2b7466486679b2, type: 3}
+--- !u!4 &899115716300802504 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 256038692438589855, guid: 8ebbd41773047794fb2b7466486679b2, type: 3}
+  m_PrefabInstance: {fileID: 1150649018042959959}
+  m_PrefabAsset: {fileID: 0}

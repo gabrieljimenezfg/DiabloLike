@@ -18,3 +18,5 @@ MonoBehaviour:
   manaCost: 50
   cooldown: 5
   skillPrefab: {fileID: 410203522064405846, guid: fe0abbadf44db794d991b9dda1117c0a, type: 3}
+  skillSound: {fileID: 8300000, guid: 38773a057e3af1f4a8eb0d17153e7912, type: 3}
+  preCastSound: {fileID: 8300000, guid: d85d89087bd0c0d49b2fb8432c47c507, type: 3}

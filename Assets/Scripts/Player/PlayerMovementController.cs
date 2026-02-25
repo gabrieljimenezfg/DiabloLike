@@ -29,6 +29,7 @@ public class PlayerMovementController : MonoBehaviour
     public bool IsMoving => isMoving;
 
     public event EventHandler Rolling;
+    public event EventHandler ManualMovePerformed;
 
     void Awake()
     {
@@ -127,19 +128,24 @@ public class PlayerMovementController : MonoBehaviour
 
     private void HandleMovement()
     {
-        isMoving = true;
         if (player.ArePositionAndRotationLocked) return;
 
         if (MouseWorldUtils.TryGetMousePositionOnTargetLayer(MouseRayTargetLayer.Ground, out var groundHit))
         {
+            ManualMovePerformed?.Invoke(this, EventArgs.Empty);
             var destination = groundHit.point;
-            var direction = (destination - transform.position).normalized;
-            transform.rotation = Quaternion.LookRotation(direction);
-            navMeshAgent.SetDestination(destination);
+            MoveTo(destination);
         }
     }
-    
-    
+
+    public void MoveTo(Vector3 destination)
+    {
+        isMoving = true;
+        var direction = (destination - transform.position).normalized;
+        transform.rotation = Quaternion.LookRotation(direction);
+        navMeshAgent.SetDestination(destination);
+    }
+
     public void Roll()
     {
         if (!isRolling && stamina >= rollStaminaConsumption)
@@ -191,5 +197,11 @@ public class PlayerMovementController : MonoBehaviour
     {
         //Esto es para el evento del rol en el que se reactivará su danyo
         Player.Instance.invincible = false;
+    }
+    
+    public void Stop()
+    {
+        isMoving = false;
+        navMeshAgent.ResetPath();
     }
 }

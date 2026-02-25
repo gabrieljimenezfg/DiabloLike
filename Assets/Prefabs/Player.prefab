@@ -49,7 +49,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7415155679682037266}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -220,6 +220,7 @@ MonoBehaviour:
   runSpeed: 10.1
   rollDistance: 0
   rollSpeed: 0
+  rollStaminaConsumption: 0
 --- !u!114 &7647271795112234274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788370f82f6520c499c514801acbb65d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBaseAttack
-  projectilePrefab: {fileID: 3026340385685424308, guid: dba5be3a84a65e1448ddaeaf55be8fca, type: 3}
+  projectilePrefab: {fileID: 609531852358473140, guid: dba5be3a84a65e1448ddaeaf55be8fca, type: 3}
   projectileSpeed: 10
   projectileDistance: 10
 --- !u!136 &6318752673631624746
