@@ -4,14 +4,14 @@ using UnityEngine;
 public class ArcherEnemyVisual : EnemyVisual
 {
     private string AnimatorReviveKey = "Revive";
-    private ArcherEnemy enemy;
+    private ArcherEnemy archerEnemy;
 
     private void Start()
     {
         base.Start();
-        enemy = GetComponentInParent<ArcherEnemy>();
+        archerEnemy = GetComponentInParent<ArcherEnemy>();
 
-        enemy.StartReviving += OnStartReviving;
+        archerEnemy.StartReviving += OnStartReviving;
     }
 
     private void OnStartReviving(object sender, EventArgs e)

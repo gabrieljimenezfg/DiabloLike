@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemyVisual : MonoBehaviour
 {
-    public Animator animator;
+    [HideInInspector] public Animator animator;
     private Enemy enemy;
 
     private const string AnimatorAttackKey = "isAttacking";

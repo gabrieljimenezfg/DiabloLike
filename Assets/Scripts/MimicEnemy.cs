@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MimicEnemy : Enemy
@@ -8,6 +9,8 @@ public class MimicEnemy : Enemy
 
     private GameObject prop;
     private Collider collider;
+
+    public event EventHandler IsGettingOutOfGround;
 
     void Start()
     {
@@ -27,6 +30,7 @@ public class MimicEnemy : Enemy
         base.Update();
         if (isPlayerDetected && navMeshAgent.enabled == false)
         {
+            IsGettingOutOfGround?.Invoke(this, EventArgs.Empty);
             navMeshAgent.enabled = true;
             collider.enabled = true;
             transform.position = new Vector3(transform.position.x, transform.position.y + deepInGround, transform.position.z);
