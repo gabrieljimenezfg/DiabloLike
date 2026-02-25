@@ -9,18 +9,19 @@ public class Enemy : MonoBehaviour, IDamageable
     public float maxHealth;
     public float health;
 
-    [SerializeField] private float speed;
-    [SerializeField] private float damage;
+    public float speed;
+    public float damage;
     [SerializeField] private float detectionRange; //Este ser el X y el Z del area de deteccion
-    [SerializeField] private float attackRange; //Rango de ataque y de stopping distance
-    [SerializeField] private float attackCooldown;
-    [SerializeField] private float basicAttackDMG; //Danyo del ataque b�sico
+    public float attackRange; //Rango de ataque y de stopping distance
+    public float attackCooldown;
+    [SerializeField] private float basicAttackDMG; //Danyo del ataque basico
     [SerializeField] private float projectileVelocity;
     [SerializeField] private int potionDropChancePercentage = 40;
 
     [Header("ThisEnemy")] //Cosas de este enemigo en concreto
     [SerializeField]
     private Transform[] patrolPoints; //Puntos de patrulla
+    public bool IsMelee = true;
     [SerializeField] private GameObject attackPref;
     [SerializeField] private Corpse corpse;
 
@@ -147,10 +148,11 @@ public class Enemy : MonoBehaviour, IDamageable
                 StartAttacking?.Invoke(this, EventArgs.Empty);
                 if (cooldownTimer >= attackCooldown) //Esto es para el cooldown de ataque
                 {
-                    if (attackPref == null)
+                    if (IsMelee)
                     {
                         player.GetComponent<Player>().TakeDamage(basicAttackDMG); //El jugador recibe danyo del ataque basico 
                     } else {
+                        Debug.Log("RANGED ATTACK EFFECTED");
                         GameObject atkPref = Instantiate(attackPref, attackPivot.position, transform.rotation); //Instancia el prefab del ataque si es que tiene uno
 
                         //Se setea el proyectil V V V

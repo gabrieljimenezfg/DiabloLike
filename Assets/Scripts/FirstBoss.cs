@@ -3,6 +3,7 @@ using System.Collections;
 
 public class FirstBoss : Enemy
 {
+    //Se llama first boss pero se puede usar para todos los bosses
     private int atkPhase = 0;
     private bool isBase;
 
@@ -12,9 +13,21 @@ public class FirstBoss : Enemy
     [SerializeField] private float waitTime;
     [SerializeField] private float flashAttackScale;
     [SerializeField] private float flashAttackDuration;
+    [SerializeField] private float shotRange;
+    [SerializeField] private float shotCooldown;
+    [SerializeField] private float shotSpeed;
+    [SerializeField] private float shotAttack;
+    private float meleeAttack;
+    private float meleeRange;
+    private float meleeCooldown;
+    private float meleeSpeed;
 
     void Start()
     {
+        meleeCooldown = attackCooldown;
+        meleeRange = attackRange;
+        meleeSpeed = speed;
+        meleeAttack = damage;
         base.Start();
         StartCoroutine(WaitingCorouting());
     }
@@ -32,10 +45,24 @@ public class FirstBoss : Enemy
         switch (atkPhase)
         {
             case 1:
+                speed = meleeSpeed;
+                attackCooldown = meleeCooldown;
+                attackRange = meleeRange;
+                damage = meleeAttack;
+                IsMelee = true;
                 StartCoroutine(StandardCoroutine());
                 break;
             case 2:
                 StartCoroutine(FlashAttackCoroutine());
+                break;
+            case 3:
+                Debug.Log("RANGED ATTACK");
+                damage = shotAttack;
+                speed = shotSpeed;
+                attackCooldown = shotCooldown;
+                attackRange = shotRange;
+                IsMelee = false;
+                StartCoroutine(StandardCoroutine());
                 break;
         }
     }
@@ -43,7 +70,7 @@ public class FirstBoss : Enemy
     IEnumerator WaitingCorouting()
     { 
         yield return new WaitForSeconds(waitTime);
-        atkPhase = Random.Range(1, 3);
+        atkPhase = Random.Range(1, 4);
         ChangeState();
     }
 
@@ -59,7 +86,7 @@ public class FirstBoss : Enemy
     {
         yield return new WaitForSeconds(preFlashAttack);
         Debug.Log("Flash Attack");
-        GameObject DiskPref = Instantiate(FlashDisk, transform.position, Quaternion.Euler(90, 0, 0));
+        GameObject DiskPref = Instantiate(FlashDisk, transform.position, transform.rotation);
         float timer = 0f;
         Vector3 originalScale = DiskPref.transform.localScale;
         while (timer < flashAttackDuration)

@@ -144,6 +144,9 @@ public class Player : MonoBehaviour, IDamageable
                 PlayerHPChanged?.Invoke(this, EventArgs.Empty);
             }
         }
+        else {
+            Debug.Log("(!!!)");
+        }
     }
 
     private void ReduceHP(float amount)
