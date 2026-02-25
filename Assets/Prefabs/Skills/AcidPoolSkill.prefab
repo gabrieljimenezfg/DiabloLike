@@ -50,7 +50,8 @@ MonoBehaviour:
   damageTickFrequency: 1
   skillDamage: 25
   aliveTime: 5
-  poolRadius: 5
+  skillSO: {fileID: 11400000, guid: 754d0b7434f0d604b8d27d6a5d5ea726, type: 2}
+  poolDiameter: 5
   visual: {fileID: 5143511996512958135}
   poolCollider: {fileID: 7543722847878295548}
   colliderHeight: 50

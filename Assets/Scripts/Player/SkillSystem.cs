@@ -12,13 +12,13 @@ public class SkillSystem : MonoBehaviour
 
     // debug raise minion
     [SerializeField] private SkillSO raiseMinionSkill;
-    
+
     // debug explode minion
     [SerializeField] private SkillSO explodeMinionSkill;
-    
+
     // debug acid blast
     [SerializeField] private SkillSO acidBlastSkill;
-    
+
     private Player player;
     private SkillSO[] equippedSkills = new SkillSO[4];
 
@@ -28,6 +28,8 @@ public class SkillSystem : MonoBehaviour
     {
         public int slotId;
         public ISkillBehavior behavior;
+        public SkillSO skillSO;
+        public Vector3 playerCastingPosition;
     }
 
     public static EventHandler<CastedSkillEventArgs> CastedSkill;
@@ -55,7 +57,9 @@ public class SkillSystem : MonoBehaviour
                 Debug.Log("Found equipped skill on slot " + i);
                 Debug.Log(equippedSkills[i].skillName);
                 continue;
-            };
+            }
+
+            ;
             Debug.Log("Equipping skill " + skill.skillName + " on slot " + i);
             equippedSkills[i] = skill;
             return;
@@ -74,7 +78,9 @@ public class SkillSystem : MonoBehaviour
         {
             Debug.LogError($"Couldn't find skill {slotId}");
             return 0;
-        };
+        }
+
+        ;
         if (!cooldowns.ContainsKey(skill)) return 0;
 
         return cooldowns[skill];
@@ -98,7 +104,8 @@ public class SkillSystem : MonoBehaviour
 
         Debug.Log("Casting skill");
 
-        GameObject skillInstance = Instantiate(skill.skillPrefab, Vector3.zero, Quaternion.identity);
+        var skillInstance = Instantiate(skill.skillPrefab, Vector3.zero, Quaternion.identity);
+        var baseSkill = skillInstance.GetComponent<BaseSkill>();
         ISkillBehavior behavior = skillInstance.GetComponent<ISkillBehavior>();
         if (behavior == null) return;
 
@@ -110,7 +117,9 @@ public class SkillSystem : MonoBehaviour
             CastedSkill?.Invoke(this, new CastedSkillEventArgs
             {
                 slotId = slotId,
-                behavior = behavior
+                behavior = behavior,
+                skillSO = baseSkill.SkillData,
+                playerCastingPosition = player.transform.position
             });
         }
         else
