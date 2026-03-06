@@ -6,6 +6,7 @@ using System;
 
 public class ArcherEnemy : Enemy
 {
+    [SerializeField] private bool canRevive;
     [SerializeField] private float reviveArea;
     [SerializeField] private float minEnemiesToRevive;
     [SerializeField] private float reviveCooldown;
@@ -21,12 +22,15 @@ public class ArcherEnemy : Enemy
     void Update()
     {
         base.Update();
-        if (FindCorpses(out List<GameObject> corpseList).Count >= minEnemiesToRevive)
+        if (canRevive)
         {
-            if (!reviveFlag)
+            if (FindCorpses(out List<GameObject> corpseList).Count >= minEnemiesToRevive)
             {
-                StartReviving?.Invoke(this, EventArgs.Empty);
-                StartCoroutine(ReviveCooldown(corpseList));
+                if (!reviveFlag)
+                {
+                    StartReviving?.Invoke(this, EventArgs.Empty);
+                    StartCoroutine(ReviveCooldown(corpseList));
+                }
             }
         }
     }
