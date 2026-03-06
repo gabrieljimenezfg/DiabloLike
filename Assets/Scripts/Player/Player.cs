@@ -1,5 +1,8 @@
+using NUnit.Framework;
 using System;
 using UnityEngine;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class Player : MonoBehaviour, IDamageable
 {
@@ -11,6 +14,7 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private float lockedTurnSpeed;
     public bool invincible = false;
     private bool arePositionAndRotationLocked;
+    public List<int> keyList = new List<int>();
 
     public float HP => hp;
     public float Mana => mana;
@@ -198,5 +202,19 @@ public class Player : MonoBehaviour, IDamageable
     public SkillSystem GetSkillSystem()
     {
         return skillSystem;
+    }
+
+    public void AddKey(int _key)
+    {
+        keyList.Add(_key);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Key")
+        {
+            AddKey(other.gameObject.GetComponent<KeyScript>().keyIndex);
+            Destroy(other.gameObject);
+        }
     }
 }
