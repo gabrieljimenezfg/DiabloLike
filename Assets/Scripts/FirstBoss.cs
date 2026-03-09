@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class FirstBoss : Enemy
 {
@@ -21,6 +22,9 @@ public class FirstBoss : Enemy
     private float meleeRange;
     private float meleeCooldown;
     private float meleeSpeed;
+
+    public event EventHandler<int> ChangeAttackPhase;
+    public event EventHandler StartWaiting;
 
     void Start()
     {
@@ -68,9 +72,11 @@ public class FirstBoss : Enemy
     }
 
     IEnumerator WaitingCorouting()
-    { 
+    {
+        StartWaiting?.Invoke(this, EventArgs.Empty);
         yield return new WaitForSeconds(waitTime);
-        atkPhase = Random.Range(1, 4);
+        atkPhase = UnityEngine.Random.Range(1, 4);
+        ChangeAttackPhase?.Invoke(this, atkPhase);
         ChangeState();
     }
 
@@ -84,6 +90,7 @@ public class FirstBoss : Enemy
 
     IEnumerator FlashAttackCoroutine()
     {
+        //FlashAttackPerformed?.Invoke(this, EventArgs.Empty);
         yield return new WaitForSeconds(preFlashAttack);
         Debug.Log("Flash Attack");
         GameObject DiskPref = Instantiate(FlashDisk, transform.position, transform.rotation);
