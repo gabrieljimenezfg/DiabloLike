@@ -7,7 +7,7 @@ using Unity.VisualScripting;
 public class Player : MonoBehaviour, IDamageable
 {
     public static Player Instance;
-
+    [SerializeField] private Projectile projectile;
     [SerializeField] private float hp = 100f, mana = 100f;
     [SerializeField] private float maxHp, maxMana;
     [SerializeField] private Transform castSpawnPoint;
@@ -214,6 +214,11 @@ public class Player : MonoBehaviour, IDamageable
         if (other.gameObject.tag == "Key")
         {
             AddKey(other.gameObject.GetComponent<KeyScript>().keyIndex);
+            Destroy(other.gameObject);
+        }
+        if (other.gameObject.tag == "Staff")
+        {
+            projectile.damage = projectile.maxDamage;
             Destroy(other.gameObject);
         }
     }

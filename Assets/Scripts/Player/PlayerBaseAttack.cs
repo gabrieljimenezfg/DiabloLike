@@ -89,8 +89,7 @@ public class PlayerBaseAttack : MonoBehaviour
     {
         var directionTowardsEnemy = (enemy.transform.position - transform.position).normalized;
         player.SetLookDirection(directionTowardsEnemy);
-        var projectile = Instantiate(projectilePrefab, player.CastSpawnPoint.position,
-            player.CastSpawnPoint.rotation);
+        var projectile = Instantiate(projectilePrefab, player.CastSpawnPoint.position, player.CastSpawnPoint.rotation);
         projectile.distance = projectileDistance;
         projectile.GetComponent<Rigidbody>().linearVelocity = player.CastSpawnPoint.forward * projectileSpeed;
     }

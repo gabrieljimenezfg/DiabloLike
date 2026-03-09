@@ -5,6 +5,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private GameObject projectileDespawnPrefab;
 
     public float damage;
+    public float maxDamage;
     public float distance; //Maxima distancia que recorre antes de destruirse
 
     public bool
