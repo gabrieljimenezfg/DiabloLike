@@ -10,6 +10,10 @@ public class DoorLock : MonoBehaviour
     private List<GameObject> DoorListA = new List<GameObject>();
     [SerializeField]
     private List<GameObject> DoorListB = new List<GameObject>();
+    [SerializeField]
+    private List<GameObject> DoorListC = new List<GameObject>();
+    [SerializeField]
+    private List<GameObject> DoorListD = new List<GameObject>();
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,6 +30,14 @@ public class DoorLock : MonoBehaviour
                     foreach (GameObject door in DoorListB)
                     {
                         door.GetComponent<Animator>().SetTrigger("Door2");
+                    }
+                    foreach (GameObject door in DoorListC)
+                    {
+                        door.GetComponent<Animator>().SetTrigger("Door3");
+                    }
+                    foreach (GameObject door in DoorListD)
+                    {
+                        door.GetComponent<Animator>().SetTrigger("Door4");
                     }
                 }
             }
