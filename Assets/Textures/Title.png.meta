@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-guid: 6a05953725450a442897308eb7564337
-AssetOrigin:
-  serializedVersion: 1
-  productId: 159068
-  packageName: GUI Parts
-  packageVersion: 1.0
-  assetPath: Assets/GUI_Parts/Gui_parts/Mini_frame2.png
-  uploadId: 342429
+guid: cc690cc1ec73b7a468ba2b021b9f16e0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -46,7 +39,7 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -70,9 +63,9 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
@@ -107,7 +100,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d1282158601ee654798ec4bff5c1564e
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
