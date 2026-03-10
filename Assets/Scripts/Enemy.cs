@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour, IDamageable
     public bool IsMelee = true;
     [SerializeField] private GameObject attackPref;
     [SerializeField] private Corpse corpse;
+    [SerializeField] private GameObject prize;
 
     public bool isAlive = true;
 
@@ -79,6 +80,10 @@ public class Enemy : MonoBehaviour, IDamageable
         isAlive = false;
         SpawnCorpse();
         TryDropPotion();
+        if (prize != null)
+        {
+            Instantiate(prize, transform.position, Quaternion.identity);
+        }
         gameObject.SetActive(false);
     }
 
