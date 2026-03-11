@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour, IDamageable
     public bool IsMelee = true;
     [SerializeField] private GameObject attackPref;
     [SerializeField] private Corpse corpse;
+    [SerializeField] private GameObject prize;
 
     public bool isAlive = true;
 
@@ -58,6 +59,10 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void TakeDamage(float amount) //Metodo para recibir danyo
     {
+        if (!isPlayerDetected)
+        {
+            isPlayerDetected = true;
+        }
         health -= amount;
         DamagePopup.Create(transform.position, amount);
         if (health <= 0)
@@ -75,6 +80,10 @@ public class Enemy : MonoBehaviour, IDamageable
         isAlive = false;
         SpawnCorpse();
         TryDropPotion();
+        if (prize != null)
+        {
+            Instantiate(prize, transform.position, Quaternion.identity);
+        }
         gameObject.SetActive(false);
     }
 
@@ -139,8 +148,7 @@ public class Enemy : MonoBehaviour, IDamageable
         {
             navMeshAgent.stoppingDistance = attackRange;
             transform.LookAt(player.transform); //El enemigo mira hacia el jugador cuando lo persigue
-            navMeshAgent 
-                .SetDestination(player.transform.position); //El enemigo se movera hacia la posicion del jugador
+            navMeshAgent.SetDestination(player.transform.position); //El enemigo se movera hacia la posicion del jugador
             StartChasing?.Invoke(this, EventArgs.Empty);
             if (Vector3.Distance(transform.position, player.transform.position) <= attackRange)
             {

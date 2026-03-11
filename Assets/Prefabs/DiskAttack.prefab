@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffff373c5c69c354f92d12a619affa5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDamager
-  damage: 15
+  damage: 25
 --- !u!1 &620921181898430241
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffff373c5c69c354f92d12a619affa5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDamager
-  damage: 15
+  damage: 25
 --- !u!1 &1203006811981091745
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffff373c5c69c354f92d12a619affa5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDamager
-  damage: 15
+  damage: 25
 --- !u!1 &2075987396811200920
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffff373c5c69c354f92d12a619affa5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDamager
-  damage: 15
+  damage: 25
 --- !u!1 &2394570097302226319
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffff373c5c69c354f92d12a619affa5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDamager
-  damage: 15
+  damage: 25
 --- !u!1 &3376543812465776739
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,7 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffff373c5c69c354f92d12a619affa5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDamager
-  damage: 15
+  damage: 25
 --- !u!1 &4604101737830592994
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffff373c5c69c354f92d12a619affa5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDamager
-  damage: 15
+  damage: 25
 --- !u!1 &6368205592424018942
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,7 +535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffff373c5c69c354f92d12a619affa5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDamager
-  damage: 15
+  damage: 25
 --- !u!1 &7578300855368472266
 GameObject:
   m_ObjectHideFlags: 0
