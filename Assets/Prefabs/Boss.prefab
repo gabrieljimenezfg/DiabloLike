@@ -5307,8 +5307,9 @@ MonoBehaviour:
   potionDropChancePercentage: 100
   patrolPoints: []
   IsMelee: 1
-  attackPref: {fileID: 3026340385685424308, guid: dba5be3a84a65e1448ddaeaf55be8fca, type: 3}
+  attackPref: {fileID: 3026340385685424308, guid: 5647265e60ca7d949b4ac2d653ca4f9f, type: 3}
   corpse: {fileID: 285926861608280104, guid: 6dc757dcac6d16048b7efc344907d5a4, type: 3}
+  prize: {fileID: 0}
   isAlive: 1
   detectionArea: {fileID: 3544157171938565420}
   attackPivot: {fileID: 3627576004065737966}
