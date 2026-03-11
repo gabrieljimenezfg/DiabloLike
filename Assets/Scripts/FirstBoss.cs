@@ -18,6 +18,7 @@ public class FirstBoss : Enemy
     [SerializeField] private float shotCooldown;
     [SerializeField] private float shotSpeed;
     [SerializeField] private float shotAttack;
+    [SerializeField] private Transform slashSpawn;
     private float meleeAttack;
     private float meleeRange;
     private float meleeCooldown;
@@ -93,7 +94,7 @@ public class FirstBoss : Enemy
         //FlashAttackPerformed?.Invoke(this, EventArgs.Empty);
         yield return new WaitForSeconds(preFlashAttack);
         Debug.Log("Flash Attack");
-        GameObject DiskPref = Instantiate(FlashDisk, transform.position, transform.rotation);
+        GameObject DiskPref = Instantiate(FlashDisk, slashSpawn.position, slashSpawn.rotation);
         float timer = 0f;
         Vector3 originalScale = DiskPref.transform.localScale;
         while (timer < flashAttackDuration)

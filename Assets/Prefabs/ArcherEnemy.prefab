@@ -332,13 +332,15 @@ MonoBehaviour:
   patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
-  attackPref: {fileID: 3026340385685424308, guid: dba5be3a84a65e1448ddaeaf55be8fca, type: 3}
+  IsMelee: 0
+  attackPref: {fileID: 3026340385685424308, guid: 40295153b8822a246974cb6badf62b52, type: 3}
   corpse: {fileID: 285926861608280104, guid: 6dc757dcac6d16048b7efc344907d5a4, type: 3}
   isAlive: 1
   detectionArea: {fileID: 6989609279763323592}
   attackPivot: {fileID: 7842256702719965384}
   isPlayerDetected: 0
   navMeshAgent: {fileID: 0}
+  canRevive: 0
   reviveArea: 10
   minEnemiesToRevive: 1
   reviveCooldown: 3.6
