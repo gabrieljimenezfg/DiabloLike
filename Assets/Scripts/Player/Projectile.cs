@@ -41,6 +41,10 @@ public class Projectile : MonoBehaviour
     {
         if (isGood)
         {
+            if (other.CompareTag("Break"))
+            {
+                other.GetComponent<Animator>().SetTrigger("Break");
+            }
             Enemy enemy = other.GetComponent<Enemy>();
             if (enemy != null)
             {
