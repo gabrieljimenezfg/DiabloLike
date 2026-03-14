@@ -12,6 +12,7 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private float maxHp, maxMana;
     [SerializeField] private Transform castSpawnPoint;
     [SerializeField] private float lockedTurnSpeed;
+    [SerializeField] private GameObject staffLight;
     public bool invincible = false;
     private bool arePositionAndRotationLocked;
     public List<int> keyList = new List<int>();
@@ -218,6 +219,7 @@ public class Player : MonoBehaviour, IDamageable
         }
         if (other.gameObject.tag == "Staff")
         {
+            staffLight.SetActive(true);
             projectile.damage = projectile.maxDamage;
             Destroy(other.gameObject);
         }
