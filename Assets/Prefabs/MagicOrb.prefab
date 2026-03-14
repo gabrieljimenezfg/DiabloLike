@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
   projectileDespawnPrefab: {fileID: 434839465793268102, guid: d1e8dfc888e8e3c42b89437de360ee57, type: 3}
-  damage: 17
+  damage: 16
   maxDamage: 28
   distance: 5.5
   isGood: 1
