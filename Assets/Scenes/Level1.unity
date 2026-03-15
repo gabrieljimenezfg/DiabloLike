@@ -16413,6 +16413,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4060669088202194654, guid: 68ec11218de329a4aa60545f4b8dfa91, type: 3}
     - target: {fileID: 7965295803169738991, guid: efe9bfeb6f66b8b4d8d5a6f6e573b0b4, type: 3}
+      propertyPath: skillToGet
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7965295803169738991, guid: efe9bfeb6f66b8b4d8d5a6f6e573b0b4, type: 3}
       propertyPath: preFlashAttack
       value: 0.7
       objectReference: {fileID: 0}
@@ -36307,6 +36311,7 @@ MonoBehaviour:
   attackPivot: {fileID: 550018887}
   isPlayerDetected: 0
   navMeshAgent: {fileID: 0}
+  skillToGet: 0
   FlashDisk: {fileID: 7578300855368472266, guid: 14caec55d96869c4fbaa53b1ada5f666, type: 3}
   timeInStandard: 7
   preFlashAttack: 0.3
@@ -46316,7 +46321,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
   startingPosition: {fileID: 460185734}
-  bossDefeated: 0
 --- !u!4 &1238129884
 Transform:
   m_ObjectHideFlags: 0
@@ -79951,6 +79955,7 @@ MonoBehaviour:
   attackPivot: {fileID: 513814304792913988}
   isPlayerDetected: 0
   navMeshAgent: {fileID: 0}
+  skillToGet: 0
 --- !u!4 &178762435532311825
 Transform:
   m_ObjectHideFlags: 0
