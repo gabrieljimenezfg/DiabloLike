@@ -72989,6 +72989,7 @@ MonoBehaviour:
   - {fileID: 274790398}
   DoorListC: []
   DoorListD: []
+  isBossBattleDoor: 0
 --- !u!65 &694542169
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -81168,6 +81169,7 @@ MonoBehaviour:
   - {fileID: 1665645689}
   DoorListD:
   - {fileID: 395578634}
+  isBossBattleDoor: 0
 --- !u!4 &766483224 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2261057276556505346, guid: f101a2b4504c3d04a95511ba8b3543e3, type: 3}
@@ -96254,6 +96256,7 @@ MonoBehaviour:
   - {fileID: 1477709695}
   DoorListD:
   - {fileID: 2120783051}
+  isBossBattleDoor: 0
 --- !u!1001 &876637950
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -161485,6 +161488,10 @@ PrefabInstance:
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: maxHealth
       value: 105
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: attackRange
@@ -227070,6 +227077,7 @@ MonoBehaviour:
   - {fileID: 712093236}
   DoorListD:
   - {fileID: 1546857566}
+  isBossBattleDoor: 0
 --- !u!1001 &2091016649
 PrefabInstance:
   m_ObjectHideFlags: 0

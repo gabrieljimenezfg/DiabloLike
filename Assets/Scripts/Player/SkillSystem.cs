@@ -47,7 +47,24 @@ public class SkillSystem : MonoBehaviour
         player = GetComponent<Player>();
     }
 
-    public void EquipNewSkill(SkillSO skill)
+    public void AcquireNewSkill(int skill)
+    {
+        switch(skill)
+        {
+                case 0:
+                    break;
+                case 1:
+                    EquipNewSkill(raiseMinionSkill);
+                    break;
+                case 2:
+                    EquipNewSkill(explodeMinionSkill);
+                    break;
+                case 3:
+                    EquipNewSkill(acidBlastSkill);
+                    break;
+        }
+    }
+    private void EquipNewSkill(SkillSO skill)
     {
         for (int i = 0; i < equippedSkills.Length; i++)
         {
