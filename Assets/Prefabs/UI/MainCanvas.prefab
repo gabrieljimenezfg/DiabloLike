@@ -6099,6 +6099,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1523876460098580313}
+  - component: {fileID: 7546490078807569577}
   m_Layer: 0
   m_Name: MainCanvas
   m_TagString: Untagged
@@ -6123,6 +6124,20 @@ Transform:
   - {fileID: 1813382985363704719}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7546490078807569577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6213743220860210459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79ace2f92b0ca0e4aa32c16dacb476b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseMenuManager
+  mainPanel: {fileID: 6808723827599289798}
+  settingsPanel: {fileID: 8692001455261532594}
 --- !u!1 &6524639696960062068
 GameObject:
   m_ObjectHideFlags: 0
@@ -8299,6 +8314,7 @@ GameObject:
   - component: {fileID: 6208241165125126293}
   - component: {fileID: 1616429625901572608}
   - component: {fileID: 3362663833206311056}
+  - component: {fileID: 5151941272346401027}
   m_Layer: 5
   m_Name: SettingsPanel
   m_TagString: Untagged
@@ -8376,6 +8392,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5151941272346401027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692001455261532594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26dd75bd0b3917a499eb161674f1eb7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingsManager
+  mainPanel: {fileID: 6808723827599289798}
+  settingsPanel: {fileID: 8692001455261532594}
+  resolutionDrop: {fileID: 5885140327511317138}
+  qualityDrop: {fileID: 5733890732997329124}
+  fpsDrop: {fileID: 3592038687357676084}
+  fullscreenToggle: {fileID: 6503274282524010683}
+  soundSlider: {fileID: 5826281774092080295}
 --- !u!1 &8708309157048321317
 GameObject:
   m_ObjectHideFlags: 0

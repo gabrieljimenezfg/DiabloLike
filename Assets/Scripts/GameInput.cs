@@ -18,6 +18,7 @@ public class GameInput : MonoBehaviour
     public event EventHandler BaseAttackPerformed;
     public event EventHandler HealPotionUsed;
     public event EventHandler ManaPotionUsed;
+    public event EventHandler PauseGamePerformed;
 
     private PlayerInputActions playerInputActions;
 
@@ -29,7 +30,15 @@ public class GameInput : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
+        /*if(Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }*/
 
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
@@ -54,6 +63,8 @@ public class GameInput : MonoBehaviour
 
         playerInputActions.Player.HealPotion.performed += OnHealPotion;
         playerInputActions.Player.ManaPotion.performed += OnManaPotion;
+
+        playerInputActions.Player.Pause.performed += OnPauseGame;
     }
 
     private void OnMovement(InputAction.CallbackContext obj)
@@ -83,6 +94,11 @@ public class GameInput : MonoBehaviour
     private void OnBaseAttack(InputAction.CallbackContext obj)
     {
         BaseAttackPerformed?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void OnPauseGame(InputAction.CallbackContext obj)
+    {
+        PauseGamePerformed?.Invoke(this, EventArgs.Empty);
     }
 
     private void OnDestroy()

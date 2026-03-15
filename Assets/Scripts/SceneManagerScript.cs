@@ -25,21 +25,25 @@ public class SceneManagerScript : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadScene(mainMenuID);
+        Time.timeScale = 1.0f;
     }
 
     public void LoadLevel1()
     {
         SceneManager.LoadScene(level1ID);
+        Time.timeScale = 1.0f;
     }
 
     public void LoadLevel2()
     {
         SceneManager.LoadScene(level2ID);
+        Time.timeScale = 1.0f;
     }
 
     public void LoadLevel3()
     {
         SceneManager.LoadScene(level3ID);
+        Time.timeScale = 1.0f;
     }
 
     public void CloseApplication()

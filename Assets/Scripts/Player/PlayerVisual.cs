@@ -33,6 +33,14 @@ public class PlayerVisual : MonoBehaviour
         playerMovementController.Rolling += OnRolling;
     }
 
+    private void OnDestroy()
+    {
+        Player.Instance.PlayerDied -= OnPlayerDeath;
+        SkillSystem.CastedSkill -= OnCastedSkill;
+        playerBaseAttack.BaseAttackCasted -= OnBaseAttackCasted;
+        playerMovementController.Rolling -= OnRolling;
+    }
+
     private void Update()
     {
         HandleMovementAnimation();

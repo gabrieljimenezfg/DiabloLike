@@ -3,6 +3,8 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using System.Collections;
+using TMPro;
 
 public class Player : MonoBehaviour, IDamageable
 {
@@ -13,6 +15,9 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private Transform castSpawnPoint;
     [SerializeField] private float lockedTurnSpeed;
     [SerializeField] private GameObject staffLight;
+    [SerializeField] private GameObject staffModel;
+    [SerializeField] private GameObject popUpCanvas;
+    private bool hasStaff;
     public bool invincible = false;
     private bool arePositionAndRotationLocked;
     public List<int> keyList = new List<int>();
@@ -23,6 +28,7 @@ public class Player : MonoBehaviour, IDamageable
     public float MaxMana => maxMana;
     public Transform CastSpawnPoint => castSpawnPoint;
     public bool ArePositionAndRotationLocked => arePositionAndRotationLocked;
+    public bool HasStaff => hasStaff;
 
     private Inventory inventory;
     private SkillSystem skillSystem;
@@ -34,7 +40,8 @@ public class Player : MonoBehaviour, IDamageable
 
     private void Awake()
     {
-        if (Instance == null)
+        Instance = this;
+        /*if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
@@ -42,7 +49,7 @@ public class Player : MonoBehaviour, IDamageable
         else
         {
             Destroy(gameObject);
-        }
+        }*/
 
         inventory = GetComponent<Inventory>();
         skillSystem = GetComponent<SkillSystem>();
@@ -210,6 +217,25 @@ public class Player : MonoBehaviour, IDamageable
         keyList.Add(_key);
     }
 
+    public void ShowMessage(string _message)
+    {
+        StartCoroutine(MessageCoroutine(_message));
+    }
+
+    public void HideMessage()
+    {
+        popUpCanvas.SetActive(false);
+    }
+
+    IEnumerator MessageCoroutine(string message)
+    {
+        popUpCanvas.SetActive(true);
+        popUpCanvas.GetComponentInChildren<TextMeshProUGUI>().text = message;
+        yield return new WaitForSeconds(2);
+        popUpCanvas.SetActive(false);
+        yield return null;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Key")
@@ -220,6 +246,8 @@ public class Player : MonoBehaviour, IDamageable
         if (other.gameObject.tag == "Staff")
         {
             staffLight.SetActive(true);
+            staffModel.SetActive(true);
+            hasStaff = true;
             projectile.damage = projectile.maxDamage;
             Destroy(other.gameObject);
         }

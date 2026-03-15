@@ -46,6 +46,13 @@ public class PlayerMovementController : MonoBehaviour
         GameInput.Instance.RollPerformed += GameInputOnRollPerformed;
     }
 
+    private void OnDestroy()
+    {
+        GameInput.Instance.MovementPerformed -= GameInputOnMovementPerformed;
+        GameInput.Instance.RunPerformed -= GameInputOnRunPerformed;
+        GameInput.Instance.RollPerformed -= GameInputOnRollPerformed;
+    }
+
     private void GameInputOnMovementPerformed(object sender, EventArgs e)
     {
         HandleMovement();
