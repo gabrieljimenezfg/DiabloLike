@@ -47,7 +47,7 @@ public class SkillSystem : MonoBehaviour
         player = GetComponent<Player>();
     }
 
-    private void EquipNewSkill(SkillSO skill)
+    public void EquipNewSkill(SkillSO skill)
     {
         for (int i = 0; i < equippedSkills.Length; i++)
         {
