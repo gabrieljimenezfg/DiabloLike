@@ -91,4 +91,9 @@ public class SoundManager : MonoBehaviour
 
         Destroy(soundObject);
     }
+
+    public void SetVolume(float _volume)
+    {
+        volume = _volume;
+    }
 }
