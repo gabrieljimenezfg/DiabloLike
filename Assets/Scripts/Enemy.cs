@@ -47,6 +47,8 @@ public class Enemy : MonoBehaviour, IDamageable
     public event EventHandler StartPatrolling;
     public event EventHandler StartChasing;
 
+    [SerializeField] private int skillToGet;
+
     public void Start()
     {
         health = maxHealth;
@@ -84,6 +86,7 @@ public class Enemy : MonoBehaviour, IDamageable
         {
             Instantiate(prize, transform.position, Quaternion.identity);
         }
+        player.GetComponent<SkillSystem>().AcquireNewSkill(skillToGet);
         gameObject.SetActive(false);
     }
 

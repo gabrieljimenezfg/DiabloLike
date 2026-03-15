@@ -19,6 +19,7 @@ public class FirstBoss : Enemy
     [SerializeField] private float shotSpeed;
     [SerializeField] private float shotAttack;
     [SerializeField] private Transform slashSpawn;
+    
     private float meleeAttack;
     private float meleeRange;
     private float meleeCooldown;
