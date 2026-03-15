@@ -28,6 +28,12 @@ public class SoundManager : MonoBehaviour
         BaseSkill.SkillPerformed += BaseSkillOnSkillPerformed;
     }
 
+    private void OnDestroy()
+    {
+        SkillSystem.CastedSkill -= CastedSkill;
+        BaseSkill.SkillPerformed -= BaseSkillOnSkillPerformed;
+    }
+
     private void CastedSkill(object sender, SkillSystem.CastedSkillEventArgs e)
     {
         if (!e.skillSO.preCastSound) return;

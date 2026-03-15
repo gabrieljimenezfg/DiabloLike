@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerVisual : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class PlayerVisual : MonoBehaviour
     private const string AnimatorSpellKey = "Spell";
     private const string AnimatorDeathKey = "Death";
     private const string AnimatorRollKey = "Roll";
+    private const string AnimatorResetKey = "Reset";
 
     private GameObject enemyObjective;
 
@@ -28,6 +30,7 @@ public class PlayerVisual : MonoBehaviour
         playerBaseAttack = GetComponentInParent<PlayerBaseAttack>();
 
         Player.Instance.PlayerDied += OnPlayerDeath;
+        Player.Instance.PlayerReset += OnPlayerReset;
         SkillSystem.CastedSkill += OnCastedSkill;
         playerBaseAttack.BaseAttackCasted += OnBaseAttackCasted;
         playerMovementController.Rolling += OnRolling;
@@ -36,6 +39,7 @@ public class PlayerVisual : MonoBehaviour
     private void OnDestroy()
     {
         Player.Instance.PlayerDied -= OnPlayerDeath;
+        Player.Instance.PlayerReset -= OnPlayerReset;
         SkillSystem.CastedSkill -= OnCastedSkill;
         playerBaseAttack.BaseAttackCasted -= OnBaseAttackCasted;
         playerMovementController.Rolling -= OnRolling;
@@ -111,6 +115,11 @@ public class PlayerVisual : MonoBehaviour
     private void OnPlayerDeath(object sender, EventArgs e)
     {
         animator.SetTrigger(AnimatorDeathKey);
+    }
+
+    private void OnPlayerReset(object sender, EventArgs e)
+    {
+        animator.SetTrigger(AnimatorResetKey);
     }
 
     //TEMPORAL

@@ -37,11 +37,12 @@ public class Player : MonoBehaviour, IDamageable
     public event EventHandler PlayerManaChanged;
     public event EventHandler PlayerTookDamage;
     public event EventHandler PlayerDied;
+    public event EventHandler PlayerReset;
 
     private void Awake()
     {
-        Instance = this;
-        /*if (Instance == null)
+        //Instance = this;
+        if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
@@ -49,7 +50,7 @@ public class Player : MonoBehaviour, IDamageable
         else
         {
             Destroy(gameObject);
-        }*/
+        }
 
         inventory = GetComponent<Inventory>();
         skillSystem = GetComponent<SkillSystem>();
@@ -150,6 +151,7 @@ public class Player : MonoBehaviour, IDamageable
             {
                 PlayerHPChanged?.Invoke(this, EventArgs.Empty);
                 PlayerDied?.Invoke(this, EventArgs.Empty);
+                GameInput.Instance.DisableActions();
             }
             else
             {
@@ -251,5 +253,14 @@ public class Player : MonoBehaviour, IDamageable
             projectile.damage = projectile.maxDamage;
             Destroy(other.gameObject);
         }
+    }
+
+    public void ResetPlayer()
+    {
+        hp = maxHp;
+        mana = maxMana;
+        PlayerHPChanged?.Invoke(this, EventArgs.Empty);
+        PlayerManaChanged?.Invoke(this, EventArgs.Empty);
+        PlayerReset?.Invoke(this, EventArgs.Empty);
     }
 }

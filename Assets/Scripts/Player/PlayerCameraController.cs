@@ -18,11 +18,14 @@ public class PlayerCameraController : MonoBehaviour
 
     private void Start()
     {
-        camera = Camera.main;
+        //camera = Camera.main;
     }
 
     void LateUpdate()
     {
+        if (camera == null) camera = Camera.main;
+        if (camera == null) return;
+
         CameraFollowPlayer();
         HandlePlayerRunZoomingAndOffset();
     }

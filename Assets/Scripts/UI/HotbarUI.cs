@@ -23,6 +23,13 @@ public class HotbarUI : MonoBehaviour
         UpdatePotionsText();
     }
 
+    private void OnDestroy()
+    {
+        Player.Instance.PlayerHPChanged -= OnPlayerOrbStatChanged;
+        Player.Instance.PlayerManaChanged -= OnPlayerOrbStatChanged;
+        Inventory.PotionsAmountChanged -= OnPlayerPotionsAmountChanged;
+    }
+
     private void InitializeSkills()
     {
         for (int i = 0; i < skillSlotsUI.Length; i++)

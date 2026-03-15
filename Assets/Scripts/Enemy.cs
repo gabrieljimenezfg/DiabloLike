@@ -199,6 +199,11 @@ public class Enemy : MonoBehaviour, IDamageable
                 }
             }
         }
+
+        if(Player.Instance.HP <= 0)
+        {
+            isPlayerDetected = false;
+        }
     }
 
     //Para ataques mas especificos deberian hacerse en los scripts hijos que hereden de este

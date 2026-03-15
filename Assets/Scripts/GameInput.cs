@@ -29,8 +29,8 @@ public class GameInput : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
-        /*if(Instance == null)
+        //Instance = this;
+        if(Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
@@ -38,10 +38,11 @@ public class GameInput : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }*/
+            return;
+        }
 
         playerInputActions = new PlayerInputActions();
-        playerInputActions.Player.Enable();
+        EnableActions();
 
         _slot1 = _ => OnSkillPerformed(0);
         _slot2 = _ => OnSkillPerformed(1);
@@ -122,5 +123,15 @@ public class GameInput : MonoBehaviour
     private void OnSkillPerformed(int slotId)
     {
         SkillPerformed?.Invoke(this, new SkillPerformedEventArgs { slotId = slotId });
+    }
+
+    public void DisableActions()
+    {
+        playerInputActions.Player.Disable();
+    }
+
+    public void EnableActions()
+    {
+        playerInputActions.Player.Enable();
     }
 }

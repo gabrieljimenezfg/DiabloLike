@@ -12,7 +12,7 @@ public enum MouseRayTargetLayer
 
 public static class MouseWorldUtils
 {
-    private static readonly Camera camera = Camera.main;
+    private static Camera camera => Camera.main;
 
     private static readonly LayerMask groundLayer =
         LayerMask.GetMask("Ground");

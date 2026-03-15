@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 public class SceneManagerScript : MonoBehaviour
@@ -30,8 +31,18 @@ public class SceneManagerScript : MonoBehaviour
 
     public void LoadLevel1()
     {
-        SceneManager.LoadScene(level1ID);
         Time.timeScale = 1.0f;
+        SceneManager.sceneLoaded += OnLevel1Loaded;
+        SceneManager.LoadScene(level1ID);
+    }
+
+    private void OnLevel1Loaded(Scene scene, LoadSceneMode mode)
+    {
+        SceneManager.sceneLoaded -= OnLevel1Loaded;
+
+        Player.Instance.GetComponent<NavMeshAgent>().Warp(LevelManager.Instance.startingPosition.position);
+        Player.Instance.ResetPlayer();
+        GameInput.Instance.EnableActions();
     }
 
     public void LoadLevel2()

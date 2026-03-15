@@ -14,6 +14,12 @@ public class PauseMenuManager : MonoBehaviour
         Player.Instance.PlayerDied += OnPlayerDied;
     }
 
+    private void OnDestroy()
+    {
+        GameInput.Instance.PauseGamePerformed -= OnPauseGame;
+        Player.Instance.PlayerDied -= OnPlayerDied;
+    }
+
     private void OnPauseGame(object sender, EventArgs e)
     {
         if(!gamePaused)
