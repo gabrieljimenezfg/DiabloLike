@@ -48,13 +48,31 @@ public class SceneManagerScript : MonoBehaviour
     public void LoadLevel2()
     {
         SceneManager.LoadScene(level2ID);
+        SceneManager.sceneLoaded += OnLevel2Loaded;
         Time.timeScale = 1.0f;
+    }
+
+    private void OnLevel2Loaded(Scene scene, LoadSceneMode mode)
+    {
+        SceneManager.sceneLoaded -= OnLevel2Loaded;
+
+        Player.Instance.GetComponent<NavMeshAgent>().Warp(LevelManager.Instance.startingPosition.position);
+        GameInput.Instance.EnableActions();
     }
 
     public void LoadLevel3()
     {
         SceneManager.LoadScene(level3ID);
+        SceneManager.sceneLoaded += OnLevel3Loaded;
         Time.timeScale = 1.0f;
+    }
+
+    private void OnLevel3Loaded(Scene scene, LoadSceneMode mode)
+    {
+        SceneManager.sceneLoaded -= OnLevel3Loaded;
+
+        Player.Instance.GetComponent<NavMeshAgent>().Warp(LevelManager.Instance.startingPosition.position);
+        GameInput.Instance.EnableActions();
     }
 
     public void CloseApplication()

@@ -92,4 +92,11 @@ public class Inventory : MonoBehaviour
         maxHealthPotionsAmountHeld = inventoryState.maxHealthPotions;
         maxManaPotionsAmountHeld = inventoryState.maxManaPotions;
     }
+
+    public void ResetPotions()
+    {
+        healthPotionsAmountHeld = 5;
+        manaPotionsAmountHeld = 5;
+        PotionsAmountChanged?.Invoke(this, EventArgs.Empty);
+    }
 }
