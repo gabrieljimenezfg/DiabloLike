@@ -260,6 +260,12 @@ public class Player : MonoBehaviour, IDamageable
     {
         hp = maxHp;
         mana = maxMana;
+        GetComponent<Inventory>().ResetPotions();
+        hasStaff = false;
+        staffLight.SetActive(false);
+        staffModel.SetActive(false);
+        skillSystem.ClearSkills();
+        skillSystem.AcquireNewSkill(0);
         PlayerHPChanged?.Invoke(this, EventArgs.Empty);
         PlayerManaChanged?.Invoke(this, EventArgs.Empty);
         PlayerReset?.Invoke(this, EventArgs.Empty);

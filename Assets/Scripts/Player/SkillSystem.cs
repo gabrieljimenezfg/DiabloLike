@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.Experimental.GraphView;
 using UnityEditor.PackageManager;
 using UnityEngine;
 using SkillCooldowns = System.Collections.Generic.Dictionary<SkillSO, float>;
@@ -52,8 +53,9 @@ public class SkillSystem : MonoBehaviour
         switch(skill)
         {
                 case 0:
-                    break;
-                case 1:
+                    EquipNewSkill(starterSkill);
+                break;
+            case 1:
                     EquipNewSkill(raiseMinionSkill);
                     break;
                 case 2:
@@ -80,6 +82,22 @@ public class SkillSystem : MonoBehaviour
             Debug.Log("Equipping skill " + skill.skillName + " on slot " + i);
             equippedSkills[i] = skill;
             return;
+        }
+    }
+
+    public void ClearSkills()
+    {
+        for (int i = 0; i < equippedSkills.Length; i++)
+        {
+            Debug.Log("Checking slot " + i);
+            if (equippedSkills[i] != null)
+            {
+                Debug.Log("Found equipped skill on slot " + i);
+                Debug.Log("Deleting skill on slot" + i);
+                Debug.Log(equippedSkills[i].skillName);
+                equippedSkills[i] = null;
+                continue;
+            }
         }
     }
 
