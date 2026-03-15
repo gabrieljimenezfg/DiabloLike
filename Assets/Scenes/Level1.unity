@@ -16359,6 +16359,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4060669088202194654, guid: 68ec11218de329a4aa60545f4b8dfa91, type: 3}
     - target: {fileID: 7965295803169738991, guid: efe9bfeb6f66b8b4d8d5a6f6e573b0b4, type: 3}
+      propertyPath: skillToGet
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7965295803169738991, guid: efe9bfeb6f66b8b4d8d5a6f6e573b0b4, type: 3}
       propertyPath: preFlashAttack
       value: 0.7
       objectReference: {fileID: 0}

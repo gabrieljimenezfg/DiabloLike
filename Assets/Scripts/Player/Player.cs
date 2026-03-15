@@ -247,6 +247,7 @@ public class Player : MonoBehaviour, IDamageable
         }
         if (other.gameObject.tag == "Staff")
         {
+            gameObject.GetComponent<SkillSystem>().AcquireNewSkill(1);
             staffLight.SetActive(true);
             staffModel.SetActive(true);
             hasStaff = true;
