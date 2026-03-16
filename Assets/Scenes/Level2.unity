@@ -4055,6 +4055,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4697017240656324050, guid: 0331b169005eb1d469455efaa6b9024a, type: 3}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: deepInGround
       value: 2.34
       objectReference: {fileID: 0}
@@ -8100,6 +8104,10 @@ PrefabInstance:
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: maxHealth
       value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: basicAttackDMG
@@ -14164,6 +14172,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8929589423702217963, guid: 944bff624466e4242a3377fba75ddaf3, type: 3}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: attackRange
       value: 2.24
       objectReference: {fileID: 0}
@@ -15718,6 +15730,10 @@ PrefabInstance:
       value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: basicAttackDMG
       value: 14
       objectReference: {fileID: 0}
@@ -17225,6 +17241,10 @@ PrefabInstance:
       propertyPath: mimicAsset
       value: 
       objectReference: {fileID: 1783979763778466, guid: bd1a894f239d58d4dbf63f27e28096bd, type: 3}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: attackRange
       value: 2.24
@@ -18774,6 +18794,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 1412945518657857728, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_LocalPosition.x
       value: 40.47
@@ -18978,6 +19002,10 @@ PrefabInstance:
       propertyPath: mimicAsset
       value: 
       objectReference: {fileID: 8929589423702217963, guid: 944bff624466e4242a3377fba75ddaf3, type: 3}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: attackRange
       value: 2.24
@@ -20639,6 +20667,10 @@ PrefabInstance:
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: damage
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: basicAttackDMG
@@ -24218,6 +24250,10 @@ PrefabInstance:
       value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: attackCooldown
       value: 0.9
       objectReference: {fileID: 0}
@@ -24745,6 +24781,10 @@ PrefabInstance:
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: maxHealth
       value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: attackRange
@@ -27780,6 +27820,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 1412945518657857728, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_LocalPosition.x
       value: 42.218727
@@ -28552,6 +28596,10 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: attackRange
       value: 7.64
       objectReference: {fileID: 0}
@@ -28599,6 +28647,10 @@ PrefabInstance:
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: maxHealth
       value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: attackCooldown
@@ -29196,6 +29248,10 @@ PrefabInstance:
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: maxHealth
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: attackRange
@@ -33141,6 +33197,10 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: attackRange
       value: 8.79
       objectReference: {fileID: 0}
@@ -33872,6 +33932,10 @@ PrefabInstance:
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: maxHealth
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
@@ -39436,6 +39500,10 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: attackRange
       value: 8.79
       objectReference: {fileID: 0}
@@ -42635,6 +42703,10 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 8
       objectReference: {fileID: 0}
@@ -43672,6 +43744,10 @@ PrefabInstance:
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: maxHealth
       value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: basicAttackDMG
@@ -45329,6 +45405,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1235107498267470, guid: efd8147160aa6c64c8121a2ed788744e, type: 3}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: attackRange
       value: 2.24
       objectReference: {fileID: 0}
@@ -45717,6 +45797,10 @@ PrefabInstance:
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: maxHealth
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 1412945518657857728, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_LocalPosition.x
@@ -47471,6 +47555,10 @@ PrefabInstance:
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: maxHealth
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: attackRange
@@ -50264,6 +50352,10 @@ PrefabInstance:
       propertyPath: mimicAsset
       value: 
       objectReference: {fileID: 1783979763778466, guid: bd1a894f239d58d4dbf63f27e28096bd, type: 3}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: attackRange
       value: 2.24
@@ -53387,6 +53479,10 @@ PrefabInstance:
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: maxHealth
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 1412945518657857728, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_LocalPosition.x
@@ -59912,6 +60008,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 1412945518657857728, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_LocalPosition.x
       value: 32.27
@@ -61376,6 +61476,10 @@ PrefabInstance:
       value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: basicAttackDMG
       value: 14
       objectReference: {fileID: 0}
@@ -62484,6 +62588,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: attackRange
       value: 9
       objectReference: {fileID: 0}
@@ -63043,6 +63151,10 @@ PrefabInstance:
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: maxHealth
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 1412945518657857728, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63812,6 +63924,10 @@ PrefabInstance:
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: maxHealth
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 1412945518657857728, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_LocalPosition.x
@@ -72921,6 +73037,10 @@ PrefabInstance:
       value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: basicAttackDMG
       value: 14
       objectReference: {fileID: 0}
@@ -75765,6 +75885,10 @@ PrefabInstance:
       propertyPath: mimicAsset
       value: 
       objectReference: {fileID: 8929589423702217963, guid: 944bff624466e4242a3377fba75ddaf3, type: 3}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: attackRange
       value: 2.24
@@ -82152,17 +82276,21 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 1412945518657857728, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.95
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1412945518657857728, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.38799858
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1412945518657857728, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -107.37
+      value: -107
       objectReference: {fileID: 0}
     - target: {fileID: 1412945518657857728, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_LocalRotation.w
@@ -92491,6 +92619,10 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7965295803169738991, guid: efe9bfeb6f66b8b4d8d5a6f6e573b0b4, type: 3}
+      propertyPath: skillToGet
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7965295803169738991, guid: efe9bfeb6f66b8b4d8d5a6f6e573b0b4, type: 3}
       propertyPath: attackRange
       value: 3.19
       objectReference: {fileID: 0}
@@ -95621,6 +95753,10 @@ PrefabInstance:
       propertyPath: mimicAsset
       value: 
       objectReference: {fileID: 8929589423702217963, guid: 944bff624466e4242a3377fba75ddaf3, type: 3}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: attackRange
       value: 2.24
