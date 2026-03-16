@@ -66105,6 +66105,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5684592299560990638, guid: b6b7496430055bc468bbce58a39ce718, type: 3}
   m_PrefabInstance: {fileID: 1299266587}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &610799000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 610799001}
+  m_Layer: 0
+  m_Name: StartingPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &610799001
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610799000}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 95.31654, y: 1.543, z: -88.63963}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &611368377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73391,6 +73422,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5684592299560990638, guid: b6b7496430055bc468bbce58a39ce718, type: 3}
   m_PrefabInstance: {fileID: 1009898115}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &675534918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 675534920}
+  - component: {fileID: 675534919}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &675534919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675534918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 889134bf6f4c39146a8c77b31ac1811a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelManager
+  startingPosition: {fileID: 610799001}
+--- !u!4 &675534920
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675534918}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 66.31654, y: 1.51193, z: -86.63963}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &675755791 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5684592299560990638, guid: b6b7496430055bc468bbce58a39ce718, type: 3}
@@ -74758,6 +74834,8 @@ MonoBehaviour:
   DoorListC: []
   DoorListD: []
   isBossBattleDoor: 0
+  isFinalLevel1Door: 0
+  isFinalLevel2Door: 0
 --- !u!65 &694542169
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -83225,6 +83303,8 @@ MonoBehaviour:
   DoorListD:
   - {fileID: 395578634}
   isBossBattleDoor: 0
+  isFinalLevel1Door: 0
+  isFinalLevel2Door: 0
 --- !u!4 &766483224 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2261057276556505346, guid: f101a2b4504c3d04a95511ba8b3543e3, type: 3}
@@ -98623,6 +98703,8 @@ MonoBehaviour:
   DoorListD:
   - {fileID: 2120783051}
   isBossBattleDoor: 0
+  isFinalLevel1Door: 0
+  isFinalLevel2Door: 0
 --- !u!1001 &876637950
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -232263,6 +232345,8 @@ MonoBehaviour:
   DoorListD:
   - {fileID: 1546857566}
   isBossBattleDoor: 0
+  isFinalLevel1Door: 0
+  isFinalLevel2Door: 0
 --- !u!1001 &2091016649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -237993,3 +238077,5 @@ SceneRoots:
   - {fileID: 1446397103}
   - {fileID: 2125045971}
   - {fileID: 746076246}
+  - {fileID: 675534920}
+  - {fileID: 610799001}
