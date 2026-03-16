@@ -35705,6 +35705,7 @@ MonoBehaviour:
   attackPivot: {fileID: 550018887}
   isPlayerDetected: 0
   navMeshAgent: {fileID: 0}
+  isFinalBoss: 0
   skillToGet: 0
   FlashDisk: {fileID: 7578300855368472266, guid: 14caec55d96869c4fbaa53b1ada5f666, type: 3}
   timeInStandard: 7
@@ -50355,6 +50356,7 @@ MonoBehaviour:
   - {fileID: 1371976229}
   isBossBattleDoor: 1
   isFinalDoor: 0
+  lockAudio: {fileID: 8300000, guid: efd0e48389d011f4c9edc84128d63b93, type: 3}
 --- !u!208 &1368455254
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -74406,6 +74408,7 @@ MonoBehaviour:
   - {fileID: 1579474808}
   isBossBattleDoor: 0
   isFinalDoor: 1
+  lockAudio: {fileID: 8300000, guid: efd0e48389d011f4c9edc84128d63b93, type: 3}
 --- !u!1 &2069948353
 GameObject:
   m_ObjectHideFlags: 0
@@ -79262,6 +79265,7 @@ MonoBehaviour:
   attackPivot: {fileID: 513814304792913988}
   isPlayerDetected: 0
   navMeshAgent: {fileID: 0}
+  isFinalBoss: 0
   skillToGet: 999
 --- !u!4 &178762435532311825
 Transform:
@@ -84017,6 +84021,7 @@ MonoBehaviour:
   DoorListD: []
   isBossBattleDoor: 0
   isFinalDoor: 0
+  lockAudio: {fileID: 8300000, guid: efd0e48389d011f4c9edc84128d63b93, type: 3}
 --- !u!208 &3469287838054153140
 NavMeshObstacle:
   m_ObjectHideFlags: 0

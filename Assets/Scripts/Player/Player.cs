@@ -41,6 +41,8 @@ public class Player : MonoBehaviour, IDamageable
     public event EventHandler PlayerReset;
     public event EventHandler PlayerWin;
 
+    [SerializeField] private AudioClip pickUp;
+
     private void Awake()
     {
         //Instance = this;
@@ -253,6 +255,7 @@ public class Player : MonoBehaviour, IDamageable
         if (other.gameObject.tag == "Key")
         {
             AddKey(other.gameObject.GetComponent<KeyScript>().keyIndex);
+            AudioManager.instance.PlaySFX(pickUp, transform.position);
             Destroy(other.gameObject);
         }
         if (other.gameObject.tag == "Staff")
@@ -262,6 +265,7 @@ public class Player : MonoBehaviour, IDamageable
             staffModel.SetActive(true);
             hasStaff = true;
             projectile.damage = projectile.maxDamage;
+            AudioManager.instance.PlaySFX(pickUp, transform.position);
             Destroy(other.gameObject);
         }
     }
