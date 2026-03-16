@@ -280,5 +280,7 @@ public class Player : MonoBehaviour, IDamageable
         PlayerHPChanged?.Invoke(this, EventArgs.Empty);
         PlayerManaChanged?.Invoke(this, EventArgs.Empty);
         PlayerReset?.Invoke(this, EventArgs.Empty);
+        keyList.Clear();
+        projectile.damage = 16f;
     }
 }

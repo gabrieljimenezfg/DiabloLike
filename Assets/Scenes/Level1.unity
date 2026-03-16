@@ -35705,6 +35705,7 @@ MonoBehaviour:
   attackPivot: {fileID: 550018887}
   isPlayerDetected: 0
   navMeshAgent: {fileID: 0}
+  isFinalBoss: 0
   skillToGet: 0
   FlashDisk: {fileID: 7578300855368472266, guid: 14caec55d96869c4fbaa53b1ada5f666, type: 3}
   timeInStandard: 7
@@ -50354,7 +50355,8 @@ MonoBehaviour:
   DoorListD:
   - {fileID: 1371976229}
   isBossBattleDoor: 1
-  isFinalDoor: 0
+  isFinalLevel1Door: 0
+  isFinalLevel2Door: 0
 --- !u!208 &1368455254
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -74405,7 +74407,8 @@ MonoBehaviour:
   DoorListD:
   - {fileID: 1579474808}
   isBossBattleDoor: 0
-  isFinalDoor: 1
+  isFinalLevel1Door: 1
+  isFinalLevel2Door: 0
 --- !u!1 &2069948353
 GameObject:
   m_ObjectHideFlags: 0
@@ -79262,6 +79265,7 @@ MonoBehaviour:
   attackPivot: {fileID: 513814304792913988}
   isPlayerDetected: 0
   navMeshAgent: {fileID: 0}
+  isFinalBoss: 0
   skillToGet: 999
 --- !u!4 &178762435532311825
 Transform:
@@ -84016,7 +84020,8 @@ MonoBehaviour:
   DoorListC: []
   DoorListD: []
   isBossBattleDoor: 0
-  isFinalDoor: 0
+  isFinalLevel1Door: 0
+  isFinalLevel2Door: 0
 --- !u!208 &3469287838054153140
 NavMeshObstacle:
   m_ObjectHideFlags: 0
