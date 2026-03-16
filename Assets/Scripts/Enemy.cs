@@ -41,6 +41,7 @@ public class Enemy : MonoBehaviour, IDamageable
     private bool onAttackingRange = true;
     private float cooldownTimer = 0;
     public NavMeshAgent navMeshAgent; //El NavMeshAgent es publico para que los enemigos lo hereden
+    [SerializeField] private bool isFinalBoss;
 
     public event EventHandler StartAttacking;
     public event EventHandler StopAttacking;
@@ -85,6 +86,10 @@ public class Enemy : MonoBehaviour, IDamageable
         if (prize != null)
         {
             Instantiate(prize, transform.position, Quaternion.identity);
+        }
+        if (isFinalBoss)
+        {
+            Player.Instance.playerWin = true;
         }
         player.GetComponent<SkillSystem>().AcquireNewSkill(skillToGet);
         gameObject.SetActive(false);

@@ -18,6 +18,7 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private GameObject staffModel;
     [SerializeField] private GameObject popUpCanvas;
     private bool hasStaff;
+    public bool playerWin;
     public bool invincible = false;
     private bool arePositionAndRotationLocked;
     public List<int> keyList = new List<int>();
@@ -38,6 +39,7 @@ public class Player : MonoBehaviour, IDamageable
     public event EventHandler PlayerTookDamage;
     public event EventHandler PlayerDied;
     public event EventHandler PlayerReset;
+    public event EventHandler PlayerWin;
 
     private void Awake()
     {
@@ -68,6 +70,14 @@ public class Player : MonoBehaviour, IDamageable
         GameInput.Instance.SkillPerformed -= OnSkillPerformed;
         GameInput.Instance.HealPotionUsed -= OnHealPotionUsed;
         GameInput.Instance.ManaPotionUsed -= OnManaPotionUsed;
+    }
+
+    private void LateUpdate()
+    {
+        if (playerWin)
+        {
+            PlayerWin?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     private Vector3 GetDirectionToMouse()
