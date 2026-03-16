@@ -1087,6 +1087,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1678841851965742, guid: 144403e0e442d2a448335e0c845d665b, type: 3}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -2960,6 +2964,10 @@ PrefabInstance:
       value: ArcherEnemy (9)
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -4263,6 +4271,10 @@ PrefabInstance:
       propertyPath: mimicAsset
       value: 
       objectReference: {fileID: 1678841851965742, guid: 144403e0e442d2a448335e0c845d665b, type: 3}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 0
@@ -8535,6 +8547,10 @@ PrefabInstance:
       value: ArcherEnemy (32)
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -11048,6 +11064,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1678841851965742, guid: 144403e0e442d2a448335e0c845d665b, type: 3}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -12878,6 +12898,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1678841851965742, guid: 144403e0e442d2a448335e0c845d665b, type: 3}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -14448,6 +14472,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 1412945518657857728, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_LocalPosition.x
       value: -83.31
@@ -15736,6 +15764,10 @@ PrefabInstance:
       value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: basicAttackDMG
       value: 10
       objectReference: {fileID: 0}
@@ -16927,6 +16959,10 @@ PrefabInstance:
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: maxHealth
       value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: attackRange
@@ -20435,6 +20471,10 @@ PrefabInstance:
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7965295803169738991, guid: efe9bfeb6f66b8b4d8d5a6f6e573b0b4, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7965295803169738991, guid: efe9bfeb6f66b8b4d8d5a6f6e573b0b4, type: 3}
       propertyPath: attackRange
       value: 2.97
       objectReference: {fileID: 0}
@@ -21751,6 +21791,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -22533,6 +22577,10 @@ PrefabInstance:
     - target: {fileID: 5991181767668471213, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: m_Name
       value: ArcherEnemy (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
@@ -26422,6 +26470,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 2
@@ -31498,6 +31550,10 @@ PrefabInstance:
       value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: basicAttackDMG
       value: 10
       objectReference: {fileID: 0}
@@ -33869,6 +33925,10 @@ PrefabInstance:
       value: ArcherEnemy (14)
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -35692,6 +35752,10 @@ PrefabInstance:
       value: MimicEnemy (4)
       objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: basicAttackDMG
       value: 10
       objectReference: {fileID: 0}
@@ -36863,6 +36927,10 @@ PrefabInstance:
       value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: basicAttackDMG
       value: 10
       objectReference: {fileID: 0}
@@ -37703,6 +37771,10 @@ PrefabInstance:
       propertyPath: mimicAsset
       value: 
       objectReference: {fileID: 1678841851965742, guid: 144403e0e442d2a448335e0c845d665b, type: 3}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 0
@@ -42568,6 +42640,10 @@ PrefabInstance:
     - target: {fileID: 5991181767668471213, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: m_Name
       value: ArcherEnemy (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
@@ -49440,6 +49516,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 1412945518657857728, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_LocalPosition.x
       value: -33.619976
@@ -50155,6 +50235,10 @@ PrefabInstance:
     - target: {fileID: 5991181767668471213, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: m_Name
       value: ArcherEnemy (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
@@ -52491,6 +52575,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 1412945518657857728, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_LocalPosition.x
       value: -33.619987
@@ -52548,6 +52636,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 2
@@ -54139,6 +54231,10 @@ PrefabInstance:
     - target: {fileID: 5991181767668471213, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: m_Name
       value: ArcherEnemy (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
@@ -57083,6 +57179,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1678841851965742, guid: 144403e0e442d2a448335e0c845d665b, type: 3}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -59943,6 +60043,10 @@ PrefabInstance:
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: speed
       value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: basicAttackDMG
@@ -64785,6 +64889,10 @@ PrefabInstance:
       value: ArcherEnemy (7)
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: 'patrolPoints.Array.data[0]'
       value: 
       objectReference: {fileID: 1279432248}
@@ -67220,6 +67328,10 @@ PrefabInstance:
       value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: basicAttackDMG
       value: 10
       objectReference: {fileID: 0}
@@ -68565,6 +68677,10 @@ PrefabInstance:
     - target: {fileID: 5991181767668471213, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: m_Name
       value: ArcherEnemy (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
@@ -70435,6 +70551,10 @@ PrefabInstance:
       propertyPath: mimicAsset
       value: 
       objectReference: {fileID: 4697017240656324050, guid: 0331b169005eb1d469455efaa6b9024a, type: 3}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: attackRange
       value: 2.1
@@ -73326,6 +73446,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -73555,6 +73679,10 @@ PrefabInstance:
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: speed
       value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: basicAttackDMG
@@ -74758,6 +74886,7 @@ MonoBehaviour:
   DoorListC: []
   DoorListD: []
   isBossBattleDoor: 0
+  isFinalDoor: 0
 --- !u!65 &694542169
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -80315,6 +80444,10 @@ PrefabInstance:
       value: ArcherEnemy (26)
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -81030,6 +81163,10 @@ PrefabInstance:
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: speed
       value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: basicAttackDMG
@@ -81808,6 +81945,10 @@ PrefabInstance:
       value: ArcherEnemy (21)
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -82072,6 +82213,10 @@ PrefabInstance:
     - target: {fileID: 5991181767668471213, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: m_Name
       value: ArcherEnemy (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
@@ -83225,6 +83370,7 @@ MonoBehaviour:
   DoorListD:
   - {fileID: 395578634}
   isBossBattleDoor: 0
+  isFinalDoor: 0
 --- !u!4 &766483224 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2261057276556505346, guid: f101a2b4504c3d04a95511ba8b3543e3, type: 3}
@@ -83475,6 +83621,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 2
@@ -85230,6 +85380,10 @@ PrefabInstance:
     - target: {fileID: 5991181767668471213, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: m_Name
       value: ArcherEnemy (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
@@ -87785,6 +87939,10 @@ PrefabInstance:
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: speed
       value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: basicAttackDMG
@@ -90795,6 +90953,10 @@ PrefabInstance:
     - target: {fileID: 7965295803169738991, guid: efe9bfeb6f66b8b4d8d5a6f6e573b0b4, type: 3}
       propertyPath: shotAttack
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7965295803169738991, guid: efe9bfeb6f66b8b4d8d5a6f6e573b0b4, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 7965295803169738991, guid: efe9bfeb6f66b8b4d8d5a6f6e573b0b4, type: 3}
       propertyPath: attackRange
@@ -94420,6 +94582,10 @@ PrefabInstance:
     - target: {fileID: 5991181767668471213, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: m_Name
       value: ArcherEnemy (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
@@ -98623,6 +98789,7 @@ MonoBehaviour:
   DoorListD:
   - {fileID: 2120783051}
   isBossBattleDoor: 0
+  isFinalDoor: 0
 --- !u!1001 &876637950
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -99879,6 +100046,10 @@ PrefabInstance:
       propertyPath: mimicAsset
       value: 
       objectReference: {fileID: 100000, guid: 218dd31f4c623bf42b57997c3b9f32f8, type: 3}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: deepInGround
       value: 2.5
@@ -107835,6 +108006,10 @@ PrefabInstance:
       value: ArcherEnemy (36)
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -108167,6 +108342,10 @@ PrefabInstance:
       propertyPath: mimicAsset
       value: 
       objectReference: {fileID: 100000, guid: 218dd31f4c623bf42b57997c3b9f32f8, type: 3}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: deepInGround
       value: 2.5
@@ -111178,6 +111357,10 @@ PrefabInstance:
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: speed
       value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: basicAttackDMG
@@ -119500,6 +119683,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4697017240656324050, guid: 0331b169005eb1d469455efaa6b9024a, type: 3}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: attackRange
       value: 2.1
       objectReference: {fileID: 0}
@@ -120809,6 +120996,10 @@ PrefabInstance:
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: speed
       value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: basicAttackDMG
@@ -123145,6 +123336,10 @@ PrefabInstance:
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: speed
       value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: basicAttackDMG
@@ -130662,6 +130857,10 @@ PrefabInstance:
       value: ArcherEnemy (5)
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: 'patrolPoints.Array.data[0]'
       value: 
       objectReference: {fileID: 958073491}
@@ -130895,6 +131094,10 @@ PrefabInstance:
       propertyPath: mimicAsset
       value: 
       objectReference: {fileID: 100000, guid: 218dd31f4c623bf42b57997c3b9f32f8, type: 3}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: deepInGround
       value: 2.5
@@ -131295,6 +131498,10 @@ PrefabInstance:
     - target: {fileID: 5991181767668471213, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: m_Name
       value: ArcherEnemy (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
@@ -133602,6 +133809,10 @@ PrefabInstance:
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: speed
       value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: basicAttackDMG
@@ -139507,6 +139718,10 @@ PrefabInstance:
       value: ArcherEnemy (27)
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -140343,6 +140558,10 @@ PrefabInstance:
     - target: {fileID: 5991181767668471213, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: m_Name
       value: ArcherEnemy (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
@@ -143533,6 +143752,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4697017240656324050, guid: 0331b169005eb1d469455efaa6b9024a, type: 3}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: attackRange
       value: 2.1
       objectReference: {fileID: 0}
@@ -145295,6 +145518,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4697017240656324050, guid: 0331b169005eb1d469455efaa6b9024a, type: 3}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: attackRange
       value: 2.1
       objectReference: {fileID: 0}
@@ -146711,6 +146938,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 1412945518657857728, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_LocalPosition.x
       value: -33.62
@@ -147114,6 +147345,10 @@ PrefabInstance:
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: speed
       value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: basicAttackDMG
@@ -150050,6 +150285,10 @@ PrefabInstance:
       value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: basicAttackDMG
       value: 10
       objectReference: {fileID: 0}
@@ -150206,6 +150445,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 2
@@ -157872,6 +158115,10 @@ PrefabInstance:
       value: ArcherEnemy (16)
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -159373,6 +159620,10 @@ PrefabInstance:
       value: ArcherEnemy (18)
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -159783,6 +160034,10 @@ PrefabInstance:
     - target: {fileID: 5991181767668471213, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: m_Name
       value: ArcherEnemy (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
@@ -161008,6 +161263,10 @@ PrefabInstance:
     - target: {fileID: 5991181767668471213, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: m_Name
       value: ArcherEnemy (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
@@ -163955,6 +164214,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1678841851965742, guid: 144403e0e442d2a448335e0c845d665b, type: 3}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -165021,7 +165284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: skillToGet
-      value: 0
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: attackRange
@@ -165119,6 +165382,10 @@ PrefabInstance:
     - target: {fileID: 5991181767668471213, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: m_Name
       value: ArcherEnemy (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
@@ -166717,6 +166984,10 @@ PrefabInstance:
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: speed
       value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: basicAttackDMG
@@ -170906,6 +171177,10 @@ PrefabInstance:
       value: ArcherEnemy (4)
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: 'patrolPoints.Array.data[0]'
       value: 
       objectReference: {fileID: 1909869827}
@@ -170990,6 +171265,10 @@ PrefabInstance:
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: speed
       value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: basicAttackDMG
@@ -172235,6 +172514,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 2
@@ -174612,6 +174895,10 @@ PrefabInstance:
       value: ArcherEnemy (29)
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -175883,6 +176170,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 1412945518657857728, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_LocalPosition.x
       value: 47.61744
@@ -179015,6 +179306,10 @@ PrefabInstance:
       value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: basicAttackDMG
       value: 10
       objectReference: {fileID: 0}
@@ -181408,6 +181703,10 @@ PrefabInstance:
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7965295803169738991, guid: efe9bfeb6f66b8b4d8d5a6f6e573b0b4, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7965295803169738991, guid: efe9bfeb6f66b8b4d8d5a6f6e573b0b4, type: 3}
       propertyPath: attackRange
       value: 2.97
       objectReference: {fileID: 0}
@@ -181769,6 +182068,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 1412945518657857728, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_LocalPosition.x
       value: -80.30999
@@ -182540,6 +182843,10 @@ PrefabInstance:
       propertyPath: mimicAsset
       value: 
       objectReference: {fileID: 100000, guid: 218dd31f4c623bf42b57997c3b9f32f8, type: 3}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: deepInGround
       value: 2.5
@@ -185532,6 +185839,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -187142,6 +187453,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 2
@@ -189156,6 +189471,10 @@ PrefabInstance:
       value: ArcherEnemy (37)
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -191103,6 +191422,10 @@ PrefabInstance:
     - target: {fileID: 5991181767668471213, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: m_Name
       value: ArcherEnemy (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
@@ -193358,6 +193681,10 @@ PrefabInstance:
       value: ArcherEnemy (13)
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -193802,6 +194129,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 2
@@ -195678,6 +196009,10 @@ PrefabInstance:
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: maxHealth
       value: 105
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: attackRange
@@ -200046,6 +200381,10 @@ PrefabInstance:
     - target: {fileID: 5991181767668471213, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: m_Name
       value: ArcherEnemy (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
@@ -204878,6 +205217,10 @@ PrefabInstance:
       value: ArcherEnemy (28)
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -208318,6 +208661,10 @@ PrefabInstance:
       value: ArcherEnemy (35)
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -209868,6 +210215,10 @@ PrefabInstance:
       propertyPath: mimicAsset
       value: 
       objectReference: {fileID: 1678841851965742, guid: 144403e0e442d2a448335e0c845d665b, type: 3}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 0
@@ -212075,6 +212426,10 @@ PrefabInstance:
       value: ArcherEnemy (8)
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -213184,6 +213539,10 @@ PrefabInstance:
       value: ArcherEnemy (17)
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -213544,6 +213903,10 @@ PrefabInstance:
       propertyPath: mimicAsset
       value: 
       objectReference: {fileID: 4697017240656324050, guid: 0331b169005eb1d469455efaa6b9024a, type: 3}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: attackRange
       value: 2.1
@@ -217142,6 +217505,10 @@ PrefabInstance:
       value: ArcherEnemy (23)
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -218610,6 +218977,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 1412945518657857728, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_LocalPosition.x
       value: 47.307846
@@ -226432,6 +226803,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: skillToGet
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 1412945518657857728, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_LocalPosition.x
       value: -83.30998
@@ -227722,6 +228097,10 @@ PrefabInstance:
     - target: {fileID: 5991181767668471213, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: m_Name
       value: ArcherEnemy (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: 'patrolPoints.Array.data[0]'
@@ -229678,6 +230057,10 @@ PrefabInstance:
     - target: {fileID: 5991181767668471213, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: m_Name
       value: ArcherEnemy (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
@@ -232263,6 +232646,7 @@ MonoBehaviour:
   DoorListD:
   - {fileID: 1546857566}
   isBossBattleDoor: 0
+  isFinalDoor: 0
 --- !u!1001 &2091016649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -235823,6 +236207,10 @@ PrefabInstance:
     - target: {fileID: 5991181767668471213, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: m_Name
       value: ArcherEnemy (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: skillToGet
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: patrolPoints.Array.size
