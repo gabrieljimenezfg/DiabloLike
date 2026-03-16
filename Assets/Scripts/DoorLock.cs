@@ -63,6 +63,7 @@ public class DoorLock : MonoBehaviour
                         }
                         else if (isFinalDoor)
                         {
+                            Player.Instance.HideMessage();
                             SceneManagerScript.instance.LoadLevel2();
                         }
                         else
