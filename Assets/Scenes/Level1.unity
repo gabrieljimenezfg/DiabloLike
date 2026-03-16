@@ -39162,6 +39162,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 344695934043545483, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: hp
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 344695934043545483, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: mana
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 344695934043545483, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: maxHp
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 344695934043545483, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: maxMana
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3083101380345168495, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.25
@@ -50354,7 +50370,8 @@ MonoBehaviour:
   DoorListD:
   - {fileID: 1371976229}
   isBossBattleDoor: 1
-  isFinalDoor: 0
+  isFinalLevel1Door: 0
+  isFinalLevel2Door: 0
 --- !u!208 &1368455254
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -74405,7 +74422,8 @@ MonoBehaviour:
   DoorListD:
   - {fileID: 1579474808}
   isBossBattleDoor: 0
-  isFinalDoor: 1
+  isFinalLevel1Door: 1
+  isFinalLevel2Door: 0
 --- !u!1 &2069948353
 GameObject:
   m_ObjectHideFlags: 0
@@ -84016,7 +84034,8 @@ MonoBehaviour:
   DoorListC: []
   DoorListD: []
   isBossBattleDoor: 0
-  isFinalDoor: 0
+  isFinalLevel1Door: 0
+  isFinalLevel2Door: 0
 --- !u!208 &3469287838054153140
 NavMeshObstacle:
   m_ObjectHideFlags: 0

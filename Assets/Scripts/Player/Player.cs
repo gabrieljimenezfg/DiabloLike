@@ -39,6 +39,8 @@ public class Player : MonoBehaviour, IDamageable
     public event EventHandler PlayerDied;
     public event EventHandler PlayerReset;
 
+    public bool l2BossKilled;
+
     private void Awake()
     {
         //Instance = this;
@@ -54,6 +56,7 @@ public class Player : MonoBehaviour, IDamageable
 
         inventory = GetComponent<Inventory>();
         skillSystem = GetComponent<SkillSystem>();
+
     }
 
     private void Start()
@@ -269,5 +272,7 @@ public class Player : MonoBehaviour, IDamageable
         PlayerHPChanged?.Invoke(this, EventArgs.Empty);
         PlayerManaChanged?.Invoke(this, EventArgs.Empty);
         PlayerReset?.Invoke(this, EventArgs.Empty);
+        keyList.Clear();
+        projectile.damage = 16f;
     }
 }

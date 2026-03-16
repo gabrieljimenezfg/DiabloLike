@@ -17,7 +17,10 @@ public class DoorLock : MonoBehaviour
     [SerializeField]
     private List<GameObject> DoorListD = new List<GameObject>();
     [SerializeField] private bool isBossBattleDoor;
-    [SerializeField] private bool isFinalDoor;
+    [SerializeField] private bool isFinalLevel1Door;
+    [SerializeField] private bool isFinalLevel2Door;
+
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -61,10 +64,15 @@ public class DoorLock : MonoBehaviour
                                 Player.Instance.ShowMessage("I need my staff first...");
                             }
                         }
-                        else if (isFinalDoor)
+                        else if (isFinalLevel1Door)
                         {
                             Player.Instance.HideMessage();
                             SceneManagerScript.instance.LoadLevel2();
+                        }
+                        else if (isFinalLevel2Door && Player.Instance.l2BossKilled)
+                        {
+                            Player.Instance.HideMessage();
+                            SceneManagerScript.instance.LoadLevel3();
                         }
                         else
                         {
