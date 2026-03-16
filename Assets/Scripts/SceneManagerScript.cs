@@ -36,13 +36,21 @@ public class SceneManagerScript : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
-    private void OnLevel1Loaded(Scene scene, LoadSceneMode mode)
+    public void OnLevel1Loaded(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnLevel1Loaded;
 
         Player.Instance.GetComponent<NavMeshAgent>().Warp(LevelManager.Instance.startingPosition.position);
         Player.Instance.ResetPlayer();
         GameInput.Instance.EnableActions();
+
+        HotbarUI hotbar = GameObject.Find("Hotbar").GetComponent<HotbarUI>();
+        if (hotbar != null)
+        {
+            hotbar.UpdateOrbsVisual();
+            hotbar.UpdateSkillSlots();
+            hotbar.UpdatePotionsText();
+        }
     }
 
     public void LoadLevel2()
@@ -52,12 +60,20 @@ public class SceneManagerScript : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
-    private void OnLevel2Loaded(Scene scene, LoadSceneMode mode)
+    public void OnLevel2Loaded(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnLevel2Loaded;
 
         Player.Instance.GetComponent<NavMeshAgent>().Warp(LevelManager.Instance.startingPosition.position);
         GameInput.Instance.EnableActions();
+
+        HotbarUI hotbar = GameObject.Find("Hotbar").GetComponent<HotbarUI>();
+        if (hotbar != null)
+        {
+            hotbar.UpdateOrbsVisual();
+            hotbar.UpdateSkillSlots();
+            hotbar.UpdatePotionsText();
+        }
     }
 
     public void LoadLevel3()
@@ -73,6 +89,14 @@ public class SceneManagerScript : MonoBehaviour
 
         Player.Instance.GetComponent<NavMeshAgent>().Warp(LevelManager.Instance.startingPosition.position);
         GameInput.Instance.EnableActions();
+
+        HotbarUI hotbar = GameObject.Find("Hotbar").GetComponent<HotbarUI>();
+        if (hotbar != null)
+        {
+            hotbar.UpdateOrbsVisual();
+            hotbar.UpdateSkillSlots();
+            hotbar.UpdatePotionsText();
+        }
     }
 
     public void CloseApplication()
