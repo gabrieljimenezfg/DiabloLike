@@ -49,7 +49,8 @@ public class Enemy : MonoBehaviour, IDamageable
 
     [SerializeField] private int skillToGet = 999;
 
-
+    [SerializeField] private bool isLevel2Boss;
+    [SerializeField] public bool l2BossKilled;
 
     public void Start()
     {
@@ -91,6 +92,10 @@ public class Enemy : MonoBehaviour, IDamageable
         player.GetComponent<SkillSystem>().AcquireNewSkill(skillToGet);
         gameObject.SetActive(false);
 
+        if (isLevel2Boss)
+        {
+            Player.Instance.l2BossKilled = true;
+        }
     }
 
     private void SpawnCorpse()
