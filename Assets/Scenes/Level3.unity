@@ -232825,13 +232825,9 @@ MonoBehaviour:
   DoorListD:
   - {fileID: 1546857566}
   isBossBattleDoor: 0
-<<<<<<< HEAD
-  isFinalDoor: 0
   lockAudio: {fileID: 8300000, guid: efd0e48389d011f4c9edc84128d63b93, type: 3}
-=======
   isFinalLevel1Door: 0
   isFinalLevel2Door: 0
->>>>>>> main
 --- !u!1001 &2091016649
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -44424,6 +44424,7 @@ MonoBehaviour:
   DoorListC: []
   DoorListD: []
   isBossBattleDoor: 0
+  lockAudio: {fileID: 0}
   isFinalLevel1Door: 0
   isFinalLevel2Door: 1
 --- !u!1001 &915245366
@@ -50273,6 +50274,14 @@ PrefabInstance:
       propertyPath: staffLight
       value: 
       objectReference: {fileID: 550449486}
+    - target: {fileID: 344695934043545483, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: keyList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 344695934043545483, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: 'keyList.Array.data[0]'
+      value: 67
+      objectReference: {fileID: 0}
     - target: {fileID: 975402171730818057, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
       propertyPath: m_Enabled
       value: 0
