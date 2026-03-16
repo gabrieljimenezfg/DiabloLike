@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class HotbarUI : MonoBehaviour
 {
+
+
     private SkillSystem skillSystem;
     [SerializeField] private SkillSlotUI[] skillSlotsUI;
 
@@ -40,23 +42,25 @@ public class HotbarUI : MonoBehaviour
         }
     }
 
+
     private void OnPlayerOrbStatChanged(object sender, EventArgs e)
     {
         UpdateOrbsVisual();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         UpdateSkillSlots();
+
     }
 
-    private void UpdateOrbsVisual()
+    public void UpdateOrbsVisual()
     {
         healthOrb.fillAmount = Player.Instance.HP / Player.Instance.MaxHP;
         manaOrb.fillAmount = Player.Instance.Mana / Player.Instance.MaxMana;
     }
 
-    private void UpdateSkillSlots()
+    public void UpdateSkillSlots()
     {
         var currentPlayerMana = Player.Instance.Mana;
         for (int i = 0; i < skillSlotsUI.Length; i++)
@@ -74,7 +78,7 @@ public class HotbarUI : MonoBehaviour
         UpdatePotionsText();
     }
 
-    private void UpdatePotionsText()
+    public void UpdatePotionsText()
     {
         var inventory = Player.Instance.GetInventory();
 
