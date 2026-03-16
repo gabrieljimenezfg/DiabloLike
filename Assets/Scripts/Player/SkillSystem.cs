@@ -52,18 +52,20 @@ public class SkillSystem : MonoBehaviour
     {
         switch(skill)
         {
-                case 0:
+            case 0:
                     EquipNewSkill(starterSkill);
                 break;
             case 1:
                     EquipNewSkill(raiseMinionSkill);
                     break;
-                case 2:
+            case 2:
                     EquipNewSkill(explodeMinionSkill);
                     break;
-                case 3:
+            case 3:
                     EquipNewSkill(acidBlastSkill);
                     break;
+            default:
+                break;
         }
     }
     private void EquipNewSkill(SkillSO skill)
