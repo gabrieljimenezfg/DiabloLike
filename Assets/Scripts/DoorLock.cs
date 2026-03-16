@@ -17,7 +17,6 @@ public class DoorLock : MonoBehaviour
     [SerializeField]
     private List<GameObject> DoorListD = new List<GameObject>();
     [SerializeField] private bool isBossBattleDoor;
-    [SerializeField] private bool isFinalDoor;
     private bool isClosed = true;
     [SerializeField] private AudioClip lockAudio;
     [SerializeField] private bool isFinalLevel1Door;
