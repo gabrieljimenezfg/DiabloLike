@@ -79,6 +79,7 @@ public class Player : MonoBehaviour, IDamageable
         if (playerWin)
         {
             PlayerWin?.Invoke(this, EventArgs.Empty);
+            playerWin = false;
         }
     }
 

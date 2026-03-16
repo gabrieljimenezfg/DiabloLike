@@ -31,9 +31,9 @@ public class SceneManagerScript : MonoBehaviour
 
     public void LoadLevel1()
     {
-        Time.timeScale = 1.0f;
         SceneManager.sceneLoaded += OnLevel1Loaded;
         SceneManager.LoadScene(level1ID);
+        Time.timeScale = 1.0f;
     }
 
     private void OnLevel1Loaded(Scene scene, LoadSceneMode mode)
