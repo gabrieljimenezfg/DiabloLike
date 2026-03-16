@@ -50555,7 +50555,8 @@ MonoBehaviour:
   DoorListD:
   - {fileID: 1371976229}
   isBossBattleDoor: 1
-  isFinalDoor: 0
+  isFinalLevel1Door: 0
+  isFinalLevel2Door: 0
   lockAudio: {fileID: 8300000, guid: efd0e48389d011f4c9edc84128d63b93, type: 3}
 --- !u!208 &1368455254
 NavMeshObstacle:
@@ -74691,7 +74692,8 @@ MonoBehaviour:
   DoorListD:
   - {fileID: 1579474808}
   isBossBattleDoor: 0
-  isFinalDoor: 1
+  isFinalLevel1Door: 1
+  isFinalLevel2Door: 0
   lockAudio: {fileID: 8300000, guid: efd0e48389d011f4c9edc84128d63b93, type: 3}
 --- !u!1 &2069948353
 GameObject:
@@ -84316,7 +84318,8 @@ MonoBehaviour:
   DoorListC: []
   DoorListD: []
   isBossBattleDoor: 0
-  isFinalDoor: 0
+  isFinalLevel1Door: 0
+  isFinalLevel2Door: 0
   lockAudio: {fileID: 8300000, guid: efd0e48389d011f4c9edc84128d63b93, type: 3}
 --- !u!208 &3469287838054153140
 NavMeshObstacle:

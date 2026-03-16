@@ -20,6 +20,8 @@ public class DoorLock : MonoBehaviour
     [SerializeField] private bool isFinalDoor;
     private bool isClosed = true;
     [SerializeField] private AudioClip lockAudio;
+    [SerializeField] private bool isFinalLevel1Door;
+    [SerializeField] private bool isFinalLevel2Door;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -68,10 +70,15 @@ public class DoorLock : MonoBehaviour
                                 Player.Instance.ShowMessage("I need my staff first...");
                             }
                         }
-                        else if (isFinalDoor)
+                        else if (isFinalLevel1Door)
                         {
                             Player.Instance.HideMessage();
                             SceneManagerScript.instance.LoadLevel2();
+                        }
+                        else if (isFinalLevel2Door)
+                        {
+                            Player.Instance.HideMessage();
+                            SceneManagerScript.instance.LoadLevel3();
                         }
                         else
                         {
