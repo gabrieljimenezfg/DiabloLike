@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour, IDamageable
     public event EventHandler StartPatrolling;
     public event EventHandler StartChasing;
 
-    [SerializeField] private int skillToGet;
+    [SerializeField] private int skillToGet = 999;
 
     public void Start()
     {
