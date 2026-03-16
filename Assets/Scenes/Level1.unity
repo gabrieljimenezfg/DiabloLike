@@ -3049,6 +3049,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArcherEnemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6558105927714805447, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: footstep
+      value: 
+      objectReference: {fileID: 8300000, guid: d37a546cb9f562549a404f69c6a6e532, type: 3}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: speed
       value: 2.44
@@ -3061,6 +3065,10 @@ PrefabInstance:
       propertyPath: skillToGet
       value: 999
       objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: unmeleeAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 13d44311c57228d4c8e27d000a09f72b, type: 3}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: basicAttackDMG
       value: 1.4
@@ -4138,6 +4146,10 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: meleeAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 16230d4d867fd7742b40f404350fc779, type: 3}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: skillToGet
       value: 999
       objectReference: {fileID: 0}
@@ -4189,6 +4201,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1865189202897663934, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: footstep
+      value: 
+      objectReference: {fileID: 8300000, guid: d37a546cb9f562549a404f69c6a6e532, type: 3}
     - target: {fileID: 2431536751766749773, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -12565,6 +12581,10 @@ PrefabInstance:
       value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: meleeAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 16230d4d867fd7742b40f404350fc779, type: 3}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: skillToGet
       value: 999
       objectReference: {fileID: 0}
@@ -12612,6 +12632,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1865189202897663934, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: footstep
+      value: 
+      objectReference: {fileID: 8300000, guid: d37a546cb9f562549a404f69c6a6e532, type: 3}
     - target: {fileID: 3278230915742338931, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_Name
       value: Enemy (6)
@@ -12912,6 +12936,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: meleeAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 16230d4d867fd7742b40f404350fc779, type: 3}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: skillToGet
       value: 999
       objectReference: {fileID: 0}
@@ -12963,6 +12991,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1865189202897663934, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: footstep
+      value: 
+      objectReference: {fileID: 8300000, guid: d37a546cb9f562549a404f69c6a6e532, type: 3}
     - target: {fileID: 3278230915742338931, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_Name
       value: Enemy (3)
@@ -13899,6 +13931,10 @@ PrefabInstance:
       value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: meleeAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 16230d4d867fd7742b40f404350fc779, type: 3}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: skillToGet
       value: 999
       objectReference: {fileID: 0}
@@ -13946,6 +13982,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1865189202897663934, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: footstep
+      value: 
+      objectReference: {fileID: 8300000, guid: d37a546cb9f562549a404f69c6a6e532, type: 3}
     - target: {fileID: 3278230915742338931, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_Name
       value: Enemy (5)
@@ -16062,13 +16102,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6092717849882873429, guid: efe9bfeb6f66b8b4d8d5a6f6e573b0b4, type: 3}
+      propertyPath: footstep
+      value: 
+      objectReference: {fileID: 8300000, guid: d0a04037445799a43a3564936ab16090, type: 3}
     - target: {fileID: 7965295803169738991, guid: efe9bfeb6f66b8b4d8d5a6f6e573b0b4, type: 3}
       propertyPath: prize
       value: 
       objectReference: {fileID: 4060669088202194654, guid: 68ec11218de329a4aa60545f4b8dfa91, type: 3}
     - target: {fileID: 7965295803169738991, guid: efe9bfeb6f66b8b4d8d5a6f6e573b0b4, type: 3}
+      propertyPath: damage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7965295803169738991, guid: efe9bfeb6f66b8b4d8d5a6f6e573b0b4, type: 3}
+      propertyPath: health
+      value: 460
+      objectReference: {fileID: 0}
+    - target: {fileID: 7965295803169738991, guid: efe9bfeb6f66b8b4d8d5a6f6e573b0b4, type: 3}
+      propertyPath: maxHealth
+      value: 460
+      objectReference: {fileID: 0}
+    - target: {fileID: 7965295803169738991, guid: efe9bfeb6f66b8b4d8d5a6f6e573b0b4, type: 3}
       propertyPath: skillToGet
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7965295803169738991, guid: efe9bfeb6f66b8b4d8d5a6f6e573b0b4, type: 3}
+      propertyPath: damageAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: d90ee7fe6bd441d4283cc99dad0c65f3, type: 3}
+    - target: {fileID: 7965295803169738991, guid: efe9bfeb6f66b8b4d8d5a6f6e573b0b4, type: 3}
+      propertyPath: unmeleeAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 728d7c99033ae084f8c8676b9b149258, type: 3}
+    - target: {fileID: 7965295803169738991, guid: efe9bfeb6f66b8b4d8d5a6f6e573b0b4, type: 3}
+      propertyPath: basicAttackDMG
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7965295803169738991, guid: efe9bfeb6f66b8b4d8d5a6f6e573b0b4, type: 3}
       propertyPath: preFlashAttack
@@ -16095,6 +16163,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: meleeAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 16230d4d867fd7742b40f404350fc779, type: 3}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: skillToGet
       value: 999
@@ -16143,6 +16215,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1865189202897663934, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: footstep
+      value: 
+      objectReference: {fileID: 8300000, guid: d37a546cb9f562549a404f69c6a6e532, type: 3}
     - target: {fileID: 3278230915742338931, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_Name
       value: Enemy (4)
@@ -21439,6 +21515,51 @@ Transform:
   m_Children:
   - {fileID: 1116226501}
   m_Father: {fileID: 613113781}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &579442558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 579442560}
+  - component: {fileID: 579442559}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &579442559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579442558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e40cb907bc9b6774f8fa0981a47c8fef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  SFX: {fileID: 8879697079271703881, guid: 35e34d05ac65e51459e69f74f8d93cc3, type: 3}
+--- !u!4 &579442560
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579442558}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 614.42505, y: -0.00003, z: 628.8495}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &580207336
 PrefabInstance:
@@ -27431,6 +27552,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: meleeAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 16230d4d867fd7742b40f404350fc779, type: 3}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: skillToGet
       value: 999
       objectReference: {fileID: 0}
@@ -27482,6 +27607,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1865189202897663934, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: footstep
+      value: 
+      objectReference: {fileID: 8300000, guid: d37a546cb9f562549a404f69c6a6e532, type: 3}
     - target: {fileID: 3278230915742338931, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
@@ -29253,9 +29382,17 @@ PrefabInstance:
       value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: meleeAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 16230d4d867fd7742b40f404350fc779, type: 3}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: skillToGet
       value: 999
       objectReference: {fileID: 0}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: damageAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: b4df497518831e7449959121ec899abf, type: 3}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: basicAttackDMG
       value: 6
@@ -29324,6 +29461,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1865189202897663934, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: footstep
+      value: 
+      objectReference: {fileID: 8300000, guid: d37a546cb9f562549a404f69c6a6e532, type: 3}
     - target: {fileID: 3278230915742338931, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_Name
       value: Enemy (5)
@@ -35695,11 +35836,14 @@ MonoBehaviour:
   basicAttackDMG: 20
   projectileVelocity: 6.02
   potionDropChancePercentage: 100
+  damageAudio: {fileID: 0}
   patrolPoints: []
   IsMelee: 1
   attackPref: {fileID: 3026340385685424308, guid: dba5be3a84a65e1448ddaeaf55be8fca, type: 3}
   corpse: {fileID: 285926861608280104, guid: 6dc757dcac6d16048b7efc344907d5a4, type: 3}
   prize: {fileID: 4060669088202194654, guid: 68ec11218de329a4aa60545f4b8dfa91, type: 3}
+  meleeAudio: {fileID: 0}
+  unmeleeAudio: {fileID: 0}
   isAlive: 1
   detectionArea: {fileID: 1517613662}
   attackPivot: {fileID: 550018887}
@@ -35718,6 +35862,7 @@ MonoBehaviour:
   shotSpeed: 4.1
   shotAttack: 8.45
   slashSpawn: {fileID: 0}
+  slashAudio: {fileID: 0}
 --- !u!54 &958539326
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -39163,6 +39308,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 344695934043545483, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: pickUp
+      value: 
+      objectReference: {fileID: 8300000, guid: c184780c96f4d614b9c6dd96c72a81e4, type: 3}
+    - target: {fileID: 1464205025530643645, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: footstep
+      value: 
+      objectReference: {fileID: 8300000, guid: 27d0f56580cd159488f5115435791baf, type: 3}
     - target: {fileID: 3083101380345168495, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.25
@@ -39207,10 +39360,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8801036135139690487, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: skill01
+      value: 
+      objectReference: {fileID: 8300000, guid: fdbf350203f9eff4e869b3b086b0ec25, type: 3}
+    - target: {fileID: 8801036135139690487, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: skill02
+      value: 
+      objectReference: {fileID: 8300000, guid: 8b5443e717dbded4ab375e63d84850e4, type: 3}
+    - target: {fileID: 8801036135139690487, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: skill03
+      value: 
+      objectReference: {fileID: 8300000, guid: 0d5a698234a6e3546b73c419ca8e1301, type: 3}
+    - target: {fileID: 8801036135139690487, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: skill04
+      value: 
+      objectReference: {fileID: 8300000, guid: 49cdb37d6ae7d214f8c2123561eb3f56, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7534926000282603271, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1270236146}
   m_SourcePrefab: {fileID: 100100000, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
 --- !u!1 &1066666645
 GameObject:
@@ -42922,6 +43094,10 @@ PrefabInstance:
       value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: meleeAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 16230d4d867fd7742b40f404350fc779, type: 3}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: skillToGet
       value: 999
       objectReference: {fileID: 0}
@@ -42969,6 +43145,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1865189202897663934, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: footstep
+      value: 
+      objectReference: {fileID: 8300000, guid: d37a546cb9f562549a404f69c6a6e532, type: 3}
     - target: {fileID: 3278230915742338931, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_Name
       value: Enemy (7)
@@ -43215,6 +43395,10 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: meleeAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 16230d4d867fd7742b40f404350fc779, type: 3}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: skillToGet
       value: 999
       objectReference: {fileID: 0}
@@ -43266,6 +43450,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1865189202897663934, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: footstep
+      value: 
+      objectReference: {fileID: 8300000, guid: d37a546cb9f562549a404f69c6a6e532, type: 3}
     - target: {fileID: 3278230915742338931, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_Name
       value: Enemy (3)
@@ -46888,6 +47076,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 936655011711060175, guid: 5e10be2f5a748844dbd0b2b7e6fafd4a, type: 3}
   m_PrefabInstance: {fileID: 1268028367}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1270236133 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7534926000282603271, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+  m_PrefabInstance: {fileID: 1063308363}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &1270236146
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270236133}
+  m_Enabled: 1
 --- !u!1 &1274250855 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 936655011711489263, guid: 5e10be2f5a748844dbd0b2b7e6fafd4a, type: 3}
@@ -48136,7 +48337,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1319719062}
   - component: {fileID: 1319719061}
-  - component: {fileID: 1319719060}
   - component: {fileID: 1319719059}
   m_Layer: 0
   m_Name: Main Camera
@@ -48190,14 +48390,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!81 &1319719060
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1319719058}
-  m_Enabled: 1
 --- !u!20 &1319719061
 Camera:
   m_ObjectHideFlags: 0
@@ -48896,6 +49088,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: meleeAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 16230d4d867fd7742b40f404350fc779, type: 3}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: skillToGet
       value: 999
       objectReference: {fileID: 0}
@@ -48947,6 +49143,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1865189202897663934, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: footstep
+      value: 
+      objectReference: {fileID: 8300000, guid: d37a546cb9f562549a404f69c6a6e532, type: 3}
     - target: {fileID: 3278230915742338931, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
@@ -50415,9 +50615,17 @@ PrefabInstance:
       value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: meleeAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 16230d4d867fd7742b40f404350fc779, type: 3}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: skillToGet
       value: 999
       objectReference: {fileID: 0}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: damageAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: f5557dc027b811c45a3021123e0591b4, type: 3}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: basicAttackDMG
       value: 9
@@ -50470,6 +50678,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1865189202897663934, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: footstep
+      value: 
+      objectReference: {fileID: 8300000, guid: d37a546cb9f562549a404f69c6a6e532, type: 3}
     - target: {fileID: 3278230915742338931, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -57828,6 +58040,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArcherEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6558105927714805447, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: footstep
+      value: 
+      objectReference: {fileID: 8300000, guid: d37a546cb9f562549a404f69c6a6e532, type: 3}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: speed
       value: 2.44
@@ -57840,6 +58056,10 @@ PrefabInstance:
       propertyPath: skillToGet
       value: 999
       objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: unmeleeAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 13d44311c57228d4c8e27d000a09f72b, type: 3}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: basicAttackDMG
       value: 1.4
@@ -58035,6 +58255,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArcherEnemy (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6558105927714805447, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: footstep
+      value: 
+      objectReference: {fileID: 8300000, guid: d37a546cb9f562549a404f69c6a6e532, type: 3}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: damage
       value: 1.5
@@ -58043,6 +58267,10 @@ PrefabInstance:
       propertyPath: skillToGet
       value: 999
       objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: unmeleeAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 13d44311c57228d4c8e27d000a09f72b, type: 3}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: basicAttackDMG
       value: 1.5
@@ -58173,6 +58401,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArcherEnemy (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6558105927714805447, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: footstep
+      value: 
+      objectReference: {fileID: 8300000, guid: d37a546cb9f562549a404f69c6a6e532, type: 3}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: damage
       value: 1.5
@@ -58181,6 +58413,10 @@ PrefabInstance:
       propertyPath: skillToGet
       value: 999
       objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: unmeleeAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 13d44311c57228d4c8e27d000a09f72b, type: 3}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: basicAttackDMG
       value: 1.5
@@ -58246,6 +58482,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArcherEnemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6558105927714805447, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: footstep
+      value: 
+      objectReference: {fileID: 8300000, guid: d37a546cb9f562549a404f69c6a6e532, type: 3}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: speed
       value: 2.44
@@ -58258,6 +58498,10 @@ PrefabInstance:
       propertyPath: skillToGet
       value: 999
       objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: unmeleeAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 13d44311c57228d4c8e27d000a09f72b, type: 3}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: basicAttackDMG
       value: 1.4
@@ -64096,6 +64340,10 @@ PrefabInstance:
       value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: meleeAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 16230d4d867fd7742b40f404350fc779, type: 3}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: skillToGet
       value: 999
       objectReference: {fileID: 0}
@@ -64143,6 +64391,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1865189202897663934, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: footstep
+      value: 
+      objectReference: {fileID: 8300000, guid: d37a546cb9f562549a404f69c6a6e532, type: 3}
     - target: {fileID: 3278230915742338931, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -65429,6 +65681,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
+      propertyPath: meleeAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 89358844c1a895b4eaf4ffb78918fd43, type: 3}
     - target: {fileID: 5984088282850112757, guid: 420d41e73fe66d9488e7600be1d1cff1, type: 3}
       propertyPath: skillToGet
       value: 999
@@ -68934,6 +69190,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArcherEnemy (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6558105927714805447, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: footstep
+      value: 
+      objectReference: {fileID: 8300000, guid: d37a546cb9f562549a404f69c6a6e532, type: 3}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: speed
       value: 2.44
@@ -68946,6 +69206,10 @@ PrefabInstance:
       propertyPath: skillToGet
       value: 999
       objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: unmeleeAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 13d44311c57228d4c8e27d000a09f72b, type: 3}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: basicAttackDMG
       value: 1.4
@@ -71858,6 +72122,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArcherEnemy (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6558105927714805447, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: footstep
+      value: 
+      objectReference: {fileID: 8300000, guid: d37a546cb9f562549a404f69c6a6e532, type: 3}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: speed
       value: 2.44
@@ -71874,6 +72142,14 @@ PrefabInstance:
       propertyPath: skillToGet
       value: 999
       objectReference: {fileID: 0}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: damageAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: f5557dc027b811c45a3021123e0591b4, type: 3}
+    - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
+      propertyPath: unmeleeAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 13d44311c57228d4c8e27d000a09f72b, type: 3}
     - target: {fileID: 8247478001377399829, guid: c52fd42bf5dab64409013b021d158916, type: 3}
       propertyPath: basicAttackDMG
       value: 1.4
@@ -72186,6 +72462,10 @@ PrefabInstance:
       value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: meleeAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 16230d4d867fd7742b40f404350fc779, type: 3}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: skillToGet
       value: 999
       objectReference: {fileID: 0}
@@ -72257,6 +72537,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1865189202897663934, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: footstep
+      value: 
+      objectReference: {fileID: 8300000, guid: d37a546cb9f562549a404f69c6a6e532, type: 3}
     - target: {fileID: 3278230915742338931, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_Name
       value: Enemy (6)
@@ -75759,6 +76043,10 @@ PrefabInstance:
       value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: meleeAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 16230d4d867fd7742b40f404350fc779, type: 3}
+    - target: {fileID: 158191215457359721, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: skillToGet
       value: 999
       objectReference: {fileID: 0}
@@ -75814,6 +76102,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1865189202897663934, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
+      propertyPath: footstep
+      value: 
+      objectReference: {fileID: 8300000, guid: d37a546cb9f562549a404f69c6a6e532, type: 3}
     - target: {fileID: 3278230915742338931, guid: 359e22e0557fa4dab9610472c97d5482, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
@@ -79255,11 +79547,14 @@ MonoBehaviour:
   basicAttackDMG: 14
   projectileVelocity: 0
   potionDropChancePercentage: 40
+  damageAudio: {fileID: 8300000, guid: f5557dc027b811c45a3021123e0591b4, type: 3}
   patrolPoints: []
   IsMelee: 1
   attackPref: {fileID: 0}
   corpse: {fileID: 285926861608280104, guid: 6dc757dcac6d16048b7efc344907d5a4, type: 3}
   prize: {fileID: 0}
+  meleeAudio: {fileID: 8300000, guid: 16230d4d867fd7742b40f404350fc779, type: 3}
+  unmeleeAudio: {fileID: 0}
   isAlive: 1
   detectionArea: {fileID: 5154131091236888175}
   attackPivot: {fileID: 513814304792913988}
@@ -82029,6 +82324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyVisual
   animator: {fileID: 0}
+  footstep: {fileID: 8300000, guid: d37a546cb9f562549a404f69c6a6e532, type: 3}
 --- !u!1 &1870505990077152924
 GameObject:
   m_ObjectHideFlags: 0
@@ -84283,6 +84579,10 @@ PrefabInstance:
     - target: {fileID: 1854810599634566331, guid: 68ec11218de329a4aa60545f4b8dfa91, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 116.565
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662176190510940138, guid: 68ec11218de329a4aa60545f4b8dfa91, type: 3}
+      propertyPath: keyIndex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4060669088202194654, guid: 68ec11218de329a4aa60545f4b8dfa91, type: 3}
       propertyPath: m_Name
@@ -89313,6 +89613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyVisual
   animator: {fileID: 0}
+  footstep: {fileID: 0}
 --- !u!4 &7918789291215902626
 Transform:
   m_ObjectHideFlags: 0
@@ -90909,3 +91210,4 @@ SceneRoots:
   - {fileID: 1238129884}
   - {fileID: 460185734}
   - {fileID: 376087608}
+  - {fileID: 579442560}

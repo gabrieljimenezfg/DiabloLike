@@ -3436,6 +3436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FirstBossVisual
   animator: {fileID: 0}
+  footstep: {fileID: 8300000, guid: d0a04037445799a43a3564936ab16090, type: 3}
 --- !u!1 &3166587593779662400
 GameObject:
   m_ObjectHideFlags: 0
@@ -5305,16 +5306,21 @@ MonoBehaviour:
   basicAttackDMG: 23.5
   projectileVelocity: 6.02
   potionDropChancePercentage: 100
+  damageAudio: {fileID: 8300000, guid: d90ee7fe6bd441d4283cc99dad0c65f3, type: 3}
   patrolPoints: []
   IsMelee: 1
   attackPref: {fileID: 3026340385685424308, guid: 5647265e60ca7d949b4ac2d653ca4f9f, type: 3}
   corpse: {fileID: 285926861608280104, guid: 6dc757dcac6d16048b7efc344907d5a4, type: 3}
   prize: {fileID: 0}
+  meleeAudio: {fileID: 8300000, guid: da3e60da04b414c4aba1bf0061c55445, type: 3}
+  unmeleeAudio: {fileID: 8300000, guid: 728d7c99033ae084f8c8676b9b149258, type: 3}
   isAlive: 1
   detectionArea: {fileID: 3544157171938565420}
   attackPivot: {fileID: 3627576004065737966}
   isPlayerDetected: 0
   navMeshAgent: {fileID: 0}
+  isFinalBoss: 0
+  skillToGet: 999
   FlashDisk: {fileID: 7578300855368472266, guid: 14caec55d96869c4fbaa53b1ada5f666, type: 3}
   timeInStandard: 7
   preFlashAttack: 0.3
@@ -5326,6 +5332,7 @@ MonoBehaviour:
   shotSpeed: 4.1
   shotAttack: 8.45
   slashSpawn: {fileID: 3978820871973375585}
+  slashAudio: {fileID: 8300000, guid: c05326accddd537479520b246a0b67ae, type: 3}
 --- !u!195 &3956086151981113424
 NavMeshAgent:
   m_ObjectHideFlags: 0

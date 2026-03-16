@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] private int potionDropChancePercentage = 40;
 
     [Header("ThisEnemy")] //Cosas de este enemigo en concreto
+    [SerializeField] private AudioClip damageAudio;
     [SerializeField]
     private Transform[] patrolPoints; //Puntos de patrulla
     public bool IsMelee = true;
@@ -26,6 +27,8 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] private Corpse corpse;
     [SerializeField] private GameObject prize;
 
+    [SerializeField] private AudioClip meleeAudio;
+    [SerializeField] private AudioClip unmeleeAudio;
     public bool isAlive = true;
 
     private int patrolIndex = 0;
@@ -70,11 +73,12 @@ public class Enemy : MonoBehaviour, IDamageable
         DamagePopup.Create(transform.position, amount);
         if (health <= 0)
         {
+            AudioManager.instance.PlaySFX(damageAudio, transform.position);
             Die();
         }
         else
         {
-            //Sonido y efecto de danyo
+            //
         }
     }
 
@@ -166,9 +170,11 @@ public class Enemy : MonoBehaviour, IDamageable
                 {
                     if (IsMelee)
                     {
+                        AudioManager.instance.PlaySFX(meleeAudio, transform.position);
                         player.GetComponent<Player>().TakeDamage(basicAttackDMG); //El jugador recibe danyo del ataque basico 
                     } else {
                         Debug.Log("RANGED ATTACK EFFECTED");
+                        AudioManager.instance.PlaySFX(unmeleeAudio, transform.position);
                         GameObject atkPref = Instantiate(attackPref, attackPivot.position, transform.rotation); //Instancia el prefab del ataque si es que tiene uno
 
                         //Se setea el proyectil V V V

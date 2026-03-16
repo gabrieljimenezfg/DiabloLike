@@ -177,14 +177,21 @@ MonoBehaviour:
   basicAttackDMG: 25
   projectileVelocity: 0
   potionDropChancePercentage: 30
+  damageAudio: {fileID: 8300000, guid: f5557dc027b811c45a3021123e0591b4, type: 3}
   patrolPoints: []
+  IsMelee: 1
   attackPref: {fileID: 0}
   corpse: {fileID: 285926861608280104, guid: 6dc757dcac6d16048b7efc344907d5a4, type: 3}
+  prize: {fileID: 0}
+  meleeAudio: {fileID: 8300000, guid: 89358844c1a895b4eaf4ffb78918fd43, type: 3}
+  unmeleeAudio: {fileID: 0}
   isAlive: 1
   detectionArea: {fileID: 7655985121175757580}
   attackPivot: {fileID: 8409421944719461768}
   isPlayerDetected: 0
   navMeshAgent: {fileID: 0}
+  isFinalBoss: 0
+  skillToGet: 999
   deepInGround: 2
   mimicAsset: {fileID: 5129442236857904303, guid: e37d55d9adae8724c9dcf1dff5b67578, type: 3}
   mimicTransform: {fileID: 7344496664624351899}

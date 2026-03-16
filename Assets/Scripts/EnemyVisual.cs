@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyVisual : MonoBehaviour
 {
     [HideInInspector] public Animator animator;
+    [SerializeField] private AudioClip footstep;
     private Enemy enemy;
 
     private const string AnimatorAttackKey = "isAttacking";
@@ -54,5 +55,10 @@ public class EnemyVisual : MonoBehaviour
     public void SecondHitPerformed()
     {
         animator.SetBool(AnimatorHit2Key, false);
+    }
+
+    public void PlayFootstep()
+    {
+        AudioManager.instance.PlaySFX(footstep, transform.position);
     }
 }

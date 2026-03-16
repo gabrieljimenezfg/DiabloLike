@@ -91014,6 +91014,10 @@ PrefabInstance:
       value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 7965295803169738991, guid: efe9bfeb6f66b8b4d8d5a6f6e573b0b4, type: 3}
+      propertyPath: slashAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: c05326accddd537479520b246a0b67ae, type: 3}
+    - target: {fileID: 7965295803169738991, guid: efe9bfeb6f66b8b4d8d5a6f6e573b0b4, type: 3}
       propertyPath: attackRange
       value: 2.8
       objectReference: {fileID: 0}
@@ -120749,7 +120753,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1055374755}
   - component: {fileID: 1055374754}
-  - component: {fileID: 1055374753}
   - component: {fileID: 1055374756}
   m_Layer: 0
   m_Name: Main Camera
@@ -120758,14 +120761,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1055374753
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1055374752}
-  m_Enabled: 1
 --- !u!20 &1055374754
 Camera:
   m_ObjectHideFlags: 0
