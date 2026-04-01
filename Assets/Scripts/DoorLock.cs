@@ -17,6 +17,8 @@ public class DoorLock : MonoBehaviour
     [SerializeField]
     private List<GameObject> DoorListD = new List<GameObject>();
     [SerializeField] private bool isBossBattleDoor;
+    private bool isClosed = true;
+    [SerializeField] private AudioClip lockAudio;
     [SerializeField] private bool isFinalLevel1Door;
     [SerializeField] private bool isFinalLevel2Door;
 
@@ -54,6 +56,11 @@ public class DoorLock : MonoBehaviour
                                 {
                                     door.GetComponent<Animator>().SetTrigger("Door4");
                                 }
+                                if (isClosed)
+                                {
+                                    isClosed = false;
+                                    AudioManager.instance.PlaySFX(lockAudio, transform.position);
+                                }
                                 Player.Instance.HideMessage();
                                 break;
                             }
@@ -89,6 +96,11 @@ public class DoorLock : MonoBehaviour
                             foreach (GameObject door in DoorListD)
                             {
                                 door.GetComponent<Animator>().SetTrigger("Door4");
+                            }
+                            if (isClosed)
+                            {
+                                isClosed = false;
+                                AudioManager.instance.PlaySFX(lockAudio, transform.position);
                             }
                             Player.Instance.HideMessage();
                             break;

@@ -41497,7 +41497,6 @@ GameObject:
   m_Component:
   - component: {fileID: 864349870}
   - component: {fileID: 864349869}
-  - component: {fileID: 864349868}
   - component: {fileID: 864349871}
   m_Layer: 0
   m_Name: Main Camera
@@ -41506,14 +41505,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &864349868
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 864349867}
-  m_Enabled: 1
 --- !u!20 &864349869
 Camera:
   m_ObjectHideFlags: 0
@@ -44888,6 +44879,7 @@ MonoBehaviour:
   DoorListC: []
   DoorListD: []
   isBossBattleDoor: 0
+  lockAudio: {fileID: 0}
   isFinalLevel1Door: 0
   isFinalLevel2Door: 1
 --- !u!1001 &915245366
@@ -50737,6 +50729,14 @@ PrefabInstance:
       propertyPath: staffLight
       value: 
       objectReference: {fileID: 550449486}
+    - target: {fileID: 344695934043545483, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: keyList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 344695934043545483, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
+      propertyPath: 'keyList.Array.data[0]'
+      value: 67
+      objectReference: {fileID: 0}
     - target: {fileID: 975402171730818057, guid: c2689c0d00f085a489467e84eeae11c8, type: 3}
       propertyPath: m_Enabled
       value: 0

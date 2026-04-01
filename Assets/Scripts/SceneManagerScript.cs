@@ -9,6 +9,9 @@ public class SceneManagerScript : MonoBehaviour
     private int level2ID = 2;
     private int level3ID = 3;
     public static SceneManagerScript instance;
+    [SerializeField] AudioClip level1;
+    [SerializeField] AudioClip level2;
+    [SerializeField] AudioClip level3;
 
     private void Awake()
     {
@@ -39,7 +42,7 @@ public class SceneManagerScript : MonoBehaviour
     public void OnLevel1Loaded(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnLevel1Loaded;
-
+        
         Player.Instance.GetComponent<NavMeshAgent>().Warp(LevelManager.Instance.startingPosition.position);
         Player.Instance.ResetPlayer();
         GameInput.Instance.EnableActions();
@@ -51,6 +54,7 @@ public class SceneManagerScript : MonoBehaviour
             hotbar.UpdateSkillSlots();
             hotbar.UpdatePotionsText();
         }
+        AudioManager.instance.PlayMusic(level1);
     }
 
     public void LoadLevel2()
@@ -63,7 +67,7 @@ public class SceneManagerScript : MonoBehaviour
     public void OnLevel2Loaded(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnLevel2Loaded;
-
+        
         Player.Instance.GetComponent<NavMeshAgent>().Warp(LevelManager.Instance.startingPosition.position);
         GameInput.Instance.EnableActions();
 
@@ -74,6 +78,7 @@ public class SceneManagerScript : MonoBehaviour
             hotbar.UpdateSkillSlots();
             hotbar.UpdatePotionsText();
         }
+        AudioManager.instance.PlayMusic(level2);
     }
 
     public void LoadLevel3()
@@ -86,7 +91,7 @@ public class SceneManagerScript : MonoBehaviour
     private void OnLevel3Loaded(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnLevel3Loaded;
-
+        
         Player.Instance.GetComponent<NavMeshAgent>().Warp(LevelManager.Instance.startingPosition.position);
         GameInput.Instance.EnableActions();
 
@@ -97,6 +102,7 @@ public class SceneManagerScript : MonoBehaviour
             hotbar.UpdateSkillSlots();
             hotbar.UpdatePotionsText();
         }
+        AudioManager.instance.PlayMusic(level3);
     }
 
     public void CloseApplication()

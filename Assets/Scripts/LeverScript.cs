@@ -4,6 +4,7 @@ public class LeverScript : MonoBehaviour
 {
     [SerializeField] private GameObject destroy;
     private Animator animator;
+    [SerializeField] private AudioClip audioClip;
 
     private void Awake()
     {
@@ -14,6 +15,7 @@ public class LeverScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            AudioManager.instance.PlaySFX(audioClip,transform.position);
             animator.SetTrigger("Pull");
             destroy.SetActive(false);
         }

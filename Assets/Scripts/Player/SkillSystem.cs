@@ -10,16 +10,16 @@ public class SkillSystem : MonoBehaviour
 {
     // debug starter skill
     [SerializeField] private SkillSO starterSkill;
-
+    [SerializeField] private AudioClip skill01;
     // debug raise minion
     [SerializeField] private SkillSO raiseMinionSkill;
-
+    [SerializeField] private AudioClip skill02;
     // debug explode minion
     [SerializeField] private SkillSO explodeMinionSkill;
-
+    [SerializeField] private AudioClip skill03;
     // debug acid blast
     [SerializeField] private SkillSO acidBlastSkill;
-
+    [SerializeField] private AudioClip skill04;
     private Player player;
     private SkillSO[] equippedSkills = new SkillSO[4];
 
@@ -150,7 +150,23 @@ public class SkillSystem : MonoBehaviour
         {
             player.UseMana(skill.manaCost);
             cooldowns[skill] = skill.cooldown;
-
+            switch (slotId)
+            {
+                case 0:
+                    AudioManager.instance.PlaySFX(skill01, transform.position);
+                    break;
+                case 1:
+                    AudioManager.instance.PlaySFX(skill02, transform.position);
+                    break;
+                case 2:
+                    AudioManager.instance.PlaySFX(skill03, transform.position);
+                    break;
+                case 3:
+                    AudioManager.instance.PlaySFX(skill04, transform.position);
+                    break;
+                default:
+                    break;
+            }
             CastedSkill?.Invoke(this, new CastedSkillEventArgs
             {
                 slotId = slotId,

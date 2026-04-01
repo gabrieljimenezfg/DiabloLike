@@ -3,7 +3,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private GameObject projectileDespawnPrefab;
-
+    [SerializeField] private AudioClip hitBreak;
+    [SerializeField] private AudioClip hitEnemy;
     public float damage;
     public float maxDamage;
     public float distance; //Maxima distancia que recorre antes de destruirse
@@ -44,11 +45,13 @@ public class Projectile : MonoBehaviour
             if (other.CompareTag("Break"))
             {
                 other.GetComponent<Animator>().SetTrigger("Break");
+                AudioManager.instance.PlaySFX(hitBreak, transform.position);
             }
             Enemy enemy = other.GetComponent<Enemy>();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
+                AudioManager.instance.PlaySFX(hitEnemy, transform.position);
                 DestroyProjectile();
             }
         }

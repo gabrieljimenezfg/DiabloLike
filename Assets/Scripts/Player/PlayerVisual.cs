@@ -5,6 +5,7 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerVisual : MonoBehaviour
 {
+    [SerializeField] private AudioClip footstep;
     private Animator animator;
     private PlayerMovementController playerMovementController;
     private PlayerBaseAttack playerBaseAttack;
@@ -127,5 +128,10 @@ public class PlayerVisual : MonoBehaviour
     {
         animator.SetBool(AnimatorAttackKey, false);
         attacking = false;
+    }
+
+    public void PlayFootstep()
+    {
+        AudioManager.instance.PlaySFX(footstep, transform.position);
     }
 }

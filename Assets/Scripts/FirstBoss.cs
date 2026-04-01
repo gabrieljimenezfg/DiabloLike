@@ -19,7 +19,9 @@ public class FirstBoss : Enemy
     [SerializeField] private float shotSpeed;
     [SerializeField] private float shotAttack;
     [SerializeField] private Transform slashSpawn;
-        
+
+    [SerializeField] private AudioClip slashAudio;
+
     private float meleeAttack;
     private float meleeRange;
     private float meleeCooldown;
@@ -94,6 +96,7 @@ public class FirstBoss : Enemy
     {
         //FlashAttackPerformed?.Invoke(this, EventArgs.Empty);
         yield return new WaitForSeconds(preFlashAttack);
+        AudioManager.instance.PlaySFX(slashAudio, transform.position);
         Debug.Log("Flash Attack");
         GameObject DiskPref = Instantiate(FlashDisk, slashSpawn.position, slashSpawn.rotation);
         float timer = 0f;

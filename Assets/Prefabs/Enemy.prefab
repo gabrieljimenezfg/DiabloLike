@@ -166,16 +166,21 @@ MonoBehaviour:
   basicAttackDMG: 25
   projectileVelocity: 0
   potionDropChancePercentage: 20
+  damageAudio: {fileID: 8300000, guid: f5557dc027b811c45a3021123e0591b4, type: 3}
   patrolPoints: []
   IsMelee: 1
   attackPref: {fileID: 0}
   corpse: {fileID: 285926861608280104, guid: 6dc757dcac6d16048b7efc344907d5a4, type: 3}
   prize: {fileID: 0}
+  meleeAudio: {fileID: 8300000, guid: 16230d4d867fd7742b40f404350fc779, type: 3}
+  unmeleeAudio: {fileID: 0}
   isAlive: 1
   detectionArea: {fileID: 5154131090732255415}
   attackPivot: {fileID: 513814305295974044}
   isPlayerDetected: 0
   navMeshAgent: {fileID: 0}
+  isFinalBoss: 0
+  skillToGet: 999
 --- !u!114 &8117446504777726191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,6 +427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyVisual
   animator: {fileID: 0}
+  footstep: {fileID: 8300000, guid: d37a546cb9f562549a404f69c6a6e532, type: 3}
 --- !u!1001 &5875784279143022748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -504,6 +510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyVisual
   animator: {fileID: 0}
+  footstep: {fileID: 0}
 --- !u!4 &9180076281063725726 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3381310614976584194, guid: b9c2d3d1ad6b8474ca0ed658d1517a74, type: 3}
